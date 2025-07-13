@@ -1,18 +1,15 @@
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlayerTap : MonoBehaviour
 {
-    [SerializeField] private bool circleClicked;
-
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (circleClicked)
-            {
-                circleClicked = false;
-            }
-            else
+            if (!ClickedUI())
             {
                 GameManager.Singleton.AddPoints(-1);
                 Debug.Log("Clicked on nothing!");
@@ -20,17 +17,14 @@ public class PlayerTap : MonoBehaviour
         }
     }
 
-    public void GoodCircleClicked(GameObject circle)
+    private bool ClickedUI()
     {
-        circleClicked = true;
-        Destroy(circle);
-        GameManager.Singleton.AddPoints(1);
-    }
+        PointerEventData pointerData = new PointerEventData(EventSystem.current);
+        pointerData.position = Input.mousePosition;
 
-    public void BadCircleClicked(GameObject circle)
-    {
-        circleClicked = true;
-        Destroy(circle);
-        GameManager.Singleton.SetPlayerStatus(false);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        return (results.Count > 0);
     }
 }

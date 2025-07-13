@@ -41,7 +41,7 @@ public class SpawnManager : MonoBehaviour
         return (false);
     }
 
-    private Vector2 GetRandomSpawnPosition()
+    private Vector2 GetRandomSpawnPosition() // ADD CLAMP TO THE POSITION
     {
         float width = canvas.rect.width;
         float height = canvas.rect.height;
