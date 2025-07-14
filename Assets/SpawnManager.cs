@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
+    [SerializeField] private bool isSpawning;
     public RectTransform spawnArea;
     public GameObject goodCircle;
     public GameObject badCircle;
@@ -19,7 +20,7 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Singleton.CheckPlayerStatus())
+        if (isSpawning && GameManager.Singleton.CheckPlayerStatus())
         {
             inGameTime += Time.deltaTime;
 
@@ -45,6 +46,7 @@ public class SpawnManager : MonoBehaviour
         }
 
         Debug.Log("END OF GAME");
+        isSpawning = false;
     }
 
     private bool CanSpawnGoodCircle()
@@ -71,6 +73,12 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
+        // StartCoroutine(SpawnCircles());
+    }
+
+    public void StartSpawning()
+    {
+        isSpawning = true;
         StartCoroutine(SpawnCircles());
     }
 }
