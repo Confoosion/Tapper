@@ -18,6 +18,10 @@ public class CircleBehavior : MonoBehaviour, IPointerClickHandler
             {
                 GameManager.Singleton.RemoveLives(1);
             }
+            else
+            {
+                GameManager.Singleton.AddPoints(1);
+            }
 
             Destroy(this.gameObject);
         }
@@ -31,7 +35,7 @@ public class CircleBehavior : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            GameManager.Singleton.AddPoints(-1);
+            // GameManager.Singleton.AddPoints(-1);
             GameManager.Singleton.RemoveLives(1);
         }
         Destroy(this.gameObject);
