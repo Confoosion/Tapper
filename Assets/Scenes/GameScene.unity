@@ -1508,6 +1508,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1206995912}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: BeginCountdown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &797511369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2114,6 +2126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 937875903}
   - component: {fileID: 937875904}
+  - component: {fileID: 937875905}
   m_Layer: 5
   m_Name: GAME
   m_TagString: Untagged
@@ -2166,6 +2179,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &937875905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937875902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79b2b93636887f4f97d7dddeb487a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &944703770
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,6 +3572,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd60cc92dc7d32c4fbf189d662fd6025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdownObject: {fileID: 161217266}
+  countdownImages:
+  - {fileID: 21300000, guid: 55c0d36af39f93447a2f80c1a1b48064, type: 3}
+  - {fileID: 21300000, guid: 9cba9773a3d55644da0bbe7a5a2d820d, type: 3}
+  - {fileID: 21300000, guid: 6224a53d2548cb74090baac8d191636e, type: 3}
+  - {fileID: 21300000, guid: 83e7d6d3083a67e4aa75a60c1369296f, type: 3}
   hearts:
   - {fileID: 887449964}
   - {fileID: 1837110300}

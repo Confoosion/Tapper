@@ -29,15 +29,18 @@ public class CircleBehavior : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (isGood)
+        if (GameManager.Singleton.isPlaying)
         {
-            GameManager.Singleton.AddPoints(1);
+            if (isGood)
+            {
+                GameManager.Singleton.AddPoints(1);
+            }
+            else
+            {
+                // GameManager.Singleton.AddPoints(-1);
+                GameManager.Singleton.RemoveLives(1);
+            }
+            Destroy(this.gameObject);
         }
-        else
-        {
-            // GameManager.Singleton.AddPoints(-1);
-            GameManager.Singleton.RemoveLives(1);
-        }
-        Destroy(this.gameObject);
     }
 }

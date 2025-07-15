@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ScreenManager : MonoBehaviour
 {
+    public static ScreenManager Singleton { get; private set; }
     [SerializeField] private float transitionTime = 1f;
     private Coroutine transition = null;
 
@@ -12,6 +13,14 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private Animator settings_anim;
     [SerializeField] private Animator game_anim;
     [SerializeField] private Animator gameOver_anim;
+
+    void Awake()
+    {
+        if (Singleton == null)
+        {
+            Singleton = this;
+        }
+    }
 
     void Start()
     {

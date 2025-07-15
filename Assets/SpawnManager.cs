@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
+    public static SpawnManager Singleton { get; private set; }
+
     [SerializeField] private bool isSpawning;
     public RectTransform spawnArea;
     public GameObject goodCircle;
@@ -17,6 +19,14 @@ public class SpawnManager : MonoBehaviour
     public float decayRate = 0.05f;
 
     [SerializeField] float inGameTime = 0f;
+
+    void Awake()
+    {
+        if (Singleton == null)
+        {
+            Singleton = this;
+        }
+    }
 
     void Update()
     {

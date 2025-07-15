@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+        isPlaying = true;
+        SpawnManager.Singleton.StartSpawning();
+    }
+
     public bool CheckPlayerStatus()
     {
         return (isAlive);
@@ -27,6 +33,12 @@ public class GameManager : MonoBehaviour
     public void SetPlayerStatus(bool status)
     {
         isAlive = status;
+
+        if (!isAlive)
+        {
+            isPlaying = false;
+            ScreenManager.Singleton.GoToGameOver();
+        }
     }
 
     public int GetPoints()
