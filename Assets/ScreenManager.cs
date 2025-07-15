@@ -11,6 +11,7 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private Animator themes_anim;
     [SerializeField] private Animator settings_anim;
     [SerializeField] private Animator game_anim;
+    [SerializeField] private Animator gameOver_anim;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class ScreenManager : MonoBehaviour
         themes_anim = GameObject.Find("SCREENS/THEMES").GetComponent<Animator>();
         settings_anim = GameObject.Find("SCREENS/SETTINGS").GetComponent<Animator>();
         game_anim = GameObject.Find("SCREENS/GAME").GetComponent<Animator>();
+        gameOver_anim = GameObject.Find("SCREENS/GAMEOVER").GetComponent<Animator>();
     }
 
     public void GoToMainMenu()
@@ -31,6 +33,7 @@ public class ScreenManager : MonoBehaviour
 
     IEnumerator MainMenu()
     {
+        gameOver_anim.SetBool("In_GameOver", false);
         themes_anim.SetBool("In_Themes", false);
         settings_anim.SetBool("In_Settings", false);
         yield return new WaitForSeconds(transitionTime);
@@ -87,6 +90,22 @@ public class ScreenManager : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         title_anim.speed = 0f;
         game_anim.SetBool("In_Game", true);
+        transition = null;
+    }
+
+    public void GoToGameOver()
+    {
+        if (transition == null)
+        {
+            transition = StartCoroutine(GameOver());
+        }
+    }
+
+    IEnumerator GameOver()
+    {
+        game_anim.SetBool("In_Game", false);
+        yield return new WaitForSeconds(transitionTime);
+        gameOver_anim.SetBool("In_GameOver", true);
         transition = null;
     }
 }
