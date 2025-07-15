@@ -7,7 +7,7 @@ public class PlayerTap : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && GameManager.Singleton.isPlaying)
         {
             if (!ClickedUI())
             {

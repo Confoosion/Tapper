@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Singleton { get; private set; }
 
+    public bool isPlaying;
     [SerializeField] private bool isAlive = true;
 
     [SerializeField] private int lives = 3;
