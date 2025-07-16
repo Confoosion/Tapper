@@ -95,6 +95,7 @@ public class ScreenManager : MonoBehaviour
 
     IEnumerator Game()
     {
+        gameOver_anim.SetBool("In_GameOver", false);
         mainMenu_anim.SetBool("In_MainMenu", false);
         yield return new WaitForSeconds(transitionTime);
         title_anim.speed = 0f;
@@ -106,15 +107,35 @@ public class ScreenManager : MonoBehaviour
     {
         if (transition == null)
         {
-            transition = StartCoroutine(GameOver());
+            bool gotHighscore = UIManager.Singleton.UpdateEndScore(GameManager.Singleton.GetPoints());
+
+            UIManager.Singleton.ShowCelebration(false);
+            UIManager.Singleton.ShowHighscore(false);
+            UIManager.Singleton.ShowEndScreenButtons(false);
+
+            transition = StartCoroutine(GameOver(gotHighscore));
         }
     }
 
-    IEnumerator GameOver()
+    IEnumerator GameOver(bool gotHighscore)
     {
         game_anim.SetBool("In_Game", false);
         yield return new WaitForSeconds(transitionTime);
         gameOver_anim.SetBool("In_GameOver", true);
+
+        yield return new WaitForSeconds(transitionTime);
+        if (gotHighscore)
+        {
+            UIManager.Singleton.ShowCelebration(true);
+        }
+        else
+        {
+            UIManager.Singleton.ShowHighscore(true);
+        }
+
+        yield return new WaitForSeconds(transitionTime);
+        UIManager.Singleton.ShowEndScreenButtons(true);
+
         transition = null;
     }
 }
