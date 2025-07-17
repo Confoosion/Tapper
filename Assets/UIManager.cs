@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
 
     private float countdownInterval = 0.8f;
     [Header("Game Screen UI")]
+    [SerializeField] private Image good_Image;
+    [SerializeField] private Image bad_Image;
     [SerializeField] private GameObject countdownObject;
     [SerializeField] private List<Sprite> countdownImages = new List<Sprite>();
 
@@ -23,7 +25,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject celebrationLabel;
     [SerializeField] private GameObject gameOver_RetryButton;
     [SerializeField] private GameObject gameOver_BackButton;
-
+    
     void Awake()
     {
         if (Singleton == null)
@@ -88,6 +90,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowHighscore(bool show)
     {
+        highscore.SetText(GameManager.Singleton.GetHighscore().ToString());
         highscoreLabel.SetActive(show);
     }
 
@@ -100,5 +103,11 @@ public class UIManager : MonoBehaviour
     {
         gameOver_RetryButton.SetActive(show);
         gameOver_BackButton.SetActive(show);
+    }
+
+    public void UpdateGameTheme(Sprite good, Sprite bad)
+    {
+        good_Image.sprite = good;
+        bad_Image.sprite = bad;
     }
 }

@@ -81,13 +81,10 @@ public class SpawnManager : MonoBehaviour
         return (position);
     }
 
-    void Start()
-    {
-        // StartCoroutine(SpawnCircles());
-    }
-
     public void StartSpawning()
     {
+        inGameTime = 0f;
+        spawnInterval = MAX_SPAWN_INTERVAL;
         isSpawning = true;
         StartCoroutine(SpawnCircles());
     }

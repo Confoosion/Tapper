@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
             UIManager.Singleton.UpdatePoints(points);
             return;
         }
-        
+
         if (points + toAdd >= 0)
         {
             points += toAdd;
@@ -81,7 +81,12 @@ public class GameManager : MonoBehaviour
 
     public void RemoveLives(int livesToRemove)
     {
-        if (lives - livesToRemove <= 0)
+        if (livesToRemove == 0)
+        {
+            SetPlayerStatus(true);
+            lives = 3;
+        }
+        else if (lives - livesToRemove <= 0)
         {
             SetPlayerStatus(false);
             lives = 0;
@@ -92,5 +97,11 @@ public class GameManager : MonoBehaviour
         }
 
         UIManager.Singleton.UpdateHearts(lives);
+    }
+
+    public void ResetValues()
+    {
+        AddPoints(0);
+        RemoveLives(0);
     }
 }
