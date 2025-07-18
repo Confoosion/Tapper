@@ -1,10 +1,25 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.EventSystems;
 
 public class CircleBehavior : MonoBehaviour, IPointerClickHandler
 {
     public bool isGood = true;
     [SerializeField] private float timeOnScreen = 1f;
+    [SerializeField] private SoundType soundType;
+
+    void Awake()
+    {
+        if (isGood)
+        {
+            soundType = SoundType.Good;
+        }
+        else
+        {
+            soundType = SoundType.Bad;
+        }
+    }
 
     void Update()
     {
@@ -40,6 +55,7 @@ public class CircleBehavior : MonoBehaviour, IPointerClickHandler
                 // GameManager.Singleton.AddPoints(-1);
                 GameManager.Singleton.RemoveLives(1);
             }
+            SoundManager.Singleton.PlaySound(soundType);
             Destroy(this.gameObject);
         }
     }

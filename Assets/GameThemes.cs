@@ -31,11 +31,10 @@ public class GameThemes : MonoBehaviour
         }
     }
 
-    void Start()
+    public void ReceiveSprites(Sprite[] good, Sprite[] bad)
     {
-        goodCircles = ResourceManager.Singleton.goodCircle_Sprites;
-        badCircles = ResourceManager.Singleton.badCircle_Sprites;
-        SwitchSprite(0);
+        goodCircles = good;
+        badCircles = bad;
     }
 
     public void SwitchThemes(CosmeticType cosmetic, GameObject newThemeObject)

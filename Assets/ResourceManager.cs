@@ -1,4 +1,7 @@
 using UnityEngine;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 public class ResourceManager : MonoBehaviour
@@ -6,6 +9,8 @@ public class ResourceManager : MonoBehaviour
     public static ResourceManager Singleton { get; private set; }
     public Sprite[] goodCircle_Sprites;
     public Sprite[] badCircle_Sprites;
+
+    public Dictionary<SoundType, AudioClip[]> SOUNDS = new Dictionary<SoundType, AudioClip[]>();
 
     void Awake()
     {
@@ -19,17 +24,23 @@ public class ResourceManager : MonoBehaviour
     {
         goodCircle_Sprites = Resources.LoadAll("Good_Circles", typeof(Sprite)).Cast<Sprite>().ToArray();
         badCircle_Sprites = Resources.LoadAll("Bad_Circles", typeof(Sprite)).Cast<Sprite>().ToArray();
+
+        foreach (SoundType soundType in Enum.GetValues(typeof(SoundType)))
+        {
+            SOUNDS.Add(soundType, Resources.LoadAll("Sounds/" + soundType.ToString(), typeof(AudioClip)).Cast<AudioClip>().ToArray());
+        }
+
+        OutputResources();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void OutputResources()
+    {
+        GameThemes.Singleton.ReceiveSprites(goodCircle_Sprites, badCircle_Sprites);
+        SoundManager.Singleton.UpdateSounds(0);
+    }
+
     void Start()
     {
         RetrieveResources();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -36,6 +36,7 @@ public class ScreenManager : MonoBehaviour
     {
         if (transition == null)
         {
+            SoundManager.Singleton.PlaySound(SoundType.UI);
             transition = StartCoroutine(MainMenu());
         }
     }
@@ -55,6 +56,7 @@ public class ScreenManager : MonoBehaviour
     {
         if (transition == null)
         {
+            SoundManager.Singleton.PlaySound(SoundType.UI);
             transition = StartCoroutine(Themes());
         }
     }
@@ -72,6 +74,7 @@ public class ScreenManager : MonoBehaviour
     {
         if (transition == null)
         {
+            SoundManager.Singleton.PlaySound(SoundType.UI);
             transition = StartCoroutine(Settings());
         }
     }
@@ -89,6 +92,7 @@ public class ScreenManager : MonoBehaviour
     {
         if (transition == null)
         {
+            SoundManager.Singleton.PlaySound(SoundType.UI);
             transition = StartCoroutine(Game());
         }
     }
