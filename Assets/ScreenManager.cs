@@ -37,6 +37,7 @@ public class ScreenManager : MonoBehaviour
         if (transition == null)
         {
             SoundManager.Singleton.PlaySound(SoundType.UI);
+            SoundManager.Singleton.LowerBGM(false);
             transition = StartCoroutine(MainMenu());
         }
     }
@@ -93,6 +94,7 @@ public class ScreenManager : MonoBehaviour
         if (transition == null)
         {
             SoundManager.Singleton.PlaySound(SoundType.UI);
+            SoundManager.Singleton.LowerBGM();
             transition = StartCoroutine(Game());
         }
     }
@@ -112,6 +114,7 @@ public class ScreenManager : MonoBehaviour
         if (transition == null)
         {
             bool gotHighscore = UIManager.Singleton.UpdateEndScore(GameManager.Singleton.GetPoints());
+            SoundManager.Singleton.LowerBGM(false);
 
             UIManager.Singleton.ShowCelebration(false);
             UIManager.Singleton.ShowHighscore(false);

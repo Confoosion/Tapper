@@ -102,4 +102,10 @@ public class GameThemes : MonoBehaviour
     {
         UIManager.Singleton.UpdateGameTheme(good_Image.sprite, bad_Image.sprite);
     }
+
+    public void SetSounds()
+    {
+        SoundManager.Singleton.UpdateSounds(SoundType.Good, goodIndex);
+        SoundManager.Singleton.UpdateSounds(SoundType.Bad, badIndex);
+    }
 }

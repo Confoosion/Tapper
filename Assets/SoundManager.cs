@@ -10,37 +10,33 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Singleton { get; private set; }
 
-    public bool isMuted = false;
-
     [Header("Current Sounds")]
     [SerializeField] private AudioClip[] usedSounds = new AudioClip[Enum.GetNames(typeof(SoundType)).Length];
 
     private AudioSource audioSource;
+    private AudioSource musicSource;
 
     void Awake()
     {
         if (Singleton == null)
         {
             Singleton = this;
+            musicSource = GameObject.Find("MUSIC_PLAYER").GetComponent<AudioSource>();
         }
     }
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        // musicSource = GameObject.Find("MUSIC_PLAYER").GetComponent<AudioSource>();
     }
 
-    public void UpdateSounds(int theme)
+    public void UpdateSounds(SoundType sound, int theme)
     {
         foreach (SoundType soundType in Enum.GetValues(typeof(SoundType)))
         {
-            if (ResourceManager.Singleton.SOUNDS.TryGetValue(soundType, out AudioClip[] audioClip))
+            if (sound == soundType && ResourceManager.Singleton.SOUNDS.TryGetValue(soundType, out AudioClip[] audioClip))
             {
-                Debug.Log(Enum.GetNames(typeof(SoundType)).Length);
-                Debug.Log(audioClip.Length);
-                Debug.Log(usedSounds.Length);
-                Debug.Log((int)soundType);
-                Debug.Log(audioClip[theme]);
                 if (audioClip.Length > theme)
                 {
                     // Use theme audio clip
@@ -51,8 +47,19 @@ public class SoundManager : MonoBehaviour
                     // Default to first audio clip
                     usedSounds[(int)soundType] = audioClip[0];
                 }
+                return;
             }
-            // usedSounds[(int)soundType] = ResourceManager.Singleton.SOUNDS[soundType][theme];
+        }
+    }
+
+    public void UpdateSounds()
+    {
+        foreach (SoundType soundType in Enum.GetValues(typeof(SoundType)))
+        {
+            if (ResourceManager.Singleton.SOUNDS.TryGetValue(soundType, out AudioClip[] audioClip))
+            {
+                usedSounds[(int)soundType] = audioClip[0];
+            }
         }
     }
 
@@ -67,9 +74,23 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(SoundType sound)
     {
-        if (!isMuted)
+        audioSource.PlayOneShot(usedSounds[(int)sound]);
+    }
+
+    public void PlayMusic()
+    {
+        musicSource.Stop();
+        musicSource.clip = usedSounds[(int)SoundType.Music];
+        musicSource.Play();
+    }
+
+    public void LowerBGM(bool lower = true)
+    {
+        if (!lower)
         {
-            audioSource.PlayOneShot(usedSounds[(int)sound]);   
+            musicSource.volume = 1f;
+            return;
         }
+        musicSource.volume = 0.5f;
     }
 }
