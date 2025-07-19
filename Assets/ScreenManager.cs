@@ -133,6 +133,7 @@ public class ScreenManager : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         if (gotHighscore)
         {
+            SoundManager.Singleton.PlaySound(SoundType.Highscore, 0.5f);
             UIManager.Singleton.ShowCelebration(true);
         }
         else

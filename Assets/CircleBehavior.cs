@@ -44,7 +44,7 @@ public class CircleBehavior : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (GameManager.Singleton.isPlaying)
+        if (GameManager.Singleton.isPlaying && timeOnScreen > 0f)
         {
             if (isGood)
             {
@@ -52,7 +52,6 @@ public class CircleBehavior : MonoBehaviour, IPointerClickHandler
             }
             else
             {
-                // GameManager.Singleton.AddPoints(-1);
                 GameManager.Singleton.RemoveLives(1);
             }
             SoundManager.Singleton.PlaySound(soundType);

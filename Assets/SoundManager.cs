@@ -72,9 +72,9 @@ public class SoundManager : MonoBehaviour
         return (usedSounds[(int)(SoundType.Bad)]);
     }
 
-    public void PlaySound(SoundType sound)
+    public void PlaySound(SoundType sound, float volume = 1f)
     {
-        audioSource.PlayOneShot(usedSounds[(int)sound]);
+        audioSource.PlayOneShot(usedSounds[(int)sound], volume);
     }
 
     public void PlayMusic()
