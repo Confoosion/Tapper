@@ -35,9 +35,12 @@ public class GameThemes : MonoBehaviour
     {
         goodCircles = good;
         badCircles = bad;
+
+        SwitchSprite(0);
     }
 
-    public void SwitchThemes(CosmeticType cosmetic, GameObject newThemeObject)
+    // SelectAsset.cs uses this to switch between cosmetics
+    public void SwitchAssetPicker(CosmeticType cosmetic, GameObject newThemeObject)
     {
         currentThemeObject.SetActive(false);
         newThemeObject.SetActive(true);
@@ -73,7 +76,7 @@ public class GameThemes : MonoBehaviour
                         goodIndex = goodCircles.Length - 1;
                     }
                     themeLabel.SetText(FixSpriteName(goodCircles[goodIndex].name));
-                    themeIndex.SetText((goodIndex + 1).ToString() + " / " + goodCircles.Length.ToString());
+                    themeIndex.SetText(FixSpriteIndex(goodIndex, goodCircles.Length));
                     good_Image.sprite = goodCircles[goodIndex];
                     break;
                 }
@@ -85,7 +88,7 @@ public class GameThemes : MonoBehaviour
                         badIndex = badCircles.Length - 1;
                     }
                     themeLabel.SetText(FixSpriteName(badCircles[badIndex].name));
-                    themeIndex.SetText((badIndex + 1).ToString() + " / " + badCircles.Length.ToString());
+                    themeIndex.SetText(FixSpriteIndex(badIndex, badCircles.Length));
                     bad_Image.sprite = badCircles[badIndex];
                     break;
                 }
@@ -96,6 +99,12 @@ public class GameThemes : MonoBehaviour
     {
         string fixedName = spriteName.Substring(2);
         return (fixedName);
+    }
+
+    private string FixSpriteIndex(int index, int length)
+    {
+        string fixedIndex = (index + 1).ToString() + " / " + length.ToString();
+        return (fixedIndex);
     }
 
     public void SetImages()

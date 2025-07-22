@@ -14,6 +14,6 @@ public class SelectAsset : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        GameThemes.Singleton.SwitchThemes(cosmetic, selectedHighlight);
+        GameThemes.Singleton.SwitchAssetPicker(cosmetic, selectedHighlight);
     }
 }

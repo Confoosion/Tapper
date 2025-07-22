@@ -11,7 +11,7 @@ public class PlayerTap : MonoBehaviour
         {
             if (!ClickedUI())
             {
-                GameManager.Singleton.AddPoints(-1);
+                ScoreManager.Singleton.AddPoints(-1);
                 GameManager.Singleton.RemoveLives(1);
                 Debug.Log("Clicked on nothing!");
             }

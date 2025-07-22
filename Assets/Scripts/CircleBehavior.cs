@@ -35,7 +35,7 @@ public class CircleBehavior : MonoBehaviour, IPointerClickHandler
             }
             else
             {
-                GameManager.Singleton.AddPoints(1);
+                ScoreManager.Singleton.AddPoints(1);
             }
 
             Destroy(this.gameObject);
@@ -48,7 +48,7 @@ public class CircleBehavior : MonoBehaviour, IPointerClickHandler
         {
             if (isGood)
             {
-                GameManager.Singleton.AddPoints(1);
+                ScoreManager.Singleton.AddPoints(1);
             }
             else
             {
