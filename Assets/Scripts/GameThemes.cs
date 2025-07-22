@@ -12,8 +12,11 @@ public class GameThemes : MonoBehaviour
     [Header("Game Theme UI")]
     [SerializeField] private TextMeshProUGUI themeIndex;
     [SerializeField] private TextMeshProUGUI themeLabel;
+
     [SerializeField] private Image good_Image;
     [SerializeField] private Image bad_Image;
+    [SerializeField] private GameObject good_Object;
+    [SerializeField] private GameObject bad_Object;
 
     [Header("Themes")]
     [SerializeField] private CosmeticType currCosmetic;
@@ -36,7 +39,22 @@ public class GameThemes : MonoBehaviour
         goodCircles = good;
         badCircles = bad;
 
+        if (!PlayerPrefs.HasKey("GoodSkin_Index"))
+        {
+            PlayerPrefs.SetInt("GoodSkin_Index", 0);
+        }
         SwitchSprite(0);
+
+        SwitchAssetPicker(CosmeticType.Bad, bad_Object);
+
+        if (!PlayerPrefs.HasKey("BadSkin_Index"))
+        {
+            PlayerPrefs.SetInt("BadSkin_Index", 0);
+        }
+        SwitchSprite(0);
+
+        SwitchAssetPicker(CosmeticType.Good, good_Object);
+        SetSounds();
     }
 
     // SelectAsset.cs uses this to switch between cosmetics
@@ -51,14 +69,14 @@ public class GameThemes : MonoBehaviour
         {
             case CosmeticType.Good:
                 {
-                    themeLabel.SetText(FixSpriteName(goodCircles[goodIndex].name));
-                    themeIndex.SetText((goodIndex + 1).ToString() + " / " + goodCircles.Length.ToString());
+                    themeLabel.SetText(FixSpriteName(goodCircles[PlayerPrefs.GetInt("GoodSkin_Index")].name));
+                    themeIndex.SetText((PlayerPrefs.GetInt("GoodSkin_Index") + 1).ToString() + " / " + goodCircles.Length.ToString());
                     break;
                 }
             case CosmeticType.Bad:
                 {
-                    themeLabel.SetText(FixSpriteName(badCircles[badIndex].name));
-                    themeIndex.SetText((badIndex + 1).ToString() + " / " + badCircles.Length.ToString());
+                    themeLabel.SetText(FixSpriteName(badCircles[PlayerPrefs.GetInt("BadSkin_Index")].name));
+                    themeIndex.SetText((PlayerPrefs.GetInt("BadSkin_Index") + 1).ToString() + " / " + badCircles.Length.ToString());
                     break;
                 }
         }
@@ -70,26 +88,34 @@ public class GameThemes : MonoBehaviour
         {
             case CosmeticType.Good:
                 {
-                    goodIndex = (goodIndex + direction) % goodCircles.Length;
+                    goodIndex = (PlayerPrefs.GetInt("GoodSkin_Index") + direction) % goodCircles.Length;
                     if (goodIndex < 0)
                     {
-                        goodIndex = goodCircles.Length - 1;
+                        PlayerPrefs.SetInt("GoodSkin_Index", goodCircles.Length - 1);
                     }
-                    themeLabel.SetText(FixSpriteName(goodCircles[goodIndex].name));
-                    themeIndex.SetText(FixSpriteIndex(goodIndex, goodCircles.Length));
-                    good_Image.sprite = goodCircles[goodIndex];
+                    else
+                    {
+                        PlayerPrefs.SetInt("GoodSkin_Index", goodIndex);
+                    }
+                    themeLabel.SetText(FixSpriteName(goodCircles[PlayerPrefs.GetInt("GoodSkin_Index")].name));
+                    themeIndex.SetText(FixSpriteIndex(PlayerPrefs.GetInt("GoodSkin_Index"), goodCircles.Length));
+                    good_Image.sprite = goodCircles[PlayerPrefs.GetInt("GoodSkin_Index")];
                     break;
                 }
             case CosmeticType.Bad:
                 {
-                    badIndex = (badIndex + direction) % badCircles.Length;
+                    badIndex = (PlayerPrefs.GetInt("BadSkin_Index") + direction) % badCircles.Length;
                     if (badIndex < 0)
                     {
-                        badIndex = badCircles.Length - 1;
+                        PlayerPrefs.SetInt("BadSkin_Index", badCircles.Length - 1);
                     }
-                    themeLabel.SetText(FixSpriteName(badCircles[badIndex].name));
-                    themeIndex.SetText(FixSpriteIndex(badIndex, badCircles.Length));
-                    bad_Image.sprite = badCircles[badIndex];
+                    else
+                    {
+                        PlayerPrefs.SetInt("BadSkin_Index", badIndex);
+                    }
+                    themeLabel.SetText(FixSpriteName(badCircles[PlayerPrefs.GetInt("BadSkin_Index")].name));
+                    themeIndex.SetText(FixSpriteIndex(PlayerPrefs.GetInt("BadSkin_Index"), badCircles.Length));
+                    bad_Image.sprite = badCircles[PlayerPrefs.GetInt("BadSkin_Index")];
                     break;
                 }
         }
@@ -114,7 +140,7 @@ public class GameThemes : MonoBehaviour
 
     public void SetSounds()
     {
-        SoundManager.Singleton.UpdateSounds(SoundType.Good, goodIndex);
-        SoundManager.Singleton.UpdateSounds(SoundType.Bad, badIndex);
+        SoundManager.Singleton.UpdateSounds(SoundType.Good, PlayerPrefs.GetInt("GoodSkin_Index"));
+        SoundManager.Singleton.UpdateSounds(SoundType.Bad, PlayerPrefs.GetInt("BadSkin_Index"));
     }
 }
