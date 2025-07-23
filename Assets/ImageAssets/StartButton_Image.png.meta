@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b6bebc66187b0ec4c81f76895597c417
+guid: 763d1c38ef1ae164d86bbd565c92286d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6921800271247527909
-    second: Drawing-5.sketchpad (3)_0
+      213: -2473092826874616309
+    second: Drawing-5.sketchpad (2)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Drawing-5.sketchpad (3)_0
+      name: Drawing-5.sketchpad (2)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 512
-        height: 512
+        y: 1
+        width: 550
+        height: 199
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ef49e56cac2f0060800000000000000
-      internalID: 6921800271247527909
+      spriteID: b06629d4d2fcdadd0800000000000000
+      internalID: -2473092826874616309
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Drawing-5.sketchpad (3)_0: 6921800271247527909
+      Drawing-5.sketchpad (2)_0: -2473092826874616309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

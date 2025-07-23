@@ -8,6 +8,9 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Singleton { get; private set; }
 
+    [Header("Main Menu UI")]
+    [SerializeField] private TextMeshProUGUI MM_highscore;
+
     private float countdownInterval = 0.8f;
     [Header("Game Screen UI")]
     [SerializeField] private Image good_Image;
@@ -20,7 +23,7 @@ public class UIManager : MonoBehaviour
 
     [Header("GameOver Screen UI")]
     [SerializeField] private TextMeshProUGUI score;
-    [SerializeField] private TextMeshProUGUI highscore;
+    [SerializeField] private TextMeshProUGUI GO_highscore;
     [SerializeField] private GameObject highscoreLabel;
     [SerializeField] private GameObject celebrationLabel;
     [SerializeField] private GameObject gameOver_RetryButton;
@@ -32,6 +35,11 @@ public class UIManager : MonoBehaviour
         {
             Singleton = this;
         }
+    }
+
+    void Start()
+    {
+        UpdateHighscoreUI();
     }
 
     public void UpdateHearts(int lives)
@@ -80,17 +88,24 @@ public class UIManager : MonoBehaviour
     {
         score.SetText(num.ToString());
 
-        if (num > GameManager.Singleton.GetHighscore())
+        if (num > ScoreManager.Singleton.GetHighscore())
         {
-            GameManager.Singleton.SetHighscore(num);
+            ScoreManager.Singleton.UpdateHighscore(num);
+            UpdateHighscoreUI();
+
             return (true);
         }
         return (false);
     }
 
+    public void UpdateHighscoreUI()
+    {
+        MM_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
+        GO_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
+    }
+
     public void ShowHighscore(bool show)
     {
-        highscore.SetText(GameManager.Singleton.GetHighscore().ToString());
         highscoreLabel.SetActive(show);
     }
 

@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool isAlive = true;
 
     [SerializeField] private int lives = 3;
-    [SerializeField] private int points = 0;
-    [SerializeField] private int highscore = 0;
 
     void Awake()
     {
@@ -42,38 +40,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public int GetPoints()
-    {
-        return (points);
-    }
-
-    public void AddPoints(int toAdd)
-    {
-        // Reset points to 0
-        if (toAdd == 0)
-        {
-            points = 0;
-            UIManager.Singleton.UpdatePoints(points);
-            return;
-        }
-
-        if (points + toAdd >= 0)
-        {
-            points += toAdd;
-            UIManager.Singleton.UpdatePoints(points);
-        }
-    }
-
-    public int GetHighscore()
-    {
-        return (highscore);
-    }
-
-    public void SetHighscore(int score)
-    {
-        highscore = score;
-    }
-
     public int GetLives()
     {
         return (lives);
@@ -101,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetValues()
     {
-        AddPoints(0);
+        ScoreManager.Singleton.AddPoints(0);
         RemoveLives(0);
     }
 }

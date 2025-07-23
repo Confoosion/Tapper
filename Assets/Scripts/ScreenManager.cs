@@ -113,7 +113,7 @@ public class ScreenManager : MonoBehaviour
     {
         if (transition == null)
         {
-            bool gotHighscore = UIManager.Singleton.UpdateEndScore(GameManager.Singleton.GetPoints());
+            bool gotHighscore = UIManager.Singleton.UpdateEndScore(ScoreManager.Singleton.GetPoints());
             SoundManager.Singleton.LowerBGM(false);
 
             UIManager.Singleton.ShowCelebration(false);
