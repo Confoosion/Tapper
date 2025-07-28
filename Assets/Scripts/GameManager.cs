@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         if (!isAlive)
         {
             isPlaying = false;
-            ScreenManager.Singleton.GoToGameOver();
+            // ScreenManager.Singleton.GoToGameOver();
         }
     }
 
