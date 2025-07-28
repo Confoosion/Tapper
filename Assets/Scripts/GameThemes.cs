@@ -54,6 +54,7 @@ public class GameThemes : MonoBehaviour
         SwitchSprite(0);
 
         SwitchAssetPicker(CosmeticType.Good, good_Object);
+        SetImages();
         SetSounds();
     }
 

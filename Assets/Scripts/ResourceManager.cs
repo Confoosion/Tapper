@@ -35,8 +35,8 @@ public class ResourceManager : MonoBehaviour
 
     void OutputResources()
     {
-        GameThemes.Singleton.ReceiveSprites(goodCircle_Sprites, badCircle_Sprites);
         SoundManager.Singleton.UpdateSounds();
+        GameThemes.Singleton.ReceiveSprites(goodCircle_Sprites, badCircle_Sprites);
     }
 
     void Start()
