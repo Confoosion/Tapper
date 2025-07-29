@@ -6,6 +6,7 @@ public class ScreenManager : MonoBehaviour
     public static ScreenManager Singleton { get; private set; }
     [SerializeField] private float transitionTime = 1f;
     private Coroutine transition = null;
+    private Coroutine endGame = null;
 
     [Header("UI Screens")]
     [SerializeField] private GameObject MainMenu;
@@ -86,6 +87,11 @@ public class ScreenManager : MonoBehaviour
                 ExtraMainMenu_Anim(slideIn);
             }
         }
+    }
+
+    public ScreenSwapping GetEndScreen()
+    {
+        return (GameOver.GetComponent<ScreenSwapping>());
     }
 
     // private void SlideScreenOut(GameObject screen, Vector3 endPosition)
@@ -182,7 +188,7 @@ public class ScreenManager : MonoBehaviour
 
     public void GoToGameOver()
     {
-        if (transition == null)
+        if (endGame == null)
         {
             bool gotHighscore = UIManager.Singleton.UpdateEndScore(ScoreManager.Singleton.GetPoints());
             SoundManager.Singleton.LowerBGM(false);
@@ -191,7 +197,7 @@ public class ScreenManager : MonoBehaviour
             UIManager.Singleton.ShowHighscore(false);
             UIManager.Singleton.ShowEndScreenButtons(false);
 
-            transition = StartCoroutine(GameOver_Anim(gotHighscore));
+            endGame = StartCoroutine(GameOver_Anim(gotHighscore));
         }
     }
 
@@ -210,6 +216,6 @@ public class ScreenManager : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         UIManager.Singleton.ShowEndScreenButtons(true);
 
-        transition = null;
+        endGame = null;
     }
 }
