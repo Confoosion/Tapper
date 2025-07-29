@@ -43,6 +43,5 @@ public class ResourceManager : MonoBehaviour
     {
         RetrieveResources();
         SoundManager.Singleton.PlayMusic();
-        ScreenManager.Singleton.GoToMainMenu();
     }
 }

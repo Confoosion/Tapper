@@ -522,6 +522,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 208582375}
+  - component: {fileID: 208582376}
   m_Layer: 5
   m_Name: GAMEOVER
   m_TagString: Untagged
@@ -552,6 +553,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &208582376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208582374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653548c0e1468914cb9a8cf90d2e531e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inPosition: {x: 1, y: 1, z: 1}
+  outPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &242726114
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,6 +857,7 @@ GameObject:
   m_Component:
   - component: {fileID: 422566671}
   - component: {fileID: 422566673}
+  - component: {fileID: 422566674}
   m_Layer: 5
   m_Name: THEMES
   m_TagString: Untagged
@@ -896,6 +912,20 @@ MonoBehaviour:
   currentThemeObject: {fileID: 1096692878}
   goodIndex: 0
   badIndex: 0
+--- !u!114 &422566674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422566670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653548c0e1468914cb9a8cf90d2e531e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inPosition: {x: 0, y: 0, z: 0}
+  outPosition: {x: 0, y: -1210, z: 0}
 --- !u!1 &476034767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,11 +1809,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1206995913}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
-        m_MethodName: GoToMainMenu
-        m_Mode: 1
+        m_MethodName: SwitchScreen
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1522404295}
+          m_ObjectArgumentAssemblyTypeName: ScreenSwapping, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2575,6 +2605,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 937875903}
+  - component: {fileID: 937875904}
   m_Layer: 5
   m_Name: GAME
   m_TagString: Untagged
@@ -2603,9 +2634,23 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1210}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &937875904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937875902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653548c0e1468914cb9a8cf90d2e531e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inPosition: {x: 0, y: 0, z: 0}
+  outPosition: {x: 0, y: 1210, z: 0}
 --- !u!1 &944703770
 GameObject:
   m_ObjectHideFlags: 0
@@ -4127,7 +4172,9 @@ MonoBehaviour:
   Settings: {fileID: 1752764515}
   Game: {fileID: 937875902}
   GameOver: {fileID: 208582374}
+  MM_Highscore: {fileID: 920101760}
   GO_Celebration: {fileID: 1262464934}
+  currentScreen: {fileID: 0}
 --- !u!114 &1206995914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5351,11 +5398,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1206995913}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
-        m_MethodName: GoToSettings
-        m_Mode: 1
+        m_MethodName: SwitchScreen
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1752764519}
+          m_ObjectArgumentAssemblyTypeName: ScreenSwapping, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5750,6 +5797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1522404294}
+  - component: {fileID: 1522404295}
   m_Layer: 5
   m_Name: MAIN_MENU
   m_TagString: Untagged
@@ -5779,6 +5827,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -1210}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1522404295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522404293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653548c0e1468914cb9a8cf90d2e531e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inPosition: {x: 0, y: 0, z: 0}
+  outPosition: {x: 0, y: -1210, z: 0}
 --- !u!1 &1535213409
 GameObject:
   m_ObjectHideFlags: 0
@@ -6176,11 +6238,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1206995913}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
-        m_MethodName: GoToThemes
-        m_Mode: 1
+        m_MethodName: SwitchScreen
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 422566674}
+          m_ObjectArgumentAssemblyTypeName: ScreenSwapping, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6605,6 +6667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1752764516}
   - component: {fileID: 1752764518}
+  - component: {fileID: 1752764519}
   m_Layer: 5
   m_Name: SETTINGS
   m_TagString: Untagged
@@ -6648,6 +6711,20 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: a005e38c7c1052a4bbebf7b46d341688, type: 2}
   sfxToggle: {fileID: 1728407479}
   musicToggle: {fileID: 2022918408}
+--- !u!114 &1752764519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752764515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653548c0e1468914cb9a8cf90d2e531e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inPosition: {x: 0, y: 0, z: 0}
+  outPosition: {x: 0, y: -1210, z: 0}
 --- !u!1 &1833499941
 GameObject:
   m_ObjectHideFlags: 0
@@ -6901,11 +6978,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1206995913}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
-        m_MethodName: GoToMainMenu
-        m_Mode: 1
+        m_MethodName: SwitchScreen
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1522404295}
+          m_ObjectArgumentAssemblyTypeName: ScreenSwapping, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

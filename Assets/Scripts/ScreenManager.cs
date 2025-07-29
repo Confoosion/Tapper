@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-public enum ScreensEnum { MainMenu, Themes, Settings, Game, GameOver }
 public class ScreenManager : MonoBehaviour
 {
     public static ScreenManager Singleton { get; private set; }
@@ -13,14 +12,10 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private GameObject Themes, Settings, Game, GameOver;
 
     [Header("Moving UI Elements")]
+    [SerializeField] private GameObject MM_Highscore;
     [SerializeField] private GameObject GO_Celebration;
 
-    // [SerializeField] private Animator title_anim;
-    // [SerializeField] private Animator mainMenu_anim;
-    // [SerializeField] private Animator themes_anim;
-    // [SerializeField] private Animator settings_anim;
-    // [SerializeField] private Animator game_anim;
-    // [SerializeField] private Animator gameOver_anim;
+    [SerializeField] private ScreenSwapping currentScreen;
 
     void Awake()
     {
@@ -32,38 +27,101 @@ public class ScreenManager : MonoBehaviour
 
     void Start()
     {
-        // title_anim = GameObject.Find("SCREENS/MAIN_MENU/Title").GetComponent<Animator>();
-        // mainMenu_anim = GameObject.Find("SCREENS/MAIN_MENU").GetComponent<Animator>();
-        // themes_anim = GameObject.Find("SCREENS/THEMES").GetComponent<Animator>();
-        // settings_anim = GameObject.Find("SCREENS/SETTINGS").GetComponent<Animator>();
-        // game_anim = GameObject.Find("SCREENS/GAME").GetComponent<Animator>();
-        // gameOver_anim = GameObject.Find("SCREENS/GAMEOVER").GetComponent<Animator>();
+        currentScreen = GameObject.Find("CANVASES/MAINMENU_CANVAS/MAIN_MENU").GetComponent<ScreenSwapping>();
+        transition = StartCoroutine(SwapScreens(null, currentScreen));
     }
 
-    IEnumerator SwapScreens(GameObject swapOut, GameObject swapIn)
+    public void SwitchScreen(ScreenSwapping screen)
+    {
+        if (transition == null)
+        {
+            transition = StartCoroutine(SwapScreens(currentScreen, screen));
+        }
+    }
+
+    IEnumerator SwapScreens(ScreenSwapping swapOut, ScreenSwapping swapIn)
     {
         // Swaps screens and calls other animations
-        yield return null;
+        if (swapOut != null)
+        {
+            SlideScreen(swapOut.gameObject, swapOut.outPosition, false);
+            yield return new WaitForSeconds(transitionTime);
+        }
+
+        SlideScreen(swapIn.gameObject, swapIn.inPosition, true);
+
+        currentScreen = swapIn;
+
+        yield return new WaitForSeconds(transitionTime);
+        transition = null;
     }
+
+    private void SlideScreen(GameObject screen, Vector3 endPosition, bool slideIn)
+    {
+        if (screen == GameOver)
+        {
+            if (slideIn)
+            {
+                LeanTween.scale(screen, endPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+                GoToGameOver();
+            }
+            else
+            {
+                LeanTween.scale(screen, endPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+            }
+        }
+        else
+        {
+            if (slideIn)
+            {
+                LeanTween.moveLocal(screen, endPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+            }
+            else
+            {
+                LeanTween.moveLocal(screen, endPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+            }
+
+            if (screen == MainMenu)
+            {
+                ExtraMainMenu_Anim(slideIn);
+            }
+        }
+    }
+
+    // private void SlideScreenOut(GameObject screen, Vector3 endPosition)
+    // {
+    //     if (screen == GameOver)
+    //     {
+    //         LeanTween.scale(screen, endPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+    //     }
+    //     else
+    //     {
+    //         LeanTween.moveLocal(screen, endPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+    //     }
+    // }
+
 
     public void GoToMainMenu()
     {
         if (transition == null)
         {
-            // SoundManager.Singleton.PlaySound(SoundType.UI);
+            SoundManager.Singleton.PlaySound(SoundType.UI);
             SoundManager.Singleton.LowerBGM(false);
-            transition = StartCoroutine(MainMenu_Anim());
+            ExtraMainMenu_Anim(true);
         }
     }
 
-    IEnumerator MainMenu_Anim()
+    private void ExtraMainMenu_Anim(bool slideIn)
     {
-        // gameOver_anim.SetBool("In_GameOver", false);
-        // themes_anim.SetBool("In_Themes", false);
-        // settings_anim.SetBool("In_Settings", false);
-        yield return new WaitForSeconds(transitionTime);
-        LeanTween.moveLocal(MainMenu, new Vector3(0f, 0f, 0f), transitionTime).setEase(LeanTweenType.easeOutCubic);
-        transition = null;
+        if (slideIn)
+        {
+            LeanTween.moveLocal(MM_Highscore, new Vector3(0f, 650f, 0f), transitionTime).setEase(LeanTweenType.easeOutCubic);
+        }
+        else
+        {
+            LeanTween.moveLocal(MM_Highscore, new Vector3(0f, 2400f, 0f), transitionTime).setEase(LeanTweenType.easeInCubic);
+        }
+        // LeanTween.moveLocal(MainMenu, new Vector3(0f, 0f, 0f), transitionTime).setEase(LeanTweenType.easeOutCubic);
     }
 
     // public void GoToThemes()
@@ -122,41 +180,36 @@ public class ScreenManager : MonoBehaviour
     //     transition = null;
     // }
 
-    // public void GoToGameOver()
-    // {
-    //     if (transition == null)
-    //     {
-    //         bool gotHighscore = UIManager.Singleton.UpdateEndScore(ScoreManager.Singleton.GetPoints());
-    //         SoundManager.Singleton.LowerBGM(false);
+    public void GoToGameOver()
+    {
+        if (transition == null)
+        {
+            bool gotHighscore = UIManager.Singleton.UpdateEndScore(ScoreManager.Singleton.GetPoints());
+            SoundManager.Singleton.LowerBGM(false);
 
-    //         UIManager.Singleton.ShowCelebration(false);
-    //         UIManager.Singleton.ShowHighscore(false);
-    //         UIManager.Singleton.ShowEndScreenButtons(false);
+            UIManager.Singleton.ShowCelebration(false);
+            UIManager.Singleton.ShowHighscore(false);
+            UIManager.Singleton.ShowEndScreenButtons(false);
 
-    //         transition = StartCoroutine(GameOver(gotHighscore));
-    //     }
-    // }
+            transition = StartCoroutine(GameOver_Anim(gotHighscore));
+        }
+    }
 
-    // IEnumerator GameOver(bool gotHighscore)
-    // {
-    //     game_anim.SetBool("In_Game", false);
-    //     yield return new WaitForSeconds(transitionTime);
-    //     gameOver_anim.SetBool("In_GameOver", true);
+    IEnumerator GameOver_Anim(bool gotHighscore)
+    {
+        if (gotHighscore)
+        {
+            SoundManager.Singleton.PlaySound(SoundType.Highscore, 0.5f);
+            UIManager.Singleton.ShowCelebration(true);
+        }
+        else
+        {
+            UIManager.Singleton.ShowHighscore(true);
+        }
 
-    //     yield return new WaitForSeconds(transitionTime);
-    //     if (gotHighscore)
-    //     {
-    //         SoundManager.Singleton.PlaySound(SoundType.Highscore, 0.5f);
-    //         UIManager.Singleton.ShowCelebration(true);
-    //     }
-    //     else
-    //     {
-    //         UIManager.Singleton.ShowHighscore(true);
-    //     }
+        yield return new WaitForSeconds(transitionTime);
+        UIManager.Singleton.ShowEndScreenButtons(true);
 
-    //     yield return new WaitForSeconds(transitionTime);
-    //     UIManager.Singleton.ShowEndScreenButtons(true);
-
-    //     transition = null;
-    // }
+        transition = null;
+    }
 }
