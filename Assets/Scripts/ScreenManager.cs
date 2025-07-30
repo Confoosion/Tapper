@@ -37,6 +37,11 @@ public class ScreenManager : MonoBehaviour
     {
         if (transition == null)
         {
+            if (screen != GameOver.GetComponent<ScreenSwapping>())
+            {
+                SoundManager.Singleton.PlaySound(SoundType.UI);
+            }
+
             transition = StartCoroutine(SwapScreens(currentScreen, screen));
         }
     }
@@ -78,6 +83,10 @@ public class ScreenManager : MonoBehaviour
             if (slideIn)
             {
                 LeanTween.moveLocal(screen, endPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+                if (screen == Game)
+                {
+                    GoToGame();
+                }
             }
             else
             {
@@ -100,7 +109,6 @@ public class ScreenManager : MonoBehaviour
     {
         if (transition == null)
         {
-            SoundManager.Singleton.PlaySound(SoundType.UI);
             SoundManager.Singleton.LowerBGM(false);
             ExtraMainMenu_Anim(true);
         }
@@ -118,6 +126,12 @@ public class ScreenManager : MonoBehaviour
             MM_Title.AnimateTitle(false);
             LeanTween.moveLocal(MM_Highscore, new Vector3(0f, 2400f, 0f), transitionTime).setEase(LeanTweenType.easeInCubic);
         }
+    }
+
+    void GoToGame()
+    {
+        UIManager.Singleton.BeginCountdown();
+        GameManager.Singleton.ResetValues();
     }
 
     public void GoToGameOver()

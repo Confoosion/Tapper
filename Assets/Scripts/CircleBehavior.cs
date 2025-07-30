@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 
-public class CircleBehavior : MonoBehaviour, IPointerClickHandler
+public class CircleBehavior : MonoBehaviour, IPointerDownHandler
 {
     public bool isGood = true;
     [SerializeField] private float timeOnScreen = 1f;
@@ -42,7 +42,7 @@ public class CircleBehavior : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
         if (GameManager.Singleton.isPlaying && timeOnScreen > 0f)
         {
