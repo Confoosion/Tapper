@@ -4467,18 +4467,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1593feefc6fc94bb2851839cb69b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  celebration: {fileID: 0}
   transitionTime: 1
   MIN_SCALE: {x: 0.75, y: 0.75, z: 0.75}
   MAX_SCALE: {x: 1.25, y: 1.25, z: 1.25}
   colors:
   - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 1, g: 0.52445924, b: 0, a: 1}
-  - {r: 1, g: 0.9048885, b: 0, a: 1}
-  - {r: 0.21603727, g: 1, b: 0, a: 1}
-  - {r: 0, g: 0.26352477, b: 1, a: 1}
-  - {r: 0.32003593, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0, b: 0.9449339, a: 1}
+  - {r: 1, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &1288892159
 GameObject:
   m_ObjectHideFlags: 0

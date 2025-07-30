@@ -1,25 +1,35 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 
 public class CelebrationAnimation : MonoBehaviour
 {
-    [SerializeField] private GameObject celebration;
+    private GameObject celebrationObject;
+    private TextMeshProUGUI celebrationText;
     [SerializeField] private float transitionTime = 1f;
     [SerializeField] private Vector3 MIN_SCALE, MAX_SCALE;
     [SerializeField] List<Color> colors = new List<Color>();
 
-    private Coroutine anim;
+    private Coroutine color_anim;
+    private Coroutine scale_anim;
     private bool isAnimating;
 
     void Awake()
     {
-        celebration = this.gameObject;
+        celebrationObject = this.gameObject;
+        celebrationText = GetComponent<TextMeshProUGUI>();
     }
+
+    // void Start()
+    // {
+    //     AnimateCelebration();
+    // }
 
     public void AnimateCelebration(bool doAnimation = true)
     {
-        if (anim == null)
+        if (color_anim == null && scale_anim == null)
         {
             if (!doAnimation)
             {
@@ -27,7 +37,8 @@ public class CelebrationAnimation : MonoBehaviour
             }
 
             isAnimating = doAnimation;
-            anim = StartCoroutine(Celebration_Anim());
+            color_anim = StartCoroutine(Celebration_Color(0f, transitionTime));
+            scale_anim = StartCoroutine(Celebration_Scaling());
         }
         else
         {
@@ -38,18 +49,46 @@ public class CelebrationAnimation : MonoBehaviour
         }
     }
 
-    IEnumerator Celebration_Anim()
+    IEnumerator Celebration_Color(float start, float end)
+    {
+        int currColorIndex = 0;
+        int nextColorIndex = (currColorIndex + 1) % colors.Count;
+        float timeElapsed;
+        Color lerpedColor;
+
+        while (isAnimating)
+        {
+            timeElapsed = start;
+            while (timeElapsed < end)
+            {
+                float t = timeElapsed / end;
+                lerpedColor = Color.Lerp(colors[currColorIndex], colors[nextColorIndex], t);
+                timeElapsed += Time.deltaTime;
+
+                celebrationText.color = lerpedColor;
+
+                yield return null;
+            }
+
+            celebrationText.color = colors[nextColorIndex];
+
+            currColorIndex = nextColorIndex;
+            nextColorIndex = (currColorIndex + 1) % colors.Count;
+        }
+
+        color_anim = null;
+    }
+
+    IEnumerator Celebration_Scaling()
     {
         while (isAnimating)
         {
-            for (int i = 0; i < colors.Count; i++)
-            {
-                LeanTween.color(celebration, colors[i], transitionTime).setDelay(transitionTime * i);
-            }
-
-            yield return new WaitForSeconds(transitionTime * colors.Count);
+            LeanTween.scale(celebrationObject, MAX_SCALE, transitionTime).setEase(LeanTweenType.easeInOutCubic);
+            yield return new WaitForSeconds(transitionTime);
+            LeanTween.scale(celebrationObject, MIN_SCALE, transitionTime).setEase(LeanTweenType.easeInOutCubic);
+            yield return new WaitForSeconds(transitionTime);
         }
 
-        anim = null;
+        scale_anim = null;
     }
 }
