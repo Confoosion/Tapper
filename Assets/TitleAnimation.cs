@@ -19,10 +19,10 @@ public class TitleAnimation : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        AnimateTitle(true);
+        AnimateTitle();
     }
 
-    public void AnimateTitle(bool doAnimation = false)
+    public void AnimateTitle(bool doAnimation = true)
     {
         if (anim == null)
         {
