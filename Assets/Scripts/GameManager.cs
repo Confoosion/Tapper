@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int lives = 3;
 
+    [SerializeField] private float fps;
+
     void Awake()
     {
         if (Singleton == null)
@@ -16,6 +18,13 @@ public class GameManager : MonoBehaviour
             Singleton = this;
             DontDestroyOnLoad(Singleton.gameObject);
         }
+    }
+
+    void Start()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+        InvokeRepeating("GetFPS", 1, 1);
     }
 
     public void StartGame()
@@ -70,5 +79,10 @@ public class GameManager : MonoBehaviour
     {
         ScoreManager.Singleton.AddPoints(0);
         RemoveLives(0);
+    }
+
+    void GetFPS()
+    {
+        fps = (int)(1f / Time.unscaledDeltaTime);
     }
 }
