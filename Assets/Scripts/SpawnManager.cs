@@ -42,16 +42,19 @@ public class SpawnManager : MonoBehaviour
     {
         while (GameManager.Singleton.CheckPlayerStatus())
         {
+            GameObject circle;
             if (CanSpawnGoodCircle())
             {
-                Instantiate(goodCircle, GetRandomSpawnPosition(), Quaternion.identity, spawnArea);
+                circle = Instantiate(goodCircle, spawnArea);
             }
             else
             {
-                Instantiate(badCircle, GetRandomSpawnPosition(), Quaternion.identity, spawnArea);
+                circle = Instantiate(badCircle, spawnArea);
             }
 
-            Debug.Log("Spawned");
+            circle.transform.localPosition = GetRandomSpawnPosition();
+            Debug.Log("Local Position: " + circle.transform.localPosition + "\nPosition: " + circle.transform.position);
+            // Debug.Log("Spawned");
             yield return new WaitForSeconds(spawnInterval);
         }
 
@@ -70,14 +73,15 @@ public class SpawnManager : MonoBehaviour
 
     private Vector2 GetRandomSpawnPosition() // ADD CLAMP TO THE POSITION
     {
-        float width = spawnArea.rect.width;
-        float height = spawnArea.rect.height;
+        float spawnWidth = spawnArea.rect.width;
+        float spawnHeight = spawnArea.rect.height;
 
         Vector2 position = new Vector2(
-            Random.Range(-width * 0.5f, width * 0.5f) + spawnArea.position.x,
-            Random.Range(-height * 0.5f, height * 0.5f) + spawnArea.position.y
+            Random.Range(-spawnWidth * 0.5f, spawnWidth * 0.5f),
+            Random.Range(-spawnHeight * 0.5f, spawnHeight * 0.5f)
         );
 
+        Debug.Log(position);
         return (position);
     }
 

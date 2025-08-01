@@ -116,15 +116,17 @@ public class ScreenManager : MonoBehaviour
 
     private void ExtraMainMenu_Anim(bool slideIn)
     {
+        ScreenSwapping highscore_ScreenSwapping = MM_Highscore.GetComponent<ScreenSwapping>();
+
         if (slideIn)
         {
             MM_Title.AnimateTitle();
-            LeanTween.moveLocal(MM_Highscore, new Vector3(0f, 650f, 0f), transitionTime).setEase(LeanTweenType.easeOutCubic);
+            LeanTween.moveLocal(MM_Highscore, highscore_ScreenSwapping.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
         }
         else
         {
             MM_Title.AnimateTitle(false);
-            LeanTween.moveLocal(MM_Highscore, new Vector3(0f, 2400f, 0f), transitionTime).setEase(LeanTweenType.easeInCubic);
+            LeanTween.moveLocal(MM_Highscore, highscore_ScreenSwapping.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
         }
     }
 
