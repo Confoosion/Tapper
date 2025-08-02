@@ -16,6 +16,7 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private TitleAnimation MM_Title;
     [SerializeField] private GameObject MM_Highscore;
     [SerializeField] private CelebrationAnimation GO_Celebration;
+    [SerializeField] private CurrencyAnimation MM_currencies;
 
     [SerializeField] private ScreenSwapping currentScreen;
 
@@ -31,6 +32,11 @@ public class ScreenManager : MonoBehaviour
     {
         currentScreen = GameObject.Find("CANVASES/MAINMENU_CANVAS/MAIN_MENU").GetComponent<ScreenSwapping>();
         transition = StartCoroutine(SwapScreens(null, currentScreen));
+    }
+
+    public float GetTransitionTime()
+    {
+        return (transitionTime);
     }
 
     public void SwitchScreen(ScreenSwapping screen)
@@ -85,6 +91,7 @@ public class ScreenManager : MonoBehaviour
                 LeanTween.moveLocal(screen, endPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
                 if (screen == Game)
                 {
+                    MM_currencies.SlideCurrencies(false);
                     GoToGame();
                 }
             }
@@ -95,6 +102,7 @@ public class ScreenManager : MonoBehaviour
 
             if (screen == MainMenu)
             {
+                MM_currencies.SlideCurrencies();
                 ExtraMainMenu_Anim(slideIn);
             }
         }
