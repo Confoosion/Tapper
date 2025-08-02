@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Singleton { get; private set; }
 
     [SerializeField] private int score;
+    [SerializeField] private int circlesTapped;
 
     void Awake()
     {
@@ -16,7 +17,20 @@ public class ScoreManager : MonoBehaviour
             Singleton = this;
         }
     }
-    
+
+    public bool AddCircleTapped()
+    {
+        circlesTapped++;
+
+        if (circlesTapped % 10 == 0)
+        {
+            SoundManager.Singleton.PlaySound(SoundType.Gem, 0.1f);
+            AddGems(1);
+            return (true);
+        }
+        return (false);
+    }
+
     public int GetPoints()
     {
         return (score);
@@ -39,11 +53,26 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    public void AddGems(int toAdd)
+    {
+        PlayerPrefs.SetInt("SavedGems", GetGems() + toAdd);
+        UIManager.Singleton.UpdateGemUI();
+    }
+
     public int GetHighscore()
     {
         if (PlayerPrefs.HasKey("SavedHighScore"))
         {
             return (PlayerPrefs.GetInt("SavedHighScore"));
+        }
+        return (0);
+    }
+
+    public int GetGems()
+    {
+        if (PlayerPrefs.HasKey("SavedGems"))
+        {
+            return (PlayerPrefs.GetInt("SavedGems"));
         }
         return (0);
     }

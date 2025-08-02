@@ -8,6 +8,7 @@ public class CircleBehavior : MonoBehaviour, IPointerDownHandler
     public bool isGood = true;
     [SerializeField] private float timeOnScreen = 1f;
     [SerializeField] private SoundType soundType;
+    [SerializeField] private GameObject gem;
 
     void Awake()
     {
@@ -49,6 +50,10 @@ public class CircleBehavior : MonoBehaviour, IPointerDownHandler
             if (isGood)
             {
                 ScoreManager.Singleton.AddPoints(1);
+                if (ScoreManager.Singleton.AddCircleTapped())
+                {
+                    Instantiate(gem, this.transform.position, Quaternion.identity, SpawnManager.Singleton.spawnArea);
+                }
             }
             else
             {

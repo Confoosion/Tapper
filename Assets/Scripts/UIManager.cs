@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Main Menu UI")]
     [SerializeField] private TextMeshProUGUI MM_highscore;
+    [SerializeField] private TextMeshProUGUI MM_gems;
 
     private float countdownInterval = 0.8f;
     [Header("Game Screen UI")]
@@ -40,6 +41,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         UpdateHighscoreUI();
+        UpdateGemUI();
     }
 
     public void UpdateHearts(int lives)
@@ -102,6 +104,21 @@ public class UIManager : MonoBehaviour
     {
         MM_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
         GO_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
+    }
+
+    public void UpdateGemCount()
+    {
+        MM_gems.SetText(ScoreManager.Singleton.GetGems().ToString());
+    }
+
+    public void UpdateGemUI()
+    {
+        if (PlayerPrefs.HasKey("SavedGems"))
+        {
+            MM_gems.SetText(PlayerPrefs.GetInt("SavedGems").ToString());
+            return;
+        }
+        MM_gems.SetText("0");
     }
 
     public void ShowHighscore(bool show)

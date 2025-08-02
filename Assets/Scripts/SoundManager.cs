@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public enum SoundType { Good, Bad, Music, UI, Highscore }
+public enum SoundType { Good, Bad, Music, UI, Highscore, Gem}
 
 [RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour

@@ -4478,7 +4478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd60cc92dc7d32c4fbf189d662fd6025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MM_highscore: {fileID: 110687906}
+  MM_highscore: {fileID: 1057845960}
+  MM_gems: {fileID: 1664598447}
   good_Image: {fileID: 319202230366041515, guid: dd29231a6558e8042991ae37d07f23f5, type: 3}
   bad_Image: {fileID: 8946530191119915437, guid: 1915d8335e3a1cb489ad2fa887ec7efc, type: 3}
   countdownObject: {fileID: 161217266}
@@ -4547,6 +4548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usedSounds:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -4662,6 +4664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  circlesTapped: 0
 --- !u!1 &1207454440
 GameObject:
   m_ObjectHideFlags: 0
