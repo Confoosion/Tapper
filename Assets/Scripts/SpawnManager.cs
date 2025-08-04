@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
+public enum GameMode { Classic, Rain }
 public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager Singleton { get; private set; }
@@ -34,10 +35,22 @@ public class SpawnManager : MonoBehaviour
         {
             inGameTime += Time.deltaTime;
 
-            spawnInterval = Mathf.Max(MIN_SPAWN_INTERVAL, MAX_SPAWN_INTERVAL * Mathf.Exp(-decayRate * inGameTime));
+            if (spawnInterval != MIN_SPAWN_INTERVAL)
+            {
+                spawnInterval = Mathf.Max(MIN_SPAWN_INTERVAL, MAX_SPAWN_INTERVAL * Mathf.Exp(-decayRate * inGameTime));
+            }
         }
     }
 
+    public void StartSpawning()
+    {
+        inGameTime = 0f;
+        spawnInterval = MAX_SPAWN_INTERVAL;
+        isSpawning = true;
+        StartCoroutine(SpawnCircles());
+    }
+
+    // Classic Gamemode
     IEnumerator SpawnCircles()
     {
         while (GameManager.Singleton.CheckPlayerStatus())
@@ -62,6 +75,12 @@ public class SpawnManager : MonoBehaviour
         isSpawning = false;
     }
 
+    // Rain Gamemode
+    IEnumerator SpawnRainCircles()
+    {
+        yield return null;
+    }
+
     private bool CanSpawnGoodCircle()
     {
         if (Random.Range(0f, 1f) > badPercentage)
@@ -83,13 +102,5 @@ public class SpawnManager : MonoBehaviour
 
         Debug.Log(position);
         return (position);
-    }
-
-    public void StartSpawning()
-    {
-        inGameTime = 0f;
-        spawnInterval = MAX_SPAWN_INTERVAL;
-        isSpawning = true;
-        StartCoroutine(SpawnCircles());
     }
 }
