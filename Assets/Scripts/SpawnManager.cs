@@ -2,20 +2,26 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public enum GameMode { Classic, Rain }
 public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager Singleton { get; private set; }
 
+    [SerializeField] private GameMode currentGameMode;
     [SerializeField] private bool isSpawning;
     public RectTransform spawnArea;
-    public GameObject goodCircle;
-    public GameObject badCircle;
+    public GameObject primaryCircle;
+    public GameObject alternateCircle;
 
     public float badPercentage = 0.1f;
 
-    public float MAX_SPAWN_INTERVAL = 1.5f;
-    public float MIN_SPAWN_INTERVAL = 0.2f;
+    public float MAX_SPAWN_INTERVAL_CLASSIC = 1.5f;
+    public float MIN_SPAWN_INTERVAL_CLASSIC = 0.2f;
+    public float MAX_SPAWN_INTERVAL_RAIN = 1.5f;
+    public float MIN_SPAWN_INTERVAL_RAIN = 0.5f;
+
+    [SerializeField] private float selected_Max_Spawn_Interval;
+    [SerializeField] private float selected_Min_Spawn_Interval;
+
     [SerializeField] float spawnInterval = 1.5f;
     public float decayRate = 0.05f;
 
@@ -35,19 +41,44 @@ public class SpawnManager : MonoBehaviour
         {
             inGameTime += Time.deltaTime;
 
-            if (spawnInterval != MIN_SPAWN_INTERVAL)
+            if (spawnInterval != selected_Min_Spawn_Interval)
             {
-                spawnInterval = Mathf.Max(MIN_SPAWN_INTERVAL, MAX_SPAWN_INTERVAL * Mathf.Exp(-decayRate * inGameTime));
+                spawnInterval = Mathf.Max(selected_Min_Spawn_Interval, selected_Max_Spawn_Interval * Mathf.Exp(-decayRate * inGameTime));
             }
         }
     }
 
-    public void StartSpawning()
+    public void StartSpawning(GameMode gameMode)
     {
         inGameTime = 0f;
-        spawnInterval = MAX_SPAWN_INTERVAL;
+        currentGameMode = gameMode;
+
+        if (gameMode == GameMode.Classic)
+        {
+            Classic_Setup();
+        }
+        else if(gameMode == GameMode.Rain)
+        {
+            Rain_Setup();
+        }
         isSpawning = true;
+    }
+
+    private void Classic_Setup()
+    {
+        spawnInterval = MAX_SPAWN_INTERVAL_CLASSIC;
+        primaryCircle = CirclePrefabs.Singleton.Classic_GoodCircle;
+        alternateCircle = CirclePrefabs.Singleton.Classic_BadCircle;
+
         StartCoroutine(SpawnCircles());
+    }
+
+    private void Rain_Setup()
+    {
+        spawnInterval = MAX_SPAWN_INTERVAL_RAIN;
+        primaryCircle = CirclePrefabs.Singleton.Rain_Circle;
+
+        StartCoroutine(SpawnRainCircles());
     }
 
     // Classic Gamemode
@@ -58,11 +89,11 @@ public class SpawnManager : MonoBehaviour
             GameObject circle;
             if (CanSpawnGoodCircle())
             {
-                circle = Instantiate(goodCircle, spawnArea);
+                circle = Instantiate(primaryCircle, spawnArea);
             }
             else
             {
-                circle = Instantiate(badCircle, spawnArea);
+                circle = Instantiate(alternateCircle, spawnArea);
             }
 
             circle.transform.localPosition = GetRandomSpawnPosition();
@@ -90,7 +121,8 @@ public class SpawnManager : MonoBehaviour
         return (false);
     }
 
-    private Vector2 GetRandomSpawnPosition() // ADD CLAMP TO THE POSITION
+    // Spawns based on the spawnArea, which is changed based on the selected GameMode
+    private Vector2 GetRandomSpawnPosition()
     {
         float spawnWidth = spawnArea.rect.width;
         float spawnHeight = spawnArea.rect.height;

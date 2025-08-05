@@ -1,10 +1,14 @@
 using UnityEngine;
+using System.Collections;
 
+
+public enum GameMode { Classic, Rain }
 public class GameManager : MonoBehaviour
 {
     public static GameManager Singleton { get; private set; }
 
     public bool isPlaying;
+    [SerializeField] private GameMode selectedGameMode;
     [SerializeField] private bool isAlive = true;
 
     [SerializeField] private int lives = 3;
@@ -27,10 +31,15 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("GetFPS", 1, 1);
     }
 
+    public void UpdateGameMode(GameMode mode)
+    {
+        selectedGameMode = mode;
+    }
+
     public void StartGame()
     {
         isPlaying = true;
-        SpawnManager.Singleton.StartSpawning();
+        SpawnManager.Singleton.StartSpawning(selectedGameMode);
     }
 
     public bool CheckPlayerStatus()
