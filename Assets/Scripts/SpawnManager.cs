@@ -70,6 +70,9 @@ public class SpawnManager : MonoBehaviour
         primaryCircle = CirclePrefabs.Singleton.Classic_GoodCircle;
         alternateCircle = CirclePrefabs.Singleton.Classic_BadCircle;
 
+        selected_Min_Spawn_Interval = MIN_SPAWN_INTERVAL_CLASSIC;
+        selected_Max_Spawn_Interval = MAX_SPAWN_INTERVAL_CLASSIC;
+
         StartCoroutine(SpawnCircles());
     }
 
@@ -77,6 +80,9 @@ public class SpawnManager : MonoBehaviour
     {
         spawnInterval = MAX_SPAWN_INTERVAL_RAIN;
         primaryCircle = CirclePrefabs.Singleton.Rain_Circle;
+
+        selected_Min_Spawn_Interval = MIN_SPAWN_INTERVAL_RAIN;
+        selected_Max_Spawn_Interval = MAX_SPAWN_INTERVAL_RAIN;
 
         StartCoroutine(SpawnRainCircles());
     }
