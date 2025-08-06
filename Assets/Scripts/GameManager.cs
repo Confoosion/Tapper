@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour
         selectedGameMode = mode;
     }
 
+    public GameMode GetGameMode()
+    {
+        return (selectedGameMode);
+    }
+
     public void StartGame()
     {
         isPlaying = true;
