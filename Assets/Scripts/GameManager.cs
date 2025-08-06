@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public void UpdateGameMode(GameMode mode)
     {
         selectedGameMode = mode;
+        UIManager.Singleton.SwitchBackgrounds((int)selectedGameMode);
     }
 
     public GameMode GetGameMode()
@@ -92,7 +93,20 @@ public class GameManager : MonoBehaviour
     public void ResetValues()
     {
         ScoreManager.Singleton.AddPoints(0);
-        RemoveLives(0);
+        switch (selectedGameMode)
+        {
+            case GameMode.Classic:
+                {
+                    RemoveLives(0);
+                    break;
+                }
+            case GameMode.Rain:
+                {
+                    lives = 1;
+                    UIManager.Singleton.UpdateHearts(0);
+                    break;
+                }
+        }
     }
 
     void GetFPS()

@@ -1865,6 +1865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce6db34d384138469c67f1f231cb1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedMode: 0
 --- !u!1 &751367532
 GameObject:
   m_ObjectHideFlags: 0
@@ -4847,6 +4848,9 @@ MonoBehaviour:
   celebrationLabel: {fileID: 1262464934}
   gameOver_RetryButton: {fileID: 1014003569}
   gameOver_BackButton: {fileID: 1964240991}
+  backgroundImages:
+  - {fileID: 1554544005}
+  - {fileID: 980788845}
 --- !u!114 &1206995913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6505,7 +6509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inPosition: {x: 0, y: 0, z: 0}
-  outPosition: {x: 0, y: -1450, z: 0}
+  outPosition: {x: 0, y: -1600, z: 0}
 --- !u!1 &1535213409
 GameObject:
   m_ObjectHideFlags: 0

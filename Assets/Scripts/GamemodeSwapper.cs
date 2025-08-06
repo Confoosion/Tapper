@@ -21,10 +21,16 @@ public class GamemodeSwapper : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (UIManager.Singleton.IsCoroutineActive())
+        {
+            return;
+        }
+        
         GameMode[] modes = (GameMode[])System.Enum.GetValues(typeof(GameMode));
         int nextMode = ((int)selectedMode + 1) % modes.Length;
         selectedMode = modes[nextMode];
 
         gameModeLabel.SetText(selectedMode.ToString());
+        GameManager.Singleton.UpdateGameMode(selectedMode);
     }
 }
