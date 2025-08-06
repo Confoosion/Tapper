@@ -48,7 +48,7 @@ public class SettingsManager : MonoBehaviour
             PlayerPrefs.SetInt("IsSFXMuted", 0);
             return;
         }
-        Debug.Log("SFX MUTED");
+        // Debug.Log("SFX MUTED");
         audioMixer.SetFloat("SFX_Volume", -80f);
         PlayerPrefs.SetInt("IsSFXMuted", 1);
     }
@@ -61,7 +61,7 @@ public class SettingsManager : MonoBehaviour
             PlayerPrefs.SetInt("IsMusicMuted", 0);
             return;
         }
-        Debug.Log("MUSIC MUTED");
+        // Debug.Log("MUSIC MUTED");
         audioMixer.SetFloat("Music_Volume", -80f);
         PlayerPrefs.SetInt("IsMusicMuted", 1);
     }

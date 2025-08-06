@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> hearts = new List<GameObject>();
     [SerializeField] private TextMeshProUGUI points;
+    public SpawnArea spawnArea;
 
     [Header("GameOver Screen UI")]
     [SerializeField] private TextMeshProUGUI score;

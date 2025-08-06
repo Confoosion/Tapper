@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         isPlaying = true;
+        UIManager.Singleton.spawnArea.UpdateSpawnArea(selectedGameMode);
         SpawnManager.Singleton.StartSpawning(selectedGameMode);
     }
 

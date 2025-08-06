@@ -17,7 +17,9 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private GameObject MM_Highscore;
     [SerializeField] private CelebrationAnimation GO_Celebration;
     [SerializeField] private CurrencyAnimation MM_currencies;
+    [SerializeField] private GroundAnimation Ground_Anim;
 
+    [Space]
     [SerializeField] private ScreenSwapping currentScreen;
 
     void Awake()
@@ -140,6 +142,7 @@ public class ScreenManager : MonoBehaviour
 
     void GoToGame()
     {
+        Ground_Anim.UpdateGroundPosition(GameManager.Singleton.GetGameMode());
         UIManager.Singleton.BeginCountdown();
         GameManager.Singleton.ResetValues();
     }
@@ -155,6 +158,8 @@ public class ScreenManager : MonoBehaviour
             UIManager.Singleton.ShowHighscore(false);
             UIManager.Singleton.ShowEndScreenButtons(false);
 
+            Ground_Anim.UpdateGroundPosition(GameMode.Classic);
+            
             endGame = StartCoroutine(GameOver_Anim(gotHighscore));
         }
     }

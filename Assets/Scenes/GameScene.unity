@@ -4842,6 +4842,7 @@ MonoBehaviour:
   - {fileID: 1837110300}
   - {fileID: 799395583}
   points: {fileID: 1676084436}
+  spawnArea: {fileID: 1288892163}
   score: {fileID: 582462}
   GO_highscore: {fileID: 585538905}
   highscoreLabel: {fileID: 1649407886}
@@ -4873,6 +4874,7 @@ MonoBehaviour:
   MM_Highscore: {fileID: 920101760}
   GO_Celebration: {fileID: 1262464938}
   MM_currencies: {fileID: 983213325}
+  Ground_Anim: {fileID: 1361155717}
   currentScreen: {fileID: 0}
 --- !u!114 &1206995914
 MonoBehaviour:
@@ -5279,6 +5281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1288892160}
   - component: {fileID: 1288892162}
+  - component: {fileID: 1288892163}
   - component: {fileID: 1288892161}
   m_Layer: 5
   m_Name: SPAWN_AREA
@@ -5344,6 +5347,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288892159}
   m_CullTransparentMesh: 1
+--- !u!114 &1288892163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288892159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c1921fd0813214c9efe3a5395dbdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Classic_RectSize: {x: 800, y: 1075}
+  Classic_Position: {x: 0, y: -330}
+  Rain_RectSize: {x: 1000, y: 200}
+  Rain_Position: {x: 0, y: 1200}
 --- !u!1 &1289350071
 GameObject:
   m_ObjectHideFlags: 0
@@ -5443,6 +5462,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1361155714}
+  - component: {fileID: 1361155717}
   - component: {fileID: 1361155716}
   - component: {fileID: 1361155715}
   m_Layer: 0
@@ -6081,6 +6101,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1361155717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361155713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1634a50f66eb54a98d11e7cfaf61b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Classic_Position: {x: 0, y: 0}
+  Rain_Position: {x: 0, y: -5}
 --- !u!1 &1382764419
 GameObject:
   m_ObjectHideFlags: 0
