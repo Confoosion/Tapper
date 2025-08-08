@@ -88,6 +88,7 @@ public class SpawnManager : MonoBehaviour
         selected_Max_Spawn_Interval = MAX_SPAWN_INTERVAL_RAIN;
 
         StartCoroutine(SpawnRainCircles());
+        StartCoroutine(IncrementTaps());
     }
 
     // Classic Gamemode
@@ -124,7 +125,7 @@ public class SpawnManager : MonoBehaviour
         {
             GameObject circle = Instantiate(primaryCircle, spawnArea);
             circle.transform.localPosition = GetRandomSpawnPosition();
-            circle.GetComponent<CircleRainBehavior>().SetupBehavior(minTaps, maxTaps, spawnInterval);
+            circle.GetComponent<CircleRainBehavior>().SetupBehavior(minTaps, maxTaps);
 
             yield return new WaitForSeconds(spawnInterval);
         }
@@ -140,6 +141,20 @@ public class SpawnManager : MonoBehaviour
             return (true);
         }
         return (false);
+    }
+
+    IEnumerator IncrementTaps()
+    {
+        while (GameManager.Singleton.CheckPlayerStatus())
+        {
+            yield return new WaitForSeconds(2 * maxTaps);
+
+            if (maxTaps < 8)
+            {
+                maxTaps++;
+            }
+        }
+        maxTaps = 1;
     }
 
     // Spawns based on the spawnArea, which is changed based on the selected GameMode

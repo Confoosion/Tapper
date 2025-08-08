@@ -4778,6 +4778,8 @@ MonoBehaviour:
   MIN_SPAWN_INTERVAL_CLASSIC: 0.2
   MAX_SPAWN_INTERVAL_RAIN: 1.5
   MIN_SPAWN_INTERVAL_RAIN: 0.5
+  minTaps: 1
+  maxTaps: 1
   selected_Max_Spawn_Interval: 0
   selected_Min_Spawn_Interval: 0
   spawnInterval: 1.5

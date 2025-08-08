@@ -31,6 +31,11 @@ public class ScoreManager : MonoBehaviour
         return (false);
     }
 
+    public void ResetCirclesTapped()
+    {
+        circlesTapped = 0;
+    }
+
     public int GetPoints()
     {
         return (score);
@@ -59,11 +64,11 @@ public class ScoreManager : MonoBehaviour
         UIManager.Singleton.UpdateGemUI();
     }
 
-    public int GetHighscore()
+    public int GetHighscore(GameMode mode)
     {
-        if (PlayerPrefs.HasKey("SavedHighScore"))
+        if (PlayerPrefs.HasKey("SavedHighScore_" + mode.ToString()))
         {
-            return (PlayerPrefs.GetInt("SavedHighScore"));
+            return (PlayerPrefs.GetInt("SavedHighScore_" + mode.ToString()));
         }
         return (0);
     }
@@ -77,18 +82,18 @@ public class ScoreManager : MonoBehaviour
         return (0);
     }
 
-    public void UpdateHighscore(int points)
+    public void UpdateHighscore(int points, GameMode mode)
     {
-        if (PlayerPrefs.HasKey("SavedHighScore"))
+        if (PlayerPrefs.HasKey("SavedHighScore_" + mode.ToString()))
         {
-            if (points > PlayerPrefs.GetInt("SavedHighScore"))
+            if (points > PlayerPrefs.GetInt("SavedHighScore_" + mode.ToString()))
             {
-                PlayerPrefs.SetInt("SavedHighScore", points);
+                PlayerPrefs.SetInt("SavedHighScore_" + mode.ToString(), points);
             }
         }
         else
         {
-            PlayerPrefs.SetInt("SavedHighScore", points);
+            PlayerPrefs.SetInt("SavedHighScore_" + mode.ToString(), points);
         }
     }
 }

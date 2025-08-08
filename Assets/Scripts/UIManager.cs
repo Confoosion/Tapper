@@ -96,9 +96,9 @@ public class UIManager : MonoBehaviour
     {
         score.SetText(num.ToString());
 
-        if (num > ScoreManager.Singleton.GetHighscore())
+        if (num > ScoreManager.Singleton.GetHighscore(GameManager.Singleton.GetGameMode()))
         {
-            ScoreManager.Singleton.UpdateHighscore(num);
+            ScoreManager.Singleton.UpdateHighscore(num, GameManager.Singleton.GetGameMode());
             UpdateHighscoreUI();
 
             return (true);
@@ -108,8 +108,8 @@ public class UIManager : MonoBehaviour
 
     public void UpdateHighscoreUI()
     {
-        MM_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
-        GO_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
+        MM_highscore.SetText(ScoreManager.Singleton.GetHighscore(GameManager.Singleton.GetGameMode()).ToString());
+        GO_highscore.SetText(ScoreManager.Singleton.GetHighscore(GameManager.Singleton.GetGameMode()).ToString());
     }
 
     public void UpdateGemCount()

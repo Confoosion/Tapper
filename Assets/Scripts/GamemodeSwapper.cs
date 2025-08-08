@@ -25,7 +25,7 @@ public class GamemodeSwapper : MonoBehaviour, IPointerDownHandler
         {
             return;
         }
-        
+
         GameMode[] modes = (GameMode[])System.Enum.GetValues(typeof(GameMode));
         int nextMode = ((int)selectedMode + 1) % modes.Length;
         selectedMode = modes[nextMode];

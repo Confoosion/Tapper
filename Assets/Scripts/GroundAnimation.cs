@@ -9,11 +9,6 @@ public class GroundAnimation : MonoBehaviour
 
     public void UpdateGroundPosition(GameMode mode)
     {
-        if (mode == GameMode.Classic)
-        {
-            return;
-        }
-        
         switch (mode)
         {
             case GameMode.Classic:

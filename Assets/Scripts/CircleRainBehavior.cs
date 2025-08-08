@@ -14,6 +14,8 @@ public class CircleRainBehavior : MonoBehaviour, IPointerDownHandler
     [SerializeField] private float duration;
     [SerializeField] private GameObject gem;
 
+    private Coroutine moving;
+
     private SoundType soundType;
 
     void Awake()
@@ -23,14 +25,16 @@ public class CircleRainBehavior : MonoBehaviour, IPointerDownHandler
 
     void Update()
     {
-        
+        if (!GameManager.Singleton.CheckPlayerStatus())
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    public void SetupBehavior(int min, int max, float time)
+    public void SetupBehavior(int min, int max)
     {
         SetTapAmount(min, max);
-        SetDuration(time);
-        SetTarget();
+        moving = StartCoroutine(MoveToTarget());
     }
 
     public void SetTapAmount(int min, int max)
@@ -40,16 +44,21 @@ public class CircleRainBehavior : MonoBehaviour, IPointerDownHandler
         tapAmount.SetText(taps.ToString());
     }
 
-    public void SetDuration(float time)
+    IEnumerator MoveToTarget()
     {
-        duration = time;
-    }
-
-    public void SetTarget()
-    {
-        float randomX = Random.Range(-500f, 500f);
+        float randomX = Random.Range(-400f, 400f);
         targetPosition = new Vector2(randomX, -1775f);
         LeanTween.moveLocal(this.gameObject, targetPosition, duration);
+
+        bool isAlive = true;
+
+        while (isAlive)
+        {
+            yield return new WaitForSeconds(duration);
+            isAlive = false;
+        }
+        Destroy(this.gameObject);
+        GameManager.Singleton.RemoveLives(1);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -63,6 +72,7 @@ public class CircleRainBehavior : MonoBehaviour, IPointerDownHandler
                 {
                     Instantiate(gem, this.transform.position, Quaternion.identity, SpawnManager.Singleton.spawnArea);
                 }
+                moving = null;
                 Destroy(this.gameObject);
             }
             else

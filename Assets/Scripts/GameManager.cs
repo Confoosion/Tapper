@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     {
         selectedGameMode = mode;
         UIManager.Singleton.SwitchBackgrounds((int)selectedGameMode);
+        UIManager.Singleton.UpdateHighscoreUI();
     }
 
     public GameMode GetGameMode()
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         isPlaying = true;
         UIManager.Singleton.spawnArea.UpdateSpawnArea(selectedGameMode);
+        ScoreManager.Singleton.ResetCirclesTapped();
         SpawnManager.Singleton.StartSpawning(selectedGameMode);
     }
 
