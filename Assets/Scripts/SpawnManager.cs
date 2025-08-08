@@ -19,6 +19,9 @@ public class SpawnManager : MonoBehaviour
     public float MAX_SPAWN_INTERVAL_RAIN = 1.5f;
     public float MIN_SPAWN_INTERVAL_RAIN = 0.5f;
 
+    public int minTaps = 1;
+    public int maxTaps = 1;
+
     [SerializeField] private float selected_Max_Spawn_Interval;
     [SerializeField] private float selected_Min_Spawn_Interval;
 
@@ -90,6 +93,7 @@ public class SpawnManager : MonoBehaviour
     // Classic Gamemode
     IEnumerator SpawnCircles()
     {
+        Debug.Log("Classic Gamemode playing");
         while (GameManager.Singleton.CheckPlayerStatus())
         {
             GameObject circle;
@@ -104,18 +108,29 @@ public class SpawnManager : MonoBehaviour
 
             circle.transform.localPosition = GetRandomSpawnPosition();
             Debug.Log("Local Position: " + circle.transform.localPosition + "\nPosition: " + circle.transform.position);
-            // Debug.Log("Spawned");
+           
             yield return new WaitForSeconds(spawnInterval);
         }
 
-        Debug.Log("END OF GAME");
+        Debug.Log("END OF CLASSIC GAME");
         isSpawning = false;
     }
 
     // Rain Gamemode
     IEnumerator SpawnRainCircles()
     {
-        yield return null;
+        Debug.Log("Rain Gamemode playing");
+        while (GameManager.Singleton.CheckPlayerStatus())
+        {
+            GameObject circle = Instantiate(primaryCircle, spawnArea);
+            circle.transform.localPosition = GetRandomSpawnPosition();
+            circle.GetComponent<CircleRainBehavior>().SetupBehavior(minTaps, maxTaps, spawnInterval);
+
+            yield return new WaitForSeconds(spawnInterval);
+        }
+
+        Debug.Log("END OF RAIN GAME");
+        isSpawning = false;
     }
 
     private bool CanSpawnGoodCircle()

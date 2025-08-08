@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8008770539264509223}
   - component: {fileID: 8748200021439144315}
   - component: {fileID: 319202230366041515}
-  - component: {fileID: 999774124278778220}
+  - component: {fileID: 7243316245540299459}
   m_Layer: 5
   m_Name: RainCircle
   m_TagString: Untagged
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &999774124278778220
+--- !u!114 &7243316245540299459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,11 +86,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 738443123789434323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d60fd89e1da76ad468bf797dbd77972a, type: 3}
+  m_Script: {fileID: 11500000, guid: dd22fe53b538b1e4ebdd5415223562f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGood: 1
-  timeOnScreen: 1
+  taps: 0
+  tapAmount: {fileID: 1359911491897405274}
+  speed: 1
   soundType: 0
   gem: {fileID: 8494625251215090528, guid: 45c0d6613ff9b424d96fa7955d31898d, type: 3}
 --- !u!1 &8539328132723503444

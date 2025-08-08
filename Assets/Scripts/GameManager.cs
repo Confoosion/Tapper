@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
                 {
                     lives = 1;
                     UIManager.Singleton.UpdateHearts(0);
+                    SetPlayerStatus(true);
                     break;
                 }
         }
