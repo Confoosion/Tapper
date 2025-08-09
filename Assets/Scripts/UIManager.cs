@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [Header("Main Menu UI")]
     [SerializeField] private TextMeshProUGUI MM_highscore;
     [SerializeField] private TextMeshProUGUI MM_gems;
+    public AnimateArrows MM_arrows;
 
     private float countdownInterval = 0.8f;
     [Header("Game Screen UI")]

@@ -32,5 +32,6 @@ public class GamemodeSwapper : MonoBehaviour, IPointerDownHandler
 
         gameModeLabel.SetText(selectedMode.ToString());
         GameManager.Singleton.UpdateGameMode(selectedMode);
+        UIManager.Singleton.MM_arrows.Animate(false);
     }
 }
