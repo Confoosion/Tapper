@@ -120,6 +120,7 @@ public class SpawnManager : MonoBehaviour
     // Rain Gamemode
     IEnumerator SpawnRainCircles()
     {
+        bool doubleSpawn = false;
         Debug.Log("Rain Gamemode playing");
         while (GameManager.Singleton.CheckPlayerStatus())
         {
@@ -127,11 +128,21 @@ public class SpawnManager : MonoBehaviour
             circle.transform.localPosition = GetRandomSpawnPosition();
             circle.GetComponent<CircleRainBehavior>().SetupBehavior(minTaps, maxTaps);
 
+            if (Random.Range(0f, 1f) <= 0.25f && !doubleSpawn)
+            {
+                doubleSpawn = true;
+                continue;
+            }
+
+            doubleSpawn = false;
             yield return new WaitForSeconds(spawnInterval);
         }
 
-        Debug.Log("END OF RAIN GAME");
-        isSpawning = false;
+        if (!doubleSpawn)
+        {
+            Debug.Log("END OF RAIN GAME");
+            isSpawning = false;
+        }
     }
 
     private bool CanSpawnGoodCircle()
