@@ -158,7 +158,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (GameManager.Singleton.CheckPlayerStatus())
         {
-            yield return new WaitForSeconds(2 * maxTaps);
+            yield return new WaitForSeconds(3.5f * maxTaps);
 
             if (maxTaps < 8)
             {
