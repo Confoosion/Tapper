@@ -1,185 +1,86 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager Singleton { get; private set; }
 
-    [SerializeField] private GameMode currentGameMode;
-    [SerializeField] private bool isSpawning;
+    [Header("Default spawn area (can be overridden per mode)")]
     public RectTransform spawnArea;
-    public GameObject primaryCircle;
-    public GameObject alternateCircle;
 
-    public float badPercentage = 0.1f;
+    [Header("Active state (read-only)")]
+    [SerializeField] private bool isSpawning;
 
-    public float MAX_SPAWN_INTERVAL_CLASSIC = 1.5f;
-    public float MIN_SPAWN_INTERVAL_CLASSIC = 0.2f;
-    public float MAX_SPAWN_INTERVAL_RAIN = 1.5f;
-    public float MIN_SPAWN_INTERVAL_RAIN = 0.5f;
+    [Header("Mode assets")]
+    public GameModeConfig classicConfig;
+    public GameModeConfig rainConfig;
 
-    public int minTaps = 1;
-    public int maxTaps = 1;
-
-    [SerializeField] private float selected_Max_Spawn_Interval;
-    [SerializeField] private float selected_Min_Spawn_Interval;
-
-    [SerializeField] float spawnInterval = 1.5f;
-    public float decayRate = 0.05f;
-
-    [SerializeField] float inGameTime = 0f;
+    IGameModeRunner activeRunner;
+    Coroutine runRoutine;
 
     void Awake()
     {
-        if (Singleton == null)
-        {
-            Singleton = this;
-        }
+        if (Singleton == null) Singleton = this;
     }
 
-    void Update()
+    public void StartSpawning(GameMode mode)
     {
-        if (isSpawning && GameManager.Singleton.CheckPlayerStatus())
-        {
-            inGameTime += Time.deltaTime;
+        StopSpawning();
 
-            if (spawnInterval != selected_Min_Spawn_Interval)
-            {
-                spawnInterval = Mathf.Max(selected_Min_Spawn_Interval, selected_Max_Spawn_Interval * Mathf.Exp(-decayRate * inGameTime));
-            }
-        }
-    }
+        GameModeConfig config = GetGameConfig(mode); 
 
-    public void StartSpawning(GameMode gameMode)
-    {
-        inGameTime = 0f;
-        currentGameMode = gameMode;
+        // instantiate the runner prefab and init
+        var runnerGO = Instantiate(config.runnerPrefab, transform);
+        activeRunner = runnerGO.GetComponent<IGameModeRunner>();
+        if (activeRunner == null)
+        {
+            Debug.LogError("Runner prefab is missing an IGameModeRunner component.");
+            Destroy(runnerGO);
+            return;
+        }
 
-        if (gameMode == GameMode.Classic)
-        {
-            Classic_Setup();
-        }
-        else if(gameMode == GameMode.Rain)
-        {
-            Rain_Setup();
-        }
+        activeRunner.Init(this, config);
         isSpawning = true;
+        runRoutine = StartCoroutine(activeRunner.Run());
     }
 
-    private void Classic_Setup()
+    public void StopSpawning()
     {
-        spawnInterval = MAX_SPAWN_INTERVAL_CLASSIC;
-        primaryCircle = CirclePrefabs.Singleton.Classic_GoodCircle;
-        alternateCircle = CirclePrefabs.Singleton.Classic_BadCircle;
+        if (!isSpawning) return;
 
-        selected_Min_Spawn_Interval = MIN_SPAWN_INTERVAL_CLASSIC;
-        selected_Max_Spawn_Interval = MAX_SPAWN_INTERVAL_CLASSIC;
-
-        StartCoroutine(SpawnCircles());
-    }
-
-    private void Rain_Setup()
-    {
-        spawnInterval = MAX_SPAWN_INTERVAL_RAIN;
-        primaryCircle = CirclePrefabs.Singleton.Rain_Circle;
-
-        selected_Min_Spawn_Interval = MIN_SPAWN_INTERVAL_RAIN;
-        selected_Max_Spawn_Interval = MAX_SPAWN_INTERVAL_RAIN;
-
-        StartCoroutine(SpawnRainCircles());
-        StartCoroutine(IncrementTaps());
-    }
-
-    // Classic Gamemode
-    IEnumerator SpawnCircles()
-    {
-        Debug.Log("Classic Gamemode playing");
-        while (GameManager.Singleton.CheckPlayerStatus())
+        if (activeRunner != null)
         {
-            GameObject circle;
-            if (CanSpawnGoodCircle())
-            {
-                circle = Instantiate(primaryCircle, spawnArea);
-            }
-            else
-            {
-                circle = Instantiate(alternateCircle, spawnArea);
-            }
-
-            circle.transform.localPosition = GetRandomSpawnPosition();
-            Debug.Log("Local Position: " + circle.transform.localPosition + "\nPosition: " + circle.transform.position);
-           
-            yield return new WaitForSeconds(spawnInterval);
+            activeRunner.StopMode();
         }
 
-        Debug.Log("END OF CLASSIC GAME");
+        if (runRoutine != null)
+        {
+            StopCoroutine(runRoutine);
+            runRoutine = null;
+        }
+
+        // destroy previous runner instance if we created one
+        var mb = activeRunner as MonoBehaviour;
+        if (mb) Destroy(mb.gameObject);
+
+        activeRunner = null;
         isSpawning = false;
     }
 
-    // Rain Gamemode
-    IEnumerator SpawnRainCircles()
+    GameModeConfig GetGameConfig(GameMode mode)
     {
-        bool doubleSpawn = false;
-        Debug.Log("Rain Gamemode playing");
-        while (GameManager.Singleton.CheckPlayerStatus())
+        switch (mode)
         {
-            GameObject circle = Instantiate(primaryCircle, spawnArea);
-            circle.transform.localPosition = GetRandomSpawnPosition();
-            circle.GetComponent<CircleRainBehavior>().SetupBehavior(minTaps, maxTaps);
-
-            if (Random.Range(0f, 1f) <= 0.25f && !doubleSpawn)
-            {
-                doubleSpawn = true;
-                continue;
-            }
-
-            doubleSpawn = false;
-            yield return new WaitForSeconds(spawnInterval);
+            case GameMode.Classic:
+                return classicConfig;
+            case GameMode.Rain:
+                return rainConfig;
         }
-
-        if (!doubleSpawn)
-        {
-            Debug.Log("END OF RAIN GAME");
-            isSpawning = false;
-        }
+        return null;
     }
 
-    private bool CanSpawnGoodCircle()
-    {
-        if (Random.Range(0f, 1f) > badPercentage)
-        {
-            return (true);
-        }
-        return (false);
-    }
-
-    IEnumerator IncrementTaps()
-    {
-        while (GameManager.Singleton.CheckPlayerStatus())
-        {
-            yield return new WaitForSeconds(3.5f * maxTaps);
-
-            if (maxTaps < 8)
-            {
-                maxTaps++;
-            }
-        }
-        maxTaps = 1;
-    }
-
-    // Spawns based on the spawnArea, which is changed based on the selected GameMode
-    private Vector2 GetRandomSpawnPosition()
-    {
-        float spawnWidth = spawnArea.rect.width;
-        float spawnHeight = spawnArea.rect.height;
-
-        Vector2 position = new Vector2(
-            Random.Range(-spawnWidth * 0.5f, spawnWidth * 0.5f),
-            Random.Range(-spawnHeight * 0.5f, spawnHeight * 0.5f)
-        );
-
-        Debug.Log(position);
-        return (position);
-    }
+    // Convenience wrappers if you still want enum buttons etc.
+    public void StartClassic() => StartSpawning(GameMode.Classic);
+    public void StartRain()    => StartSpawning(GameMode.Rain);
 }

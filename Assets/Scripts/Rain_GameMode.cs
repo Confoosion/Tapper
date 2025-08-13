@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class RainModeRunner : GameModeBase
+public class Rain_GameMode : GameModeBase
 {
     int minTaps, maxTaps;
     float tapTimer;

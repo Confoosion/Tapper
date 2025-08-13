@@ -20,12 +20,15 @@ public class GameModeConfig : ScriptableObject
     public float decayRate = 0.05f;           // used by exp decay
 
     [Header("Classic-only")]
-    [Range(0f,1f)] public float badPercentage = 0.1f;
+    [Range(0f, 1f)] public float badPercentage = 0.1f;
 
     [Header("Rain-only")]
     public int minTaps = 1;
     public int maxTaps = 1;
     public int maxTapCap = 8;
     public float tapIncreasePeriod = 3.5f;    // seconds * current maxTaps
-    [Range(0f,1f)] public float doubleSpawnChance = 0.25f;
+    [Range(0f, 1f)] public float doubleSpawnChance = 0.25f;
+
+    [Header("Flick-only")]
+    public RectTransform[] spawners;
 }

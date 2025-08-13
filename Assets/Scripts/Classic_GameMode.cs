@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ClassicModeRunner : GameModeBase
+public class Classic_GameMode : GameModeBase
 {
     public override IEnumerator Run()
     {
