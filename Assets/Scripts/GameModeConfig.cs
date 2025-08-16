@@ -30,5 +30,7 @@ public class GameModeConfig : ScriptableObject
     [Range(0f, 1f)] public float doubleSpawnChance = 0.25f;
 
     [Header("Flick-only")]
-    public RectTransform[] spawners;
+    public int minSpawns = 1;
+    public int maxSpawns = 8;
+    
 }

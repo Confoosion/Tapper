@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 
-public enum GameMode { Classic, Rain }
+public enum GameMode { Classic, Rain, Flick }
 public class GameManager : MonoBehaviour
 {
     public static GameManager Singleton { get; private set; }
@@ -108,6 +108,11 @@ public class GameManager : MonoBehaviour
                     lives = 1;
                     UIManager.Singleton.UpdateHearts(0);
                     SetPlayerStatus(true);
+                    break;
+                }
+            case GameMode.Flick:
+                {
+                    RemoveLives(0);
                     break;
                 }
         }

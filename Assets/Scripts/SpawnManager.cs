@@ -15,6 +15,7 @@ public class SpawnManager : MonoBehaviour
     [Header("Mode assets")]
     public GameModeConfig classicConfig;
     public GameModeConfig rainConfig;
+    public GameModeConfig flickConfig;
 
     IGameModeRunner activeRunner;
     Coroutine runRoutine;
@@ -28,7 +29,7 @@ public class SpawnManager : MonoBehaviour
     {
         StopSpawning();
 
-        GameModeConfig config = GetGameConfig(mode); 
+        GameModeConfig config = GetGameConfig(mode);
 
         // instantiate the runner prefab and init
         var runnerGO = Instantiate(config.runnerPrefab, transform);
@@ -76,11 +77,14 @@ public class SpawnManager : MonoBehaviour
                 return classicConfig;
             case GameMode.Rain:
                 return rainConfig;
+            case GameMode.Flick:
+                return flickConfig;
         }
         return null;
     }
 
     // Convenience wrappers if you still want enum buttons etc.
     public void StartClassic() => StartSpawning(GameMode.Classic);
-    public void StartRain()    => StartSpawning(GameMode.Rain);
+    public void StartRain() => StartSpawning(GameMode.Rain);
+    public void StartFlick() => StartSpawning(GameMode.Flick);
 }

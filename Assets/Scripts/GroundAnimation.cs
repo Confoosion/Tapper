@@ -4,6 +4,7 @@ public class GroundAnimation : MonoBehaviour
 {
     [SerializeField] private Vector2 Classic_Position;
     [SerializeField] private Vector2 Rain_Position;
+    [SerializeField] private Vector2 Flick_Position;
 
     private float animationTime = 1f;
 
@@ -19,6 +20,11 @@ public class GroundAnimation : MonoBehaviour
             case GameMode.Rain:
                 {
                     LeanTween.moveLocal(this.gameObject, Rain_Position, animationTime).setEase(LeanTweenType.easeOutCubic);
+                    break;
+                }
+            case GameMode.Flick:
+                {
+                    LeanTween.moveLocal(this.gameObject, Flick_Position, animationTime).setEase(LeanTweenType.easeOutCubic);
                     break;
                 }
         }

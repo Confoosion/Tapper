@@ -11,6 +11,10 @@ public class CirclePrefabs : MonoBehaviour
     [Header("Rain Game Mode")]
     public GameObject Rain_Circle;
 
+    [Header("Flick Game Mode")]
+    public GameObject Flick_LeftCircle;
+    public GameObject Flick_RightCircle;
+
     void Awake()
     {
         if (Singleton == null)

@@ -10,6 +10,10 @@ public class SpawnArea : MonoBehaviour
     [SerializeField] private Vector2 Rain_RectSize;
     [SerializeField] private Vector2 Rain_Position;
 
+    [Header("Flick Spawn Area")]
+    [SerializeField] private Vector2 Flick_RectSize;
+    [SerializeField] private Vector2 Flick_Position;
+
     private RectTransform rect;
 
     void Start()
@@ -33,6 +37,12 @@ public class SpawnArea : MonoBehaviour
                 {
                     rect.sizeDelta = Rain_RectSize;
                     rect.localPosition = Rain_Position;
+                    break;
+                }
+            case GameMode.Flick:
+                {
+                    rect.sizeDelta = Flick_RectSize;
+                    rect.localPosition = Flick_Position;
                     break;
                 }
         }

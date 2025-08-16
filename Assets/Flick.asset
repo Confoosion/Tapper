@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3335db025484e8b4597fd432773b8f19, type: 3}
   m_Name: Flick
   m_EditorClassIdentifier: 
-  gameMode: 0
-  runnerPrefab: {fileID: 0}
+  gameMode: 2
+  runnerPrefab: {fileID: 7910900124559596439, guid: d1a979cf9fdeb8f45abd19dd73f74c53, type: 3}
   spawnAreaOverride: {fileID: 0}
-  primaryPrefab: {fileID: 0}
-  alternatePrefab: {fileID: 0}
-  maxSpawnInterval: 1.5
-  minSpawnInterval: 0.2
+  primaryPrefab: {fileID: 738443123789434323, guid: 2b9559d4c4bd2b5418c675f6c332c36e, type: 3}
+  alternatePrefab: {fileID: 738443123789434323, guid: ec91d3b75b2506d4b9fbc3e76ba7cdc8, type: 3}
+  maxSpawnInterval: 2.5
+  minSpawnInterval: 1
   decayRate: 0.05
   badPercentage: 0.1
   minTaps: 1
@@ -26,8 +26,5 @@ MonoBehaviour:
   maxTapCap: 8
   tapIncreasePeriod: 3.5
   doubleSpawnChance: 0.25
-  spawners:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  minSpawns: 1
+  maxSpawns: 8
