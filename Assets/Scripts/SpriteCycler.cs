@@ -128,4 +128,10 @@ public class SpriteCycler : MonoBehaviour
         }
     }
 
+    public void SetSprites(Sprite[] _inSprites, Sprite[] _outSprites, Sprite[] _idleSprites = null)
+    {
+        inSprites = _inSprites;
+        outSprites = _outSprites;
+        idleSprites = _idleSprites;
+    }
 }

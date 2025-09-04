@@ -13,21 +13,19 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Image tapImage;
     [SerializeField] private SpriteCycler spriteCycler;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // public void OnEnable()
+    // {
+    //     spriteCycler.AnimateIn();
+    //     StartCoroutine(StayOnScreen());
+    // }
+
+    IEnumerator StayOnScreen()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void OnEnable()
-    {
-        spriteCycler.AnimateIn();
+        yield return new WaitForSeconds(timeOnScreen);
+        if (spriteCycler.canTap)
+        {
+            spriteCycler.AnimateOut();
+        }
     }
     
     public void OnPointerDown(PointerEventData eventData)
