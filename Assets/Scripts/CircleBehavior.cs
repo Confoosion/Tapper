@@ -2,13 +2,16 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CircleBehavior : MonoBehaviour, IPointerDownHandler
 {
     public bool isGood = true;
-    [SerializeField] private float timeOnScreen = 1f;
+    [SerializeField] private float timeOnScreen = 2f;
     [SerializeField] private SoundType soundType;
     [SerializeField] private GameObject gem;
+    [SerializeField] private Image tapImage;
+    [SerializeField] private SpriteCycler spriteCycler;
 
     void Awake()
     {
@@ -45,8 +48,9 @@ public class CircleBehavior : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (GameManager.Singleton.isPlaying && timeOnScreen > 0f)
+        if (GameManager.Singleton.isPlaying && timeOnScreen > 0f && spriteCycler.canTap)
         {
+            tapImage.gameObject.SetActive(true);
             if (isGood)
             {
                 ScoreManager.Singleton.AddPoints(1);
