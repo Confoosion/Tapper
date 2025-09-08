@@ -65,7 +65,7 @@ public class SpawnManager : MonoBehaviour
             }
 
             target.transform.localPosition = GetRandomSpawnPosition();
-            Debug.Log("Local Position: " + target.transform.localPosition + "\nPosition: " + target.transform.position);
+            // Debug.Log("Local Position: " + target.transform.localPosition + "\nPosition: " + target.transform.position);
             // Debug.Log("Spawned");
             yield return new WaitForSeconds(spawnInterval);
         }
@@ -93,7 +93,7 @@ public class SpawnManager : MonoBehaviour
             Random.Range(-spawnHeight * 0.5f, spawnHeight * 0.5f)
         );
 
-        Debug.Log(position);
+        // Debug.Log(position);
         return (position);
     }
 }

@@ -2015,8 +2015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce6db34d384138469c67f1f231cb1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedMode: 0
-  gameModeLabel: {fileID: 0}
 --- !u!1 &751367532
 GameObject:
   m_ObjectHideFlags: 0
@@ -4999,11 +4997,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSpawning: 0
   spawnArea: {fileID: 1288892160}
-  goodTarget: {fileID: 7910900124559596439, guid: 4fc629d83a4b07440be81ab7d9879294, type: 3}
+  goodTarget: {fileID: 2802138409187390077, guid: 0f588f4cfc3b36644b68d4e0516d1602, type: 3}
   badTarget: {fileID: 3598691821660758813, guid: 1915d8335e3a1cb489ad2fa887ec7efc, type: 3}
   badPercentage: 0.15
   MAX_SPAWN_INTERVAL: 1.5
-  MIN_SPAWN_INTERVAL: 0.25
+  MIN_SPAWN_INTERVAL: 0.5
   spawnInterval: 1.5
   decayRate: 0.05
   inGameTime: 0
@@ -5052,7 +5050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MM_highscore: {fileID: 1057845960}
   MM_gems: {fileID: 1664598447}
-  MM_arrows: {fileID: 1441333676}
+  MM_arrows: {fileID: 0}
   good_Image: {fileID: 319202230366041515, guid: dd29231a6558e8042991ae37d07f23f5, type: 3}
   bad_Image: {fileID: 8946530191119915437, guid: 1915d8335e3a1cb489ad2fa887ec7efc, type: 3}
   countdownObject: {fileID: 161217266}
@@ -5583,13 +5581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c1921fd0813214c9efe3a5395dbdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Classic_RectSize: {x: 800, y: 1075}
-  Classic_Position: {x: 0, y: -330}
-  Rain_RectSize: {x: 1000, y: 200}
-  Rain_Position: {x: 0, y: 1200}
-  Flick_RectSize: {x: 1000, y: 200}
-  Flick_Position: {x: 0, y: -1200}
-  rect: {fileID: 0}
 --- !u!1 &1289350071
 GameObject:
   m_ObjectHideFlags: 0
@@ -6707,7 +6698,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1441333675}
   - component: {fileID: 1441333677}
-  - component: {fileID: 1441333676}
   m_Layer: 5
   m_Name: Arrow_Holder
   m_TagString: Untagged
@@ -6736,20 +6726,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 638}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1441333676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441333674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35e9c07ac0297c240bf204c317a83c7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 1441333677}
-  rectTransform: {fileID: 1441333675}
 --- !u!225 &1441333677
 CanvasGroup:
   m_ObjectHideFlags: 0

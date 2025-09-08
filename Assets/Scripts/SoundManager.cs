@@ -77,6 +77,11 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(usedSounds[(int)sound], volume);
     }
 
+    public void PlaySound(AudioClip sfx, float volume = 1f)
+    {
+        audioSource.PlayOneShot(sfx, volume);
+    }
+
     public void PlayMusic()
     {
         musicSource.Stop();

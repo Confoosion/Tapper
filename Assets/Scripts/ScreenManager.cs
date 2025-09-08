@@ -132,13 +132,13 @@ public class ScreenManager : MonoBehaviour
         {
             MM_Title.AnimateTitle();
             LeanTween.moveLocal(MM_Highscore, highscore_ScreenSwapping.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
-            UIManager.Singleton.MM_arrows.Animate(true);
+            // UIManager.Singleton.MM_arrows.Animate(true);
         }
         else
         {
             MM_Title.AnimateTitle(false);
             LeanTween.moveLocal(MM_Highscore, highscore_ScreenSwapping.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
-            UIManager.Singleton.MM_arrows.Animate(false);
+            // UIManager.Singleton.MM_arrows.Animate(false);
         }
     }
 

@@ -8,7 +8,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
 {
     public bool isGood = true;
     [SerializeField] private float timeOnScreen = 2f;
-    [SerializeField] private AudioClip audio;
+    [SerializeField] private AudioClip sfx;
     [SerializeField] private GameObject gem;
     [SerializeField] private Image tapImage;
     [SerializeField] private SpriteCycler spriteCycler;
@@ -34,21 +34,21 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
         {
             spriteCycler.canTap = false;
             tapImage.gameObject.SetActive(true);
+    
+            if (isGood)
+            {
+                ScoreManager.Singleton.AddPoints(1);
+                if (ScoreManager.Singleton.AddCircleTapped())
+                {
+                    Instantiate(gem, this.transform.position, Quaternion.identity, SpawnManager.Singleton.spawnArea);
+                }
+            }
+            else
+            {
+                GameManager.Singleton.RemoveLives(1);
+            }
+            SoundManager.Singleton.PlaySound(sfx);
             spriteCycler.AnimateHit();
-            // if (isGood)
-            // {
-            //     ScoreManager.Singleton.AddPoints(1);
-            //     if (ScoreManager.Singleton.AddCircleTapped())
-            //     {
-            //         Instantiate(gem, this.transform.position, Quaternion.identity, SpawnManager.Singleton.spawnArea);
-            //     }
-            // }
-            // else
-            // {
-            //     GameManager.Singleton.RemoveLives(1);
-            // }
-            // SoundManager.Singleton.PlaySound(soundType);
-            // Destroy(this.gameObject);
         }
     }
 }

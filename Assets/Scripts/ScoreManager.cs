@@ -24,7 +24,7 @@ public class ScoreManager : MonoBehaviour
 
         if (circlesTapped % 10 == 0)
         {
-            SoundManager.Singleton.PlaySound(SoundType.Gem, 0.1f);
+            SoundManager.Singleton.PlaySound(SoundType.Gem, 0.25f);
             AddGems(1);
             return (true);
         }

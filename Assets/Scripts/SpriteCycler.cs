@@ -46,23 +46,26 @@ public class SpriteCycler : MonoBehaviour
 
     private void AnimateImage(bool animateIn, bool gotHit = false)
     {
-        if (_animation == null)
+        if (_animation != null)
         {
-            if (animateIn)  // Animal is out of the hole and shown
-            {
-                _animation = StartCoroutine(CycleSprites(inSprites, true));
-            }
-            else
-            {
-                if (_idleAnimation != null)
-                    _idleAnimation = null;
-
-                if (gotHit) // Hit animation plays
-                    _animation = StartCoroutine(CycleSprites(outSprites, false, true));
-                else        // Animal goes back into hiding (reversed animation)
-                    _animation = StartCoroutine(CycleSprites(inSprites, false, true));
-            }
+            _animation = null;
         }
+
+        if (animateIn)  // Animal is out of the hole and shown
+        {
+            _animation = StartCoroutine(CycleSprites(inSprites, true));
+        }
+        else
+        {
+            if (_idleAnimation != null)
+                _idleAnimation = null;
+
+            if (gotHit) // Hit animation plays
+                _animation = StartCoroutine(CycleSprites(outSprites, false, true));
+            else        // Animal goes back into hiding (reversed animation)
+                _animation = StartCoroutine(CycleSprites(inSprites, false, true));
+        }
+
     }
 
     private IEnumerator CycleSprites(Sprite[] sprites, bool cycleIn, bool backwards = false)
@@ -73,6 +76,10 @@ public class SpriteCycler : MonoBehaviour
             {
                 _image.sprite = sprites[i];
                 int dirtIndex = i - 1;
+
+                if (i == 1)
+                    canTap = true;
+                    
                 if (dirtIndex >= 0 && dirtIndex < dirtSprites.Length)
                 {
                     _dirtImage.gameObject.SetActive(true);
@@ -80,6 +87,7 @@ public class SpriteCycler : MonoBehaviour
                 }
                 else
                     _dirtImage.gameObject.SetActive(false);
+
                 yield return new WaitForSeconds(cycleInterval);
             }
         }
@@ -89,6 +97,10 @@ public class SpriteCycler : MonoBehaviour
             {
                 _image.sprite = sprites[i];
                 int dirtIndex = i - 1;
+
+                if (i == 0)
+                    canTap = false;
+
                 if (dirtIndex >= 0 && dirtIndex < dirtSprites.Length)
                 {
                     _dirtImage.gameObject.SetActive(true);
@@ -96,21 +108,18 @@ public class SpriteCycler : MonoBehaviour
                 }
                 else
                     _dirtImage.gameObject.SetActive(false);
+
                 yield return new WaitForSeconds(cycleInterval);
             }
         }
 
-        if (cycleIn)
-        {
-            canTap = true;
-            if (idleSprites.Length > 0)
-            {
-                _idleAnimation = StartCoroutine(IdleAnimate(idleSprites));
-            }
-        }
-        else
+        if (!cycleIn)
         {
             Destroy(this.gameObject);
+        }
+        else if(idleSprites.Length > 0)
+        {
+            _idleAnimation = StartCoroutine(IdleAnimate(idleSprites));
         }
 
         _animation = null;
