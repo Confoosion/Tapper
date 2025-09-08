@@ -144,7 +144,7 @@ public class ScreenManager : MonoBehaviour
 
     void GoToGame()
     {
-        Ground_Anim.UpdateGroundPosition(GameManager.Singleton.GetGameMode());
+        // Ground_Anim.UpdateGroundPosition(GameManager.Singleton.GetGameMode());
         UIManager.Singleton.BeginCountdown();
         GameManager.Singleton.ResetValues();
     }
@@ -160,7 +160,7 @@ public class ScreenManager : MonoBehaviour
             UIManager.Singleton.ShowHighscore(false);
             UIManager.Singleton.ShowEndScreenButtons(false);
 
-            Ground_Anim.UpdateGroundPosition(GameMode.Classic);
+            // Ground_Anim.UpdateGroundPosition(GameMode.Classic);
             
             endGame = StartCoroutine(GameOver_Anim(gotHighscore));
         }

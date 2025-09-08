@@ -5,7 +5,7 @@ public class BackgroundHitbox : MonoBehaviour, IPointerDownHandler
 {
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (GameManager.Singleton.isPlaying && GameManager.Singleton.GetGameMode() == GameMode.Classic)
+        if (GameManager.Singleton.isPlaying)
         {
             ScoreManager.Singleton.AddPoints(-1);
         }

@@ -1,14 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
-
-public enum GameMode { Classic, Rain, Flick }
 public class GameManager : MonoBehaviour
 {
     public static GameManager Singleton { get; private set; }
 
     public bool isPlaying;
-    [SerializeField] private GameMode selectedGameMode;
     [SerializeField] private bool isAlive = true;
 
     [SerializeField] private int lives = 3;
@@ -31,24 +28,23 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("GetFPS", 1, 1);
     }
 
-    public void UpdateGameMode(GameMode mode)
-    {
-        selectedGameMode = mode;
-        UIManager.Singleton.SwitchBackgrounds((int)selectedGameMode);
-        UIManager.Singleton.UpdateHighscoreUI();
-    }
+    // public void UpdateGameMode(GameMode mode)
+    // {
+    //     selectedGameMode = mode;
+    //     UIManager.Singleton.SwitchBackgrounds((int)selectedGameMode);
+    //     UIManager.Singleton.UpdateHighscoreUI();
+    // }
 
-    public GameMode GetGameMode()
-    {
-        return (selectedGameMode);
-    }
+    // public GameMode GetGameMode()
+    // {
+    //     return (selectedGameMode);
+    // }
 
     public void StartGame()
     {
         isPlaying = true;
-        UIManager.Singleton.spawnArea.UpdateSpawnArea(selectedGameMode);
         ScoreManager.Singleton.ResetCirclesTapped();
-        SpawnManager.Singleton.StartSpawning(selectedGameMode);
+        SpawnManager.Singleton.StartSpawning();
     }
 
     public bool CheckPlayerStatus()
@@ -96,26 +92,7 @@ public class GameManager : MonoBehaviour
     public void ResetValues()
     {
         ScoreManager.Singleton.AddPoints(0);
-        switch (selectedGameMode)
-        {
-            case GameMode.Classic:
-                {
-                    RemoveLives(0);
-                    break;
-                }
-            case GameMode.Rain:
-                {
-                    lives = 1;
-                    UIManager.Singleton.UpdateHearts(0);
-                    SetPlayerStatus(true);
-                    break;
-                }
-            case GameMode.Flick:
-                {
-                    RemoveLives(0);
-                    break;
-                }
-        }
+        RemoveLives(0);
     }
 
     void GetFPS()

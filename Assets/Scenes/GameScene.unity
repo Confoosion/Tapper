@@ -1884,7 +1884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &714681383
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2016,6 +2016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedMode: 0
+  gameModeLabel: {fileID: 0}
 --- !u!1 &751367532
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,11 +4997,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd717f77d9f5cdb4fb6e243a55fc8fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnArea: {fileID: 1288892160}
   isSpawning: 0
-  classicConfig: {fileID: 11400000, guid: f47c302ae49debf49bf248df8f536bf2, type: 2}
-  rainConfig: {fileID: 11400000, guid: 3bb26cdadff1cec4f84517594f472c87, type: 2}
-  flickConfig: {fileID: 11400000, guid: ca9b68a7a5893fd449a37bd1420d2880, type: 2}
+  spawnArea: {fileID: 1288892160}
+  goodTarget: {fileID: 7910900124559596439, guid: 4fc629d83a4b07440be81ab7d9879294, type: 3}
+  badTarget: {fileID: 3598691821660758813, guid: 1915d8335e3a1cb489ad2fa887ec7efc, type: 3}
+  badPercentage: 0.15
+  MAX_SPAWN_INTERVAL: 1.5
+  MIN_SPAWN_INTERVAL: 0.25
+  spawnInterval: 1.5
+  decayRate: 0.05
+  inGameTime: 0
 --- !u!4 &1206995910
 Transform:
   m_ObjectHideFlags: 0
@@ -5029,7 +5035,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlaying: 0
-  selectedGameMode: 0
   isAlive: 1
   lives: 3
   fps: 0
@@ -5061,7 +5066,6 @@ MonoBehaviour:
   - {fileID: 1837110300}
   - {fileID: 799395583}
   points: {fileID: 1676084436}
-  spawnArea: {fileID: 1288892163}
   score: {fileID: 582462}
   GO_highscore: {fileID: 585538905}
   highscoreLabel: {fileID: 1649407886}
@@ -5585,6 +5589,7 @@ MonoBehaviour:
   Rain_Position: {x: 0, y: 1200}
   Flick_RectSize: {x: 1000, y: 200}
   Flick_Position: {x: 0, y: -1200}
+  rect: {fileID: 0}
 --- !u!1 &1289350071
 GameObject:
   m_ObjectHideFlags: 0
@@ -6523,9 +6528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1634a50f66eb54a98d11e7cfaf61b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Classic_Position: {x: 0, y: 0}
-  Rain_Position: {x: 0, y: -5}
-  Flick_Position: {x: 0, y: 1.3}
 --- !u!1 &1382764419
 GameObject:
   m_ObjectHideFlags: 0
@@ -6712,7 +6714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1441333675
 RectTransform:
   m_ObjectHideFlags: 0

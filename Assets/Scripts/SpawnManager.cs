@@ -1,90 +1,99 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager Singleton { get; private set; }
 
-    [Header("Default spawn area (can be overridden per mode)")]
-    public RectTransform spawnArea;
-
-    [Header("Active state (read-only)")]
     [SerializeField] private bool isSpawning;
+    public RectTransform spawnArea;
+    public GameObject goodTarget;
+    public GameObject badTarget;
 
-    [Header("Mode assets")]
-    public GameModeConfig classicConfig;
-    public GameModeConfig rainConfig;
-    public GameModeConfig flickConfig;
+    public float badPercentage = 0.15f;
 
-    IGameModeRunner activeRunner;
-    Coroutine runRoutine;
+    public float MAX_SPAWN_INTERVAL = 1.5f;
+    public float MIN_SPAWN_INTERVAL = 0.25f;
+    [SerializeField] float spawnInterval = 1.5f;
+    public float decayRate = 0.05f;
+
+    [SerializeField] float inGameTime = 0f;
 
     void Awake()
     {
-        if (Singleton == null) Singleton = this;
+        if (Singleton == null)
+        {
+            Singleton = this;
+        }
     }
 
-    public void StartSpawning(GameMode mode)
+    void Update()
     {
-        StopSpawning();
-
-        GameModeConfig config = GetGameConfig(mode);
-
-        // instantiate the runner prefab and init
-        var runnerGO = Instantiate(config.runnerPrefab, transform);
-        activeRunner = runnerGO.GetComponent<IGameModeRunner>();
-        if (activeRunner == null)
+        if (isSpawning && GameManager.Singleton.CheckPlayerStatus())
         {
-            Debug.LogError("Runner prefab is missing an IGameModeRunner component.");
-            Destroy(runnerGO);
-            return;
-        }
+            inGameTime += Time.deltaTime;
 
-        activeRunner.Init(this, config);
+            if (spawnInterval != MIN_SPAWN_INTERVAL)
+            {
+                spawnInterval = Mathf.Max(MIN_SPAWN_INTERVAL, MAX_SPAWN_INTERVAL * Mathf.Exp(-decayRate * inGameTime));
+            }
+        }
+    }
+
+    public void StartSpawning()
+    {
+        inGameTime = 0f;
+        spawnInterval = MAX_SPAWN_INTERVAL;
         isSpawning = true;
-        runRoutine = StartCoroutine(activeRunner.Run());
+        StartCoroutine(SpawnCircles());
     }
 
-    public void StopSpawning()
+    // Main spawning function
+    IEnumerator SpawnCircles()
     {
-        if (!isSpawning) return;
-
-        if (activeRunner != null)
+        while (GameManager.Singleton.CheckPlayerStatus())
         {
-            activeRunner.StopMode();
+            GameObject target;
+            if (CanSpawnGoodCircle())
+            {
+                target = Instantiate(goodTarget, spawnArea);
+            }
+            else
+            {
+                target = Instantiate(badTarget, spawnArea);
+            }
+
+            target.transform.localPosition = GetRandomSpawnPosition();
+            Debug.Log("Local Position: " + target.transform.localPosition + "\nPosition: " + target.transform.position);
+            // Debug.Log("Spawned");
+            yield return new WaitForSeconds(spawnInterval);
         }
 
-        if (runRoutine != null)
-        {
-            StopCoroutine(runRoutine);
-            runRoutine = null;
-        }
-
-        // destroy previous runner instance if we created one
-        var mb = activeRunner as MonoBehaviour;
-        if (mb) Destroy(mb.gameObject);
-
-        activeRunner = null;
+        Debug.Log("END OF GAME");
         isSpawning = false;
     }
 
-    GameModeConfig GetGameConfig(GameMode mode)
+    private bool CanSpawnGoodCircle()
     {
-        switch (mode)
+        if (Random.Range(0f, 1f) > badPercentage)
         {
-            case GameMode.Classic:
-                return classicConfig;
-            case GameMode.Rain:
-                return rainConfig;
-            case GameMode.Flick:
-                return flickConfig;
+            return (true);
         }
-        return null;
+        return (false);
     }
 
-    // Convenience wrappers if you still want enum buttons etc.
-    public void StartClassic() => StartSpawning(GameMode.Classic);
-    public void StartRain() => StartSpawning(GameMode.Rain);
-    public void StartFlick() => StartSpawning(GameMode.Flick);
+    private Vector2 GetRandomSpawnPosition() // ADD CLAMP TO THE POSITION
+    {
+        float spawnWidth = spawnArea.rect.width;
+        float spawnHeight = spawnArea.rect.height;
+
+        Vector2 position = new Vector2(
+            Random.Range(-spawnWidth * 0.5f, spawnWidth * 0.5f),
+            Random.Range(-spawnHeight * 0.5f, spawnHeight * 0.5f)
+        );
+
+        Debug.Log(position);
+        return (position);
+    }
 }

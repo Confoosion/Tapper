@@ -13,11 +13,11 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Image tapImage;
     [SerializeField] private SpriteCycler spriteCycler;
 
-    // public void OnEnable()
-    // {
-    //     spriteCycler.AnimateIn();
-    //     StartCoroutine(StayOnScreen());
-    // }
+    public void OnEnable()
+    {
+        spriteCycler.AnimateIn();
+        StartCoroutine(StayOnScreen());
+    }
 
     IEnumerator StayOnScreen()
     {

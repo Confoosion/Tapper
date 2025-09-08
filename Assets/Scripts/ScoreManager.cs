@@ -64,11 +64,11 @@ public class ScoreManager : MonoBehaviour
         UIManager.Singleton.UpdateGemUI();
     }
 
-    public int GetHighscore(GameMode mode)
+    public int GetHighscore()
     {
-        if (PlayerPrefs.HasKey("SavedHighScore_" + mode.ToString()))
+        if (PlayerPrefs.HasKey("SavedHighScore"))
         {
-            return (PlayerPrefs.GetInt("SavedHighScore_" + mode.ToString()));
+            return (PlayerPrefs.GetInt("SavedHighScore"));
         }
         return (0);
     }
@@ -82,18 +82,18 @@ public class ScoreManager : MonoBehaviour
         return (0);
     }
 
-    public void UpdateHighscore(int points, GameMode mode)
+    public void UpdateHighscore(int points)
     {
-        if (PlayerPrefs.HasKey("SavedHighScore_" + mode.ToString()))
+        if (PlayerPrefs.HasKey("SavedHighScore"))
         {
-            if (points > PlayerPrefs.GetInt("SavedHighScore_" + mode.ToString()))
+            if (points > PlayerPrefs.GetInt("SavedHighScore"))
             {
-                PlayerPrefs.SetInt("SavedHighScore_" + mode.ToString(), points);
+                PlayerPrefs.SetInt("SavedHighScore", points);
             }
         }
         else
         {
-            PlayerPrefs.SetInt("SavedHighScore_" + mode.ToString(), points);
+            PlayerPrefs.SetInt("SavedHighScore", points);
         }
     }
 }

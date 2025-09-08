@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> hearts = new List<GameObject>();
     [SerializeField] private TextMeshProUGUI points;
-    public SpawnArea spawnArea;
+    // public SpawnArea spawnArea;
 
     [Header("GameOver Screen UI")]
     [SerializeField] private TextMeshProUGUI score;
@@ -97,9 +97,9 @@ public class UIManager : MonoBehaviour
     {
         score.SetText(num.ToString());
 
-        if (num > ScoreManager.Singleton.GetHighscore(GameManager.Singleton.GetGameMode()))
+        if (num > ScoreManager.Singleton.GetHighscore())
         {
-            ScoreManager.Singleton.UpdateHighscore(num, GameManager.Singleton.GetGameMode());
+            ScoreManager.Singleton.UpdateHighscore(num);
             UpdateHighscoreUI();
 
             return (true);
@@ -109,8 +109,8 @@ public class UIManager : MonoBehaviour
 
     public void UpdateHighscoreUI()
     {
-        MM_highscore.SetText(ScoreManager.Singleton.GetHighscore(GameManager.Singleton.GetGameMode()).ToString());
-        GO_highscore.SetText(ScoreManager.Singleton.GetHighscore(GameManager.Singleton.GetGameMode()).ToString());
+        MM_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
+        GO_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
     }
 
     public void UpdateGemCount()
