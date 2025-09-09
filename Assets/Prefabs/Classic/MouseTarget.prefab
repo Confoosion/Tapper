@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 8110159999727985806}
   - component: {fileID: 3422717075018756210}
   m_Layer: 5
-  m_Name: MoleTarget
+  m_Name: MouseTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,13 +131,13 @@ MonoBehaviour:
   _image: {fileID: 6593003329329549726}
   _dirtImage: {fileID: 5000807123262230485}
   inSprites:
-  - {fileID: 21300000, guid: 71a4b7404e231cf4eb271f6f6992072f, type: 3}
-  - {fileID: 21300000, guid: c762ddda21fc09b449c4284b8bf93fd0, type: 3}
-  - {fileID: 21300000, guid: e10c692812ccb074f9b5f00048553f67, type: 3}
+  - {fileID: 21300000, guid: 13d6040c1182cc64d932def48cf4a8df, type: 3}
+  - {fileID: 21300000, guid: 58f53d4f121d61e48b999989b89c295a, type: 3}
+  - {fileID: 21300000, guid: 6f8e4c51798f58040a8e6bbe0f9a86c3, type: 3}
   outSprites:
-  - {fileID: 21300000, guid: 3857768fed4fa0d4ab2c0fbe909a1f3b, type: 3}
-  - {fileID: 21300000, guid: 6f27a7f8238ca224486c224a0f0fb7cc, type: 3}
-  - {fileID: 21300000, guid: a814c6eec0ada5d459ab7dce5c916b7a, type: 3}
+  - {fileID: 21300000, guid: 54efe0516a0fa924689002687c9b64ee, type: 3}
+  - {fileID: 21300000, guid: 98f249221134bbe4984af17aabd8e203, type: 3}
+  - {fileID: 21300000, guid: 6add8ba2454194746b1561d96343070f, type: 3}
   idleSprites: []
   dirtSprites:
   - {fileID: 21300000, guid: 6cf1963093f231347ba0adc66d70df42, type: 3}
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGood: 1
   timeOnScreen: 1.5
-  sfx: {fileID: 8300000, guid: d3cd934e022aa1541ba12b69b6068403, type: 3}
+  sfx: {fileID: 8300000, guid: 8c0f4889038b03240b0a9e5629bcef7b, type: 3}
   gem: {fileID: 8494625251215090528, guid: 45c0d6613ff9b424d96fa7955d31898d, type: 3}
   tapImage: {fileID: 2289735626778924471}
   spriteCycler: {fileID: 1557323733571368251}

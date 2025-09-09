@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 8110159999727985806}
   - component: {fileID: 3422717075018756210}
   m_Layer: 5
-  m_Name: MoleTarget
+  m_Name: BombTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,14 +131,16 @@ MonoBehaviour:
   _image: {fileID: 6593003329329549726}
   _dirtImage: {fileID: 5000807123262230485}
   inSprites:
-  - {fileID: 21300000, guid: 71a4b7404e231cf4eb271f6f6992072f, type: 3}
-  - {fileID: 21300000, guid: c762ddda21fc09b449c4284b8bf93fd0, type: 3}
-  - {fileID: 21300000, guid: e10c692812ccb074f9b5f00048553f67, type: 3}
+  - {fileID: 21300000, guid: 793d658f0f9b98b458a0a590ee699c51, type: 3}
+  - {fileID: 21300000, guid: c1d98471aba4d174689ffd826a69a3d5, type: 3}
+  - {fileID: 21300000, guid: 9580b224948bca24b96eb8d9710714ee, type: 3}
   outSprites:
-  - {fileID: 21300000, guid: 3857768fed4fa0d4ab2c0fbe909a1f3b, type: 3}
-  - {fileID: 21300000, guid: 6f27a7f8238ca224486c224a0f0fb7cc, type: 3}
-  - {fileID: 21300000, guid: a814c6eec0ada5d459ab7dce5c916b7a, type: 3}
-  idleSprites: []
+  - {fileID: 21300000, guid: 793d658f0f9b98b458a0a590ee699c51, type: 3}
+  - {fileID: 21300000, guid: 15ae4cd2030ba894ba603aaf613fe6a9, type: 3}
+  - {fileID: 21300000, guid: c1d98471aba4d174689ffd826a69a3d5, type: 3}
+  idleSprites:
+  - {fileID: 21300000, guid: 9580b224948bca24b96eb8d9710714ee, type: 3}
+  - {fileID: 21300000, guid: ee21fb8c2cb06f64e82d410394484b6a, type: 3}
   dirtSprites:
   - {fileID: 21300000, guid: 6cf1963093f231347ba0adc66d70df42, type: 3}
   - {fileID: 21300000, guid: 060fb3afe33d3d34483edc9d725e11a4, type: 3}
@@ -156,10 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b864283dcd7ea9498f5a076b2de890e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGood: 1
+  isGood: 0
   timeOnScreen: 1.5
-  sfx: {fileID: 8300000, guid: d3cd934e022aa1541ba12b69b6068403, type: 3}
-  gem: {fileID: 8494625251215090528, guid: 45c0d6613ff9b424d96fa7955d31898d, type: 3}
+  sfx: {fileID: 8300000, guid: 1b5b7dd02597d39459dc8a1b97ec0d07, type: 3}
+  gem: {fileID: 0}
   tapImage: {fileID: 2289735626778924471}
   spriteCycler: {fileID: 1557323733571368251}
   tapped: 0
@@ -241,7 +243,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aaf3475b772350c46a97f3c714494422, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 98c933c489c003b42a768ee399e67b4a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

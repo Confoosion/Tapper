@@ -48,6 +48,7 @@ public class SpriteCycler : MonoBehaviour
     {
         if (_animation != null)
         {
+            StopCoroutine(_animation);
             _animation = null;
         }
 

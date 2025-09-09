@@ -12,6 +12,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     [SerializeField] private GameObject gem;
     [SerializeField] private Image tapImage;
     [SerializeField] private SpriteCycler spriteCycler;
+    [SerializeField] private bool tapped = false;
 
     public void OnEnable()
     {
@@ -27,14 +28,15 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
             spriteCycler.AnimateOut();
         }
     }
-    
+
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (timeOnScreen > 0f && spriteCycler.canTap)
+        if (GameManager.Singleton.isPlaying && spriteCycler.canTap)
         {
             spriteCycler.canTap = false;
+            tapped = true;
             tapImage.gameObject.SetActive(true);
-    
+
             if (isGood)
             {
                 ScoreManager.Singleton.AddPoints(1);
@@ -49,6 +51,14 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
             }
             SoundManager.Singleton.PlaySound(sfx);
             spriteCycler.AnimateHit();
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (!tapped && isGood && GameManager.Singleton.isPlaying)
+        {
+            GameManager.Singleton.RemoveLives(1);
         }
     }
 }

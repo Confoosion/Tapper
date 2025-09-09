@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField] private bool isSpawning;
     public RectTransform spawnArea;
-    public GameObject goodTarget;
+    public GameObject[] goodTargets;
     public GameObject badTarget;
 
     public float badPercentage = 0.15f;
@@ -57,7 +57,7 @@ public class SpawnManager : MonoBehaviour
             GameObject target;
             if (CanSpawnGoodCircle())
             {
-                target = Instantiate(goodTarget, spawnArea);
+                target = Instantiate(goodTargets[Random.Range(0, goodTargets.Length)], spawnArea);
             }
             else
             {
