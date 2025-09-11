@@ -13,11 +13,13 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Image tapImage;
     [SerializeField] private SpriteCycler spriteCycler;
     [SerializeField] private bool tapped = false;
+    [SerializeField] private bool validLocation = true;
+    private Coroutine run;
 
     public void OnEnable()
     {
         spriteCycler.AnimateIn();
-        StartCoroutine(StayOnScreen());
+        run = StartCoroutine(StayOnScreen());
     }
 
     IEnumerator StayOnScreen()
@@ -54,11 +56,30 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
         }
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (run == null)
+        {
+            Debug.Log("Object colliding");
+            validLocation = false;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (run == null)
+        {
+            Debug.Log("Object NOT colliding");
+            validLocation = true;
+        }
+    }
+
     void OnDestroy()
     {
         if (!tapped && isGood && GameManager.Singleton.isPlaying)
         {
             GameManager.Singleton.RemoveLives(1);
         }
+        SpawnManager.Singleton.RemoveTarget(GetComponent<RectTransform>());
     }
 }

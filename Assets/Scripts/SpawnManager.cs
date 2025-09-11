@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
@@ -19,6 +20,9 @@ public class SpawnManager : MonoBehaviour
     public float decayRate = 0.05f;
 
     [SerializeField] float inGameTime = 0f;
+
+    [SerializeField] GameObject placementTester;
+    [SerializeField] List<RectTransform> targets = new List<RectTransform>();
 
     void Awake()
     {
@@ -64,9 +68,9 @@ public class SpawnManager : MonoBehaviour
                 target = Instantiate(badTarget, spawnArea);
             }
 
-            target.transform.localPosition = GetRandomSpawnPosition();
-            // Debug.Log("Local Position: " + target.transform.localPosition + "\nPosition: " + target.transform.position);
-            // Debug.Log("Spawned");
+            targets.Add(target.GetComponent<RectTransform>());
+            GetRandomSpawnPosition(target);
+
             yield return new WaitForSeconds(spawnInterval);
         }
 
@@ -83,7 +87,7 @@ public class SpawnManager : MonoBehaviour
         return (false);
     }
 
-    private Vector2 GetRandomSpawnPosition() // ADD CLAMP TO THE POSITION
+    public void GetRandomSpawnPosition(GameObject target) // ADD CLAMP TO THE POSITION
     {
         float spawnWidth = spawnArea.rect.width;
         float spawnHeight = spawnArea.rect.height;
@@ -93,7 +97,46 @@ public class SpawnManager : MonoBehaviour
             Random.Range(-spawnHeight * 0.5f, spawnHeight * 0.5f)
         );
 
-        // Debug.Log(position);
-        return (position);
+        placementTester.transform.localPosition = position;
+        if (IsOverlapping(placementTester.GetComponent<RectTransform>()))
+        {
+            GetRandomSpawnPosition(target);
+        }
+        else
+        {
+            target.transform.localPosition = position;
+        }
+    }
+
+    private bool IsOverlapping(RectTransform targetRect)
+    {
+        Vector3[] targetCorners = new Vector3[4];
+        Vector3[] rectCorners = new Vector3[4];
+        targetRect.GetWorldCorners(targetCorners);
+        Rect rect1 = new Rect(targetCorners[0], targetCorners[2] - targetCorners[0]);
+        Rect rect2;
+
+        foreach (RectTransform rect in targets)
+        {
+            if (rect == null)
+            {
+                continue;
+            }
+
+            rect.GetWorldCorners(rectCorners);
+            rect2 = new Rect(rectCorners[0], rectCorners[2] - rectCorners[0]);
+
+            if (rect1.Overlaps(rect2))
+            {
+                return (true);
+            }
+        }
+
+        return (false);
+    }
+
+    public void RemoveTarget(RectTransform target)
+    {
+        targets.Remove(target);
     }
 }
