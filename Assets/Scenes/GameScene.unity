@@ -2070,7 +2070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &422566671
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2087,7 +2087,6 @@ RectTransform:
   - {fileID: 1586724249}
   - {fileID: 1031532128}
   - {fileID: 1289350072}
-  - {fileID: 795584429}
   - {fileID: 1535213410}
   m_Father: {fileID: 970993267}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4139,11 +4138,11 @@ RectTransform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 422566671}
+  m_Father: {fileID: 1758330611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -650}
+  m_AnchoredPosition: {x: 0, y: -993}
   m_SizeDelta: {x: 300, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &795584430
@@ -4246,7 +4245,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d23f834d2d5e3f0428261d040bae783c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 902ccb78fd3c78e4b88d35978647094f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6616,10 +6615,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1535213410}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 279, y: -80}
+  m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1028305990
 MonoBehaviour:
@@ -6838,10 +6837,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1535213410}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 121, y: -80}
+  m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1045177793
 MonoBehaviour:
@@ -8282,7 +8281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionTime: 1
   MainMenu: {fileID: 1522404293}
-  Themes: {fileID: 422566670}
+  Leaderboard: {fileID: 1758330610}
   Settings: {fileID: 1752764515}
   Game: {fileID: 937875902}
   GameOver: {fileID: 208582374}
@@ -10928,7 +10927,7 @@ MonoBehaviour:
         m_MethodName: SwitchScreen
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 422566674}
+          m_ObjectArgument: {fileID: 1758330613}
           m_ObjectArgumentAssemblyTypeName: ScreenSwapping, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -11989,12 +11988,13 @@ RectTransform:
   - {fileID: 2098683636}
   - {fileID: 1956223743}
   - {fileID: 329893128}
+  - {fileID: 795584429}
   m_Father: {fileID: 970993267}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMax: {x: 0.5, y: 0.51982903}
+  m_AnchoredPosition: {x: 0, y: -1639}
+  m_SizeDelta: {x: 100, y: 58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1758330612
 MonoBehaviour:
@@ -12008,6 +12008,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc6b8085a8f0bb344b5800c8cdc4aff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  names:
+  - {fileID: 2056246462}
+  - {fileID: 696152818}
+  - {fileID: 1134195898}
+  - {fileID: 974787293}
+  - {fileID: 992805364}
+  - {fileID: 885770413}
+  - {fileID: 1069078586}
+  - {fileID: 195117824}
+  - {fileID: 1541052008}
+  - {fileID: 180369165}
+  scores:
+  - {fileID: 122352194}
+  - {fileID: 1658867005}
+  - {fileID: 632368311}
+  - {fileID: 829730928}
+  - {fileID: 149791837}
+  - {fileID: 105397213}
+  - {fileID: 1972120496}
+  - {fileID: 2143870239}
+  - {fileID: 1749863663}
+  - {fileID: 825770479}
 --- !u!114 &1758330613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12020,8 +12042,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653548c0e1468914cb9a8cf90d2e531e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inPosition: {x: 0, y: 0, z: 0}
-  outPosition: {x: 0, y: -1450, z: 0}
+  inPosition: {x: 0, y: 155, z: 0}
+  outPosition: {x: 0, y: -1650, z: 0}
 --- !u!1 &1833499941
 GameObject:
   m_ObjectHideFlags: 0

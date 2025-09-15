@@ -89,11 +89,13 @@ public class ScoreManager : MonoBehaviour
             if (points > PlayerPrefs.GetInt("SavedHighScore"))
             {
                 PlayerPrefs.SetInt("SavedHighScore", points);
+                LeaderboardManager.Singleton.SetLeaderboardEntry("Build test", points);
             }
         }
         else
         {
             PlayerPrefs.SetInt("SavedHighScore", points);
+            LeaderboardManager.Singleton.SetLeaderboardEntry("Build test", points);
         }
     }
 }

@@ -10,7 +10,7 @@ public class ScreenManager : MonoBehaviour
 
     [Header("UI Screens")]
     [SerializeField] private GameObject MainMenu;
-    [SerializeField] private GameObject Themes, Settings, Game, GameOver;
+    [SerializeField] private GameObject Leaderboard, Settings, Game, GameOver;
 
     [Header("Moving UI Elements")]
     [SerializeField] private TitleAnimation MM_Title;
