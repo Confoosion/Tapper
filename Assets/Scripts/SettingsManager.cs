@@ -65,4 +65,6 @@ public class SettingsManager : MonoBehaviour
         audioMixer.SetFloat("Music_Volume", -80f);
         PlayerPrefs.SetInt("IsMusicMuted", 1);
     }
+
+    
 }

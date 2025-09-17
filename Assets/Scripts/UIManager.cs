@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI MM_gems;
     public AnimateArrows MM_arrows;
 
+    [Header("Settings UI")]
+    [SerializeField] private TextMeshProUGUI confirmText;
+
     private float countdownInterval = 0.8f;
     [Header("Game Screen UI")]
     [SerializeField] private Image good_Image;
@@ -148,6 +151,20 @@ public class UIManager : MonoBehaviour
     {
         good_Image.sprite = good;
         bad_Image.sprite = bad;
+    }
+
+    public void ShowConfirm(bool show)
+    {
+        if (show)
+        {
+            confirmText.SetText("Tap again to\nReset Data");
+        }
+        confirmText.gameObject.SetActive(show);
+    }
+
+    public void UpdateConfirm()
+    {
+        confirmText.SetText("Your data has been\nReset");
     }
 
     public bool IsCoroutineActive()
