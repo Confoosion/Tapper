@@ -21,6 +21,7 @@ public class LeaderboardManager : MonoBehaviour
 
     void Start()
     {
+        GetUsername();
         GetLeaderboard();
     }
 
@@ -37,9 +38,9 @@ public class LeaderboardManager : MonoBehaviour
         }));
     }
 
-    public void SetLeaderboardEntry(string username, int score)
+    public void SetLeaderboardEntry(int score)
     {
-        LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, username, score, ((msg) =>
+        LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, PlayerPrefs.GetString("Username"), score, ((msg) =>
         {
             GetLeaderboard();
         }));
@@ -48,5 +49,24 @@ public class LeaderboardManager : MonoBehaviour
     public void RemoveLeaderboardEntry()
     {
         LeaderboardCreator.DeleteEntry(publicLeaderboardKey);
+    }
+
+    private void GetUsername()
+    {
+        string username;
+
+        if (PlayerPrefs.HasKey("Username"))
+        {
+            username = PlayerPrefs.GetString("Username");
+        }
+        else
+        {
+            LeaderboardCreator.GetEntryCount(publicLeaderboardKey, ((count) =>
+            {
+                username = "Tapper" + (count + 1).ToString();
+                PlayerPrefs.SetString("Username", username);
+                SetLeaderboardEntry(0);
+            }));
+        }
     }
 }
