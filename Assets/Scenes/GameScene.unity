@@ -2213,7 +2213,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 449891367}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1752764518}
+        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+        m_MethodName: ResetDataPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &449891367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8451,7 +8463,7 @@ MonoBehaviour:
   badTarget: {fileID: 2802138409187390077, guid: 8c273a7c98ff4934994bea07f4af36ec, type: 3}
   badPercentage: 0.15
   MAX_SPAWN_INTERVAL: 1.5
-  MIN_SPAWN_INTERVAL: 0.25
+  MIN_SPAWN_INTERVAL: 0.2
   spawnInterval: 1.5
   decayRate: 0.05
   inGameTime: 0
@@ -8503,6 +8515,7 @@ MonoBehaviour:
   MM_highscore: {fileID: 1057845960}
   MM_gems: {fileID: 1664598447}
   MM_arrows: {fileID: 0}
+  confirmText: {fileID: 455020451}
   good_Image: {fileID: 319202230366041515, guid: dd29231a6558e8042991ae37d07f23f5, type: 3}
   bad_Image: {fileID: 8946530191119915437, guid: 1915d8335e3a1cb489ad2fa887ec7efc, type: 3}
   countdownObject: {fileID: 161217266}
@@ -10221,6 +10234,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1752764519}
           m_ObjectArgumentAssemblyTypeName: ScreenSwapping, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1752764518}
+        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+        m_MethodName: ClearConfirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -12184,7 +12209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -1450}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1752764518

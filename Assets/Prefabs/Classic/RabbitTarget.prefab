@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGood: 1
-  timeOnScreen: 0.75
+  timeOnScreen: 0.5
   sfx: {fileID: 8300000, guid: 99f88affd4553224e8802878803bf889, type: 3}
   gem: {fileID: 8494625251215090528, guid: 45c0d6613ff9b424d96fa7955d31898d, type: 3}
   tapImage: {fileID: 2289735626778924471}

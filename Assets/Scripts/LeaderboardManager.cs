@@ -44,4 +44,9 @@ public class LeaderboardManager : MonoBehaviour
             GetLeaderboard();
         }));
     }
+
+    public void RemoveLeaderboardEntry()
+    {
+        LeaderboardCreator.DeleteEntry(publicLeaderboardKey);
+    }
 }

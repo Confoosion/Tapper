@@ -8,6 +8,7 @@ public class SettingsManager : MonoBehaviour
 
     [SerializeField] private Toggle sfxToggle;
     [SerializeField] private Toggle musicToggle;
+    private bool confirmed = false;
 
     void Start()
     {
@@ -66,5 +67,33 @@ public class SettingsManager : MonoBehaviour
         PlayerPrefs.SetInt("IsMusicMuted", 1);
     }
 
-    
+    public void ResetDataPressed()
+    {
+        if (confirmed)
+        {
+            UIManager.Singleton.UpdateConfirm();
+            ResetData();
+            confirmed = false;
+        }
+        else
+        {
+            UIManager.Singleton.ShowConfirm(true);
+            confirmed = true;
+        }
+    }
+
+    public void ResetData()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        LeaderboardManager.Singleton.RemoveLeaderboardEntry();
+        UIManager.Singleton.UpdateHighscoreUI();
+        UIManager.Singleton.UpdateGemUI();
+    }
+
+    public void ClearConfirm()
+    {
+        confirmed = false;
+        UIManager.Singleton.ShowConfirm(false);
+    }
 }
