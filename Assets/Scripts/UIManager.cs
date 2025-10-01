@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Settings UI")]
     [SerializeField] private TextMeshProUGUI confirmText;
+    [SerializeField] private TMP_InputField nameInputField;
+    [SerializeField] private TextMeshProUGUI nameErrorText;
 
     private float countdownInterval = 0.8f;
     [Header("Game Screen UI")]
@@ -39,6 +41,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private List<Image> backgroundImages = new List<Image>();
     private int backgroundIndex = 0;
     private Coroutine backgroundCoroutine;
+
+    [Header("Leaderboard UI")]
+    [SerializeField] private TextMeshProUGUI personalPlacement;
+    [SerializeField] private TextMeshProUGUI personalName;
+    [SerializeField] private TextMeshProUGUI personalScore;
 
     void Awake()
     {
@@ -165,6 +172,28 @@ public class UIManager : MonoBehaviour
     public void UpdateConfirm()
     {
         confirmText.SetText("Your data has been\nReset");
+    }
+
+    public string GetNameInputField()
+    {
+        return (nameInputField.text);
+    }
+
+    public void UpdateNameInputField(string name)
+    {
+        nameInputField.text = name;
+    }
+
+    public void UpdateNameErrorText(string error)
+    {
+        nameErrorText.SetText(error);
+    }
+
+    public void UpdatePersonalLeaderboard(int placement, string name, int score)
+    {
+        personalPlacement.SetText(placement.ToString());
+        personalName.SetText(name);
+        personalScore.SetText(score.ToString());
     }
 
     public bool IsCoroutineActive()

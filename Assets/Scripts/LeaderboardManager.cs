@@ -40,7 +40,12 @@ public class LeaderboardManager : MonoBehaviour
 
     public void SetLeaderboardEntry(int score)
     {
-        LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, PlayerPrefs.GetString("Username"), score, ((msg) =>
+        PlayerPrefs.SetInt("PlayerBestScore", Mathf.Max(score, PlayerPrefs.GetInt("PlayerBestScore", 0)));
+
+        string display = PlayerPrefs.GetString("Username", "Tapper");
+        string unique = BuildUniqueUsername(display);
+
+        LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, unique, score, ((msg) =>
         {
             GetLeaderboard();
         }));
@@ -48,25 +53,96 @@ public class LeaderboardManager : MonoBehaviour
 
     public void RemoveLeaderboardEntry()
     {
-        LeaderboardCreator.DeleteEntry(publicLeaderboardKey);
+        LeaderboardCreator.DeleteEntry(publicLeaderboardKey, (success) =>
+        {
+            if (success)
+            {
+                GetUsername();
+            }
+        });
     }
 
-    private void GetUsername()
+    private string EnsurePlayerID()
     {
-        string username;
+        if (!PlayerPrefs.HasKey("PlayerID"))
+        {
+            string id = System.Guid.NewGuid().ToString("N");
+            PlayerPrefs.SetString("PlayerID", id);
+        }
+        return PlayerPrefs.GetString("PlayerID");
+    }
 
-        if (PlayerPrefs.HasKey("Username"))
+    private string GetTagFromID(string id)
+    {
+        return (id.Substring(id.Length - 4).ToUpperInvariant());
+    }
+
+    private string BuildUniqueUsername(string displayName)
+    {
+        string id = EnsurePlayerID();
+        string tag = GetTagFromID(id);
+        return ($"{displayName}#{tag}");
+    }
+
+    public void GetUsername()
+    {
+        if (!PlayerPrefs.HasKey("Username"))
         {
-            username = PlayerPrefs.GetString("Username");
+            PlayerPrefs.SetString("Username", "Tapper");
+            SetLeaderboardEntry(0);
         }
-        else
+    }
+
+    public void SetUsername(string newDisplayName)
+    {
+        string id = EnsurePlayerID();
+        string tag = GetTagFromID(id);
+        string oldDisplay = PlayerPrefs.GetString("Username", "Tapper");
+        string oldUnique = $"{oldDisplay}#{tag}";
+        string newUnique = $"{newDisplayName}#{tag}";
+
+        int scoreToKeep = PlayerPrefs.GetInt("PlayerBestScore", 0);
+
+        LeaderboardCreator.DeleteEntry(publicLeaderboardKey, (success) =>
         {
-            LeaderboardCreator.GetEntryCount(publicLeaderboardKey, ((count) =>
+            PlayerPrefs.SetString("Username", newDisplayName);
+
+            LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, newUnique, scoreToKeep, (msg) =>
             {
-                username = "Tapper" + (count + 1).ToString();
-                PlayerPrefs.SetString("Username", username);
-                SetLeaderboardEntry(0);
-            }));
-        }
+                GetLeaderboard();
+            });
+        });
+    }
+
+    public bool FindUsername(string username)
+    {
+        bool found = false;
+        LeaderboardCreator.GetLeaderboard(publicLeaderboardKey, (entries) =>
+        {
+            foreach (var entry in entries)
+            {
+                if (entry.Username == username && username != PlayerPrefs.GetString("Username"))
+                {
+                    found = true;
+                    break;
+                }
+            }
+        });
+        return (found);
+    }
+
+    public void GetPersonalData()
+    {
+        LeaderboardCreator.GetLeaderboard(publicLeaderboardKey, (entries) =>
+        {
+            foreach (var entry in entries)
+            {
+                if (entry.Username == PlayerPrefs.GetString("Username"))
+                {
+                    UIManager.Singleton.UpdatePersonalLeaderboard(entry.Rank, entry.Username, entry.Score);
+                    break;
+                }
+            }
+        });
     }
 }

@@ -85,15 +85,65 @@ public class SettingsManager : MonoBehaviour
     public void ResetData()
     {
         PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
         LeaderboardManager.Singleton.RemoveLeaderboardEntry();
         UIManager.Singleton.UpdateHighscoreUI();
         UIManager.Singleton.UpdateGemUI();
+        PlayerPrefs.Save();
     }
 
     public void ClearConfirm()
     {
         confirmed = false;
         UIManager.Singleton.ShowConfirm(false);
+    }
+
+    // For input field
+    public void CheckUsernameValidity(string name)
+    {
+        if (name.Length < 3)
+        {
+            // Name too short
+            UIManager.Singleton.UpdateNameErrorText("Username is too short");
+        }
+        else if (LeaderboardManager.Singleton.FindUsername(name))
+        {
+            // Not a unique username
+            UIManager.Singleton.UpdateNameErrorText("Username is already taken");
+        }
+        else
+        {
+            UIManager.Singleton.UpdateNameErrorText("");
+        }
+    }
+
+    // For final check before leaving the Settings screen
+    public bool IsUserValid(string user)
+    {
+        if (string.IsNullOrEmpty(user) && name.Length < 3)
+        {
+            // Name too short
+            UIManager.Singleton.UpdateNameErrorText("Username is too short");
+            return (false);
+        }
+        else if (LeaderboardManager.Singleton.FindUsername(name))
+        {
+            // Not a unique username
+            UIManager.Singleton.UpdateNameErrorText("Username is already taken");
+            return (false);
+        }
+        else
+        {
+            UIManager.Singleton.UpdateNameErrorText("");
+            return (true);
+        }
+    }
+
+    public void BackOutOfSettings(ScreenSwapping screen)
+    {
+        if (IsUserValid(UIManager.Singleton.GetNameInputField()))
+        {
+            LeaderboardManager.Singleton.SetUsername(UIManager.Singleton.GetNameInputField());
+            ScreenManager.Singleton.SwitchScreen(screen);
+        }
     }
 }

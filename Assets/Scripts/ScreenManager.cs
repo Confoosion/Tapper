@@ -14,7 +14,7 @@ public class ScreenManager : MonoBehaviour
 
     [Header("Moving UI Elements")]
     [SerializeField] private TitleAnimation MM_Title;
-    [SerializeField] private GameObject MM_Highscore;
+    // [SerializeField] private GameObject MM_Highscore;
     [SerializeField] private CelebrationAnimation GO_Celebration;
     [SerializeField] private CurrencyAnimation MM_currencies;
     [SerializeField] private GroundAnimation Ground_Anim;
@@ -126,18 +126,18 @@ public class ScreenManager : MonoBehaviour
 
     private void ExtraMainMenu_Anim(bool slideIn)
     {
-        ScreenSwapping highscore_ScreenSwapping = MM_Highscore.GetComponent<ScreenSwapping>();
+        // ScreenSwapping highscore_ScreenSwapping = MM_Highscore.GetComponent<ScreenSwapping>();
 
         if (slideIn)
         {
             MM_Title.AnimateTitle();
-            LeanTween.moveLocal(MM_Highscore, highscore_ScreenSwapping.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+            // LeanTween.moveLocal(MM_Highscore, highscore_ScreenSwapping.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
             // UIManager.Singleton.MM_arrows.Animate(true);
         }
         else
         {
             MM_Title.AnimateTitle(false);
-            LeanTween.moveLocal(MM_Highscore, highscore_ScreenSwapping.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+            // LeanTween.moveLocal(MM_Highscore, highscore_ScreenSwapping.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
             // UIManager.Singleton.MM_arrows.Animate(false);
         }
     }
