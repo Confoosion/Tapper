@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using Dan.Main;
+using Dan.Models;
 
 public class LeaderboardManager : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class LeaderboardManager : MonoBehaviour
             int loopLength = (msg.Length < names.Count) ? msg.Length : names.Count;
             for (int i = 0; i < loopLength; i++)
             {
-                names[i].text = msg[i].Username;
+                names[i].text = ForDisplay(msg[i].Username);
                 scores[i].text = msg[i].Score.ToString();
             }
         }));
@@ -40,7 +41,7 @@ public class LeaderboardManager : MonoBehaviour
 
     public void SetLeaderboardEntry(int score)
     {
-        PlayerPrefs.SetInt("PlayerBestScore", Mathf.Max(score, PlayerPrefs.GetInt("PlayerBestScore", 0)));
+        PlayerPrefs.SetInt("SavedHighScore", Mathf.Max(score, PlayerPrefs.GetInt("SavedHighScore", 0)));
 
         string display = PlayerPrefs.GetString("Username", "Tapper");
         string unique = BuildUniqueUsername(display);
@@ -74,7 +75,7 @@ public class LeaderboardManager : MonoBehaviour
 
     private string GetTagFromID(string id)
     {
-        return (id.Substring(id.Length - 4).ToUpperInvariant());
+        return (id.Substring(id.Length - 6).ToUpperInvariant());
     }
 
     private string BuildUniqueUsername(string displayName)
@@ -82,6 +83,12 @@ public class LeaderboardManager : MonoBehaviour
         string id = EnsurePlayerID();
         string tag = GetTagFromID(id);
         return ($"{displayName}#{tag}");
+    }
+
+    private string ForDisplay(string uniqueName)
+    {
+        int i = uniqueName.LastIndexOf('#');
+        return (i >= 0) ? uniqueName.Substring(0, i) : uniqueName;
     }
 
     public void GetUsername()
@@ -101,7 +108,7 @@ public class LeaderboardManager : MonoBehaviour
         string oldUnique = $"{oldDisplay}#{tag}";
         string newUnique = $"{newDisplayName}#{tag}";
 
-        int scoreToKeep = PlayerPrefs.GetInt("PlayerBestScore", 0);
+        int scoreToKeep = PlayerPrefs.GetInt("SavedHighScore", 0);
 
         LeaderboardCreator.DeleteEntry(publicLeaderboardKey, (success) =>
         {
@@ -114,34 +121,36 @@ public class LeaderboardManager : MonoBehaviour
         });
     }
 
-    public bool FindUsername(string username)
+    public void GetPersonalData()
     {
-        bool found = false;
+        string displayName = PlayerPrefs.GetString("Username", "Tapper");
+        string uniqueName = BuildUniqueUsername(displayName);
+        int localBestScore = PlayerPrefs.GetInt("SavedHighScore", 0);
+
+
         LeaderboardCreator.GetLeaderboard(publicLeaderboardKey, (entries) =>
         {
-            foreach (var entry in entries)
+            Entry? mine = null;
+            for (int i = 0; i < entries.Length; i++)
             {
-                if (entry.Username == username && username != PlayerPrefs.GetString("Username"))
+                if (entries[i].Username == uniqueName)
                 {
-                    found = true;
+                    mine = entries[i];
                     break;
                 }
             }
-        });
-        return (found);
-    }
 
-    public void GetPersonalData()
-    {
-        LeaderboardCreator.GetLeaderboard(publicLeaderboardKey, (entries) =>
-        {
-            foreach (var entry in entries)
+            if (mine.HasValue)
             {
-                if (entry.Username == PlayerPrefs.GetString("Username"))
+                if (mine.Value.Score > localBestScore)
                 {
-                    UIManager.Singleton.UpdatePersonalLeaderboard(entry.Rank, entry.Username, entry.Score);
-                    break;
+                    PlayerPrefs.SetInt("SavedHighScore", mine.Value.Score);
                 }
+                UIManager.Singleton.UpdatePersonalLeaderboard(mine.Value.Rank, displayName, mine.Value.Score);
+            }
+            else
+            {
+                UIManager.Singleton.UpdatePersonalLeaderboard(-1, displayName, localBestScore);
             }
         });
     }

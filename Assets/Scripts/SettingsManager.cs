@@ -39,6 +39,8 @@ public class SettingsManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("IsMusicMuted", 0);
         }
+
+        UIManager.Singleton.UpdateNameInputField(PlayerPrefs.GetString("Username", "Tapper"));
     }
 
     public void ToggleSFXVolume(bool toggle)
@@ -86,6 +88,7 @@ public class SettingsManager : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         LeaderboardManager.Singleton.RemoveLeaderboardEntry();
+        UIManager.Singleton.UpdateNameInputField("Tapper");
         UIManager.Singleton.UpdateHighscoreUI();
         UIManager.Singleton.UpdateGemUI();
         PlayerPrefs.Save();
@@ -105,11 +108,6 @@ public class SettingsManager : MonoBehaviour
             // Name too short
             UIManager.Singleton.UpdateNameErrorText("Username is too short");
         }
-        else if (LeaderboardManager.Singleton.FindUsername(name))
-        {
-            // Not a unique username
-            UIManager.Singleton.UpdateNameErrorText("Username is already taken");
-        }
         else
         {
             UIManager.Singleton.UpdateNameErrorText("");
@@ -125,12 +123,6 @@ public class SettingsManager : MonoBehaviour
             UIManager.Singleton.UpdateNameErrorText("Username is too short");
             return (false);
         }
-        else if (LeaderboardManager.Singleton.FindUsername(name))
-        {
-            // Not a unique username
-            UIManager.Singleton.UpdateNameErrorText("Username is already taken");
-            return (false);
-        }
         else
         {
             UIManager.Singleton.UpdateNameErrorText("");
@@ -142,7 +134,10 @@ public class SettingsManager : MonoBehaviour
     {
         if (IsUserValid(UIManager.Singleton.GetNameInputField()))
         {
-            LeaderboardManager.Singleton.SetUsername(UIManager.Singleton.GetNameInputField());
+            if (PlayerPrefs.GetString("Username", "Tapper") != UIManager.Singleton.GetNameInputField())
+            {
+                LeaderboardManager.Singleton.SetUsername(UIManager.Singleton.GetNameInputField());
+            }
             ScreenManager.Singleton.SwitchScreen(screen);
         }
     }
