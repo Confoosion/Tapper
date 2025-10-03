@@ -120,22 +120,6 @@ public class LeaderboardManager : MonoBehaviour
         {
             GetLeaderboard();
         });
-
-        // string id = EnsurePlayerID();
-        // string tag = GetTagFromID(id);
-        // string oldDisplay = PlayerPrefs.GetString("Username", "Tapper");
-        // string oldUnique = $"{oldDisplay}#{tag}";
-        // string newUnique = $"{newDisplayName}#{tag}";
-
-        // int scoreToKeep = PlayerPrefs.GetInt("SavedHighScore", 0);
-
-        // RemoveLeaderboardEntry();
-        // PlayerPrefs.SetString("Username", newDisplayName);
-
-        // LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, newUnique, scoreToKeep, (msg) =>
-        // {
-        //     GetLeaderboard();
-        // });
     }
 
     public void GetPersonalData()

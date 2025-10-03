@@ -13,7 +13,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Image tapImage;
     [SerializeField] private SpriteCycler spriteCycler;
     [SerializeField] private bool tapped = false;
-    [SerializeField] private bool validLocation = true;
+    // [SerializeField] private bool validLocation = true;
     private Coroutine run;
 
     public void OnEnable()
@@ -61,7 +61,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
         if (run == null)
         {
             Debug.Log("Object colliding");
-            validLocation = false;
+            // validLocation = false;
         }
     }
 
@@ -70,7 +70,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
         if (run == null)
         {
             Debug.Log("Object NOT colliding");
-            validLocation = true;
+            // validLocation = true;
         }
     }
 
