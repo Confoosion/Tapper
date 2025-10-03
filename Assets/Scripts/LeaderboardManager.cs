@@ -54,11 +54,17 @@ public class LeaderboardManager : MonoBehaviour
 
     public void RemoveLeaderboardEntry()
     {
+        Debug.Log("Deleting entry...");
         LeaderboardCreator.DeleteEntry(publicLeaderboardKey, (success) =>
         {
             if (success)
             {
+                Debug.Log("SUCCESSFULLY DELETED!!!");
                 GetUsername();
+            }
+            else
+            {
+                Debug.Log("FAILED DELETION!!!");
             }
         });
     }
@@ -104,21 +110,32 @@ public class LeaderboardManager : MonoBehaviour
     {
         string id = EnsurePlayerID();
         string tag = GetTagFromID(id);
-        string oldDisplay = PlayerPrefs.GetString("Username", "Tapper");
-        string oldUnique = $"{oldDisplay}#{tag}";
         string newUnique = $"{newDisplayName}#{tag}";
+
+        PlayerPrefs.SetString("Username", newDisplayName);
 
         int scoreToKeep = PlayerPrefs.GetInt("SavedHighScore", 0);
 
-        LeaderboardCreator.DeleteEntry(publicLeaderboardKey, (success) =>
+        LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, newUnique, scoreToKeep, _ =>
         {
-            PlayerPrefs.SetString("Username", newDisplayName);
-
-            LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, newUnique, scoreToKeep, (msg) =>
-            {
-                GetLeaderboard();
-            });
+            GetLeaderboard();
         });
+
+        // string id = EnsurePlayerID();
+        // string tag = GetTagFromID(id);
+        // string oldDisplay = PlayerPrefs.GetString("Username", "Tapper");
+        // string oldUnique = $"{oldDisplay}#{tag}";
+        // string newUnique = $"{newDisplayName}#{tag}";
+
+        // int scoreToKeep = PlayerPrefs.GetInt("SavedHighScore", 0);
+
+        // RemoveLeaderboardEntry();
+        // PlayerPrefs.SetString("Username", newDisplayName);
+
+        // LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, newUnique, scoreToKeep, (msg) =>
+        // {
+        //     GetLeaderboard();
+        // });
     }
 
     public void GetPersonalData()
