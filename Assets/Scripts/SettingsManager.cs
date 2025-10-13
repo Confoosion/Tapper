@@ -132,7 +132,7 @@ public class SettingsManager : MonoBehaviour
         }
     }
 
-    public void BackOutOfSettings(ScreenSwapping screen)
+    public void BackOutOfLeaderboard(ScreenSwapping screen)
     {
         if (IsUserValid(UIManager.Singleton.GetNameInputField()))
         {

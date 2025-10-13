@@ -96,6 +96,10 @@ public class ScreenManager : MonoBehaviour
                     MM_currencies.SlideCurrencies(false);
                     GoToGame();
                 }
+                else if(screen == Leaderboard)
+                {
+                    MM_currencies.SlideCurrencies(false);
+                }
             }
             else
             {
