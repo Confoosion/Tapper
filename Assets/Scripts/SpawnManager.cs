@@ -11,6 +11,8 @@ public class SpawnManager : MonoBehaviour
     public RectTransform spawnArea;
     public GameObject[] goodTargets;
     public GameObject badTarget;
+    private int MAX_TARGETS = 10;
+    [SerializeField] private float spawnWaitTime = 0.5f;
 
     public float badPercentage = 0.15f;
 
@@ -58,6 +60,12 @@ public class SpawnManager : MonoBehaviour
     {
         while (GameManager.Singleton.CheckPlayerStatus())
         {
+            while (targets.Count >= MAX_TARGETS)
+            {
+                Debug.Log("TOO MANY TARGETS!!! WAITING");
+                yield return new WaitForSeconds(spawnWaitTime);
+            }
+            
             GameObject target;
             if (CanSpawnGoodCircle())
             {
@@ -87,7 +95,7 @@ public class SpawnManager : MonoBehaviour
         return (false);
     }
 
-    public void GetRandomSpawnPosition(GameObject target) // ADD CLAMP TO THE POSITION
+    public void GetRandomSpawnPosition(GameObject target)
     {
         float spawnWidth = spawnArea.rect.width;
         float spawnHeight = spawnArea.rect.height;

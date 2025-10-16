@@ -18,7 +18,7 @@ public class GemAnimation : MonoBehaviour
     {
         Vector3 moveTo = this.transform.position + new Vector3(0f, 100f, 0f);
         LeanTween.move(this.gameObject, moveTo, animationTime).setEase(LeanTweenType.easeOutQuad);
-        Debug.Log("Gem moved");
+        // Debug.Log("Gem moved");
         yield return null;
     }
 
