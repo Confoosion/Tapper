@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e552a71b40e2fa94b8e4728548287e9f
+guid: 7220e93ebd13f1d41bba8a6dec3fa511
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7156015726355172045
-    second: GrassAndDirt 2_0
+      213: 2898927704838260830
+    second: 2161999f-bb97-4377-8a19-9afd12d5e6b3.sketchpad (6)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GrassAndDirt 2_0
+      name: 2161999f-bb97-4377-8a19-9afd12d5e6b3.sketchpad (6)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 561
+        width: 324
+        height: 864
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 335bd7f6c99b0bc90800000000000000
-      internalID: -7156015726355172045
+      spriteID: e584c6c636f0b3820800000000000000
+      internalID: 2898927704838260830
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GrassAndDirt 2_0: -7156015726355172045
+      2161999f-bb97-4377-8a19-9afd12d5e6b3.sketchpad (6)_0: 2898927704838260830
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
