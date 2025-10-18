@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class TapFade : MonoBehaviour
 {
     [SerializeField] private float fadeTime = 0.5f;
+    [SerializeField] private bool destroyAfterFade;
 
     void OnEnable()
     {
@@ -26,6 +27,7 @@ public class TapFade : MonoBehaviour
         }
 
         _image.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0f);
-        // Destroy(this.gameObject);
+        if(destroyAfterFade)
+            Destroy(this.gameObject);
     }
 }

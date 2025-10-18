@@ -10,7 +10,7 @@ public class ScreenManager : MonoBehaviour
 
     [Header("UI Screens")]
     [SerializeField] private GameObject MainMenu;
-    [SerializeField] private GameObject Leaderboard, Settings, Game, GameOver;
+    [SerializeField] private GameObject Leaderboard, Settings, Game, GameOver, Background;
 
     [Header("Moving UI Elements")]
     [SerializeField] private TitleAnimation MM_Title;
@@ -18,6 +18,9 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private CelebrationAnimation GO_Celebration;
     [SerializeField] private CurrencyAnimation MM_currencies;
     [SerializeField] private GroundAnimation Ground_Anim;
+    [SerializeField] private BackgroundPositions BG_Positions;
+    [SerializeField] private GameObject leftLeaves;
+    [SerializeField] private GameObject rightLeaves;
 
     [Space]
     [SerializeField] private ScreenSwapping currentScreen;
@@ -32,8 +35,9 @@ public class ScreenManager : MonoBehaviour
 
     void Start()
     {
-        currentScreen = GameObject.Find("CANVASES/MAINMENU_CANVAS/MAIN_MENU").GetComponent<ScreenSwapping>();
-        transition = StartCoroutine(SwapScreens(null, currentScreen));
+        BeginStartScreen();
+        // currentScreen = GameObject.Find("CANVASES/MAINMENU_CANVAS/MAIN_MENU").GetComponent<ScreenSwapping>();
+        // transition = StartCoroutine(SwapScreens(null, currentScreen));
     }
 
     public float GetTransitionTime()
@@ -188,5 +192,37 @@ public class ScreenManager : MonoBehaviour
         UIManager.Singleton.ShowEndScreenButtons(true);
 
         endGame = null;
+    }
+
+    public void BeginStartScreen(bool bringIn = true)
+    {   
+        if(bringIn)
+            Background.transform.localPosition = BG_Positions.beginningPosition;
+        transition = StartCoroutine(Start_Anim(bringIn));
+    }
+
+    IEnumerator Start_Anim(bool bringIn)
+    {
+        ScreenSwapping leftLeaves_Swap = leftLeaves.GetComponent<ScreenSwapping>();
+        ScreenSwapping rightLeaves_Swap = rightLeaves.GetComponent<ScreenSwapping>();
+
+        if (bringIn)
+        {
+            LeanTween.moveLocal(Background, BG_Positions.startPosition, transitionTime).setEase(LeanTweenType.easeOutCirc);
+
+            yield return new WaitForSeconds(0.75f);
+            LeanTween.moveLocal(leftLeaves, leftLeaves_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+            LeanTween.moveLocal(rightLeaves, rightLeaves_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+        }
+        else
+        {
+            LeanTween.moveLocal(leftLeaves, leftLeaves_Swap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+            LeanTween.moveLocal(rightLeaves, rightLeaves_Swap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+
+            yield return new WaitForSeconds(0.75f);
+
+            LeanTween.moveLocal(Background, BG_Positions.menuPosition, transitionTime).setEase(LeanTweenType.easeOutCirc);
+        }
+        transition = null;
     }
 }
