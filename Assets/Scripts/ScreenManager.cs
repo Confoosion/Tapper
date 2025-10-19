@@ -98,6 +98,7 @@ public class ScreenManager : MonoBehaviour
                 if (screen == Game)
                 {
                     MM_currencies.SlideCurrencies(false);
+                    LeanTween.moveLocal(Background, BG_Positions.gamePosition, transitionTime).setEase(LeanTweenType.easeOutCirc);
                     GoToGame();
                 }
                 else if(screen == Leaderboard)
@@ -139,6 +140,7 @@ public class ScreenManager : MonoBehaviour
         if (slideIn)
         {
             MM_Title.AnimateTitle();
+            LeanTween.moveLocal(Background, BG_Positions.menuPosition, transitionTime).setEase(LeanTweenType.easeOutCirc);
             // LeanTween.moveLocal(MM_Highscore, highscore_ScreenSwapping.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
             // UIManager.Singleton.MM_arrows.Animate(true);
         }
@@ -221,7 +223,12 @@ public class ScreenManager : MonoBehaviour
 
             yield return new WaitForSeconds(0.75f);
 
-            LeanTween.moveLocal(Background, BG_Positions.menuPosition, transitionTime).setEase(LeanTweenType.easeOutCirc);
+            // LeanTween.moveLocal(Background, BG_Positions.menuPosition, transitionTime).setEase(LeanTweenType.easeOutCirc);
+
+            // yield return new WaitForSeconds(0.5f);
+
+            currentScreen = GameObject.Find("CANVASES/MAINMENU_CANVAS/MAIN_MENU").GetComponent<ScreenSwapping>();
+            transition = StartCoroutine(SwapScreens(null, currentScreen));
         }
         transition = null;
     }
