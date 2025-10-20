@@ -16,6 +16,10 @@ public class SpawnManager : MonoBehaviour
 
     public float badPercentage = 0.15f;
 
+    [SerializeField] private float gracePeriod = 3f;
+    [SerializeField] private bool doGraceSpawns;
+    [SerializeField] private bool isTimed;
+
     public float MAX_SPAWN_INTERVAL = 1.5f;
     public float MIN_SPAWN_INTERVAL = 0.25f;
     [SerializeField] float spawnInterval = 1.5f;
@@ -45,6 +49,14 @@ public class SpawnManager : MonoBehaviour
                 spawnInterval = Mathf.Max(MIN_SPAWN_INTERVAL, MAX_SPAWN_INTERVAL * Mathf.Exp(-decayRate * inGameTime));
             }
         }
+    }
+
+    public void SetSpawnVariables(float bad, float decay, bool graceSpawns, bool timed)
+    {
+        badPercentage = bad;
+        decayRate = decay;
+        doGraceSpawns = graceSpawns;
+        isTimed = timed;
     }
 
     public void StartSpawning()
@@ -87,8 +99,8 @@ public class SpawnManager : MonoBehaviour
     }
 
     private bool CanSpawnGoodCircle()
-    {
-        if (Random.Range(0f, 1f) > badPercentage)
+    {   
+        if (Random.Range(0f, 1f) > badPercentage || (doGraceSpawns && inGameTime < gracePeriod))
         {
             return (true);
         }

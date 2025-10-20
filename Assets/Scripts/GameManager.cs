@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Singleton { get; private set; }
 
     public bool isPlaying;
+    public GameModeSO currentGameMode;
     [SerializeField] private bool isAlive = true;
 
     [SerializeField] private int lives = 3;
@@ -26,6 +27,13 @@ public class GameManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
         InvokeRepeating("GetFPS", 1, 1);
+        UpdateGameMode(currentGameMode);
+    }
+
+    public void UpdateGameMode(GameModeSO mode)
+    {
+        currentGameMode = mode;
+        SpawnManager.Singleton.SetSpawnVariables(currentGameMode.badSpawnPercentage, currentGameMode.decayRate, currentGameMode.doGraceSpawns, currentGameMode.isTimed);
     }
 
     // public void UpdateGameMode(GameMode mode)
