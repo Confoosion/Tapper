@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     [Header("Main Menu UI")]
     [SerializeField] private TextMeshProUGUI MM_highscore;
     [SerializeField] private TextMeshProUGUI MM_gems;
-    public AnimateArrows MM_arrows;
+    [SerializeField] private TextMeshProUGUI MM_gameMode;
 
     [Header("Settings UI")]
     [SerializeField] private TextMeshProUGUI confirmText;
@@ -210,6 +210,11 @@ public class UIManager : MonoBehaviour
 
         backgroundCoroutine = StartCoroutine(BackgroundTransition(backgroundImages[backgroundIndex], backgroundImages[modeIndex], time));
         backgroundIndex = modeIndex;
+    }
+
+    public void ChangeGameModeUI(GameModeSO mode)
+    {
+        MM_gameMode.SetText(mode.modeName);
     }
 
     IEnumerator BackgroundTransition(Image fromBG, Image toBG, float duration)
