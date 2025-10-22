@@ -9561,9 +9561,6 @@ MonoBehaviour:
   badTarget: {fileID: 2802138409187390077, guid: 8c273a7c98ff4934994bea07f4af36ec, type: 3}
   spawnWaitTime: 0.5
   badPercentage: 0.15
-  gracePeriod: 3
-  doGraceSpawns: 0
-  isTimed: 0
   MAX_SPAWN_INTERVAL: 1.5
   MIN_SPAWN_INTERVAL: 0.2
   spawnInterval: 1.5
@@ -9664,7 +9661,7 @@ MonoBehaviour:
   Game: {fileID: 937875902}
   GameOver: {fileID: 208582374}
   Background: {fileID: 1504657089}
-  S_Title: {fileID: 1833499945}
+  MM_Title: {fileID: 1833499945}
   GO_Celebration: {fileID: 1262464938}
   MM_currencies: {fileID: 983213325}
   Ground_Anim: {fileID: 1361155717}
@@ -11731,7 +11728,6 @@ RectTransform:
   m_Children:
   - {fileID: 1554544004}
   - {fileID: 447098893}
-  - {fileID: 1833499942}
   m_Father: {fileID: 951611178}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -11889,6 +11885,7 @@ RectTransform:
   m_Children:
   - {fileID: 1441333675}
   - {fileID: 714681383}
+  - {fileID: 1833499942}
   - {fileID: 1507960706}
   - {fileID: 2095035503}
   m_Father: {fileID: 612879160}
@@ -13911,16 +13908,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833499941}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1504657090}
+  m_Father: {fileID: 1522404294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1450}
+  m_AnchoredPosition: {x: 0, y: 110}
   m_SizeDelta: {x: 450, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833499943

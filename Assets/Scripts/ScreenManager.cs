@@ -13,7 +13,7 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private GameObject Leaderboard, Settings, Game, GameOver, Background;
 
     [Header("Moving UI Elements")]
-    [SerializeField] private TitleAnimation S_Title;
+    [SerializeField] private TitleAnimation MM_Title;
     // [SerializeField] private GameObject MM_Highscore;
     [SerializeField] private CelebrationAnimation GO_Celebration;
     [SerializeField] private CurrencyAnimation MM_currencies;
@@ -139,14 +139,14 @@ public class ScreenManager : MonoBehaviour
 
         if (slideIn)
         {
-            // MM_Title.AnimateTitle();
+            MM_Title.AnimateTitle();
             LeanTween.moveLocal(Background, BG_Positions.menuPosition, transitionTime).setEase(LeanTweenType.easeOutCirc);
             // LeanTween.moveLocal(MM_Highscore, highscore_ScreenSwapping.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
             // UIManager.Singleton.MM_arrows.Animate(true);
         }
         else
         {
-            // MM_Title.AnimateTitle(false);
+            MM_Title.AnimateTitle(false);
             // LeanTween.moveLocal(MM_Highscore, highscore_ScreenSwapping.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
             // UIManager.Singleton.MM_arrows.Animate(false);
         }
@@ -215,8 +215,6 @@ public class ScreenManager : MonoBehaviour
             yield return new WaitForSeconds(0.75f);
             LeanTween.moveLocal(leftLeaves, leftLeaves_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
             LeanTween.moveLocal(rightLeaves, rightLeaves_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
-
-            S_Title.AnimateTitle();
         }
         else
         {
@@ -231,8 +229,6 @@ public class ScreenManager : MonoBehaviour
 
             currentScreen = GameObject.Find("CANVASES/MAINMENU_CANVAS/MAIN_MENU").GetComponent<ScreenSwapping>();
             transition = StartCoroutine(SwapScreens(null, currentScreen));
-
-            S_Title.AnimateTitle(false);
         }
         transition = null;
     }
