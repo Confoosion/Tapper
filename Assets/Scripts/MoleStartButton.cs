@@ -36,6 +36,7 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
 
     void OnDestroy()
     {
-        ScreenManager.Singleton.BeginStartScreen(false);
+        if(ScreenManager.Singleton != null)
+            ScreenManager.Singleton.BeginStartScreen(false);
     }
 }

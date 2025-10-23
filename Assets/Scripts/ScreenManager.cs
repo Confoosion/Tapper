@@ -13,14 +13,16 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private GameObject Leaderboard, Settings, Game, GameOver, Background;
 
     [Header("Moving UI Elements")]
-    [SerializeField] private TitleAnimation S_Title;
     // [SerializeField] private GameObject MM_Highscore;
     [SerializeField] private CelebrationAnimation GO_Celebration;
     [SerializeField] private CurrencyAnimation MM_currencies;
     [SerializeField] private GroundAnimation Ground_Anim;
     [SerializeField] private BackgroundPositions BG_Positions;
-    [SerializeField] private GameObject leftLeaves;
-    [SerializeField] private GameObject rightLeaves;
+    [SerializeField] private GameObject S_Title;
+    [SerializeField] private GameObject S_leftLeaves_Slow;
+    [SerializeField] private GameObject S_leftLeaves_Fast;
+    [SerializeField] private GameObject S_rightLeaves_Slow;
+    [SerializeField] private GameObject S_rightLeaves_Fast;
 
     [Space]
     [SerializeField] private ScreenSwapping currentScreen;
@@ -200,28 +202,34 @@ public class ScreenManager : MonoBehaviour
     {   
         if(bringIn)
             Background.transform.localPosition = BG_Positions.beginningPosition;
-        transition = StartCoroutine(Start_Anim(bringIn));
+        StartCoroutine(Start_Anim(bringIn));
     }
 
     IEnumerator Start_Anim(bool bringIn)
     {
-        ScreenSwapping leftLeaves_Swap = leftLeaves.GetComponent<ScreenSwapping>();
-        ScreenSwapping rightLeaves_Swap = rightLeaves.GetComponent<ScreenSwapping>();
+        ScreenSwapping title_Swap = S_Title.GetComponent<ScreenSwapping>();
+        // ScreenSwapping leftLeaves_Swap = S_leftLeaves.GetComponent<ScreenSwapping>();
+        // ScreenSwapping rightLeaves_Swap = S_rightLeaves.GetComponent<ScreenSwapping>();
 
         if (bringIn)
         {
             LeanTween.moveLocal(Background, BG_Positions.startPosition, transitionTime).setEase(LeanTweenType.easeOutCirc);
 
             yield return new WaitForSeconds(0.75f);
-            LeanTween.moveLocal(leftLeaves, leftLeaves_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
-            LeanTween.moveLocal(rightLeaves, rightLeaves_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+            // LeanTween.moveLocal(S_leftLeaves, leftLeaves_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+            // LeanTween.moveLocal(S_rightLeaves, rightLeaves_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
 
-            S_Title.AnimateTitle();
+            LeanTween.moveLocal(S_Title, title_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
         }
         else
         {
-            LeanTween.moveLocal(leftLeaves, leftLeaves_Swap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
-            LeanTween.moveLocal(rightLeaves, rightLeaves_Swap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+            // currentScreen = GameObject.Find("CANVASES/MAINMENU_CANVAS/MAIN_MENU").GetComponent<ScreenSwapping>();
+            currentScreen = MainMenu.GetComponent<ScreenSwapping>();
+            BeginTransition(currentScreen);
+
+            yield return new WaitForSeconds(0.25f);
+
+            LeanTween.moveLocal(S_Title, title_Swap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
 
             yield return new WaitForSeconds(0.75f);
 
@@ -229,11 +237,36 @@ public class ScreenManager : MonoBehaviour
 
             // yield return new WaitForSeconds(0.5f);
 
-            currentScreen = GameObject.Find("CANVASES/MAINMENU_CANVAS/MAIN_MENU").GetComponent<ScreenSwapping>();
-            transition = StartCoroutine(SwapScreens(null, currentScreen));
-
-            S_Title.AnimateTitle(false);
+            // transition = StartCoroutine(SwapScreens(null, currentScreen));
         }
-        transition = null;
+    }
+
+    public void BeginTransition(ScreenSwapping screen)
+    {
+        StartCoroutine(Transition_Anim(screen));
+    }
+
+    IEnumerator Transition_Anim(ScreenSwapping screen)
+    {
+        ScreenSwapping leftLeaves_SlowSwap = S_leftLeaves_Slow.GetComponent<ScreenSwapping>();
+        ScreenSwapping leftLeaves_FastSwap = S_leftLeaves_Fast.GetComponent<ScreenSwapping>();
+        ScreenSwapping rightLeaves_SlowSwap = S_rightLeaves_Slow.GetComponent<ScreenSwapping>();
+        ScreenSwapping rightLeaves_FastSwap = S_rightLeaves_Fast.GetComponent<ScreenSwapping>();
+
+        LeanTween.moveLocal(S_leftLeaves_Fast, leftLeaves_FastSwap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+        LeanTween.moveLocal(S_leftLeaves_Slow, leftLeaves_SlowSwap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+        LeanTween.moveLocal(S_rightLeaves_Fast, rightLeaves_FastSwap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+        LeanTween.moveLocal(S_rightLeaves_Slow, rightLeaves_SlowSwap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SwitchScreen(screen);
+
+        yield return new WaitForSeconds(transitionTime * 0.5f);
+
+        LeanTween.moveLocal(S_leftLeaves_Fast, leftLeaves_FastSwap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+        LeanTween.moveLocal(S_leftLeaves_Slow, leftLeaves_SlowSwap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+        LeanTween.moveLocal(S_rightLeaves_Fast, rightLeaves_FastSwap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+        LeanTween.moveLocal(S_rightLeaves_Slow, rightLeaves_SlowSwap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
     }
 }
