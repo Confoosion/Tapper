@@ -19,6 +19,7 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private GroundAnimation Ground_Anim;
     [SerializeField] private BackgroundPositions BG_Positions;
     [SerializeField] private GameObject S_Title;
+    [SerializeField] private GameObject S_StartLabel;
     [SerializeField] private GameObject S_leftLeaves_Slow;
     [SerializeField] private GameObject S_leftLeaves_Fast;
     [SerializeField] private GameObject S_rightLeaves_Slow;
@@ -208,6 +209,7 @@ public class ScreenManager : MonoBehaviour
     IEnumerator Start_Anim(bool bringIn)
     {
         ScreenSwapping title_Swap = S_Title.GetComponent<ScreenSwapping>();
+        ScreenSwapping label_Swap = S_StartLabel.GetComponent<ScreenSwapping>();
         // ScreenSwapping leftLeaves_Swap = S_leftLeaves.GetComponent<ScreenSwapping>();
         // ScreenSwapping rightLeaves_Swap = S_rightLeaves.GetComponent<ScreenSwapping>();
 
@@ -220,6 +222,7 @@ public class ScreenManager : MonoBehaviour
             // LeanTween.moveLocal(S_rightLeaves, rightLeaves_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
 
             LeanTween.moveLocal(S_Title, title_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+            LeanTween.moveLocal(S_StartLabel, label_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
         }
         else
         {
@@ -230,6 +233,7 @@ public class ScreenManager : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
 
             LeanTween.moveLocal(S_Title, title_Swap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+            LeanTween.moveLocal(S_StartLabel, label_Swap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
 
             yield return new WaitForSeconds(0.75f);
 
