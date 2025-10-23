@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public void UpdateGameMode(GameModeSO mode)
     {
         currentGameMode = mode;
+        SetLives(currentGameMode.lives);
         SpawnManager.Singleton.SetSpawnVariables(currentGameMode.badSpawnPercentage, currentGameMode.decayRate, currentGameMode.doGraceSpawns, currentGameMode.isTimed);
     }
 
@@ -72,6 +73,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetLives(int amount)
+    {
+        lives = amount;
+
+        if (lives < 0)
+        {
+            UIManager.Singleton.UpdateHearts(0);
+        }
+        else
+        {
+            UIManager.Singleton.UpdateHearts(lives);
+        }
+    }
+
     public int GetLives()
     {
         return (lives);
@@ -79,10 +94,15 @@ public class GameManager : MonoBehaviour
 
     public void RemoveLives(int livesToRemove)
     {
+        if (lives < 0)
+        {
+            return;
+        }
+        
         if (livesToRemove == 0)
         {
             SetPlayerStatus(true);
-            lives = 3;
+            SetLives(currentGameMode.lives);
         }
         else if (lives - livesToRemove <= 0)
         {

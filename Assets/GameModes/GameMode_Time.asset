@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GameMode_Time
   m_EditorClassIdentifier: Assembly-CSharp::GameModeSO
   modeName: Timed
+  lives: -1
   badSpawnPercentage: 0.15
   decayRate: 0.05
   doGraceSpawns: 1

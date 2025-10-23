@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: GameMode_Insane
   m_EditorClassIdentifier: Assembly-CSharp::GameModeSO
   modeName: Insane
+  lives: 1
   badSpawnPercentage: 0.3
   decayRate: 0.075
+  doGraceSpawns: 0
   isTimed: 0

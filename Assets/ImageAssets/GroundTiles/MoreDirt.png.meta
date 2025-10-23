@@ -1,17 +1,10 @@
 fileFormatVersion: 2
-guid: 4ae51f75cd49a6e44bd08095f8d3a211
-AssetOrigin:
-  serializedVersion: 1
-  productId: 311704
-  packageName: Simple UI Icons
-  packageVersion: 1.1
-  assetPath: Assets/HardArtcore/UI/SimpleIcons/Sprites/Icons/Border/ic_store.png
-  uploadId: 742599
+guid: c8a89381aaa99e04ebee832dfa1e480a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5265065082542756437
-    second: ic_store_fill_0
+      213: -7156015726355172045
+    second: GrassAndDirt 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -79,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,24 +97,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -133,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ic_store_fill_0
+      name: GrassAndDirt 2_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 13
-        width: 445
-        height: 482
+        x: 0
+        y: 0
+        width: 192
+        height: 561
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bade9b3f33bbee6b0800000000000000
-      internalID: -5265065082542756437
+      spriteID: 335bd7f6c99b0bc90800000000000000
+      internalID: -7156015726355172045
       vertices: []
       indices: 
       edges: []
@@ -159,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -168,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ic_store_fill_0: -5265065082542756437
+      GrassAndDirt 2_0: -7156015726355172045
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
