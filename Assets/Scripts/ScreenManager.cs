@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ScreenManager : MonoBehaviour
 {
@@ -8,9 +9,18 @@ public class ScreenManager : MonoBehaviour
     private Coroutine transition = null;
     private Coroutine endGame = null;
 
-    [Header("UI Screens")]
+    [Space]
+    [SerializeField] private GameObject currentScreen;
+    [SerializeField] private List<GameObject> cachedScreens = new List<GameObject>();
+
+    [Space]
+    [Header("Moving UI Screens")]
     [SerializeField] private GameObject MainMenu;
-    [SerializeField] private GameObject Leaderboard, Settings, Game, GameOver, Background;
+    [SerializeField] private GameObject Settings, Shop, ShopCategory, GameOver, Background, Leaderboard;
+
+    [Header("Static UI Screens")]
+    [SerializeField] private GameObject StartScreen;
+    [SerializeField] private GameObject Game, Pause;
 
     [Header("Moving UI Elements")]
     // [SerializeField] private GameObject MM_Highscore;
@@ -25,9 +35,6 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private GameObject S_rightLeaves_Slow;
     [SerializeField] private GameObject S_rightLeaves_Fast;
 
-    [Space]
-    [SerializeField] private ScreenSwapping currentScreen;
-
     void Awake()
     {
         if (Singleton == null)
@@ -38,6 +45,7 @@ public class ScreenManager : MonoBehaviour
 
     void Start()
     {
+        currentScreen = StartScreen;
         BeginStartScreen();
     }
 
@@ -46,29 +54,31 @@ public class ScreenManager : MonoBehaviour
         return (transitionTime);
     }
 
-    public void SwitchScreen(ScreenSwapping screen)
+    public void SwitchScreen(GameObject screen)
     {
         if (transition == null)
         {
-            if (screen != GameOver.GetComponent<ScreenSwapping>())
-            {
-                SoundManager.Singleton.PlaySound(SoundType.UI);
-            }
+            // if (screen != GameOver.GetComponent<ScreenSwapping>())
+            // {
+            // SoundManager.Singleton.PlaySound(SoundType.UI);
+            // }
 
+            SoundManager.Singleton.PlaySound(SoundType.UI);
+            
             transition = StartCoroutine(SwapScreens(currentScreen, screen));
         }
     }
 
-    IEnumerator SwapScreens(ScreenSwapping swapOut, ScreenSwapping swapIn)
+    IEnumerator SwapScreens(GameObject swapOut, GameObject swapIn)
     {
         // Swaps screens and calls other animations
         if (swapOut != null)
         {
-            SlideScreen(swapOut.gameObject, swapOut.outPosition, false);
+            SlideScreen(swapOut, Vector3.zero, false);
             yield return new WaitForSeconds(transitionTime);
         }
 
-        SlideScreen(swapIn.gameObject, swapIn.inPosition, true);
+        SlideScreen(swapIn, Vector3.zero, true);
 
         currentScreen = swapIn;
 
@@ -120,9 +130,9 @@ public class ScreenManager : MonoBehaviour
         }
     }
 
-    public ScreenSwapping GetEndScreen()
+    public GameObject GetEndScreen()
     {
-        return (GameOver.GetComponent<ScreenSwapping>());
+        return (GameOver);
     }
 
     public void GoToMainMenu()
@@ -220,24 +230,25 @@ public class ScreenManager : MonoBehaviour
         }
         else
         {
-            currentScreen = MainMenu.GetComponent<ScreenSwapping>();
-            BeginCoverTransition(currentScreen);
+            currentScreen = MainMenu;
+            BeginMajorTransition(currentScreen);
 
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.5f);
 
-            LeanTween.moveLocal(S_Title, title_Swap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
-            LeanTween.moveLocal(S_StartLabel, label_Swap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+            StartScreen.SetActive(false);
+            // LeanTween.moveLocal(S_Title, title_Swap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+            // LeanTween.moveLocal(S_StartLabel, label_Swap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
 
-            yield return new WaitForSeconds(0.75f);
+            // yield return new WaitForSeconds(0.75f);
         }
     }
 
-    public void BeginCoverTransition(ScreenSwapping screen)
+    public void BeginMajorTransition(GameObject screen)
     {
-        StartCoroutine(CoverTransition_Anim(screen));
+        StartCoroutine(MajorTransition_Anim(screen));
     }
 
-    IEnumerator CoverTransition_Anim(ScreenSwapping screen)
+    IEnumerator MajorTransition_Anim(GameObject screen)
     {
         ScreenSwapping leftLeaves_SlowSwap = S_leftLeaves_Slow.GetComponent<ScreenSwapping>();
         ScreenSwapping leftLeaves_FastSwap = S_leftLeaves_Fast.GetComponent<ScreenSwapping>();
@@ -261,15 +272,15 @@ public class ScreenManager : MonoBehaviour
         LeanTween.moveLocal(S_rightLeaves_Slow, rightLeaves_SlowSwap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
     }
 
-    public void BeginNormalTransition(ScreenSwapping screen)
-    {
+    // public void BeginNormalTransition(ScreenSwapping screen)
+    // {
 
-    }
+    // }
 
-    IEnumerator NormalTransition(ScreenSwapping screen, int direction)
-    {
-        SwitchScreen(screen);
+    // IEnumerator NormalTransition(ScreenSwapping screen, int direction)
+    // {
+    //     SwitchScreen(screen);
 
-        yield return null;
-    }
+    //     yield return null;
+    // }
 }
