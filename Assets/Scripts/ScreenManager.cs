@@ -74,11 +74,13 @@ public class ScreenManager : MonoBehaviour
         // Swaps screens and calls other animations
         if (swapOut != null)
         {
-            SlideScreen(swapOut, Vector3.zero, false);
-            yield return new WaitForSeconds(transitionTime);
+            swapOut.SetActive(false);
+            // SlideScreen(swapOut, Vector3.zero, false);
+            // yield return new WaitForSeconds(transitionTime);
         }
 
-        SlideScreen(swapIn, Vector3.zero, true);
+        swapIn.SetActive(true);
+        // SlideScreen(swapIn, Vector3.zero, true);
 
         currentScreen = swapIn;
 
