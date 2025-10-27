@@ -64,7 +64,7 @@ public class ScreenManager : MonoBehaviour
             // }
 
             SoundManager.Singleton.PlaySound(SoundType.UI);
-            
+
             transition = StartCoroutine(SwapScreens(currentScreen, screen));
         }
     }
@@ -114,7 +114,7 @@ public class ScreenManager : MonoBehaviour
                     LeanTween.moveLocal(Background, BG_Positions.gamePosition, transitionTime).setEase(LeanTweenType.easeOutCirc);
                     GoToGame();
                 }
-                else if(screen == Leaderboard)
+                else if (screen == Leaderboard)
                 {
                     MM_currencies.SlideCurrencies(false);
                 }
@@ -184,7 +184,7 @@ public class ScreenManager : MonoBehaviour
             UIManager.Singleton.ShowEndScreenButtons(false);
 
             // Ground_Anim.UpdateGroundPosition(GameMode.Classic);
-            
+
             endGame = StartCoroutine(GameOver_Anim(gotHighscore));
         }
     }
@@ -210,8 +210,8 @@ public class ScreenManager : MonoBehaviour
     }
 
     public void BeginStartScreen(bool bringIn = true)
-    {   
-        if(bringIn)
+    {
+        if (bringIn)
             Background.transform.localPosition = BG_Positions.beginningPosition;
         StartCoroutine(Start_Anim(bringIn));
     }
@@ -238,16 +238,13 @@ public class ScreenManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
 
             StartScreen.SetActive(false);
-            // LeanTween.moveLocal(S_Title, title_Swap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
-            // LeanTween.moveLocal(S_StartLabel, label_Swap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
-
-            // yield return new WaitForSeconds(0.75f);
         }
     }
 
     public void BeginMajorTransition(GameObject screen)
     {
         StartCoroutine(MajorTransition_Anim(screen));
+        cachedScreens.Clear();
     }
 
     IEnumerator MajorTransition_Anim(GameObject screen)
@@ -272,6 +269,56 @@ public class ScreenManager : MonoBehaviour
         LeanTween.moveLocal(S_leftLeaves_Slow, leftLeaves_SlowSwap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
         LeanTween.moveLocal(S_rightLeaves_Fast, rightLeaves_FastSwap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
         LeanTween.moveLocal(S_rightLeaves_Slow, rightLeaves_SlowSwap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+    }
+
+    public void MinorTransition_Specific(GameObject screen)
+    {
+        if (cachedScreens.Contains(screen))
+            StartCoroutine(MinorTransition_Anim(screen, false));
+        else
+            StartCoroutine(MinorTransition_Anim(screen, true));
+    }
+
+    public void MinorTransition_Back()
+    {
+        GameObject backScreen = cachedScreens[cachedScreens.Count - 2];
+        StartCoroutine(MinorTransition_Anim(backScreen, false));
+    }
+
+    IEnumerator MinorTransition_Anim(GameObject screen, bool isNew)
+    {
+        Vector3 screenOffset = new Vector3(0f, Background.GetComponent<BackgroundPositions>().transitionDistance, 0f);
+        GameObject prevScreen;
+
+        if (isNew)
+        {
+            if (cachedScreens.Count == 0)
+            {
+                cachedScreens.Add(currentScreen);
+            }
+            
+            prevScreen = currentScreen;
+
+            LeanTween.moveLocal(Background, Background.transform.localPosition + screenOffset, transitionTime);
+            LeanTween.moveLocal(screen, screen.transform.localPosition + screenOffset, transitionTime);
+            LeanTween.moveLocal(prevScreen, prevScreen.transform.localPosition + screenOffset, transitionTime);
+
+            cachedScreens.Add(screen);
+            currentScreen = screen;
+        }
+        else
+        {
+            prevScreen = currentScreen;
+
+            LeanTween.moveLocal(Background, Background.transform.localPosition - screenOffset, transitionTime);
+            LeanTween.moveLocal(screen, screen.transform.localPosition - screenOffset, transitionTime);
+            LeanTween.moveLocal(prevScreen, prevScreen.transform.localPosition - screenOffset, transitionTime);
+
+            cachedScreens.Remove(currentScreen);
+            currentScreen = screen;
+        }
+        
+        yield return null;
     }
 
     // public void BeginNormalTransition(ScreenSwapping screen)
