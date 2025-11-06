@@ -26,7 +26,7 @@ public class ScreenManager : MonoBehaviour
     // [SerializeField] private GameObject MM_Highscore;
     [SerializeField] private CelebrationAnimation GO_Celebration;
     [SerializeField] private CurrencyAnimation MM_currencies;
-    [SerializeField] private GroundAnimation Ground_Anim;
+    // [SerializeField] private GroundAnimation Ground_Anim;
     [SerializeField] private BackgroundPositions BG_Positions;
     [SerializeField] private GameObject S_Title;
     [SerializeField] private GameObject S_StartLabel;
@@ -175,6 +175,7 @@ public class ScreenManager : MonoBehaviour
     void GoToGame()
     {
         // Ground_Anim.UpdateGroundPosition(GameManager.Singleton.GetGameMode());
+        LeanTween.moveLocal(Background, BG_Positions.gamePosition, 0f);
         UIManager.Singleton.BeginCountdown();
         GameManager.Singleton.ResetValues();
     }
