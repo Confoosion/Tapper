@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class TargetBehavior : MonoBehaviour, IPointerDownHandler
 {
+    public Sprite thumbnail;
     public bool isGood = true;
     [SerializeField] private float timeOnScreen = 2f;
     [SerializeField] private AudioClip sfx;
@@ -49,7 +50,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
             }
             else
             {
-                GameManager.Singleton.RemoveLives(1);
+                LoseLife(1);
             }
             SoundManager.Singleton.PlaySound(sfx);
             spriteCycler.AnimateHit();
@@ -78,8 +79,18 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     {
         if (!tapped && isGood && GameManager.Singleton.isPlaying)
         {
-            GameManager.Singleton.RemoveLives(1);
+            LoseLife(1);
         }
         SpawnManager.Singleton.RemoveTarget(GetComponent<RectTransform>());
+    }
+
+    void LoseLife(int damage)
+    {
+        GameManager.Singleton.RemoveLives(damage);
+
+        if(GameManager.Singleton.currentGameMode.modeName != "Timed")
+        {
+            ArcadeEnding.Singleton.SetReason(GameManager.Singleton.GetLives(), thumbnail);
+        }
     }
 }

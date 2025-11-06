@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b864283dcd7ea9498f5a076b2de890e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thumbnail: {fileID: 21300000, guid: ee21fb8c2cb06f64e82d410394484b6a, type: 3}
   isGood: 0
   timeOnScreen: 1.5
   sfx: {fileID: 8300000, guid: 1b5b7dd02597d39459dc8a1b97ec0d07, type: 3}
@@ -166,7 +167,6 @@ MonoBehaviour:
   tapImage: {fileID: 2289735626778924471}
   spriteCycler: {fileID: 1557323733571368251}
   tapped: 0
-  validLocation: 1
 --- !u!61 &-7348638142914939738
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -329,6 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 0.5
+  destroyAfterFade: 0
 --- !u!1 &8434978512171090135
 GameObject:
   m_ObjectHideFlags: 0

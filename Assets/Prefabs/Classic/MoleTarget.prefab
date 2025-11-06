@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b864283dcd7ea9498f5a076b2de890e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thumbnail: {fileID: 21300000, guid: e10c692812ccb074f9b5f00048553f67, type: 3}
   isGood: 1
   timeOnScreen: 0.75
   sfx: {fileID: 8300000, guid: d3cd934e022aa1541ba12b69b6068403, type: 3}
@@ -164,7 +165,6 @@ MonoBehaviour:
   tapImage: {fileID: 2289735626778924471}
   spriteCycler: {fileID: 1557323733571368251}
   tapped: 0
-  validLocation: 1
 --- !u!50 &2815712825769348587
 Rigidbody2D:
   serializedVersion: 5
@@ -327,6 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 0.5
+  destroyAfterFade: 0
 --- !u!1 &8434978512171090135
 GameObject:
   m_ObjectHideFlags: 0
