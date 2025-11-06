@@ -84,53 +84,58 @@ public class ScreenManager : MonoBehaviour
 
         currentScreen = swapIn;
 
+        if(currentScreen == Game)
+        {
+            GoToGame();
+        }
+
         yield return new WaitForSeconds(transitionTime);
         transition = null;
     }
 
-    private void SlideScreen(GameObject screen, Vector3 endPosition, bool slideIn)
-    {
-        if (screen == GameOver)
-        {
-            if (slideIn)
-            {
-                LeanTween.scale(screen, endPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
-                GoToGameOver();
-            }
-            else
-            {
-                LeanTween.scale(screen, endPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
-                GO_Celebration.AnimateCelebration(false);
-            }
-        }
-        else
-        {
-            if (slideIn)
-            {
-                LeanTween.moveLocal(screen, endPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
-                if (screen == Game)
-                {
-                    MM_currencies.SlideCurrencies(false);
-                    LeanTween.moveLocal(Background, BG_Positions.gamePosition, transitionTime).setEase(LeanTweenType.easeOutCirc);
-                    GoToGame();
-                }
-                else if (screen == Leaderboard)
-                {
-                    MM_currencies.SlideCurrencies(false);
-                }
-            }
-            else
-            {
-                LeanTween.moveLocal(screen, endPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
-            }
+    // private void SlideScreen(GameObject screen, Vector3 endPosition, bool slideIn)
+    // {
+    //     if (screen == GameOver)
+    //     {
+    //         if (slideIn)
+    //         {
+    //             LeanTween.scale(screen, endPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+    //             GoToGameOver();
+    //         }
+    //         else
+    //         {
+    //             LeanTween.scale(screen, endPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+    //             GO_Celebration.AnimateCelebration(false);
+    //         }
+    //     }
+    //     else
+    //     {
+    //         if (slideIn)
+    //         {
+    //             LeanTween.moveLocal(screen, endPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+    //             if (screen == Game)
+    //             {
+    //                 MM_currencies.SlideCurrencies(false);
+    //                 LeanTween.moveLocal(Background, BG_Positions.gamePosition, transitionTime).setEase(LeanTweenType.easeOutCirc);
+    //                 GoToGame();
+    //             }
+    //             else if (screen == Leaderboard)
+    //             {
+    //                 MM_currencies.SlideCurrencies(false);
+    //             }
+    //         }
+    //         else
+    //         {
+    //             LeanTween.moveLocal(screen, endPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+    //         }
 
-            if (screen == MainMenu)
-            {
-                MM_currencies.SlideCurrencies();
-                ExtraMainMenu_Anim(slideIn);
-            }
-        }
-    }
+    //         if (screen == MainMenu)
+    //         {
+    //             MM_currencies.SlideCurrencies();
+    //             ExtraMainMenu_Anim(slideIn);
+    //         }
+    //     }
+    // }
 
     public GameObject GetEndScreen()
     {
@@ -320,16 +325,4 @@ public class ScreenManager : MonoBehaviour
         
         yield return null;
     }
-
-    // public void BeginNormalTransition(ScreenSwapping screen)
-    // {
-
-    // }
-
-    // IEnumerator NormalTransition(ScreenSwapping screen, int direction)
-    // {
-    //     SwitchScreen(screen);
-
-    //     yield return null;
-    // }
 }
