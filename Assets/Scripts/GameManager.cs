@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
         if (!isAlive)
         {
             isPlaying = false;
+            ArcadeEnding.Singleton.StartEndingAnimation();
             // ScreenManager.Singleton.SwitchScreen(ScreenManager.Singleton.GetEndScreen());
             // ScreenManager.Singleton.GoToGameOver();
         }

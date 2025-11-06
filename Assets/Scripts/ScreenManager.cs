@@ -16,7 +16,7 @@ public class ScreenManager : MonoBehaviour
     [Space]
     [Header("Moving UI Screens")]
     [SerializeField] private GameObject MainMenu;
-    [SerializeField] private GameObject Settings, Shop, ShopCategory, GameOver, Background, Leaderboard;
+    [SerializeField] private GameObject Settings, Shop, ShopCategory, ArcadeEnding, TimeEnding, GameOver, Background, Leaderboard;
 
     [Header("Static UI Screens")]
     [SerializeField] private GameObject StartScreen;
@@ -58,12 +58,12 @@ public class ScreenManager : MonoBehaviour
     {
         if (transition == null)
         {
-            // if (screen != GameOver.GetComponent<ScreenSwapping>())
-            // {
-            // SoundManager.Singleton.PlaySound(SoundType.UI);
-            // }
-
+            if (screen != GameOver && screen != ArcadeEnding && screen != TimeEnding)
+            {
             SoundManager.Singleton.PlaySound(SoundType.UI);
+            }
+
+            // SoundManager.Singleton.PlaySound(SoundType.UI);
 
             transition = StartCoroutine(SwapScreens(currentScreen, screen));
         }
@@ -141,6 +141,8 @@ public class ScreenManager : MonoBehaviour
     {
         return (GameOver);
     }
+
+    
 
     public void GoToMainMenu()
     {
