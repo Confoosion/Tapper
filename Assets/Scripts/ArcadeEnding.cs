@@ -48,6 +48,7 @@ public class ArcadeEnding : MonoBehaviour
 
     public void StartEndingAnimation()
     {
+        UIManager.Singleton.HideSettingsAndPauseIcon();
         StartCoroutine(EndingAnimation());
     }
     

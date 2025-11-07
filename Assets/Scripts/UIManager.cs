@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Singleton { get; private set; }
 
     [Header("Main Menu UI")]
+    [SerializeField] private Image arcadeButtonImage;
     [SerializeField] private TextMeshProUGUI MM_highscore;
     [SerializeField] private TextMeshProUGUI MM_gems;
     [SerializeField] private TextMeshProUGUI MM_gameMode;
@@ -46,6 +47,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI personalPlacement;
     [SerializeField] private TextMeshProUGUI personalName;
     [SerializeField] private TextMeshProUGUI personalScore;
+
+    [Header("Extra UI")]
+    [SerializeField] private GameObject settingsButton;
+    [SerializeField] private GameObject pauseButton;
 
     void Awake()
     {
@@ -212,8 +217,9 @@ public class UIManager : MonoBehaviour
         backgroundIndex = modeIndex;
     }
 
-    public void ChangeGameModeUI(GameModeSO mode)
+    public void ChangeGameModeUI(GameModeSO mode, Sprite modeSprite)
     {
+        arcadeButtonImage.sprite = modeSprite;
         MM_gameMode.SetText(mode.modeName);
     }
 
@@ -249,5 +255,17 @@ public class UIManager : MonoBehaviour
         toBG.color = tColor;
 
         backgroundCoroutine = null;
+    }
+
+    public void ShowSettingsOrPauseIcon(bool showSettings)
+    {
+        settingsButton.SetActive(showSettings);
+        pauseButton.SetActive(!showSettings);
+    }
+
+    public void HideSettingsAndPauseIcon()
+    {
+        settingsButton.SetActive(false);
+        pauseButton.SetActive(false);
     }
 }

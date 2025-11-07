@@ -60,7 +60,12 @@ public class ScreenManager : MonoBehaviour
         {
             if (screen != GameOver && screen != ArcadeEnding && screen != TimeEnding)
             {
-            SoundManager.Singleton.PlaySound(SoundType.UI);
+                SoundManager.Singleton.PlaySound(SoundType.UI);
+            }
+
+            if(screen == GameOver)
+            {
+                UIManager.Singleton.ShowSettingsOrPauseIcon(true);
             }
 
             // SoundManager.Singleton.PlaySound(SoundType.UI);
@@ -93,56 +98,10 @@ public class ScreenManager : MonoBehaviour
         transition = null;
     }
 
-    // private void SlideScreen(GameObject screen, Vector3 endPosition, bool slideIn)
-    // {
-    //     if (screen == GameOver)
-    //     {
-    //         if (slideIn)
-    //         {
-    //             LeanTween.scale(screen, endPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
-    //             GoToGameOver();
-    //         }
-    //         else
-    //         {
-    //             LeanTween.scale(screen, endPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
-    //             GO_Celebration.AnimateCelebration(false);
-    //         }
-    //     }
-    //     else
-    //     {
-    //         if (slideIn)
-    //         {
-    //             LeanTween.moveLocal(screen, endPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
-    //             if (screen == Game)
-    //             {
-    //                 MM_currencies.SlideCurrencies(false);
-    //                 LeanTween.moveLocal(Background, BG_Positions.gamePosition, transitionTime).setEase(LeanTweenType.easeOutCirc);
-    //                 GoToGame();
-    //             }
-    //             else if (screen == Leaderboard)
-    //             {
-    //                 MM_currencies.SlideCurrencies(false);
-    //             }
-    //         }
-    //         else
-    //         {
-    //             LeanTween.moveLocal(screen, endPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
-    //         }
-
-    //         if (screen == MainMenu)
-    //         {
-    //             MM_currencies.SlideCurrencies();
-    //             ExtraMainMenu_Anim(slideIn);
-    //         }
-    //     }
-    // }
-
     public GameObject GetEndScreen()
     {
         return (GameOver);
     }
-
-    
 
     public void GoToMainMenu()
     {
@@ -155,20 +114,9 @@ public class ScreenManager : MonoBehaviour
 
     private void ExtraMainMenu_Anim(bool slideIn)
     {
-        // ScreenSwapping highscore_ScreenSwapping = MM_Highscore.GetComponent<ScreenSwapping>();
-
         if (slideIn)
         {
-            // MM_Title.AnimateTitle();
             LeanTween.moveLocal(Background, BG_Positions.menuPosition, transitionTime).setEase(LeanTweenType.easeOutCirc);
-            // LeanTween.moveLocal(MM_Highscore, highscore_ScreenSwapping.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
-            // UIManager.Singleton.MM_arrows.Animate(true);
-        }
-        else
-        {
-            // MM_Title.AnimateTitle(false);
-            // LeanTween.moveLocal(MM_Highscore, highscore_ScreenSwapping.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
-            // UIManager.Singleton.MM_arrows.Animate(false);
         }
     }
 
@@ -176,6 +124,7 @@ public class ScreenManager : MonoBehaviour
     {
         // Ground_Anim.UpdateGroundPosition(GameManager.Singleton.GetGameMode());
         LeanTween.moveLocal(Background, BG_Positions.gamePosition, 0f);
+        UIManager.Singleton.ShowSettingsOrPauseIcon(false);
         UIManager.Singleton.BeginCountdown();
         GameManager.Singleton.ResetValues();
     }
@@ -281,6 +230,9 @@ public class ScreenManager : MonoBehaviour
 
     public void MinorTransition_Specific(GameObject screen)
     {
+        if (screen == currentScreen)
+            return;
+
         if (cachedScreens.Contains(screen))
             StartCoroutine(MinorTransition_Anim(screen, false));
         else
