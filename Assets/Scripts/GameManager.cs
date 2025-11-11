@@ -129,17 +129,13 @@ public class GameManager : MonoBehaviour
         RemoveLives(0);
     }
 
-    public void RestartGame()
+    public void StopGame(GameObject screen)
     {
         isPlaying = false;
         isAlive = false;
+        SpawnManager.Singleton.RemoveALLTargets();
         PauseGame(false);
-        ScreenManager.Singleton.BeginMajorTransition(ScreenManager.Singleton.GetGameScreen());
-    }
-    
-    public void LeaveGame()
-    {
-        
+        ScreenManager.Singleton.BeginMajorTransition(screen);
     }
 
     void GetFPS()

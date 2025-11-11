@@ -155,6 +155,14 @@ public class SpawnManager : MonoBehaviour
         return (false);
     }
 
+    public void RemoveALLTargets()
+    {
+        foreach(RectTransform target in targets)
+        {
+            Destroy(target.gameObject);
+        }
+    }
+
     public void RemoveTarget(RectTransform target)
     {
         targets.Remove(target);
