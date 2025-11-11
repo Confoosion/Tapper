@@ -11,6 +11,7 @@ public class SpawnManager : MonoBehaviour
     public RectTransform spawnArea;
     public GameObject[] goodTargets;
     public GameObject badTarget;
+    public GameObject timeTarget;
     private int MAX_TARGETS = 10;
     [SerializeField] private float spawnWaitTime = 0.5f;
 
@@ -85,7 +86,10 @@ public class SpawnManager : MonoBehaviour
             }
             else
             {
-                target = Instantiate(badTarget, spawnArea);
+                if (isTimed && Random.Range(0f, 1f) > badPercentage)
+                    target = Instantiate(timeTarget, spawnArea);
+                else
+                    target = Instantiate(badTarget, spawnArea);
             }
 
             targets.Add(target.GetComponent<RectTransform>());

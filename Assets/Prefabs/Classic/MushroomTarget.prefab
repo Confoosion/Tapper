@@ -86,10 +86,10 @@ GameObject:
   - component: {fileID: 2522612073092916614}
   - component: {fileID: 1557323733571368251}
   - component: {fileID: 8110159999727985806}
-  - component: {fileID: -7348638142914939738}
-  - component: {fileID: 4866850102770091237}
+  - component: {fileID: -1783652711007359807}
+  - component: {fileID: 8463553187699543710}
   m_Layer: 5
-  m_Name: BombTarget
+  m_Name: MushroomTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,7 @@ RectTransform:
   m_GameObject: {fileID: 2802138409187390077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8908290232325348962}
@@ -132,16 +132,13 @@ MonoBehaviour:
   _image: {fileID: 6593003329329549726}
   _dirtImage: {fileID: 5000807123262230485}
   inSprites:
-  - {fileID: 21300000, guid: 793d658f0f9b98b458a0a590ee699c51, type: 3}
-  - {fileID: 21300000, guid: c1d98471aba4d174689ffd826a69a3d5, type: 3}
-  - {fileID: 21300000, guid: 9580b224948bca24b96eb8d9710714ee, type: 3}
+  - {fileID: 21300000, guid: f00cb4cc82f5d144188b6e2ef6b194cf, type: 3}
+  - {fileID: 21300000, guid: d280f27ed8f546a40a5067415b6e2a06, type: 3}
+  - {fileID: 21300000, guid: c7c5c480cf8d5c045b1386bea43e57e7, type: 3}
   outSprites:
-  - {fileID: 21300000, guid: 793d658f0f9b98b458a0a590ee699c51, type: 3}
-  - {fileID: 21300000, guid: 15ae4cd2030ba894ba603aaf613fe6a9, type: 3}
-  - {fileID: 21300000, guid: c1d98471aba4d174689ffd826a69a3d5, type: 3}
-  idleSprites:
-  - {fileID: 21300000, guid: 9580b224948bca24b96eb8d9710714ee, type: 3}
-  - {fileID: 21300000, guid: ee21fb8c2cb06f64e82d410394484b6a, type: 3}
+  - {fileID: 21300000, guid: f00cb4cc82f5d144188b6e2ef6b194cf, type: 3}
+  - {fileID: 21300000, guid: 8a213a8170fd1ca4e84c081f12f9e9e0, type: 3}
+  idleSprites: []
   dirtSprites:
   - {fileID: 21300000, guid: 6cf1963093f231347ba0adc66d70df42, type: 3}
   - {fileID: 21300000, guid: 060fb3afe33d3d34483edc9d725e11a4, type: 3}
@@ -159,16 +156,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b864283dcd7ea9498f5a076b2de890e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thumbnail: {fileID: 21300000, guid: ee21fb8c2cb06f64e82d410394484b6a, type: 3}
-  isGood: 0
-  addTime: -4
-  timeOnScreen: 1.5
-  sfx: {fileID: 8300000, guid: 1b5b7dd02597d39459dc8a1b97ec0d07, type: 3}
-  gem: {fileID: 0}
+  thumbnail: {fileID: 0}
+  isGood: 1
+  addTime: 2
+  timeOnScreen: 0.5
+  sfx: {fileID: 8300000, guid: 2a134084c637070478147fe3e4bc4e2d, type: 3}
+  gem: {fileID: 8494625251215090528, guid: 45c0d6613ff9b424d96fa7955d31898d, type: 3}
   tapImage: {fileID: 2289735626778924471}
   spriteCycler: {fileID: 1557323733571368251}
   tapped: 0
---- !u!61 &-7348638142914939738
+--- !u!61 &-1783652711007359807
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,7 +211,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
---- !u!50 &4866850102770091237
+--- !u!50 &8463553187699543710
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -307,7 +304,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 98c933c489c003b42a768ee399e67b4a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aaf3475b772350c46a97f3c714494422, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

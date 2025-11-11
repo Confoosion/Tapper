@@ -8,6 +8,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
 {
     public Sprite thumbnail;
     public bool isGood = true;
+    [SerializeField] private int addTime;
     [SerializeField] private float timeOnScreen = 2f;
     [SerializeField] private AudioClip sfx;
     [SerializeField] private GameObject gem;
@@ -39,6 +40,11 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
             spriteCycler.canTap = false;
             tapped = true;
             tapImage.gameObject.SetActive(true);
+
+            if(addTime != 0 && GameManager.Singleton.currentGameMode.isTimed)
+            {
+                TimeAttackClock.Singleton.AddTime(addTime);
+            }
 
             if (isGood)
             {

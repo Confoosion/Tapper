@@ -57,6 +57,10 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         isPlaying = true;
+        if(currentGameMode.isTimed)
+        {
+            TimeAttackClock.Singleton.StartClock();
+        }        
         ScoreManager.Singleton.ResetCirclesTapped();
         SpawnManager.Singleton.StartSpawning();
     }
