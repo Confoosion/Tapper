@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Singleton { get; private set; }
 
     public bool isPlaying;
+    public bool isPaused;
     public GameModeSO currentGameMode;
     [SerializeField] private bool isAlive = true;
 
@@ -37,17 +38,21 @@ public class GameManager : MonoBehaviour
         SpawnManager.Singleton.SetSpawnVariables(currentGameMode.badSpawnPercentage, currentGameMode.decayRate, currentGameMode.doGraceSpawns, currentGameMode.isTimed);
     }
 
-    // public void UpdateGameMode(GameMode mode)
-    // {
-    //     selectedGameMode = mode;
-    //     UIManager.Singleton.SwitchBackgrounds((int)selectedGameMode);
-    //     UIManager.Singleton.UpdateHighscoreUI();
-    // }
+    public void PauseGame(bool pause)
+    {
+        isPaused = pause;
 
-    // public GameMode GetGameMode()
-    // {
-    //     return (selectedGameMode);
-    // }
+        UIManager.Singleton.ShowPauseScreen(isPaused);
+
+        if (isPaused)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+    }
 
     public void StartGame()
     {
@@ -122,6 +127,19 @@ public class GameManager : MonoBehaviour
     {
         ScoreManager.Singleton.AddPoints(0);
         RemoveLives(0);
+    }
+
+    public void RestartGame()
+    {
+        isPlaying = false;
+        isAlive = false;
+        PauseGame(false);
+        ScreenManager.Singleton.BeginMajorTransition(ScreenManager.Singleton.GetGameScreen());
+    }
+    
+    public void LeaveGame()
+    {
+        
     }
 
     void GetFPS()

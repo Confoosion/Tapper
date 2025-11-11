@@ -98,6 +98,11 @@ public class ScreenManager : MonoBehaviour
         transition = null;
     }
 
+    public GameObject GetGameScreen()
+    {
+        return (Game);
+    }
+
     public GameObject GetEndScreen()
     {
         return (GameOver);

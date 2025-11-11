@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
 
     private float countdownInterval = 0.8f;
     [Header("Game Screen UI")]
+    [SerializeField] private GameObject pauseScreen;
     [SerializeField] private Image good_Image;
     [SerializeField] private Image bad_Image;
     [SerializeField] private GameObject countdownObject;
@@ -141,6 +142,11 @@ public class UIManager : MonoBehaviour
             return;
         }
         MM_gems.SetText("0");
+    }
+
+    public void ShowPauseScreen(bool show)
+    {
+        pauseScreen.SetActive(show);
     }
 
     public void ShowHighscore(bool show)
