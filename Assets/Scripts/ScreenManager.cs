@@ -20,7 +20,7 @@ public class ScreenManager : MonoBehaviour
 
     [Header("Static UI Screens")]
     [SerializeField] private GameObject StartScreen;
-    [SerializeField] private GameObject Game, Pause;
+    [SerializeField] private GameObject Game;
 
     [Header("Moving UI Elements")]
     // [SerializeField] private GameObject MM_Highscore;
@@ -264,9 +264,9 @@ public class ScreenManager : MonoBehaviour
             
             prevScreen = currentScreen;
 
-            LeanTween.moveLocal(Background, Background.transform.localPosition + screenOffset, transitionTime);
-            LeanTween.moveLocal(screen, screen.transform.localPosition + screenOffset, transitionTime);
-            LeanTween.moveLocal(prevScreen, prevScreen.transform.localPosition + screenOffset, transitionTime);
+            LeanTween.moveLocal(Background, Background.transform.localPosition + screenOffset, transitionTime).setEase(LeanTweenType.easeInOutQuad);
+            LeanTween.moveLocal(screen, screen.transform.localPosition + screenOffset, transitionTime).setEase(LeanTweenType.easeInOutQuad);
+            LeanTween.moveLocal(prevScreen, prevScreen.transform.localPosition + screenOffset, transitionTime).setEase(LeanTweenType.easeInOutQuad);
 
             cachedScreens.Add(screen);
             currentScreen = screen;
@@ -275,9 +275,9 @@ public class ScreenManager : MonoBehaviour
         {
             prevScreen = currentScreen;
 
-            LeanTween.moveLocal(Background, Background.transform.localPosition - screenOffset, transitionTime);
-            LeanTween.moveLocal(screen, screen.transform.localPosition - screenOffset, transitionTime);
-            LeanTween.moveLocal(prevScreen, prevScreen.transform.localPosition - screenOffset, transitionTime);
+            LeanTween.moveLocal(Background, Background.transform.localPosition - screenOffset, transitionTime).setEase(LeanTweenType.easeInOutQuad);
+            LeanTween.moveLocal(screen, screen.transform.localPosition - screenOffset, transitionTime).setEase(LeanTweenType.easeInOutQuad);
+            LeanTween.moveLocal(prevScreen, prevScreen.transform.localPosition - screenOffset, transitionTime).setEase(LeanTweenType.easeInOutQuad);
 
             cachedScreens.Remove(currentScreen);
             currentScreen = screen;

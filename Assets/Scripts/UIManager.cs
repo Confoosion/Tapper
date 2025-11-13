@@ -15,6 +15,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI MM_gameMode;
 
     [Header("Settings UI")]
+    [SerializeField] private Sprite onToggle;
+    [SerializeField] private Sprite offToggle;
+    public Image SFXToggle;
+    public Image MusicToggle;
+    public Image VibrationToggle;
     [SerializeField] private TextMeshProUGUI confirmText;
     [SerializeField] private TMP_InputField nameInputField;
     [SerializeField] private TextMeshProUGUI nameErrorText;
@@ -273,5 +278,17 @@ public class UIManager : MonoBehaviour
     {
         settingsButton.SetActive(false);
         pauseButton.SetActive(false);
+    }
+
+    public void UpdateToggle(Image toggleImage, bool toggle)
+    {
+        if (toggle)
+        {
+            toggleImage.sprite = onToggle;
+        }
+        else
+        {
+            toggleImage.sprite = offToggle;
+        }
     }
 }

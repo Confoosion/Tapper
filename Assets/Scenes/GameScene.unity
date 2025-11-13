@@ -12483,6 +12483,11 @@ MonoBehaviour:
   MM_highscore: {fileID: 1057845960}
   MM_gems: {fileID: 1902359750}
   MM_gameMode: {fileID: 714681384}
+  onToggle: {fileID: 21300000, guid: 5be6a95d326872b4d8af7cfd268a6458, type: 3}
+  offToggle: {fileID: 21300000, guid: de536bd507607584aa4d04e1bd9867dd, type: 3}
+  SFXToggle: {fileID: 944843314}
+  MusicToggle: {fileID: 944703772}
+  VibrationToggle: {fileID: 1502205746}
   confirmText: {fileID: 455020451}
   nameInputField: {fileID: 182292710}
   nameErrorText: {fileID: 1591827375}

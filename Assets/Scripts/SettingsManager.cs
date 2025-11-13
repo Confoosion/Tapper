@@ -49,11 +49,14 @@ public class SettingsManager : MonoBehaviour
         {
             audioMixer.SetFloat("SFX_Volume", 0f);
             PlayerPrefs.SetInt("IsSFXMuted", 0);
-            return;
         }
-        // Debug.Log("SFX MUTED");
-        audioMixer.SetFloat("SFX_Volume", -80f);
-        PlayerPrefs.SetInt("IsSFXMuted", 1);
+        else
+        {
+            audioMixer.SetFloat("SFX_Volume", -80f);
+            PlayerPrefs.SetInt("IsSFXMuted", 1);
+        }
+
+        UIManager.Singleton.UpdateToggle(UIManager.Singleton.SFXToggle, toggle);
     }
 
     public void ToggleMusicVolume(bool toggle)
@@ -62,11 +65,14 @@ public class SettingsManager : MonoBehaviour
         {
             audioMixer.SetFloat("Music_Volume", -10f);
             PlayerPrefs.SetInt("IsMusicMuted", 0);
-            return;
         }
-        // Debug.Log("MUSIC MUTED");
-        audioMixer.SetFloat("Music_Volume", -80f);
-        PlayerPrefs.SetInt("IsMusicMuted", 1);
+        else
+        {
+            audioMixer.SetFloat("Music_Volume", -80f);
+            PlayerPrefs.SetInt("IsMusicMuted", 1);
+        }
+
+        UIManager.Singleton.UpdateToggle(UIManager.Singleton.MusicToggle, toggle);
     }
 
     public void ResetDataPressed()
