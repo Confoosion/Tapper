@@ -11203,6 +11203,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 714681386}
+        m_TargetAssemblyTypeName: GameModeCycle, Assembly-CSharp
+        m_MethodName: RetrieveCurrentMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1206995913}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
         m_MethodName: BeginMajorTransition
@@ -12494,6 +12506,7 @@ MonoBehaviour:
   pauseScreen: {fileID: 379751659}
   good_Image: {fileID: 319202230366041515, guid: dd29231a6558e8042991ae37d07f23f5, type: 3}
   bad_Image: {fileID: 8946530191119915437, guid: 1915d8335e3a1cb489ad2fa887ec7efc, type: 3}
+  timeAttackTimer: {fileID: 1118482413}
   countdownObject: {fileID: 161217266}
   countdownImages:
   - {fileID: 21300000, guid: 55c0d36af39f93447a2f80c1a1b48064, type: 3}
@@ -12544,7 +12557,6 @@ MonoBehaviour:
   Leaderboard: {fileID: 1758330610}
   StartScreen: {fileID: 412672816}
   Game: {fileID: 937875902}
-  Pause: {fileID: 0}
   GO_Celebration: {fileID: 1250077639}
   MM_currencies: {fileID: 983213325}
   BG_Positions: {fileID: 1504657091}
@@ -16362,7 +16374,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2100}
+  m_AnchoredPosition: {x: 2084, y: -2191}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1758330612
@@ -16579,9 +16591,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   lossReasons:
-  - {fileID: 1021295193}
-  - {fileID: 1552370352}
   - {fileID: 12745580}
+  - {fileID: 1552370352}
+  - {fileID: 1021295193}
 --- !u!1 &1837110300
 GameObject:
   m_ObjectHideFlags: 0

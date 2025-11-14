@@ -2,11 +2,17 @@ using UnityEngine;
 
 public class GameModeCycle : MonoBehaviour
 {
+    private GameModeSO currGameMode;
     public GameModeSO[] gameModeList;
     public Sprite[] gameModeSprites;
     public GameObject[] gameModeDetails;
 
     private int modeIndex = 0;
+
+    void Start()
+    {
+        currGameMode = gameModeList[0];
+    }
 
     public void SwitchGameMode(int direction)
     {
@@ -21,5 +27,11 @@ public class GameModeCycle : MonoBehaviour
         UIManager.Singleton.ChangeGameModeUI(currMode, gameModeSprites[modeIndex]);
 
         gameModeDetails[modeIndex].SetActive(true);
+        currGameMode = currMode;
+    }
+
+    public void RetrieveCurrentMode()
+    {
+        GameManager.Singleton.UpdateGameMode(currGameMode);
     }
 }

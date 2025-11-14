@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
 
     public bool CheckPlayerStatus()
     {
+        // Debug.Log("LIVES = " + GetLives());
         return (isAlive);
     }
 
@@ -104,7 +105,7 @@ public class GameManager : MonoBehaviour
 
     public void RemoveLives(int livesToRemove)
     {
-        if (lives < 0)
+        if (lives < 0 && livesToRemove != 0)
         {
             return;
         }
@@ -124,7 +125,7 @@ public class GameManager : MonoBehaviour
             lives -= livesToRemove;
         }
 
-        UIManager.Singleton.UpdateHearts(lives);
+        UIManager.Singleton.UpdateHearts((lives > 0) ? lives : 0);
     }
 
     public void ResetValues()

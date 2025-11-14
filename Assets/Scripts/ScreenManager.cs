@@ -129,8 +129,11 @@ public class ScreenManager : MonoBehaviour
     {
         // Ground_Anim.UpdateGroundPosition(GameManager.Singleton.GetGameMode());
         LeanTween.moveLocal(Background, BG_Positions.gamePosition, 0f);
+
+        UIManager.Singleton.ShowTimeAttackTimer(GameManager.Singleton.currentGameMode.isTimed);
         UIManager.Singleton.ShowSettingsOrPauseIcon(false);
         UIManager.Singleton.BeginCountdown();
+        
         GameManager.Singleton.ResetValues();
     }
 

@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private Image good_Image;
     [SerializeField] private Image bad_Image;
+    [SerializeField] private GameObject timeAttackTimer;
     [SerializeField] private GameObject countdownObject;
     [SerializeField] private List<Sprite> countdownImages = new List<Sprite>();
 
@@ -290,5 +291,10 @@ public class UIManager : MonoBehaviour
         {
             toggleImage.sprite = offToggle;
         }
+    }
+
+    public void ShowTimeAttackTimer(bool show)
+    {
+        timeAttackTimer.SetActive(show);
     }
 }
