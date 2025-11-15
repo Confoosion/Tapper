@@ -60,7 +60,8 @@ public class GameManager : MonoBehaviour
         if(currentGameMode.isTimed)
         {
             TimeAttackClock.Singleton.StartClock();
-        }        
+        }
+        UIManager.Singleton.ShowSettingsOrPauseIcon(false);
         ScoreManager.Singleton.ResetCirclesTapped();
         SpawnManager.Singleton.StartSpawning();
     }
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour
     public bool CheckPlayerStatus()
     {
         // Debug.Log("LIVES = " + GetLives());
-        return (isAlive);
+        return (isPlaying && isAlive);
     }
 
     public void SetPlayerStatus(bool status)

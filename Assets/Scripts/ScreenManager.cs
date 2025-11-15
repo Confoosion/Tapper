@@ -67,6 +67,11 @@ public class ScreenManager : MonoBehaviour
             {
                 UIManager.Singleton.ShowSettingsOrPauseIcon(true);
             }
+            else if(screen == MainMenu)
+            {
+                LeanTween.moveLocal(Background, BG_Positions.menuPosition, 0f);
+                UIManager.Singleton.ShowSettingsOrPauseIcon(true);
+            }
 
             // SoundManager.Singleton.PlaySound(SoundType.UI);
 
@@ -131,7 +136,7 @@ public class ScreenManager : MonoBehaviour
         LeanTween.moveLocal(Background, BG_Positions.gamePosition, 0f);
 
         UIManager.Singleton.ShowTimeAttackTimer(GameManager.Singleton.currentGameMode.isTimed);
-        UIManager.Singleton.ShowSettingsOrPauseIcon(false);
+        UIManager.Singleton.HideSettingsAndPauseIcon();
         UIManager.Singleton.BeginCountdown();
         
         GameManager.Singleton.ResetValues();

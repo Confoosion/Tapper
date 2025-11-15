@@ -92,10 +92,11 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
 
     void LoseLife(int damage)
     {
-        GameManager.Singleton.RemoveLives(damage);
+        // GameManager.Singleton.RemoveLives(damage);
 
         if(GameManager.Singleton.currentGameMode.modeName != "Timed")
         {
+            GameManager.Singleton.RemoveLives(damage);
             ArcadeEnding.Singleton.SetReason(GameManager.Singleton.GetLives(), thumbnail);
         }
     }
