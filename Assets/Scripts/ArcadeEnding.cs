@@ -8,6 +8,7 @@ public class ArcadeEnding : MonoBehaviour
     public static ArcadeEnding Singleton;
 
     [SerializeField] private GameObject[] lossReasons = new GameObject[3];
+    private int reasonCount = 0;
     private Vector3 homeLocation = new Vector3(0f, 1600f, 0f);
     private Vector3 dropLocation = new Vector3(0f, -550f, 0f);
     private Vector3 dropOffset = new Vector3(0f, 500f, 0f);
@@ -27,23 +28,25 @@ public class ArcadeEnding : MonoBehaviour
         ResetReasons();
     }
 
-    public void SetReason(int livesLeft, Sprite reason)
+    public void SetReason(Sprite reason)
     {
-        lossReasons[livesLeft].GetComponent<Image>().sprite = reason;
-        lossReasons[livesLeft].SetActive(true);
+        lossReasons[reasonCount].GetComponent<Image>().sprite = reason;
+        lossReasons[reasonCount].SetActive(true);
+        reasonCount += 1;
     }
 
-    void ResetReasons()
+    public void ResetReasons()
     {
-        for(int i = lossReasons.Length - 1; i >= 0; i--)
+        for(int i = 0; i < lossReasons.Length; i++)
         {
             GameObject reason = lossReasons[i];
             if(reason != null)
             {
-                reason.transform.localPosition = homeLocation + dropOffset * (lossReasons.Length - 1 - i);
+                reason.transform.localPosition = homeLocation + dropOffset * i;
                 reason.SetActive(false);
             }
         }
+        reasonCount = 0;
     }
 
     public void StartEndingAnimation()
@@ -54,11 +57,11 @@ public class ArcadeEnding : MonoBehaviour
     
     IEnumerator EndingAnimation()
     {
-        for (int i = lossReasons.Length - 1; i >= 0; i--)
+        for (int i = 0; i < lossReasons.Length; i++)
         {
             GameObject reason = lossReasons[i];
             if(reason != null)
-                LeanTween.moveLocal(reason, dropLocation + dropOffset * (lossReasons.Length - 1 - i), dropTime).setEase(LeanTweenType.easeOutBounce);
+                LeanTween.moveLocal(reason, dropLocation + dropOffset * i, dropTime).setEase(LeanTweenType.easeOutBounce);
 
             yield return new WaitForSeconds(waitTime);
         }

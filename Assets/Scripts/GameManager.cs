@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
         {
             TimeAttackClock.Singleton.StartClock();
         }
+        ArcadeEnding.Singleton.ResetReasons();
         UIManager.Singleton.ShowSettingsOrPauseIcon(false);
         ScoreManager.Singleton.ResetCirclesTapped();
         SpawnManager.Singleton.StartSpawning();
