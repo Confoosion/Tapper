@@ -54,29 +54,32 @@ public class ScreenManager : MonoBehaviour
         return (transitionTime);
     }
 
+    public bool IsTransitionGoing()
+    {
+        return(transition != null);
+    }
+
     public void SwitchScreen(GameObject screen)
     {
-        if (transition == null)
+        if (screen != GameOver && screen != ArcadeEnding && screen != TimeEnding)
         {
-            if (screen != GameOver && screen != ArcadeEnding && screen != TimeEnding)
-            {
-                SoundManager.Singleton.PlaySound(SoundType.UI);
-            }
-
-            if(screen == GameOver)
-            {
-                UIManager.Singleton.ShowSettingsOrPauseIcon(true);
-            }
-            else if(screen == MainMenu)
-            {
-                LeanTween.moveLocal(Background, BG_Positions.menuPosition, 0f);
-                UIManager.Singleton.ShowSettingsOrPauseIcon(true);
-            }
-
-            // SoundManager.Singleton.PlaySound(SoundType.UI);
-
-            transition = StartCoroutine(SwapScreens(currentScreen, screen));
+            SoundManager.Singleton.PlaySound(SoundType.UI);
         }
+
+        if(screen == GameOver)
+        {
+            UIManager.Singleton.ShowSettingsOrPauseIcon(true);
+        }
+        else if(screen == MainMenu)
+        {
+            LeanTween.moveLocal(Background, BG_Positions.menuPosition, 0f);
+            UIManager.Singleton.ShowSettingsOrPauseIcon(true);
+        }
+
+        // SoundManager.Singleton.PlaySound(SoundType.UI);
+
+        StartCoroutine(SwapScreens(currentScreen, screen));
+    
     }
 
     IEnumerator SwapScreens(GameObject swapOut, GameObject swapIn)
@@ -100,7 +103,6 @@ public class ScreenManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(transitionTime);
-        transition = null;
     }
 
     public GameObject GetGameScreen()
@@ -183,7 +185,7 @@ public class ScreenManager : MonoBehaviour
     {
         if (bringIn)
             Background.transform.localPosition = BG_Positions.beginningPosition;
-        StartCoroutine(Start_Anim(bringIn));
+        transition = StartCoroutine(Start_Anim(bringIn));
     }
 
     IEnumerator Start_Anim(bool bringIn)
@@ -209,12 +211,17 @@ public class ScreenManager : MonoBehaviour
 
             StartScreen.SetActive(false);
         }
+
+        transition = null;
     }
 
     public void BeginMajorTransition(GameObject screen)
     {
-        StartCoroutine(MajorTransition_Anim(screen));
-        cachedScreens.Clear();
+        if(transition == null)
+        {
+            transition = StartCoroutine(MajorTransition_Anim(screen));
+            cachedScreens.Clear();
+        }
     }
 
     IEnumerator MajorTransition_Anim(GameObject screen)
@@ -239,23 +246,29 @@ public class ScreenManager : MonoBehaviour
         LeanTween.moveLocal(S_leftLeaves_Slow, leftLeaves_SlowSwap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
         LeanTween.moveLocal(S_rightLeaves_Fast, rightLeaves_FastSwap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
         LeanTween.moveLocal(S_rightLeaves_Slow, rightLeaves_SlowSwap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
+
+        transition = null;
     }
 
     public void MinorTransition_Specific(GameObject screen)
     {
-        if (screen == currentScreen)
+        if (transition != null || screen == currentScreen)
             return;
 
         if (cachedScreens.Contains(screen))
-            StartCoroutine(MinorTransition_Anim(screen, false));
+            transition = StartCoroutine(MinorTransition_Anim(screen, false));
         else
-            StartCoroutine(MinorTransition_Anim(screen, true));
+            transition = StartCoroutine(MinorTransition_Anim(screen, true));
     }
 
     public void MinorTransition_Back()
     {
+        if(transition != null)
+        {
+            return;
+        }
         GameObject backScreen = cachedScreens[cachedScreens.Count - 2];
-        StartCoroutine(MinorTransition_Anim(backScreen, false));
+        transition = StartCoroutine(MinorTransition_Anim(backScreen, false));
     }
 
     IEnumerator MinorTransition_Anim(GameObject screen, bool isNew)
@@ -291,6 +304,7 @@ public class ScreenManager : MonoBehaviour
             currentScreen = screen;
         }
         
-        yield return null;
+        yield return new WaitForSeconds(transitionTime);
+        transition = null;
     }
 }

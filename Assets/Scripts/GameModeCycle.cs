@@ -16,6 +16,11 @@ public class GameModeCycle : MonoBehaviour
 
     public void SwitchGameMode(int direction)
     {
+        if(ScreenManager.Singleton.IsTransitionGoing())
+        {
+            return;
+        }
+
         gameModeDetails[modeIndex].SetActive(false);
 
         modeIndex = (modeIndex + direction) % gameModeList.Length;
@@ -32,6 +37,11 @@ public class GameModeCycle : MonoBehaviour
 
     public void RetrieveCurrentMode()
     {
+        if(ScreenManager.Singleton.IsTransitionGoing())
+        {
+            return;
+        }
+        
         GameManager.Singleton.UpdateGameMode(currGameMode);
     }
 }

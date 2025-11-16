@@ -33,6 +33,11 @@ public class GameManager : MonoBehaviour
 
     public void UpdateGameMode(GameModeSO mode)
     {
+        if(ScreenManager.Singleton.IsTransitionGoing())
+        {
+            return;
+        }
+        
         currentGameMode = mode;
         SetLives(currentGameMode.lives);
         SpawnManager.Singleton.SetSpawnVariables(currentGameMode.badSpawnPercentage, currentGameMode.decayRate, currentGameMode.doGraceSpawns, currentGameMode.isTimed);
