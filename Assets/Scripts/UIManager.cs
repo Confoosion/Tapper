@@ -69,7 +69,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        UpdateHighscoreUI();
+        // UpdateHighscoreUI();
         UpdateGemUI();
     }
 
@@ -122,18 +122,18 @@ public class UIManager : MonoBehaviour
         if (num > ScoreManager.Singleton.GetHighscore())
         {
             ScoreManager.Singleton.UpdateHighscore(num);
-            UpdateHighscoreUI();
+            // UpdateHighscoreUI();
 
             return (true);
         }
         return (false);
     }
 
-    public void UpdateHighscoreUI()
-    {
-        MM_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
-        GO_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
-    }
+    // public void UpdateHighscoreUI()
+    // {
+    //     MM_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
+    //     GO_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
+    // }
 
     public void UpdateGemCount()
     {

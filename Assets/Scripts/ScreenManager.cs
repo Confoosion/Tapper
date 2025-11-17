@@ -61,10 +61,10 @@ public class ScreenManager : MonoBehaviour
 
     public void SwitchScreen(GameObject screen)
     {
-        if (screen != GameOver && screen != ArcadeEnding && screen != TimeEnding)
-        {
-            SoundManager.Singleton.PlaySound(SoundType.UI);
-        }
+        // if (screen != GameOver && screen != ArcadeEnding && screen != TimeEnding)
+        // {
+        //     SoundManager.Singleton.PlaySound(SoundType.UI);
+        // }
 
         if(screen == GameOver)
         {
@@ -205,7 +205,7 @@ public class ScreenManager : MonoBehaviour
         else
         {
             currentScreen = MainMenu;
-            BeginMajorTransition(currentScreen);
+            BeginMajorTransition_NOAUDIO(currentScreen);
 
             yield return new WaitForSeconds(0.5f);
 
@@ -216,6 +216,16 @@ public class ScreenManager : MonoBehaviour
     }
 
     public void BeginMajorTransition(GameObject screen)
+    {
+        if(transition == null)
+        {
+            transition = StartCoroutine(MajorTransition_Anim(screen));
+            cachedScreens.Clear();
+            SoundManager.Singleton.PlaySound(SoundType.UI);
+        }
+    }
+
+    public void BeginMajorTransition_NOAUDIO(GameObject screen)
     {
         if(transition == null)
         {
@@ -259,6 +269,7 @@ public class ScreenManager : MonoBehaviour
             transition = StartCoroutine(MinorTransition_Anim(screen, false));
         else
             transition = StartCoroutine(MinorTransition_Anim(screen, true));
+        SoundManager.Singleton.PlaySound(SoundType.UI);
     }
 
     public void MinorTransition_Back()
@@ -269,6 +280,7 @@ public class ScreenManager : MonoBehaviour
         }
         GameObject backScreen = cachedScreens[cachedScreens.Count - 2];
         transition = StartCoroutine(MinorTransition_Anim(backScreen, false));
+        SoundManager.Singleton.PlaySound(SoundType.UI);
     }
 
     IEnumerator MinorTransition_Anim(GameObject screen, bool isNew)
@@ -307,4 +319,10 @@ public class ScreenManager : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         transition = null;
     }
+
+    // public void ScreenSwapAudio()
+    // {
+    //     if(transition == null)
+    //         SoundManager.Singleton.PlaySound(SoundType.UI);
+    // }
 }

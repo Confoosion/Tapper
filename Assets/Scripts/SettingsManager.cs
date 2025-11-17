@@ -97,7 +97,7 @@ public class SettingsManager : MonoBehaviour
         PlayerPrefs.DeleteKey("SavedHighScore");
         PlayerPrefs.DeleteKey("SavedGems");
         UIManager.Singleton.UpdateNameInputField("Tapper");
-        UIManager.Singleton.UpdateHighscoreUI();
+        // UIManager.Singleton.UpdateHighscoreUI();
         UIManager.Singleton.UpdateGemUI();
         PlayerPrefs.Save();
     }
