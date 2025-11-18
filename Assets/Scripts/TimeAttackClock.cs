@@ -20,6 +20,12 @@ public class TimeAttackClock : MonoBehaviour
         }
     }
 
+    public void ResetClockTime()
+    {
+        time = START_TIME;
+        timerText.SetText(time.ToString());
+    }
+
     public void AddTime(int seconds)
     {
         if (time + seconds < 0)
@@ -42,11 +48,16 @@ public class TimeAttackClock : MonoBehaviour
     
     IEnumerator ClockTicking()
     {
-        while (time > 0)
+        while (time > 0 && GameManager.Singleton.isPlaying)
         {
             yield return new WaitForSeconds(tickRate);
             time--;
             timerText.SetText(time.ToString());
+        }
+
+        if(time <= 0 && GameManager.Singleton.isPlaying)
+        {
+            GameManager.Singleton.SetPlayerStatus(false);
         }
     }
 }

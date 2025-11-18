@@ -24,8 +24,9 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (spriteCycler.canTap)
+        if (spriteCycler.canTap && !ScreenManager.Singleton.IsTransitionGoing())
         {
+            UIManager.Singleton.HideSettingsAndPauseIcon();
             spriteCycler.canTap = false;
             tapImage.gameObject.SetActive(true);
 

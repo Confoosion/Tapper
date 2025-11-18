@@ -67,7 +67,7 @@ public class ArcadeEnding : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2f);
-        ScreenManager.Singleton.BeginMajorTransition(ScreenManager.Singleton.GetEndScreen());
+        ScreenManager.Singleton.BeginMajorTransition_NOAUDIO(ScreenManager.Singleton.GetEndScreen());
 
         yield return new WaitForSeconds(0.75f);
         ResetReasons();
