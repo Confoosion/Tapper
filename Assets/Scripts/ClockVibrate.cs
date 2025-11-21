@@ -3,7 +3,7 @@ using UnityEngine;
 public class ClockVibrate : MonoBehaviour
 {
     public bool canVibrate = false;
-    [SerializeField] private float speed = 5f;
+    // [SerializeField] private float speed = 5f;
     [SerializeField] private float intensity;
     [SerializeField] private float rotSpeed = 8f;
     [SerializeField] private float rotIntensity = 10f; // degrees

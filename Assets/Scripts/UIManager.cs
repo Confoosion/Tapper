@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Main Menu UI")]
     [SerializeField] private Image arcadeButtonImage;
-    [SerializeField] private TextMeshProUGUI MM_highscore;
+    // [SerializeField] private TextMeshProUGUI MM_highscore;
     [SerializeField] private TextMeshProUGUI MM_gems;
     [SerializeField] private TextMeshProUGUI MM_gameMode;
 
@@ -35,6 +35,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> hearts = new List<GameObject>();
     [SerializeField] private TextMeshProUGUI points;
+    [SerializeField] private Transform leafCountTransform;
+    [SerializeField] private TextMeshProUGUI leafCount;
     // public SpawnArea spawnArea;
 
     [Header("GameOver Screen UI")]
@@ -296,5 +298,15 @@ public class UIManager : MonoBehaviour
     public void ShowTimeAttackTimer(bool show)
     {
         timeAttackTimer.SetActive(show);
+    }
+
+    public Transform GetLeafCounterTransform()
+    {
+        return(leafCountTransform);
+    }
+
+    public void SetLeafUI(int amount)
+    {
+        leafCount.SetText(amount.ToString());
     }
 }

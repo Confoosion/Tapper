@@ -51,6 +51,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
                 ScoreManager.Singleton.AddPoints(1);
                 if (ScoreManager.Singleton.AddCircleTapped())
                 {
+                    GameManager.Singleton.AddLeaf();
                     Instantiate(gem, this.transform.position, Quaternion.identity, SpawnManager.Singleton.spawnArea);
                 }
             }

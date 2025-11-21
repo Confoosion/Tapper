@@ -25,7 +25,7 @@ public class ScreenManager : MonoBehaviour
     [Header("Moving UI Elements")]
     // [SerializeField] private GameObject MM_Highscore;
     [SerializeField] private CelebrationAnimation GO_Celebration;
-    [SerializeField] private CurrencyAnimation MM_currencies;
+    // [SerializeField] private CurrencyAnimation MM_currencies;
     // [SerializeField] private GroundAnimation Ground_Anim;
     [SerializeField] private BackgroundPositions BG_Positions;
     [SerializeField] private GameObject S_Title;

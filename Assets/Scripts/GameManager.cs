@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int lives = 3;
 
     [SerializeField] private float fps;
+    private int leafAmount = 0;
 
     void Awake()
     {
@@ -147,6 +148,8 @@ public class GameManager : MonoBehaviour
     public void ResetValues()
     {
         ScoreManager.Singleton.AddPoints(0);
+        leafAmount = 0;
+        UIManager.Singleton.SetLeafUI(leafAmount);
         RemoveLives(0);
     }
 
@@ -162,5 +165,15 @@ public class GameManager : MonoBehaviour
     void GetFPS()
     {
         fps = (int)(1f / Time.unscaledDeltaTime);
+    }
+
+    public void AddLeaf()
+    {
+        leafAmount++;
+    }
+
+    public int GetLeafAmount()
+    {
+        return(leafAmount);
     }
 }
