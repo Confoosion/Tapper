@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 902ccb78fd3c78e4b88d35978647094f
+guid: 8d4ffaccf467f144bba6391bd6448c86
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5978089279903519078
-    second: Drawing-5.sketchpad (5)_0
+      213: 723562206515975893
+    second: classic_button (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,33 +84,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Win64
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Drawing-5.sketchpad (5)_0
+      name: classic_button (1)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 4
-        width: 300
-        height: 113
+        y: 0
+        width: 112
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a9ea7c3297f890da0800000000000000
-      internalID: -5978089279903519078
+      spriteID: 5d658444efb9a0a00800000000000000
+      internalID: 723562206515975893
       vertices: []
       indices: 
       edges: []
@@ -174,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Drawing-5.sketchpad (5)_0: -5978089279903519078
+      classic_button (1)_0: 723562206515975893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

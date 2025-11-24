@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9fe5e796b6c92064d98b02e048408a21
+guid: 874270a00d72fb041b23eb4c9f24e08c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4554590910862451457
-    second: Drawing-8.sketchpad_0
+      213: 6825338411832472854
+    second: triangle_L (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,33 +84,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Win64
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Drawing-8.sketchpad_0
+      name: triangle_L (1)_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 5
-        width: 1271
-        height: 502
+        x: 0
+        y: 0
+        width: 23
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 103ed2b5d48253f30800000000000000
-      internalID: 4554590910862451457
+      spriteID: 6157a159f1978be50800000000000000
+      internalID: 6825338411832472854
       vertices: []
       indices: 
       edges: []
@@ -174,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Drawing-8.sketchpad_0: 4554590910862451457
+      triangle_L (1)_0: 6825338411832472854
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
