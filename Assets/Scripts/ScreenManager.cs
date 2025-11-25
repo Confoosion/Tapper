@@ -153,7 +153,7 @@ public class ScreenManager : MonoBehaviour
 
             UIManager.Singleton.ShowCelebration(false);
             UIManager.Singleton.ShowHighscore(false);
-            UIManager.Singleton.ShowEndScreenButtons(false);
+            // UIManager.Singleton.ShowEndScreenButtons(false);
 
             // Ground_Anim.UpdateGroundPosition(GameMode.Classic);
 
@@ -176,7 +176,7 @@ public class ScreenManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(transitionTime * 1.5f);
-        UIManager.Singleton.ShowEndScreenButtons(true);
+        // UIManager.Singleton.ShowEndScreenButtons(true);
 
         endGame = null;
     }

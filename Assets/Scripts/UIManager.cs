@@ -44,8 +44,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI GO_highscore;
     [SerializeField] private GameObject highscoreLabel;
     [SerializeField] private GameObject celebrationLabel;
-    [SerializeField] private GameObject gameOver_RetryButton;
-    [SerializeField] private GameObject gameOver_BackButton;
 
     [Header("Background UI")]
     [SerializeField] private List<Image> backgroundImages = new List<Image>();
@@ -167,11 +165,11 @@ public class UIManager : MonoBehaviour
         celebrationLabel.SetActive(show);
     }
 
-    public void ShowEndScreenButtons(bool show)
-    {
-        gameOver_RetryButton.SetActive(show);
-        gameOver_BackButton.SetActive(show);
-    }
+    // public void ShowEndScreenButtons(bool show)
+    // {
+    //     gameOver_RetryButton.SetActive(show);
+    //     gameOver_BackButton.SetActive(show);
+    // }
 
     public void UpdateGameTheme(Sprite good, Sprite bad)
     {
