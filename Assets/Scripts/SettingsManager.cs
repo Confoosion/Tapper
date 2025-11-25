@@ -40,7 +40,7 @@ public class SettingsManager : MonoBehaviour
             PlayerPrefs.SetInt("IsMusicMuted", 0);
         }
 
-        UIManager.Singleton.UpdateNameInputField(PlayerPrefs.GetString("Username", "Tapper"));
+        // UIManager.Singleton.UpdateNameInputField(PlayerPrefs.GetString("Username", "Tapper"));
     }
 
     public void ToggleSFXVolume(bool toggle)
@@ -92,11 +92,11 @@ public class SettingsManager : MonoBehaviour
 
     public void ResetData()
     {
-        LeaderboardManager.Singleton.RemoveLeaderboardEntry();
+        // LeaderboardManager.Singleton.RemoveLeaderboardEntry();
         PlayerPrefs.DeleteKey("Username");
         PlayerPrefs.DeleteKey("SavedHighScore");
         PlayerPrefs.DeleteKey("SavedGems");
-        UIManager.Singleton.UpdateNameInputField("Tapper");
+        // UIManager.Singleton.UpdateNameInputField("Tapper");
         // UIManager.Singleton.UpdateHighscoreUI();
         UIManager.Singleton.UpdateGemUI();
         PlayerPrefs.Save();
@@ -109,44 +109,45 @@ public class SettingsManager : MonoBehaviour
     }
 
     // For input field
-    public void CheckUsernameValidity(string name)
-    {
-        if (name.Length < 3)
-        {
-            // Name too short
-            UIManager.Singleton.UpdateNameErrorText("Username is too short");
-        }
-        else
-        {
-            UIManager.Singleton.UpdateNameErrorText("");
-        }
-    }
+    // public void CheckUsernameValidity(string name)
+    // {
+    //     if (name.Length < 3)
+    //     {
+    //         // Name too short
+    //         UIManager.Singleton.UpdateNameErrorText("Username is too short");
+    //     }
+    //     else
+    //     {
+    //         UIManager.Singleton.UpdateNameErrorText("");
+    //     }
+    // }
 
     // For final check before leaving the Settings screen
-    public bool IsUserValid(string user)
-    {
-        if (string.IsNullOrEmpty(user) && name.Length < 3)
-        {
-            // Name too short
-            UIManager.Singleton.UpdateNameErrorText("Username is too short");
-            return (false);
-        }
-        else
-        {
-            UIManager.Singleton.UpdateNameErrorText("");
-            return (true);
-        }
-    }
+    // public bool IsUserValid(string user)
+    // {
+    //     if (string.IsNullOrEmpty(user) && name.Length < 3)
+    //     {
+    //         // Name too short
+    //         UIManager.Singleton.UpdateNameErrorText("Username is too short");
+    //         return (false);
+    //     }
+    //     else
+    //     {
+    //         UIManager.Singleton.UpdateNameErrorText("");
+    //         return (true);
+    //     }
+    // }
 
     public void BackOutOfLeaderboard(GameObject screen)
     {
-        if (IsUserValid(UIManager.Singleton.GetNameInputField()))
-        {
-            if (PlayerPrefs.GetString("Username", "Tapper") != UIManager.Singleton.GetNameInputField())
-            {
-                LeaderboardManager.Singleton.SetUsername(UIManager.Singleton.GetNameInputField());
-            }
-            ScreenManager.Singleton.SwitchScreen(screen);
-        }
+        // if (IsUserValid(UIManager.Singleton.GetNameInputField()))
+        // {
+        //     if (PlayerPrefs.GetString("Username", "Tapper") != UIManager.Singleton.GetNameInputField())
+        //     {
+        //         // LeaderboardManager.Singleton.SetUsername(UIManager.Singleton.GetNameInputField());
+        //     }
+        //     ScreenManager.Singleton.SwitchScreen(screen);
+        // }
+        ScreenManager.Singleton.SwitchScreen(screen);
     }
 }

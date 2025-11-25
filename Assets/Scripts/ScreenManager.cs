@@ -16,7 +16,7 @@ public class ScreenManager : MonoBehaviour
     [Space]
     [Header("Moving UI Screens")]
     [SerializeField] private GameObject MainMenu;
-    [SerializeField] private GameObject Settings, Shop, ShopCategory, ArcadeEnding, TimeEnding, GameOver, Background, Leaderboard;
+    [SerializeField] private GameObject Settings, Shop, ShopCategory, ArcadeEnding, TimeEnding, GameOver, Background;
 
     [Header("Static UI Screens")]
     [SerializeField] private GameObject StartScreen;
