@@ -8741,7 +8741,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arcadeButtonImage: {fileID: 1106566257}
-  MM_gems: {fileID: 1902359750}
   MM_gameMode: {fileID: 714681384}
   onToggle: {fileID: 21300000, guid: 5be6a95d326872b4d8af7cfd268a6458, type: 3}
   offToggle: {fileID: 21300000, guid: de536bd507607584aa4d04e1bd9867dd, type: 3}
@@ -8765,7 +8764,7 @@ MonoBehaviour:
   - {fileID: 799395583}
   points: {fileID: 1676084436}
   leafCountTransform: {fileID: 589521425}
-  leafCount: {fileID: 1006939526}
+  gameLeafCounter: {fileID: 1006939526}
   score: {fileID: 67122840}
   GO_highscore: {fileID: 677831620}
   highscoreLabel: {fileID: 460385566}
@@ -8785,6 +8784,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c35192005923fec46bb85ec440ba66fa, type: 3}
   - {fileID: 21300000, guid: e28f10cbfe7439b48912ec49268d3b5b, type: 3}
   - {fileID: 21300000, guid: 819bf4d1423756146ac1365594e3228f, type: 3}
+  leafCounters:
+  - {fileID: 1902359750}
+  - {fileID: 1504622736}
+  - {fileID: 1317234644}
 --- !u!114 &1206995913
 MonoBehaviour:
   m_ObjectHideFlags: 0

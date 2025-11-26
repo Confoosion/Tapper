@@ -18,16 +18,10 @@ public class LeafAnimation : MonoBehaviour
 
         yield return new WaitForSeconds(animationTime);
 
-        UIManager.Singleton.SetLeafUI(GameManager.Singleton.GetLeafAmount());
+        UIManager.Singleton.SetGameScreenLeafUI(GameManager.Singleton.GetLeafAmount());
 
         Destroy(this.gameObject);
 
         yield return null;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     [Header("Main Menu UI")]
     [SerializeField] private Image arcadeButtonImage;
     // [SerializeField] private TextMeshProUGUI MM_highscore;
-    [SerializeField] private TextMeshProUGUI MM_gems;
+    // [SerializeField] private TextMeshProUGUI MM_gems;
     [SerializeField] private TextMeshProUGUI MM_gameMode;
 
     [Header("Settings UI")]
@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private List<GameObject> hearts = new List<GameObject>();
     [SerializeField] private TextMeshProUGUI points;
     [SerializeField] private Transform leafCountTransform;
-    [SerializeField] private TextMeshProUGUI leafCount;
+    [SerializeField] private TextMeshProUGUI gameLeafCounter;
     // public SpawnArea spawnArea;
 
     [Header("GameOver Screen UI")]
@@ -60,6 +60,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private Sprite[] MM_GM_Sprites;
     [SerializeField] private Sprite[] GO_GM_Sprites;
+    [SerializeField] private TextMeshProUGUI[] leafCounters;
 
     void Awake()
     {
@@ -72,7 +73,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         // UpdateHighscoreUI();
-        UpdateGemUI();
+        UpdateLeafUI();
     }
 
     public void UpdateHearts(int lives)
@@ -130,21 +131,6 @@ public class UIManager : MonoBehaviour
         return (false);
     }
 
-    public void UpdateGemCount()
-    {
-        MM_gems.SetText(ScoreManager.Singleton.GetGems().ToString());
-    }
-
-    public void UpdateGemUI()
-    {
-        if (PlayerPrefs.HasKey("SavedGems"))
-        {
-            MM_gems.SetText(PlayerPrefs.GetInt("SavedGems").ToString());
-            return;
-        }
-        MM_gems.SetText("0");
-    }
-
     public void ShowPauseScreen(bool show)
     {
         pauseScreen.SetActive(show);
@@ -159,12 +145,6 @@ public class UIManager : MonoBehaviour
     {
         celebrationLabel.SetActive(show);
     }
-
-    // public void ShowEndScreenButtons(bool show)
-    // {
-    //     gameOver_RetryButton.SetActive(show);
-    //     gameOver_BackButton.SetActive(show);
-    // }
 
     public void UpdateGameTheme(Sprite good, Sprite bad)
     {
@@ -280,8 +260,16 @@ public class UIManager : MonoBehaviour
         return(leafCountTransform);
     }
 
-    public void SetLeafUI(int amount)
+    public void SetGameScreenLeafUI(int amount)
     {
-        leafCount.SetText(amount.ToString());
+        gameLeafCounter.SetText(amount.ToString());
+    }
+
+    public void UpdateLeafUI()
+    {
+        foreach(TextMeshProUGUI leafCount in leafCounters)
+        {
+            leafCount.SetText(ScoreManager.Singleton.GetGems().ToString());
+        }
     }
 }

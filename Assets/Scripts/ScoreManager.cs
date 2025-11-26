@@ -61,7 +61,7 @@ public class ScoreManager : MonoBehaviour
     public void AddGems(int toAdd)
     {
         PlayerPrefs.SetInt("SavedGems", GetGems() + toAdd);
-        UIManager.Singleton.UpdateGemUI();
+        UIManager.Singleton.UpdateLeafUI();
     }
 
     public int GetHighscore()

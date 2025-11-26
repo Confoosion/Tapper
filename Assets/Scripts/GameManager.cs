@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
     {
         ScoreManager.Singleton.AddPoints(0);
         leafAmount = 0;
-        UIManager.Singleton.SetLeafUI(leafAmount);
+        UIManager.Singleton.SetGameScreenLeafUI(leafAmount);
         RemoveLives(0);
     }
 
