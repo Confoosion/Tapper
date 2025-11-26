@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI GO_highscore;
     [SerializeField] private GameObject highscoreLabel;
     [SerializeField] private GameObject celebrationLabel;
+    [SerializeField] private FrameAnimation GO_ShopButton;
 
     [Header("Background UI")]
     [SerializeField] private List<Image> backgroundImages = new List<Image>();
@@ -188,28 +189,6 @@ public class UIManager : MonoBehaviour
     {
         confirmText.SetText("Your data has been\nReset");
     }
-
-    // public string GetNameInputField()
-    // {
-    //     return (nameInputField.text);
-    // }
-
-    // public void UpdateNameInputField(string name)
-    // {
-    //     nameInputField.text = name;
-    // }
-
-    // public void UpdateNameErrorText(string error)
-    // {
-    //     nameErrorText.SetText(error);
-    // }
-
-    // public void UpdatePersonalLeaderboard(int placement, string name, int score)
-    // {
-    //     personalPlacement.SetText(placement.ToString());
-    //     personalName.SetText(name);
-    //     personalScore.SetText(score.ToString());
-    // }
 
     public bool IsCoroutineActive()
     {
