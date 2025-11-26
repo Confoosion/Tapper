@@ -40,8 +40,8 @@ public class UIManager : MonoBehaviour
     [Header("GameOver Screen UI")]
     [SerializeField] private TextMeshProUGUI score;
     [SerializeField] private TextMeshProUGUI GO_highscore;
-    [SerializeField] private GameObject highscoreLabel;
-    [SerializeField] private GameObject celebrationLabel;
+    [SerializeField] private GameObject bestLabel;
+    [SerializeField] private GameObject newBestLabel;
     [SerializeField] private FrameAnimation GO_ShopButton;
     [SerializeField] private Image GO_GameModeImage;
 
@@ -136,15 +136,15 @@ public class UIManager : MonoBehaviour
         pauseScreen.SetActive(show);
     }
 
-    public void ShowHighscore(bool show)
-    {
-        highscoreLabel.SetActive(show);
-    }
+    // public void ShowHighscore(bool show)
+    // {
+    //     highscoreLabel.SetActive(show);
+    // }
 
-    public void ShowCelebration(bool show)
-    {
-        celebrationLabel.SetActive(show);
-    }
+    // public void ShowCelebration(bool show)
+    // {
+    //     celebrationLabel.SetActive(show);
+    // }
 
     public void UpdateGameTheme(Sprite good, Sprite bad)
     {

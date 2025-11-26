@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
 
     public bool CheckPlayerStatus()
     {
-        // Debug.Log("LIVES = " + GetLives());
         return (isPlaying && isAlive);
     }
 
@@ -95,9 +94,6 @@ public class GameManager : MonoBehaviour
             {
                 ArcadeEnding.Singleton.StartEndingAnimation();
             }
-
-            // ScreenManager.Singleton.SwitchScreen(ScreenManager.Singleton.GetEndScreen());
-            // ScreenManager.Singleton.GoToGameOver();
         }
     }
 

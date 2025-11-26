@@ -7,7 +7,7 @@ public class ScreenManager : MonoBehaviour
     public static ScreenManager Singleton { get; private set; }
     [SerializeField] private float transitionTime = 1f;
     private Coroutine transition = null;
-    private Coroutine endGame = null;
+    // private Coroutine endGame = null;
 
     [Space]
     [SerializeField] private GameObject currentScreen;
@@ -23,10 +23,6 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private GameObject Game;
 
     [Header("Moving UI Elements")]
-    // [SerializeField] private GameObject MM_Highscore;
-    [SerializeField] private CelebrationAnimation GO_Celebration;
-    // [SerializeField] private CurrencyAnimation MM_currencies;
-    // [SerializeField] private GroundAnimation Ground_Anim;
     [SerializeField] private BackgroundPositions BG_Positions;
     [SerializeField] private GameObject S_Title;
     [SerializeField] private GameObject S_StartLabel;
@@ -65,6 +61,10 @@ public class ScreenManager : MonoBehaviour
         {
             UIManager.Singleton.ShowSettingsOrPauseIcon(true);
             bool gotHighscore = UIManager.Singleton.UpdateEndScore(ScoreManager.Singleton.GetPoints());
+            if(gotHighscore)
+            {
+                
+            }
             
         }
         else if(screen == MainMenu)
@@ -134,42 +134,42 @@ public class ScreenManager : MonoBehaviour
         GameManager.Singleton.ResetValues();
     }
 
-    public void GoToGameOver()
-    {
-        if (endGame == null)
-        {
-            bool gotHighscore = UIManager.Singleton.UpdateEndScore(ScoreManager.Singleton.GetPoints());
-            SoundManager.Singleton.LowerBGM(false);
+    // public void GoToGameOver()
+    // {
+    //     if (endGame == null)
+    //     {
+    //         bool gotHighscore = UIManager.Singleton.UpdateEndScore(ScoreManager.Singleton.GetPoints());
+    //         SoundManager.Singleton.LowerBGM(false);
 
-            UIManager.Singleton.ShowCelebration(false);
-            UIManager.Singleton.ShowHighscore(false);
-            // UIManager.Singleton.ShowEndScreenButtons(false);
+    //         UIManager.Singleton.ShowCelebration(false);
+    //         UIManager.Singleton.ShowHighscore(false);
+    //         // UIManager.Singleton.ShowEndScreenButtons(false);
 
-            // Ground_Anim.UpdateGroundPosition(GameMode.Classic);
+    //         // Ground_Anim.UpdateGroundPosition(GameMode.Classic);
 
-            endGame = StartCoroutine(GameOver_Anim(gotHighscore));
-        }
-    }
+    //         endGame = StartCoroutine(GameOver_Anim(gotHighscore));
+    //     }
+    // }
 
-    IEnumerator GameOver_Anim(bool gotHighscore)
-    {
-        yield return new WaitForSeconds(transitionTime * 1.5f);
-        if (gotHighscore)
-        {
-            SoundManager.Singleton.PlaySound(SoundType.Highscore, 0.5f);
-            UIManager.Singleton.ShowCelebration(true);
-            GO_Celebration.AnimateCelebration();
-        }
-        else
-        {
-            UIManager.Singleton.ShowHighscore(true);
-        }
+    // IEnumerator GameOver_Anim(bool gotHighscore)
+    // {
+    //     yield return new WaitForSeconds(transitionTime * 1.5f);
+    //     if (gotHighscore)
+    //     {
+    //         SoundManager.Singleton.PlaySound(SoundType.Highscore, 0.5f);
+    //         UIManager.Singleton.ShowCelebration(true);
+    //         // GO_Celebration.AnimateCelebration();
+    //     }
+    //     else
+    //     {
+    //         UIManager.Singleton.ShowHighscore(true);
+    //     }
 
-        yield return new WaitForSeconds(transitionTime * 1.5f);
-        // UIManager.Singleton.ShowEndScreenButtons(true);
+    //     yield return new WaitForSeconds(transitionTime * 1.5f);
+    //     // UIManager.Singleton.ShowEndScreenButtons(true);
 
-        endGame = null;
-    }
+    //     endGame = null;
+    // }
 
     public void BeginStartScreen(bool bringIn = true)
     {
