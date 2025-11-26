@@ -43,6 +43,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject highscoreLabel;
     [SerializeField] private GameObject celebrationLabel;
     [SerializeField] private FrameAnimation GO_ShopButton;
+    [SerializeField] private Image GO_GameModeImage;
 
     [Header("Background UI")]
     [SerializeField] private List<Image> backgroundImages = new List<Image>();
@@ -57,6 +58,8 @@ public class UIManager : MonoBehaviour
     [Header("Extra UI")]
     [SerializeField] private GameObject settingsButton;
     [SerializeField] private GameObject pauseButton;
+    [SerializeField] private Sprite[] MM_GM_Sprites;
+    [SerializeField] private Sprite[] GO_GM_Sprites;
 
     void Awake()
     {
@@ -121,18 +124,11 @@ public class UIManager : MonoBehaviour
         if (num > ScoreManager.Singleton.GetHighscore())
         {
             ScoreManager.Singleton.UpdateHighscore(num);
-            // UpdateHighscoreUI();
 
             return (true);
         }
         return (false);
     }
-
-    // public void UpdateHighscoreUI()
-    // {
-    //     MM_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
-    //     GO_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
-    // }
 
     public void UpdateGemCount()
     {
@@ -206,10 +202,14 @@ public class UIManager : MonoBehaviour
         backgroundIndex = modeIndex;
     }
 
-    public void ChangeGameModeUI(GameModeSO mode, Sprite modeSprite)
+    public void ChangeGameModeUI(GameModeSO mode, int modeIndex, bool arcadeMode)
     {
-        arcadeButtonImage.sprite = modeSprite;
-        MM_gameMode.SetText(mode.modeName);
+        if(arcadeMode)
+        {
+            arcadeButtonImage.sprite = MM_GM_Sprites[modeIndex];
+            MM_gameMode.SetText(mode.modeName);
+        }
+        GO_GameModeImage.sprite = GO_GM_Sprites[modeIndex];
     }
 
     IEnumerator BackgroundTransition(Image fromBG, Image toBG, float duration)

@@ -61,14 +61,11 @@ public class ScreenManager : MonoBehaviour
 
     public void SwitchScreen(GameObject screen)
     {
-        // if (screen != GameOver && screen != ArcadeEnding && screen != TimeEnding)
-        // {
-        //     SoundManager.Singleton.PlaySound(SoundType.UI);
-        // }
-
         if(screen == GameOver)
         {
             UIManager.Singleton.ShowSettingsOrPauseIcon(true);
+            bool gotHighscore = UIManager.Singleton.UpdateEndScore(ScoreManager.Singleton.GetPoints());
+            
         }
         else if(screen == MainMenu)
         {
@@ -76,24 +73,17 @@ public class ScreenManager : MonoBehaviour
             UIManager.Singleton.ShowSettingsOrPauseIcon(true);
         }
 
-        // SoundManager.Singleton.PlaySound(SoundType.UI);
-
         StartCoroutine(SwapScreens(currentScreen, screen));
-    
     }
 
     IEnumerator SwapScreens(GameObject swapOut, GameObject swapIn)
     {
-        // Swaps screens and calls other animations
         if (swapOut != null)
         {
             swapOut.SetActive(false);
-            // SlideScreen(swapOut, Vector3.zero, false);
-            // yield return new WaitForSeconds(transitionTime);
         }
 
         swapIn.SetActive(true);
-        // SlideScreen(swapIn, Vector3.zero, true);
 
         currentScreen = swapIn;
 

@@ -200,7 +200,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6028103}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1206995918}
+        m_TargetAssemblyTypeName: GameModeManager, Assembly-CSharp
+        m_MethodName: SwitchGameMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6028103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5112,7 +5124,6 @@ GameObject:
   - component: {fileID: 714681383}
   - component: {fileID: 714681385}
   - component: {fileID: 714681384}
-  - component: {fileID: 714681386}
   m_Layer: 0
   m_Name: Gamemode_Label
   m_TagString: Untagged
@@ -5241,30 +5252,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714681382}
   m_CullTransparentMesh: 1
---- !u!114 &714681386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714681382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278c23caf40a7f4449291aea07a53b18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  gameModeList:
-  - {fileID: 11400000, guid: ed9f72e5eed398f4a8f93de0e80d28b0, type: 2}
-  - {fileID: 11400000, guid: 2bc311db1a057224091a9aab735697b8, type: 2}
-  - {fileID: 11400000, guid: 0815fc2c9edd52b43b9f94d57afdd1eb, type: 2}
-  gameModeSprites:
-  - {fileID: 21300000, guid: e727c1437367d36449a4613f017b4a06, type: 3}
-  - {fileID: 21300000, guid: 36ae93d9ffc20104faf4d4a608aa15a8, type: 3}
-  - {fileID: 21300000, guid: 71b7c57e98c5222459e9465de0f14ea9, type: 3}
-  gameModeDetails:
-  - {fileID: 818877460}
-  - {fileID: 1197301207}
-  - {fileID: 1635286249}
 --- !u!1 &732889787
 GameObject:
   m_ObjectHideFlags: 0
@@ -7662,7 +7649,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 714681386}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameModeCycle, Assembly-CSharp
         m_MethodName: RetrieveCurrentMode
         m_Mode: 1
@@ -8661,6 +8648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1206995910}
   - component: {fileID: 1206995911}
+  - component: {fileID: 1206995918}
   - component: {fileID: 1206995917}
   - component: {fileID: 1206995909}
   - component: {fileID: 1206995913}
@@ -8783,10 +8771,20 @@ MonoBehaviour:
   highscoreLabel: {fileID: 460385566}
   celebrationLabel: {fileID: 1250077637}
   GO_ShopButton: {fileID: 1612046063}
+  GO_GameModeImage: {fileID: 1243446354}
   backgroundImages:
   - {fileID: 1554544005}
   settingsButton: {fileID: 195476651}
   pauseButton: {fileID: 2104688311}
+  MM_GM_Sprites:
+  - {fileID: 21300000, guid: e727c1437367d36449a4613f017b4a06, type: 3}
+  - {fileID: 21300000, guid: 71b7c57e98c5222459e9465de0f14ea9, type: 3}
+  - {fileID: 21300000, guid: 36ae93d9ffc20104faf4d4a608aa15a8, type: 3}
+  GO_GM_Sprites:
+  - {fileID: 21300000, guid: 8d4ffaccf467f144bba6391bd6448c86, type: 3}
+  - {fileID: 21300000, guid: c35192005923fec46bb85ec440ba66fa, type: 3}
+  - {fileID: 21300000, guid: e28f10cbfe7439b48912ec49268d3b5b, type: 3}
+  - {fileID: 21300000, guid: 819bf4d1423756146ac1365594e3228f, type: 3}
 --- !u!114 &1206995913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8964,6 +8962,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   circlesTapped: 0
+--- !u!114 &1206995918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206995908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cca6b22f4e233641851c3485a21d352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameModeManager
+  currentGameMode: {fileID: 11400000, guid: ed9f72e5eed398f4a8f93de0e80d28b0, type: 2}
+  gameModeList:
+  - {fileID: 11400000, guid: ed9f72e5eed398f4a8f93de0e80d28b0, type: 2}
+  - {fileID: 11400000, guid: 0815fc2c9edd52b43b9f94d57afdd1eb, type: 2}
+  - {fileID: 11400000, guid: 2bc311db1a057224091a9aab735697b8, type: 2}
+  - {fileID: 11400000, guid: d6a17f9944311954a88e88079202b367, type: 2}
+  arcadeDetails:
+  - {fileID: 818877460}
+  - {fileID: 1635286249}
+  - {fileID: 1197301207}
 --- !u!1 &1243446352
 GameObject:
   m_ObjectHideFlags: 0
@@ -11945,9 +11965,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 714681386}
-        m_TargetAssemblyTypeName: GameModeCycle, Assembly-CSharp
-        m_MethodName: SwitchGameMode
+      - m_Target: {fileID: 1206995918}
+        m_TargetAssemblyTypeName: GameModeManager, Assembly-CSharp
+        m_MethodName: SwitchArcadeMode
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13109,7 +13129,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1909598303}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1206995918}
+        m_TargetAssemblyTypeName: GameModeManager, Assembly-CSharp
+        m_MethodName: SwitchGameMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1909598303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13230,9 +13262,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 714681386}
-        m_TargetAssemblyTypeName: GameModeCycle, Assembly-CSharp
-        m_MethodName: SwitchGameMode
+      - m_Target: {fileID: 1206995918}
+        m_TargetAssemblyTypeName: GameModeManager, Assembly-CSharp
+        m_MethodName: SwitchArcadeMode
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
