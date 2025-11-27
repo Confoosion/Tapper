@@ -120,20 +120,29 @@ public class UIManager : MonoBehaviour
 
     public bool UpdateEndScore(int num)
     {
+        bool hasHighscore = false;
         score.SetText(num.ToString());
 
         if (num > ScoreManager.Singleton.GetHighscore())
         {
             ScoreManager.Singleton.UpdateHighscore(num);
-
-            return (true);
+            hasHighscore = true;
         }
-        return (false);
+
+        GO_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
+
+        return (hasHighscore);
     }
 
     public void ShowPauseScreen(bool show)
     {
         pauseScreen.SetActive(show);
+    }
+
+    public void UpdateHighscoreLabelUI(bool gotHighscore)
+    {
+        bestLabel.SetActive(!gotHighscore);
+        newBestLabel.SetActive(gotHighscore);
     }
 
     // public void ShowHighscore(bool show)

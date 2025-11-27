@@ -61,10 +61,7 @@ public class ScreenManager : MonoBehaviour
         {
             UIManager.Singleton.ShowSettingsOrPauseIcon(true);
             bool gotHighscore = UIManager.Singleton.UpdateEndScore(ScoreManager.Singleton.GetPoints());
-            if(gotHighscore)
-            {
-                
-            }
+            UIManager.Singleton.UpdateHighscoreLabelUI(gotHighscore);
             
         }
         else if(screen == MainMenu)

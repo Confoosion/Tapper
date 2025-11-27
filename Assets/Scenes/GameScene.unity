@@ -8507,8 +8507,8 @@ MonoBehaviour:
   gameLeafCounter: {fileID: 1006939526}
   score: {fileID: 67122840}
   GO_highscore: {fileID: 677831620}
-  highscoreLabel: {fileID: 0}
-  celebrationLabel: {fileID: 0}
+  bestLabel: {fileID: 147356355}
+  newBestLabel: {fileID: 1105123299}
   GO_ShopButton: {fileID: 1612046063}
   GO_GameModeImage: {fileID: 1243446354}
   backgroundImages:
@@ -8553,7 +8553,6 @@ MonoBehaviour:
   Background: {fileID: 1504657089}
   StartScreen: {fileID: 412672816}
   Game: {fileID: 937875902}
-  GO_Celebration: {fileID: 0}
   BG_Positions: {fileID: 1504657091}
   S_Title: {fileID: 550467033}
   S_StartLabel: {fileID: 1949112373}
@@ -10694,7 +10693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1556937053
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11649,8 +11648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb80e5d988a6e94ebefd1e8adbaf372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  bestObject: {fileID: 147356355}
-  newObject: {fileID: 1105123299}
 --- !u!1 &1752764515
 GameObject:
   m_ObjectHideFlags: 0
