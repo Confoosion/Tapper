@@ -20,7 +20,7 @@ public class FrameAnimation : MonoBehaviour
 
     IEnumerator AnimateFrames()
     {
-        while(isLooping)
+        while(true)
         {
             yield return new WaitForSeconds(animationDelay);
 
@@ -28,6 +28,11 @@ public class FrameAnimation : MonoBehaviour
             {
                 spriteImage.sprite = frame;
                 yield return new WaitForSeconds(frameInterval);
+            }
+
+            if(!isLooping)
+            {
+                break;
             }
 
             spriteImage.sprite = startingFrame;
