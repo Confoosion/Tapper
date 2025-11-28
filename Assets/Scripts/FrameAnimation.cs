@@ -5,11 +5,15 @@ using System.Collections;
 public class FrameAnimation : MonoBehaviour
 {
     private Image spriteImage;
+    private Coroutine frameAnim = null;
     private bool isLooping = false;
     [SerializeField] private float animationDelay;
     [SerializeField] private float frameInterval;
     [SerializeField] private Sprite startingFrame;
-    [SerializeField] private Sprite[] cyclingFrames;
+
+    [SerializeField] private Sprite[] enterFrames;
+    [SerializeField] private Sprite[] idleFrames;
+    [SerializeField] private Sprite[] exitFrames;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,7 +22,7 @@ public class FrameAnimation : MonoBehaviour
         spriteImage.sprite = startingFrame;
     }
 
-    IEnumerator AnimateFrames()
+    IEnumerator AnimateFrames(Sprite[] cyclingFrames)
     {
         while(true)
         {
@@ -41,20 +45,40 @@ public class FrameAnimation : MonoBehaviour
         yield return null;
     }
 
-    public void StartAnimation(bool loop)
+    private void StartAnimation(Sprite[] frames, bool loop)
     {
+        if(frameAnim != null)
+        {
+            StopCoroutine(frameAnim);
+            frameAnim = null;
+        }
         isLooping = loop;
         if(loop)
-            StartCoroutine(AnimateFrames());
+            frameAnim = StartCoroutine(AnimateFrames(frames));
     }
 
-    void OnEnable()
+    public void StartEnterAnimation()
     {
-        StartAnimation(true);
+        StartAnimation(enterFrames, false);
     }
 
-    void OnDisable()
+    public void StartIdleAnimation()
     {
-        StartAnimation(false);
+        StartAnimation(idleFrames, true);
     }
+
+    public void StartExitAnimation()
+    {
+        StartAnimation(exitFrames, false);
+    }
+
+    // void OnEnable()
+    // {
+    //     StartAnimation(true);
+    // }
+
+    // void OnDisable()
+    // {
+    //     StartAnimation(false);
+    // }
 }
