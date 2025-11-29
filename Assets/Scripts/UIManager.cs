@@ -22,15 +22,14 @@ public class UIManager : MonoBehaviour
     public Image VibrationToggle;
     [SerializeField] private TextMeshProUGUI confirmText;
 
-    private float countdownInterval = 0.8f;
     [Header("Game Screen UI")]
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private Image good_Image;
     [SerializeField] private Image bad_Image;
     [SerializeField] private GameObject timeAttackTimer;
     [SerializeField] private GameObject countdownObject;
-    [SerializeField] private List<Sprite> countdownImages = new List<Sprite>();
-
+    [SerializeField] private FrameAnimation[] countdownAnims;
+    [SerializeField] private GameObject goTextObject;
     [SerializeField] private List<GameObject> hearts = new List<GameObject>();
     [SerializeField] private TextMeshProUGUI points;
     [SerializeField] private Transform leafCountTransform;
@@ -103,16 +102,21 @@ public class UIManager : MonoBehaviour
 
     IEnumerator CountingDown()
     {
-        Image countdownImage = countdownObject.GetComponent<Image>();
-
-        yield return new WaitForSeconds(1f);
         countdownObject.SetActive(true);
 
-        foreach (Sprite image in countdownImages)
+        foreach(FrameAnimation anim in countdownAnims)
         {
-            countdownImage.sprite = image;
-            yield return new WaitForSeconds(countdownInterval);
+            anim.StartFullAnimation();
         }
+
+        yield return new WaitForSeconds(4.5f);
+
+        goTextObject.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        countdownObject.SetActive(false);
+        goTextObject.SetActive(false);
 
         countdownObject.SetActive(false);
         GameManager.Singleton.StartGame();
@@ -144,16 +148,6 @@ public class UIManager : MonoBehaviour
         bestLabel.SetActive(!gotHighscore);
         newBestLabel.SetActive(gotHighscore);
     }
-
-    // public void ShowHighscore(bool show)
-    // {
-    //     highscoreLabel.SetActive(show);
-    // }
-
-    // public void ShowCelebration(bool show)
-    // {
-    //     celebrationLabel.SetActive(show);
-    // }
 
     public void UpdateGameTheme(Sprite good, Sprite bad)
     {

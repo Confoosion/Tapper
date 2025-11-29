@@ -114,6 +114,11 @@ public class FrameAnimation : MonoBehaviour
         yield return null;
     }
 
+    public bool IsAnimationGoing()
+    {
+        return(frameAnim != null);
+    }
+
     public void StartEnterAnimation()
     {
         StartAnimation(enterFrames, false);
