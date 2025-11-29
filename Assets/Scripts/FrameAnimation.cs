@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class FrameAnimation : MonoBehaviour
 {
-    private Image spriteImage;
+    public Image spriteImage;
     private Coroutine frameAnim = null;
     private bool isLooping = false;
     [SerializeField] private float animationDelay;
@@ -13,7 +14,9 @@ public class FrameAnimation : MonoBehaviour
 
     [SerializeField] private Sprite[] enterFrames;
     [SerializeField] private Sprite[] idleFrames;
+    [SerializeField] private float idleDuration;
     [SerializeField] private Sprite[] exitFrames;
+    private List<Sprite[]> animationQueue = new List<Sprite[]>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,10 +27,10 @@ public class FrameAnimation : MonoBehaviour
 
     IEnumerator AnimateFrames(Sprite[] cyclingFrames)
     {
+        yield return new WaitForSeconds(animationDelay);
+
         while(true)
         {
-            yield return new WaitForSeconds(animationDelay);
-
             foreach(Sprite frame in cyclingFrames)
             {
                 spriteImage.sprite = frame;
@@ -42,6 +45,7 @@ public class FrameAnimation : MonoBehaviour
             spriteImage.sprite = startingFrame;
         }
 
+        frameAnim = null;
         yield return null;
     }
 
@@ -55,6 +59,59 @@ public class FrameAnimation : MonoBehaviour
         isLooping = loop;
         if(loop)
             frameAnim = StartCoroutine(AnimateFrames(frames));
+    }
+
+    public void StartFullAnimation()
+    {
+        if(enterFrames.Length > 0)
+        {
+            animationQueue.Add(enterFrames);
+        }
+        if(idleFrames.Length > 0)
+        {
+            animationQueue.Add(idleFrames);
+        }
+        if(exitFrames.Length > 0)
+        {
+            animationQueue.Add(exitFrames);
+        }
+
+        StartCoroutine(FullAnimation());
+    }
+
+    IEnumerator FullAnimation()
+    {
+        Sprite[] currAnim;
+
+        while(animationQueue.Count > 0)
+        {
+            currAnim = animationQueue[0];
+
+            if(currAnim == idleFrames)
+            {
+                isLooping = true;
+                StartCoroutine(IdleDuration(idleDuration));
+            }
+
+            while(true)
+            {
+                foreach(Sprite frame in currAnim)
+                {
+                    spriteImage.sprite = frame;
+                    yield return new WaitForSeconds(frameInterval);
+                }
+
+                if(!isLooping)
+                {
+                    break;
+                }
+            }
+
+            animationQueue.RemoveAt(0);
+        }
+
+        frameAnim = null;
+        yield return null;
     }
 
     public void StartEnterAnimation()
@@ -72,13 +129,10 @@ public class FrameAnimation : MonoBehaviour
         StartAnimation(exitFrames, false);
     }
 
-    // void OnEnable()
-    // {
-    //     StartAnimation(true);
-    // }
+    IEnumerator IdleDuration(float time)
+    {
+        yield return new WaitForSeconds(time);
 
-    // void OnDisable()
-    // {
-    //     StartAnimation(false);
-    // }
+        isLooping = false;
+    }
 }

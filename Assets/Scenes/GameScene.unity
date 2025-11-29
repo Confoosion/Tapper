@@ -10898,11 +10898,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386c38171ce6a424da793acfef2b9f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  spriteImage: {fileID: 0}
   animationDelay: 1.5
   frameInterval: 0.1
   startingFrame: {fileID: -1793167431768321461, guid: e009fe00560cdff4c959f8d5fb8a1c8f, type: 3}
   enterFrames: []
   idleFrames: []
+  idleDuration: 0
   exitFrames: []
 --- !u!1 &1635286249
 GameObject:
@@ -12238,6 +12240,7 @@ GameObject:
   - component: {fileID: 1881934303}
   - component: {fileID: 1881934302}
   - component: {fileID: 1881934301}
+  - component: {fileID: 1881934304}
   m_Layer: 5
   m_Name: mole
   m_TagString: Untagged
@@ -12261,7 +12264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 277, y: -429}
+  m_AnchoredPosition: {x: 230, y: -442}
   m_SizeDelta: {x: 113, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1881934301
@@ -12276,12 +12279,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386c38171ce6a424da793acfef2b9f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrameAnimation
-  animationDelay: 5
+  spriteImage: {fileID: 1881934302}
+  animationDelay: 0
   frameInterval: 0.1
   startingFrame: {fileID: 3715168846926800712, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
   enterFrames: []
-  idleFrames: []
-  exitFrames: []
+  idleFrames:
+  - {fileID: 3715168846926800712, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: 2652177052880796725, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: -837072149493510690, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: -7913168872810066123, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: 6795870089449999466, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: -2602899503487633607, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: 5106534978164597806, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: -7275808571310005269, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  idleDuration: 3
+  exitFrames:
+  - {fileID: -4892497509593879158, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: -7009493895833670034, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: 3750322775263377569, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: -2391365679315162165, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: -9096214609465973787, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: 2131053515992748241, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: -8761659471556564494, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: 4371450361299419547, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
+  - {fileID: 8797732555021258889, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
 --- !u!114 &1881934302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12296,7 +12318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -12320,6 +12342,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881934298}
   m_CullTransparentMesh: 1
+--- !u!114 &1881934304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881934298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6b67be702bcbf47b0ccf4552ff4013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationTesting
+  frameAnimation: {fileID: 1881934301}
 --- !u!1 &1895220553
 GameObject:
   m_ObjectHideFlags: 0
@@ -12882,8 +12917,7 @@ GameObject:
   - component: {fileID: 1912858838}
   - component: {fileID: 1912858842}
   - component: {fileID: 1912858841}
-  - component: {fileID: 1912858844}
-  - component: {fileID: 1912858845}
+  - component: {fileID: 1912858843}
   - component: {fileID: 1912858839}
   m_Layer: 5
   m_Name: rabbit
@@ -12908,7 +12942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21, y: -429}
+  m_AnchoredPosition: {x: 0, y: -429}
   m_SizeDelta: {x: 113, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1912858839
@@ -12923,9 +12957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e6b67be702bcbf47b0ccf4552ff4013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  idleAnimation: {fileID: 1912858844}
-  actionAnimation: {fileID: 0}
-  exitAnimation: {fileID: 0}
+  frameAnimation: {fileID: 1912858843}
 --- !u!114 &1912858841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12940,7 +12972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -12964,7 +12996,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912858837}
   m_CullTransparentMesh: 1
---- !u!114 &1912858844
+--- !u!114 &1912858843
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12973,33 +13005,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 1912858837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedfc90b60f72ff4aabf91e84597ffc4, type: 3}
+  m_Script: {fileID: 11500000, guid: 386c38171ce6a424da793acfef2b9f33, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IdleAnimation
-  animationDelay: 0.1
+  m_EditorClassIdentifier: Assembly-CSharp::FrameAnimation
+  spriteImage: {fileID: 1912858841}
+  animationDelay: 0
   frameInterval: 0.1
   startingFrame: {fileID: 3369563072140094407, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
   enterFrames: []
-  idleFrames: []
-  exitFrames: []
---- !u!114 &1912858845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912858837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d37379fe5e96e44bd89ee602ed946d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ExitAnimation
-  animationDelay: 0.1
-  frameInterval: 0.1
-  startingFrame: {fileID: -1138286709130525072, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
-  enterFrames: []
-  idleFrames: []
-  exitFrames: []
+  idleFrames:
+  - {fileID: 3369563072140094407, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: 2941414311163398943, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: -1808095719093349711, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: 6201094712543410931, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: -7525086877873614979, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: 3970594913590633714, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: 666142514508346589, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: -7028755858021609996, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  idleDuration: 2
+  exitFrames:
+  - {fileID: 7910614585964355632, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: -7736551949181321775, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: 3283334168581005867, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: 4648200429284012715, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: -1327541238063928221, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: 1677797932986182739, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: -9136718100887295082, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: 7332862405812815151, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
+  - {fileID: 3204290344396990444, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
 --- !u!1 &1937526566
 GameObject:
   m_ObjectHideFlags: 0
@@ -13144,6 +13177,7 @@ GameObject:
   - component: {fileID: 1940553855}
   - component: {fileID: 1940553854}
   - component: {fileID: 1940553857}
+  - component: {fileID: 1940553858}
   m_Layer: 5
   m_Name: mouse
   m_TagString: Untagged
@@ -13167,7 +13201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -226, y: -429}
+  m_AnchoredPosition: {x: -230, y: -429}
   m_SizeDelta: {x: 113, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1940553854
@@ -13184,7 +13218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -13220,12 +13254,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386c38171ce6a424da793acfef2b9f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrameAnimation
-  animationDelay: 0.1
+  spriteImage: {fileID: 1940553854}
+  animationDelay: 0
   frameInterval: 0.1
   startingFrame: {fileID: -4284877130692598914, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
   enterFrames: []
   idleFrames: []
-  exitFrames: []
+  idleDuration: 0
+  exitFrames:
+  - {fileID: -4284877130692598914, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: -5223157236617431121, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 1530661779942045073, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 7140030119988605395, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 1082069699930294832, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 4828358283173581972, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 3400215649343812394, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: -3104169297886213881, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 3630144521175208664, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 7471210401906818526, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: -8263487981818039543, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 3031013153162378208, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: -7629620177172686730, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 579182015868293358, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: -3203553036358323190, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 977372705748724821, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: -7665905149996672245, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 252025337909216907, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 7805699190303774473, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 4152494087350656637, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 6484565600515516487, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: -8627711553287832699, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: 1201776419199054647, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: -9043191669338126048, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+  - {fileID: -5211964216910868256, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
+--- !u!114 &1940553858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940553851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6b67be702bcbf47b0ccf4552ff4013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationTesting
+  frameAnimation: {fileID: 1940553857}
 --- !u!1 &1949112373
 GameObject:
   m_ObjectHideFlags: 0
