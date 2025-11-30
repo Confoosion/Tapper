@@ -131,43 +131,6 @@ public class ScreenManager : MonoBehaviour
         GameManager.Singleton.ResetValues();
     }
 
-    // public void GoToGameOver()
-    // {
-    //     if (endGame == null)
-    //     {
-    //         bool gotHighscore = UIManager.Singleton.UpdateEndScore(ScoreManager.Singleton.GetPoints());
-    //         SoundManager.Singleton.LowerBGM(false);
-
-    //         UIManager.Singleton.ShowCelebration(false);
-    //         UIManager.Singleton.ShowHighscore(false);
-    //         // UIManager.Singleton.ShowEndScreenButtons(false);
-
-    //         // Ground_Anim.UpdateGroundPosition(GameMode.Classic);
-
-    //         endGame = StartCoroutine(GameOver_Anim(gotHighscore));
-    //     }
-    // }
-
-    // IEnumerator GameOver_Anim(bool gotHighscore)
-    // {
-    //     yield return new WaitForSeconds(transitionTime * 1.5f);
-    //     if (gotHighscore)
-    //     {
-    //         SoundManager.Singleton.PlaySound(SoundType.Highscore, 0.5f);
-    //         UIManager.Singleton.ShowCelebration(true);
-    //         // GO_Celebration.AnimateCelebration();
-    //     }
-    //     else
-    //     {
-    //         UIManager.Singleton.ShowHighscore(true);
-    //     }
-
-    //     yield return new WaitForSeconds(transitionTime * 1.5f);
-    //     // UIManager.Singleton.ShowEndScreenButtons(true);
-
-    //     endGame = null;
-    // }
-
     public void BeginStartScreen(bool bringIn = true)
     {
         if (bringIn)
@@ -306,10 +269,4 @@ public class ScreenManager : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         transition = null;
     }
-
-    // public void ScreenSwapAudio()
-    // {
-    //     if(transition == null)
-    //         SoundManager.Singleton.PlaySound(SoundType.UI);
-    // }
 }

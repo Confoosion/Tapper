@@ -8,6 +8,8 @@ public class GameModeManager : MonoBehaviour
     public GameModeSO[] gameModeList;
     public GameObject[] arcadeDetails;
     private int modeIndex = 0;
+    private GameModeSO currentArcadeMode;
+    private GameObject currentArcadeDetails;
 
     void Awake()
     {
@@ -15,6 +17,12 @@ public class GameModeManager : MonoBehaviour
         {
             Singleton = this;
         }
+    }
+
+    void Start()
+    {
+        currentArcadeMode = gameModeList[modeIndex];
+        currentArcadeDetails = arcadeDetails[modeIndex];
     }
 
     public GameModeSO GetCurrentMode()
@@ -25,6 +33,12 @@ public class GameModeManager : MonoBehaviour
     public void SwitchArcadeMode(int direction)
     {
         SwitchMode(direction, true);
+    }
+
+    public void SwitchArcadeMode()
+    {
+        int index = System.Array.IndexOf(gameModeList, currentArcadeMode);
+        SwitchMode(index - modeIndex, true);
     }
 
     public void SwitchGameMode(int direction)
@@ -39,8 +53,7 @@ public class GameModeManager : MonoBehaviour
             return;
         }
 
-        if(arcadeMode)
-            arcadeDetails[modeIndex].SetActive(false);
+        int prevModeIndex = modeIndex;
 
         modeIndex = (modeIndex + direction) % gameModeList.Length;
         if (modeIndex == -1) modeIndex = gameModeList.Length - 1;
@@ -57,14 +70,27 @@ public class GameModeManager : MonoBehaviour
         GameModeSO currMode = gameModeList[modeIndex];
 
         GameManager.Singleton.currentGameMode = currMode;
+        currentGameMode = currMode;
 
         // ScoreManager.UpdateHighscore();
         GameManager.Singleton.SetLives(currentGameMode.lives);
         SpawnManager.Singleton.SetSpawnVariables(currMode.badSpawnPercentage, currMode.decayRate, currMode.doGraceSpawns, currMode.isTimed);
-        UIManager.Singleton.ChangeGameModeUI(currMode, modeIndex, arcadeMode);
+        UIManager.Singleton.ChangeGameModeUI(currMode, modeIndex, !currMode.isTimed);
 
         if(!currMode.isTimed)
+        {
+            currentArcadeDetails.SetActive(false);
             arcadeDetails[modeIndex].SetActive(true);
-        currentGameMode = currMode;
+
+            currentArcadeMode = currMode;
+            currentArcadeDetails = arcadeDetails[modeIndex];
+        }
+        // currentGameMode = currMode;
+    }
+
+    public void SwitchSpecificMode(GameModeSO gameMode)
+    {
+        int index = System.Array.IndexOf(gameModeList, gameMode);
+        SwitchMode(index - modeIndex, false);
     }
 }

@@ -193,6 +193,8 @@ public class UIManager : MonoBehaviour
             MM_gameMode.SetText(mode.modeName);
         }
         GO_GameModeImage.sprite = GO_GM_Sprites[modeIndex];
+
+        GO_highscore.SetText(PlayerPrefs.GetInt(ScoreManager.Singleton.GetHighscorePP()).ToString());
     }
 
     IEnumerator BackgroundTransition(Image fromBG, Image toBG, float duration)
