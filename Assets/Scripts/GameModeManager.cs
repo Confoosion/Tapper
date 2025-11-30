@@ -17,6 +17,11 @@ public class GameModeManager : MonoBehaviour
         }
     }
 
+    public GameModeSO GetCurrentMode()
+    {
+        return(currentGameMode);
+    }
+
     public void SwitchArcadeMode(int direction)
     {
         SwitchMode(direction, true);
@@ -52,9 +57,13 @@ public class GameModeManager : MonoBehaviour
         GameModeSO currMode = gameModeList[modeIndex];
 
         GameManager.Singleton.currentGameMode = currMode;
+
+        // ScoreManager.UpdateHighscore();
+        GameManager.Singleton.SetLives(currentGameMode.lives);
+        SpawnManager.Singleton.SetSpawnVariables(currMode.badSpawnPercentage, currMode.decayRate, currMode.doGraceSpawns, currMode.isTimed);
         UIManager.Singleton.ChangeGameModeUI(currMode, modeIndex, arcadeMode);
 
-        if(arcadeMode)
+        if(!currMode.isTimed)
             arcadeDetails[modeIndex].SetActive(true);
         currentGameMode = currMode;
     }
