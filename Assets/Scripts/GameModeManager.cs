@@ -73,7 +73,6 @@ public class GameModeManager : MonoBehaviour
         GameManager.Singleton.currentGameMode = currMode;
         currentGameMode = currMode;
 
-        // ScoreManager.UpdateHighscore();
         GameManager.Singleton.SetLives(currentGameMode.lives);
         SpawnManager.Singleton.SetSpawnVariables(currMode.badSpawnPercentage, currMode.decayRate, currMode.doGraceSpawns, currMode.isTimed);
         UIManager.Singleton.ChangeGameModeUI(currMode, modeIndex, !currMode.isTimed, highscoreMode == currentGameMode);
@@ -86,7 +85,6 @@ public class GameModeManager : MonoBehaviour
             currentArcadeMode = currMode;
             currentArcadeDetails = arcadeDetails[modeIndex];
         }
-        // currentGameMode = currMode;
     }
 
     public void SwitchSpecificMode(GameModeSO gameMode)

@@ -71,7 +71,6 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        // UpdateHighscoreUI();
         UpdateLeafUI();
     }
 

@@ -18,7 +18,6 @@ public class FrameAnimation : MonoBehaviour
     [SerializeField] private Sprite[] exitFrames;
     private List<Sprite[]> animationQueue = new List<Sprite[]>();
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spriteImage = GetComponent<Image>();
