@@ -10,6 +10,7 @@ public class GameModeManager : MonoBehaviour
     private int modeIndex = 0;
     private GameModeSO currentArcadeMode;
     private GameObject currentArcadeDetails;
+    private GameModeSO highscoreMode;
 
     void Awake()
     {
@@ -75,7 +76,7 @@ public class GameModeManager : MonoBehaviour
         // ScoreManager.UpdateHighscore();
         GameManager.Singleton.SetLives(currentGameMode.lives);
         SpawnManager.Singleton.SetSpawnVariables(currMode.badSpawnPercentage, currMode.decayRate, currMode.doGraceSpawns, currMode.isTimed);
-        UIManager.Singleton.ChangeGameModeUI(currMode, modeIndex, !currMode.isTimed);
+        UIManager.Singleton.ChangeGameModeUI(currMode, modeIndex, !currMode.isTimed, highscoreMode == currentGameMode);
 
         if(!currMode.isTimed)
         {
@@ -92,5 +93,13 @@ public class GameModeManager : MonoBehaviour
     {
         int index = System.Array.IndexOf(gameModeList, gameMode);
         SwitchMode(index - modeIndex, false);
+    }
+
+    public void SetHighscoreMode(bool reset = false)
+    {
+        if(reset)
+            highscoreMode = null;
+        else
+            highscoreMode = currentGameMode;
     }
 }

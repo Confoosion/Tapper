@@ -185,7 +185,7 @@ public class UIManager : MonoBehaviour
         backgroundIndex = modeIndex;
     }
 
-    public void ChangeGameModeUI(GameModeSO mode, int modeIndex, bool arcadeMode)
+    public void ChangeGameModeUI(GameModeSO mode, int modeIndex, bool arcadeMode, bool isHighscore)
     {
         if(arcadeMode)
         {
@@ -195,6 +195,7 @@ public class UIManager : MonoBehaviour
         GO_GameModeImage.sprite = GO_GM_Sprites[modeIndex];
 
         GO_highscore.SetText(PlayerPrefs.GetInt(ScoreManager.Singleton.GetHighscorePP()).ToString());
+        UpdateHighscoreLabelUI(isHighscore);
     }
 
     IEnumerator BackgroundTransition(Image fromBG, Image toBG, float duration)

@@ -62,12 +62,15 @@ public class ScreenManager : MonoBehaviour
             UIManager.Singleton.ShowSettingsOrPauseIcon(true);
             bool gotHighscore = UIManager.Singleton.UpdateEndScore(ScoreManager.Singleton.GetPoints());
             UIManager.Singleton.UpdateHighscoreLabelUI(gotHighscore);
+            if(gotHighscore)
+                GameModeManager.Singleton.SetHighscoreMode();
             
         }
         else if(screen == MainMenu)
         {
             LeanTween.moveLocal(Background, BG_Positions.menuPosition, 0f);
             UIManager.Singleton.ShowSettingsOrPauseIcon(true);
+            GameModeManager.Singleton.SetHighscoreMode(true);
         }
 
         StartCoroutine(SwapScreens(currentScreen, screen));
