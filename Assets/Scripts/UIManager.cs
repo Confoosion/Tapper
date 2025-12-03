@@ -49,17 +49,14 @@ public class UIManager : MonoBehaviour
     private int backgroundIndex = 0;
     private Coroutine backgroundCoroutine;
 
-    // [Header("Leaderboard UI")]
-    // [SerializeField] private TextMeshProUGUI personalPlacement;
-    // [SerializeField] private TextMeshProUGUI personalName;
-    // [SerializeField] private TextMeshProUGUI personalScore;
-
     [Header("Extra UI")]
     [SerializeField] private GameObject settingsButton;
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private Sprite[] MM_GM_Sprites;
     [SerializeField] private Sprite[] GO_GM_Sprites;
     [SerializeField] private TextMeshProUGUI[] leafCounters;
+    [SerializeField] private GameObject comingSoonText;
+    [SerializeField] private Transform comingSoonParent;
 
     void Awake()
     {
@@ -276,5 +273,31 @@ public class UIManager : MonoBehaviour
         {
             leafCount.SetText(ScoreManager.Singleton.GetGems().ToString());
         }
+    }
+
+    public void NewFeatureComingSoon()
+    {
+        GameObject comingSoon = Instantiate(comingSoonText, new Vector2(Screen.width * 0.5f, Screen.height * 0.5f), Quaternion.identity, comingSoonParent);
+        Vector3 moveTo = comingSoon.transform.position + new Vector3(0f, 20f, 0f);
+        LeanTween.move(comingSoon, moveTo, 1f).setEase(LeanTweenType.easeOutQuad);
+        StartCoroutine(Dissipate(comingSoon, 2f));
+    }
+
+    IEnumerator Dissipate(GameObject _object, float duration)
+    {
+        TextMeshProUGUI txt = _object.GetComponent<TextMeshProUGUI>();
+        Color originalColor = txt.faceColor;
+        float fadeTime = 0f;
+
+        while (fadeTime < duration)
+        {
+            fadeTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, fadeTime / duration);
+            txt.faceColor = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+            yield return null;
+        }
+
+        txt.faceColor = new Color(originalColor.r, originalColor.g, originalColor.b, 0f);
+        Destroy(_object);
     }
 }
