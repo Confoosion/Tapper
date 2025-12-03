@@ -646,7 +646,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1752764518}
         m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
-        m_MethodName: ToggleMusicVolume
+        m_MethodName: ToggleVibrations
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11836,6 +11836,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: a005e38c7c1052a4bbebf7b46d341688, type: 2}
   sfxToggle: {fileID: 1728407479}
   musicToggle: {fileID: 2022918408}
+  vibrateToggle: {fileID: 62097976}
 --- !u!1 &1797346894
 GameObject:
   m_ObjectHideFlags: 0

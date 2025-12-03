@@ -4,11 +4,22 @@ using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
+    public static SettingsManager Singleton;
     [SerializeField] private AudioMixer audioMixer;
 
     [SerializeField] private Toggle sfxToggle;
     [SerializeField] private Toggle musicToggle;
+    [SerializeField] private Toggle vibrateToggle;
+    private bool hasVibrations = true;
     private bool confirmed = false;
+
+    void Awake()
+    {
+        if(Singleton == null)
+        {
+            Singleton = this;
+        }
+    }
 
     void Start()
     {
@@ -18,6 +29,8 @@ public class SettingsManager : MonoBehaviour
     void GetPlayerSettings()
     {
         bool isMuted;
+
+        // SFX CHECK
         if (PlayerPrefs.HasKey("IsSFXMuted"))
         {
             isMuted = PlayerPrefs.GetInt("IsSFXMuted") == 0;
@@ -29,6 +42,7 @@ public class SettingsManager : MonoBehaviour
             PlayerPrefs.SetInt("IsSFXMuted", 0);
         }
 
+        // MUSIC CHECK
         if (PlayerPrefs.HasKey("IsMusicMuted"))
         {
             isMuted = PlayerPrefs.GetInt("IsMusicMuted") == 0;
@@ -40,7 +54,17 @@ public class SettingsManager : MonoBehaviour
             PlayerPrefs.SetInt("IsMusicMuted", 0);
         }
 
-        // UIManager.Singleton.UpdateNameInputField(PlayerPrefs.GetString("Username", "Tapper"));
+        // HAPTICS CHECK
+        if(PlayerPrefs.HasKey("HasVibrate"))
+        {
+            bool vibrations = PlayerPrefs.GetInt("HasVibrate") == 0;
+            vibrateToggle.isOn = vibrations;
+            ToggleVibrations(vibrations);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("HasVibrate", 1);
+        }
     }
 
     public void ToggleSFXVolume(bool toggle)
@@ -73,6 +97,22 @@ public class SettingsManager : MonoBehaviour
         }
 
         UIManager.Singleton.UpdateToggle(UIManager.Singleton.MusicToggle, toggle);
+    }
+
+    public void ToggleVibrations(bool toggle)
+    {
+        if(toggle)
+            PlayerPrefs.SetInt("HasVibrate", 0);
+        else
+            PlayerPrefs.SetInt("HasVibrate", 1);
+
+        hasVibrations = toggle;
+        UIManager.Singleton.UpdateToggle(UIManager.Singleton.VibrationToggle, toggle);
+    }
+
+    public bool CheckVibrations()
+    {
+        return(hasVibrations);
     }
 
     public void ResetDataPressed()

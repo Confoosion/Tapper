@@ -99,6 +99,9 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
         {
             GameManager.Singleton.RemoveLives(damage);
             ArcadeEnding.Singleton.SetReason(thumbnail);
+
+            if(SettingsManager.Singleton.CheckVibrations())
+                Handheld.Vibrate();
         }
     }
 }
