@@ -82,14 +82,17 @@ public class SpawnManager : MonoBehaviour
             GameObject target;
             if (CanSpawnGoodCircle())
             {
-                target = Instantiate(goodTargets[Random.Range(0, goodTargets.Length)], spawnArea);
+                // target = Instantiate(goodTargets[Random.Range(0, goodTargets.Length)], spawnArea);
+                target = ObjectPoolManager.SpawnObject(goodTargets[Random.Range(0, goodTargets.Length)], spawnArea);
             }
             else
             {
                 if (isTimed && Random.Range(0f, 1f) > badPercentage)
-                    target = Instantiate(timeTarget, spawnArea);
+                    // target = Instantiate(timeTarget, spawnArea);
+                    target = ObjectPoolManager.SpawnObject(timeTarget, spawnArea);
                 else
-                    target = Instantiate(badTarget, spawnArea);
+                    // target = Instantiate(badTarget, spawnArea);
+                    target = ObjectPoolManager.SpawnObject(badTarget, spawnArea);
             }
 
             targets.Add(target.GetComponent<RectTransform>());

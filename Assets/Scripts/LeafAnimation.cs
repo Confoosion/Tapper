@@ -20,6 +20,9 @@ public class LeafAnimation : MonoBehaviour
 
         UIManager.Singleton.SetGameScreenLeafUI(GameManager.Singleton.GetLeafAmount());
 
+        if(SettingsManager.Singleton.CheckVibrations())
+            Handheld.Vibrate();
+
         Destroy(this.gameObject);
 
         yield return null;

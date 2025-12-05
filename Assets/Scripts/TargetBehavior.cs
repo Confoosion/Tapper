@@ -13,33 +13,36 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     [SerializeField] private AudioClip sfx;
     [SerializeField] private GameObject gem;
     [SerializeField] private Image tapImage;
-    [SerializeField] private SpriteCycler spriteCycler;
+    [SerializeField] private TargetAnimation targetAnimation;
     [SerializeField] private bool tapped = false;
     // [SerializeField] private bool validLocation = true;
     private Coroutine run;
 
     public void OnEnable()
     {
-        spriteCycler.AnimateIn();
+        // spriteCycler.AnimateIn();
+        targetAnimation.StartEnterAnimation();
         run = StartCoroutine(StayOnScreen());
     }
 
     IEnumerator StayOnScreen()
     {
         yield return new WaitForSeconds(timeOnScreen);
-        if (spriteCycler.canTap)
+        if (!tapped)
         {
-            spriteCycler.AnimateOut();
+            // spriteCycler.AnimateOut();
+            targetAnimation.StartExitAnimation();
         }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (GameManager.Singleton.isPlaying && spriteCycler.canTap)
+        if (GameManager.Singleton.isPlaying && !tapped)
         {
-            spriteCycler.canTap = false;
             tapped = true;
             tapImage.gameObject.SetActive(true);
+            if(SettingsManager.Singleton.CheckVibrations())
+                Handheld.Vibrate();
 
             if(addTime != 0 && GameManager.Singleton.currentGameMode.isTimed)
             {
@@ -60,7 +63,8 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
                 LoseLife(1);
             }
             SoundManager.Singleton.PlaySound(sfx);
-            spriteCycler.AnimateHit();
+            // spriteCycler.AnimateHit();
+            targetAnimation.StartHitAnimation();
         }
     }
 
@@ -99,9 +103,6 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
         {
             GameManager.Singleton.RemoveLives(damage);
             ArcadeEnding.Singleton.SetReason(thumbnail);
-
-            if(SettingsManager.Singleton.CheckVibrations())
-                Handheld.Vibrate();
         }
     }
 }

@@ -20,7 +20,7 @@ public class FrameAnimation : MonoBehaviour
 
     void Start()
     {
-        spriteImage = GetComponent<Image>();
+        // spriteImage = GetComponent<Image>();
         spriteImage.sprite = startingFrame;
     }
 
@@ -48,7 +48,7 @@ public class FrameAnimation : MonoBehaviour
         yield return null;
     }
 
-    private void StartAnimation(Sprite[] frames, bool loop)
+    protected void StartAnimation(Sprite[] frames, bool loop)
     {
         if(frameAnim != null)
         {
