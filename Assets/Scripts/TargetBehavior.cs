@@ -21,18 +21,21 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     public void OnEnable()
     {
         // spriteCycler.AnimateIn();
-        targetAnimation.StartEnterAnimation();
+        Debug.Log("Enabled");
+        // targetAnimation.StartEnterAnimation();
+        // targetAnimation.QueueIdleAnimation();
+        targetAnimation.StartFullAnimation();
         run = StartCoroutine(StayOnScreen());
     }
 
     IEnumerator StayOnScreen()
     {
         yield return new WaitForSeconds(timeOnScreen);
-        if (!tapped)
-        {
-            // spriteCycler.AnimateOut();
-            targetAnimation.StartExitAnimation();
-        }
+        // if (!tapped)
+        // {
+        //     // spriteCycler.AnimateOut();
+        //     targetAnimation.StartExitAnimation();
+        // }
     }
 
     public void OnPointerDown(PointerEventData eventData)
