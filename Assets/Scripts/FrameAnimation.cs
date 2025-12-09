@@ -86,30 +86,6 @@ public class FrameAnimation : MonoBehaviour
         // spriteImage.sprite = startingFrame;
     }
 
-    // IEnumerator AnimateFrames(Sprite[] cyclingFrames)
-    // {
-    //     yield return new WaitForSeconds(animationDelay);
-
-    //     while(true)
-    //     {
-    //         foreach(Sprite frame in cyclingFrames)
-    //         {
-    //             spriteImage.sprite = frame;
-    //             yield return new WaitForSeconds(frameInterval);
-    //         }
-
-    //         if(!isLooping)
-    //         {
-    //             break;
-    //         }
-
-    //         spriteImage.sprite = startingFrame;
-    //     }
-
-    //     frameAnim = null;
-    //     yield return null;
-    // }
-
     public void QueueAnimation(Sprite[] frames, bool loop = false, float? loopDuration = null)
     {
         animationQueue.Enqueue(new AnimationData(frames, loop, loopDuration));

@@ -5,9 +5,10 @@ using System.Collections;
 
 public class MoleStartButton : MonoBehaviour, IPointerDownHandler
 {
+    [SerializeField] private GameObject moleObject;
     [SerializeField] private Image tapImage;
     [SerializeField] private AudioClip sfx;
-    [SerializeField] private SpriteCycler spriteCycler;
+    [SerializeField] private TargetAnimation targetAnimation;
     private float delay = 1.5f;
 
     void Start()
@@ -18,20 +19,20 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
     IEnumerator MoleAnimation()
     {
         yield return new WaitForSeconds(delay);
-        transform.GetChild(1).gameObject.SetActive(true);
-        spriteCycler.AnimateIn();
+        moleObject.SetActive(true);
+        targetAnimation.StartEnterAnimation();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (spriteCycler.canTap && !ScreenManager.Singleton.IsTransitionGoing())
+        if (!targetAnimation.IsAnimationGoing() && !ScreenManager.Singleton.IsTransitionGoing())
         {
             UIManager.Singleton.HideSettingsAndPauseIcon();
-            spriteCycler.canTap = false;
+        
             tapImage.gameObject.SetActive(true);
 
             SoundManager.Singleton.PlaySound(sfx);
-            spriteCycler.AnimateHit();
+            targetAnimation.QueueHitAnimation();
         }
     }
 

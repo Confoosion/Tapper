@@ -1,0 +1,2418 @@
+fileFormatVersion: 2
+guid: fd9cdf14f14cf5046af73606963ac319
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2808778477062637069
+    second: sprite_sheet (8)_0
+  - first:
+      213: -6493913671324067921
+    second: sprite_sheet (8)_1
+  - first:
+      213: 1336343250172948728
+    second: sprite_sheet (8)_2
+  - first:
+      213: 484837323264417346
+    second: sprite_sheet (8)_3
+  - first:
+      213: -3621064512599234173
+    second: sprite_sheet (8)_4
+  - first:
+      213: 1698971299318027631
+    second: sprite_sheet (8)_5
+  - first:
+      213: 1611444023828881245
+    second: sprite_sheet (8)_6
+  - first:
+      213: -3842242680914718509
+    second: sprite_sheet (8)_7
+  - first:
+      213: 8504393305573216103
+    second: sprite_sheet (8)_8
+  - first:
+      213: -4297776705052283174
+    second: sprite_sheet (8)_9
+  - first:
+      213: 4373905539840678591
+    second: sprite_sheet (8)_10
+  - first:
+      213: -1436560048088768505
+    second: sprite_sheet (8)_11
+  - first:
+      213: -9074561333065614544
+    second: sprite_sheet (8)_12
+  - first:
+      213: 910407470119713116
+    second: sprite_sheet (8)_13
+  - first:
+      213: -2862768192919221883
+    second: sprite_sheet (8)_14
+  - first:
+      213: 5443421812765601853
+    second: sprite_sheet (8)_15
+  - first:
+      213: -4135842130778824704
+    second: sprite_sheet (8)_16
+  - first:
+      213: -7355781206082725893
+    second: sprite_sheet (8)_17
+  - first:
+      213: 2752654947606351403
+    second: sprite_sheet (8)_18
+  - first:
+      213: 2728000113111012529
+    second: sprite_sheet (8)_19
+  - first:
+      213: 1111747882766309036
+    second: sprite_sheet (8)_20
+  - first:
+      213: 7680308027070833853
+    second: sprite_sheet (8)_21
+  - first:
+      213: 3306371113729747998
+    second: sprite_sheet (8)_22
+  - first:
+      213: 168687519933613466
+    second: sprite_sheet (8)_23
+  - first:
+      213: -6601518651182605897
+    second: sprite_sheet (8)_24
+  - first:
+      213: 1063302557077593313
+    second: sprite_sheet (8)_25
+  - first:
+      213: 9166398928353079414
+    second: sprite_sheet (8)_26
+  - first:
+      213: 5281557811891288939
+    second: sprite_sheet (8)_27
+  - first:
+      213: 6008393354783531098
+    second: sprite_sheet (8)_28
+  - first:
+      213: 1668296738960993559
+    second: sprite_sheet (8)_29
+  - first:
+      213: -1799014702870964865
+    second: sprite_sheet (8)_30
+  - first:
+      213: -7902850826424832247
+    second: sprite_sheet (8)_31
+  - first:
+      213: 4586706836709553237
+    second: sprite_sheet (8)_32
+  - first:
+      213: 6129529513118794931
+    second: sprite_sheet (8)_33
+  - first:
+      213: -5903697540961790825
+    second: sprite_sheet (8)_34
+  - first:
+      213: 3517506258440956018
+    second: sprite_sheet (8)_35
+  - first:
+      213: 7036887985105531690
+    second: sprite_sheet (8)_36
+  - first:
+      213: 2924491576395719550
+    second: sprite_sheet (8)_37
+  - first:
+      213: 3419060555150088502
+    second: sprite_sheet (8)_38
+  - first:
+      213: -968851519802129714
+    second: sprite_sheet (8)_39
+  - first:
+      213: -3671905707634237200
+    second: sprite_sheet (8)_40
+  - first:
+      213: -8148006735440003801
+    second: sprite_sheet (8)_41
+  - first:
+      213: -3574264701289322477
+    second: sprite_sheet (8)_42
+  - first:
+      213: 7751374959736016587
+    second: sprite_sheet (8)_43
+  - first:
+      213: 8245415823412820300
+    second: sprite_sheet (8)_44
+  - first:
+      213: -8359650770738913222
+    second: sprite_sheet (8)_45
+  - first:
+      213: -308844148040183547
+    second: sprite_sheet (8)_46
+  - first:
+      213: -3790024711469434421
+    second: sprite_sheet (8)_47
+  - first:
+      213: -4263629466107966886
+    second: sprite_sheet (8)_48
+  - first:
+      213: 4148033993729596733
+    second: sprite_sheet (8)_49
+  - first:
+      213: -6671724714200394112
+    second: sprite_sheet (8)_50
+  - first:
+      213: 5462978343330414515
+    second: sprite_sheet (8)_51
+  - first:
+      213: -320338332277605321
+    second: sprite_sheet (8)_52
+  - first:
+      213: 2927590765289468145
+    second: sprite_sheet (8)_53
+  - first:
+      213: -8030093549233167742
+    second: sprite_sheet (8)_54
+  - first:
+      213: 5752318070277069021
+    second: sprite_sheet (8)_55
+  - first:
+      213: 2848727080121646177
+    second: sprite_sheet (8)_56
+  - first:
+      213: -3621304580351363561
+    second: sprite_sheet (8)_57
+  - first:
+      213: -3669148406265637787
+    second: sprite_sheet (8)_58
+  - first:
+      213: 8890481356242128361
+    second: sprite_sheet (8)_59
+  - first:
+      213: -4655953100209769035
+    second: sprite_sheet (8)_60
+  - first:
+      213: -8456650414756811034
+    second: sprite_sheet (8)_61
+  - first:
+      213: -7031892319415126310
+    second: sprite_sheet (8)_62
+  - first:
+      213: 4015244892373121244
+    second: sprite_sheet (8)_63
+  - first:
+      213: 8970068341096805476
+    second: sprite_sheet (8)_64
+  - first:
+      213: -3722682572276388982
+    second: sprite_sheet (8)_65
+  - first:
+      213: -6553932885724909027
+    second: sprite_sheet (8)_66
+  - first:
+      213: 6224427360157862743
+    second: sprite_sheet (8)_67
+  - first:
+      213: -4482762468013670714
+    second: sprite_sheet (8)_68
+  - first:
+      213: -1458688395366301124
+    second: sprite_sheet (8)_69
+  - first:
+      213: 5581972365405918968
+    second: sprite_sheet (8)_70
+  - first:
+      213: 6234486157048788485
+    second: sprite_sheet (8)_71
+  - first:
+      213: -6745236640698033977
+    second: sprite_sheet (8)_72
+  - first:
+      213: 1682439484595881173
+    second: sprite_sheet (8)_73
+  - first:
+      213: 3710269027888586758
+    second: sprite_sheet (8)_74
+  - first:
+      213: 4302159015112212409
+    second: sprite_sheet (8)_75
+  - first:
+      213: 2580738694147491324
+    second: sprite_sheet (8)_76
+  - first:
+      213: -5009492146383903262
+    second: sprite_sheet (8)_77
+  - first:
+      213: -6117214722994012078
+    second: sprite_sheet (8)_78
+  - first:
+      213: 3152965874034118238
+    second: sprite_sheet (8)_79
+  - first:
+      213: 8638400554121498642
+    second: sprite_sheet (8)_80
+  - first:
+      213: -1201834070697452268
+    second: sprite_sheet (8)_81
+  - first:
+      213: -6040804808848119948
+    second: sprite_sheet (8)_82
+  - first:
+      213: -345035483254159441
+    second: sprite_sheet (8)_83
+  - first:
+      213: -1783290082332587358
+    second: sprite_sheet (8)_84
+  - first:
+      213: -5645555220059430076
+    second: sprite_sheet (8)_85
+  - first:
+      213: -1690000946274448214
+    second: sprite_sheet (8)_86
+  - first:
+      213: 8465403149207177017
+    second: sprite_sheet (8)_87
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RabbitEnter1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 2136
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f93bed4bd63509d0800000000000000
+      internalID: -2808778477062637069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter2
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 2136
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa71da21cebf0e5a0800000000000000
+      internalID: -6493913671324067921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter5
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 2136
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f0bc841b15ab8210800000000000000
+      internalID: 1336343250172948728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter10
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 2136
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24ed60b0afc7ab600800000000000000
+      internalID: 484837323264417346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter17
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 2136
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 389efb1d2056fbdc0800000000000000
+      internalID: -3621064512599234173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit1
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 2136
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f655f6b2565f39710800000000000000
+      internalID: 1698971299318027631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit13
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 2136
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5f1fb74dcffc5610800000000000000
+      internalID: 1611444023828881245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit10
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 2136
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d0db3783ac9daac0800000000000000
+      internalID: -3842242680914718509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit25
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 2136
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76fc6e837aca50670800000000000000
+      internalID: 8504393305573216103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitDone2
+      rect:
+        serializedVersion: 2
+        x: 2402
+        y: 2136
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adee86b7bda3b54c0800000000000000
+      internalID: -4297776705052283174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1870
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fba115f1aeb33bc30800000000000000
+      internalID: 4373905539840678591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 1870
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 700a62b5f30501ce0800000000000000
+      internalID: -1436560048088768505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter6
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 1870
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03bf022fb8ea01280800000000000000
+      internalID: -9074561333065614544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter11
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 1870
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c59f85145ca62ac00800000000000000
+      internalID: 910407470119713116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter18
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 1870
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58943c20f776548d0800000000000000
+      internalID: -2862768192919221883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit2
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 1870
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30b1885c4bea8b40800000000000000
+      internalID: 5443421812765601853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit14
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 1870
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00065d3ae798a96c0800000000000000
+      internalID: -4135842130778824704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit11
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 1870
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf7d1f537f30be990800000000000000
+      internalID: -7355781206082725893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit26
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 1870
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e4c453715633620800000000000000
+      internalID: 2752654947606351403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitDone3
+      rect:
+        serializedVersion: 2
+        x: 2402
+        y: 1870
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b4153936adcbd520800000000000000
+      internalID: 2728000113111012529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter7
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1604
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca614102fc8bd6f00800000000000000
+      internalID: 1111747882766309036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter8
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 1604
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db46327657fe59a60800000000000000
+      internalID: 7680308027070833853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter9
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 1604
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1c6971920792ed20800000000000000
+      internalID: 3306371113729747998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter12
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 1604
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a954fa7d76c475200800000000000000
+      internalID: 168687519933613466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter19
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 1604
+        width: 250
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b9152a53c1b264a0800000000000000
+      internalID: -6601518651182605897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit3
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 1604
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ecdf53ca0c91ce00800000000000000
+      internalID: 1063302557077593313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit15
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 1604
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 670b10a7247953f70800000000000000
+      internalID: 9166398928353079414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit12
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 1604
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6b3876d8dcdb4940800000000000000
+      internalID: 5281557811891288939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit27
+      rect:
+        serializedVersion: 2
+        x: 2133
+        y: 1604
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a50a0be1ce9126350800000000000000
+      internalID: 6008393354783531098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitDone4
+      rect:
+        serializedVersion: 2
+        x: 2402
+        y: 1604
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71d66b98b0bf62710800000000000000
+      internalID: 1668296738960993559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter13
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1338
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f75dba9c8ad9807e0800000000000000
+      internalID: -1799014702870964865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter14
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 1338
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90fab026b0f635290800000000000000
+      internalID: -7902850826424832247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter15
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 1338
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 554bdea019147af30800000000000000
+      internalID: 4586706836709553237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter16
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 1338
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b408b5dd96701550800000000000000
+      internalID: 6129529513118794931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter20
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 1338
+        width: 250
+        height: 252
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79410a99d5ad11ea0800000000000000
+      internalID: -5903697540961790825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit4
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 1338
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27826953e41b0d030800000000000000
+      internalID: 3517506258440956018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit16
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 1338
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a23fd64e65c08a160800000000000000
+      internalID: 7036887985105531690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit13
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 1338
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7360b71891e59820800000000000000
+      internalID: 2924491576395719550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit28
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 1338
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 639554fb571f27f20800000000000000
+      internalID: 3419060555150088502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitDone5
+      rect:
+        serializedVersion: 2
+        x: 2402
+        y: 1338
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec2c81a0da2fd82f0800000000000000
+      internalID: -968851519802129714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter21
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1072
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f06bb7a635ca0dc0800000000000000
+      internalID: -3671905707634237200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter22
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 1072
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72dbb9a4b077cee80800000000000000
+      internalID: -8148006735440003801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter23
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 1072
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 318ae620139a56ec0800000000000000
+      internalID: -3574264701289322477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter24
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 1072
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bce4ce3157a629b60800000000000000
+      internalID: 7751374959736016587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitEnter25
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 1072
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c49f7eb510a9d6270800000000000000
+      internalID: 8245415823412820300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit6
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 1072
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3069c35aed8cfb80800000000000000
+      internalID: -8359650770738913222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit1
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 1072
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5015b1932e3c6bbf0800000000000000
+      internalID: -308844148040183547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit14
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 1072
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc979e6fa90276bc0800000000000000
+      internalID: -3790024711469434421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit29
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 1072
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5a0fba179b84d4c0800000000000000
+      internalID: -4263629466107966886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitDone6
+      rect:
+        serializedVersion: 2
+        x: 2402
+        y: 1072
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3d5f78a0f6c09930800000000000000
+      internalID: 4148033993729596733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit7
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 806
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08614e288b54963a0800000000000000
+      internalID: -6671724714200394112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit8
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 806
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bf7cd1fbd560db40800000000000000
+      internalID: 5462978343330414515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit9
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 806
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73cf6a8ebfded8bf0800000000000000
+      internalID: -320338332277605321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit10
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 806
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f0facc3a44e0a820800000000000000
+      internalID: 2927590765289468145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit11
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 806
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2822dc456706f8090800000000000000
+      internalID: -8030093549233167742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitExit12
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 806
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd8dcedcec654df40800000000000000
+      internalID: 5752318070277069021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit2
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 806
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16cbfa8af26b88720800000000000000
+      internalID: 2848727080121646177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit15
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 806
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71679a0bbaa8ebdc0800000000000000
+      internalID: -3621304580351363561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit30
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 806
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5649858e6f0941dc0800000000000000
+      internalID: -3669148406265637787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitDone7
+      rect:
+        serializedVersion: 2
+        x: 2402
+        y: 806
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed8b0190b5516b70800000000000000
+      internalID: 8890481356242128361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 540
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b53e1bd25bb26fb0800000000000000
+      internalID: -4655953100209769035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 540
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eea2c6c041f3aa80800000000000000
+      internalID: -8456650414756811034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit5
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 540
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad6b67a2133b96e90800000000000000
+      internalID: -7031892319415126310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit6
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 540
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd8f918b4f309b730800000000000000
+      internalID: 4015244892373121244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit7
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 540
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4647d0a71a51c7c70800000000000000
+      internalID: 8970068341096805476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit8
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 537
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8bade39cef565cc0800000000000000
+      internalID: -3722682572276388982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit9
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 540
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d12bd90c3c0cb05a0800000000000000
+      internalID: -6553932885724909027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit16
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 540
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75b8e64a4bb916650800000000000000
+      internalID: 6224427360157862743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit31
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 540
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ce779939470ac1c0800000000000000
+      internalID: -4482762468013670714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitDone8
+      rect:
+        serializedVersion: 2
+        x: 2402
+        y: 540
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c32053402a2b1cbe0800000000000000
+      internalID: -1458688395366301124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit17
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 277
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f61112ba46277d40800000000000000
+      internalID: 5581972365405918968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit18
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 274
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 506bbfbc028558650800000000000000
+      internalID: 6234486157048788485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit19
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 274
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c89e39530b1462a0800000000000000
+      internalID: -6745236640698033977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit20
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 274
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d4cd6b1cc9395710800000000000000
+      internalID: 1682439484595881173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit21
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 274
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 600ee64e5068d7330800000000000000
+      internalID: 3710269027888586758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit22
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 274
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bff10794d654bb30800000000000000
+      internalID: 4302159015112212409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit23
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 274
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf544c24b20a0d320800000000000000
+      internalID: 2580738694147491324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit24
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 274
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e5adad2f65ba7ab0800000000000000
+      internalID: -5009492146383903262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit32
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 274
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 250072dae994b1ba0800000000000000
+      internalID: -6117214722994012078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit33
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5e8bbed1c591cb20800000000000000
+      internalID: 3152965874034118238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit34
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 8
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21013f72983c1e770800000000000000
+      internalID: 8638400554121498642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit35
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 8
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41ddd11c74a325fe0800000000000000
+      internalID: -1201834070697452268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit36
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 8
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 477e22b2800ca2ca0800000000000000
+      internalID: -6040804808848119948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit37
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 8
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa70bb95e00363bf0800000000000000
+      internalID: -345035483254159441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit38
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 8
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aac61f4e1b7047e0800000000000000
+      internalID: -1783290082332587358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit39
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 8
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44361845075f6a1b0800000000000000
+      internalID: -5645555220059430076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitHit40
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 8
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaccc37e719eb88e0800000000000000
+      internalID: -1690000946274448214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RabbitDone1
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 8
+        width: 250
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93787f400572b7570800000000000000
+      internalID: 8465403149207177017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 30d4762276e01c44baddbd82fa5ecd25
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      RabbitDone1: 8465403149207177017
+      RabbitDone2: -4297776705052283174
+      RabbitDone3: 2728000113111012529
+      RabbitDone4: 1668296738960993559
+      RabbitDone5: -968851519802129714
+      RabbitDone6: 4148033993729596733
+      RabbitDone7: 8890481356242128361
+      RabbitDone8: -1458688395366301124
+      RabbitEnter1: -2808778477062637069
+      RabbitEnter10: 484837323264417346
+      RabbitEnter11: 910407470119713116
+      RabbitEnter12: 168687519933613466
+      RabbitEnter13: -1799014702870964865
+      RabbitEnter14: -7902850826424832247
+      RabbitEnter15: 4586706836709553237
+      RabbitEnter16: 6129529513118794931
+      RabbitEnter17: -3621064512599234173
+      RabbitEnter18: -2862768192919221883
+      RabbitEnter19: -6601518651182605897
+      RabbitEnter2: -6493913671324067921
+      RabbitEnter20: -5903697540961790825
+      RabbitEnter21: -3671905707634237200
+      RabbitEnter22: -8148006735440003801
+      RabbitEnter23: -3574264701289322477
+      RabbitEnter24: 7751374959736016587
+      RabbitEnter25: 8245415823412820300
+      RabbitEnter3: 4373905539840678591
+      RabbitEnter4: -1436560048088768505
+      RabbitEnter5: 1336343250172948728
+      RabbitEnter6: -9074561333065614544
+      RabbitEnter7: 1111747882766309036
+      RabbitEnter8: 7680308027070833853
+      RabbitEnter9: 3306371113729747998
+      RabbitExit1: 1698971299318027631
+      RabbitExit10: 2927590765289468145
+      RabbitExit11: -8030093549233167742
+      RabbitExit12: 5752318070277069021
+      RabbitExit13: 1611444023828881245
+      RabbitExit14: -4135842130778824704
+      RabbitExit15: 9166398928353079414
+      RabbitExit16: 7036887985105531690
+      RabbitExit2: 5443421812765601853
+      RabbitExit3: 1063302557077593313
+      RabbitExit4: 3517506258440956018
+      RabbitExit6: -8359650770738913222
+      RabbitExit7: -6671724714200394112
+      RabbitExit8: 5462978343330414515
+      RabbitExit9: -320338332277605321
+      RabbitHit1: -308844148040183547
+      RabbitHit10: -3842242680914718509
+      RabbitHit11: -7355781206082725893
+      RabbitHit12: 5281557811891288939
+      RabbitHit13: 2924491576395719550
+      RabbitHit14: -3790024711469434421
+      RabbitHit15: -3621304580351363561
+      RabbitHit16: 6224427360157862743
+      RabbitHit17: 5581972365405918968
+      RabbitHit18: 6234486157048788485
+      RabbitHit19: -6745236640698033977
+      RabbitHit2: 2848727080121646177
+      RabbitHit20: 1682439484595881173
+      RabbitHit21: 3710269027888586758
+      RabbitHit22: 4302159015112212409
+      RabbitHit23: 2580738694147491324
+      RabbitHit24: -5009492146383903262
+      RabbitHit25: 8504393305573216103
+      RabbitHit26: 2752654947606351403
+      RabbitHit27: 6008393354783531098
+      RabbitHit28: 3419060555150088502
+      RabbitHit29: -4263629466107966886
+      RabbitHit3: -4655953100209769035
+      RabbitHit30: -3669148406265637787
+      RabbitHit31: -4482762468013670714
+      RabbitHit32: -6117214722994012078
+      RabbitHit33: 3152965874034118238
+      RabbitHit34: 8638400554121498642
+      RabbitHit35: -1201834070697452268
+      RabbitHit36: -6040804808848119948
+      RabbitHit37: -345035483254159441
+      RabbitHit38: -1783290082332587358
+      RabbitHit39: -5645555220059430076
+      RabbitHit4: -8456650414756811034
+      RabbitHit40: -1690000946274448214
+      RabbitHit5: -7031892319415126310
+      RabbitHit6: 4015244892373121244
+      RabbitHit7: 8970068341096805476
+      RabbitHit8: -3722682572276388982
+      RabbitHit9: -6553932885724909027
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

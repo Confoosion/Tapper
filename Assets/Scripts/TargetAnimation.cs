@@ -8,4 +8,9 @@ public class TargetAnimation : FrameAnimation
     {
         StartAnimation(hitFrames, false);
     }
+
+    public void QueueHitAnimation()
+    {
+        QueueAnimation(hitFrames, false);
+    }
 }
