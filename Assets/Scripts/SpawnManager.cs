@@ -29,7 +29,14 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float inGameTime = 0f;
 
     [SerializeField] GameObject placementTester;
+    public Vector2 despawnLocation;
     [SerializeField] List<RectTransform> targets = new List<RectTransform>();
+
+    // Pool tags for the good targets
+    [Header("Object Pool Tags")]
+    [SerializeField] private string[] goodTargetTags = { "Mole", "Mouse", "Rabbit" };
+    [SerializeField] private string badTargetTag = "Bomb";
+    [SerializeField] private string timeTargetTag = "Mushroom";
 
     void Awake()
     {
@@ -82,21 +89,37 @@ public class SpawnManager : MonoBehaviour
             GameObject target;
             if (CanSpawnGoodCircle())
             {
-                // target = Instantiate(goodTargets[Random.Range(0, goodTargets.Length)], spawnArea);
-                target = ObjectPoolManager.SpawnObject(goodTargets[Random.Range(0, goodTargets.Length)], spawnArea);
+                // Spawn a random good target from the pool
+                string randomTag = goodTargetTags[Random.Range(0, goodTargetTags.Length)];
+                target = ObjectPoolManager.Instance.SpawnFromPool(randomTag, Vector2.zero);
+                
+                if (target != null)
+                {
+                    target.transform.SetParent(spawnArea, true);
+                }
             }
             else
             {
                 if (isTimed && Random.Range(0f, 1f) > badPercentage)
-                    // target = Instantiate(timeTarget, spawnArea);
-                    target = ObjectPoolManager.SpawnObject(timeTarget, spawnArea);
+                {
+                    target = ObjectPoolManager.Instance.SpawnFromPool(timeTargetTag, Vector2.zero);
+                }
                 else
-                    // target = Instantiate(badTarget, spawnArea);
-                    target = ObjectPoolManager.SpawnObject(badTarget, spawnArea);
+                {
+                    target = ObjectPoolManager.Instance.SpawnFromPool(badTargetTag, Vector2.zero);
+                }
+
+                if (target != null)
+                {
+                    target.transform.SetParent(spawnArea, true);
+                }
             }
 
-            targets.Add(target.GetComponent<RectTransform>());
-            GetRandomSpawnPosition(target);
+            if (target != null)
+            {
+                targets.Add(target.GetComponent<RectTransform>());
+                GetRandomSpawnPosition(target);
+            }
 
             yield return new WaitForSeconds(spawnInterval);
         }
@@ -166,12 +189,51 @@ public class SpawnManager : MonoBehaviour
     {
         foreach(RectTransform target in targets)
         {
-            Destroy(target.gameObject);
+            if (target != null)
+            {
+                // Determine which pool to return to based on tag
+                string poolTag = DeterminePoolTag(target.gameObject);
+                ObjectPoolManager.Instance.ReturnToPool(target.gameObject, poolTag);
+            }
         }
+        targets.Clear();
     }
 
     public void RemoveTarget(RectTransform target)
     {
+        if (target != null)
+        {
+            // Determine which pool to return to based on tag
+            string poolTag = DeterminePoolTag(target.gameObject);
+            ObjectPoolManager.Instance.ReturnToPool(target.gameObject, poolTag);
+        }
         targets.Remove(target);
+    }
+
+    // Helper method to determine which pool tag to use when returning objects
+    private string DeterminePoolTag(GameObject obj)
+    {
+        // Check against the original prefabs to determine pool tag
+        for (int i = 0; i < goodTargets.Length; i++)
+        {
+            if (obj.name.Contains(goodTargets[i].name))
+            {
+                return goodTargetTags[i];
+            }
+        }
+
+        if (obj.name.Contains(badTarget.name))
+        {
+            return badTargetTag;
+        }
+
+        if (obj.name.Contains(timeTarget.name))
+        {
+            return timeTargetTag;
+        }
+
+        // Default fallback
+        Debug.LogWarning($"Could not determine pool tag for {obj.name}");
+        return "BadTarget";
     }
 }

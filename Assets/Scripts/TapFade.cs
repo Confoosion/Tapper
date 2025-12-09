@@ -29,5 +29,7 @@ public class TapFade : MonoBehaviour
         _image.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0f);
         if(destroyAfterFade)
             Destroy(this.gameObject);
+        else
+            gameObject.SetActive(false);
     }
 }

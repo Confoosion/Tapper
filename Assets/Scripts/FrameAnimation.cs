@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class FrameAnimation : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class FrameAnimation : MonoBehaviour
     // private bool isLooping = false;
     [SerializeField] private float animationDelay;
     [SerializeField] private float frameInterval;
+    [SerializeField] protected bool activateEndAction;
+    public UnityEvent EndAction;
     [SerializeField] private Sprite startingFrame;
 
     [SerializeField] private Sprite[] enterFrames;
@@ -52,6 +55,12 @@ public class FrameAnimation : MonoBehaviour
 
         isProcessingQueue = false;
         frameAnim = null;
+
+        if(activateEndAction)
+        {
+            EndAction.Invoke();
+        }
+
     }
 
     IEnumerator PlayAnimation(AnimationData animData)

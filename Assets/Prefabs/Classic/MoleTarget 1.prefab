@@ -56,6 +56,22 @@ MonoBehaviour:
   spriteImage: {fileID: 6593003329329549726}
   animationDelay: 0
   frameInterval: 0.01
+  activateEndAction: 1
+  EndAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8110159999727985806}
+        m_TargetAssemblyTypeName: TargetBehavior, Assembly-CSharp
+        m_MethodName: Finish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   startingFrame: {fileID: 21300000, guid: 71a4b7404e231cf4eb271f6f6992072f, type: 3}
   enterFrames:
   - {fileID: 9212155194062764780, guid: f8616b5e20bfe4e43b02beeda24a8ec2, type: 3}

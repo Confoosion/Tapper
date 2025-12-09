@@ -36,9 +36,17 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
         }
     }
 
-    void OnDestroy()
+    public void Finish()
     {
+        gameObject.SetActive(false);
         if(ScreenManager.Singleton != null)
             ScreenManager.Singleton.BeginStartScreen(false);
+        
     }
+
+    // void OnDisable()
+    // {
+    //     if(ScreenManager.Singleton != null)
+    //         ScreenManager.Singleton.BeginStartScreen(false);
+    // }
 }

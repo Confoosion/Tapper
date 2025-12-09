@@ -16,14 +16,12 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     [SerializeField] private TargetAnimation targetAnimation;
     [SerializeField] private bool tapped = false;
     // [SerializeField] private bool validLocation = true;
+    private bool initialized = false;
     private Coroutine run;
 
     public void OnEnable()
     {
-        // spriteCycler.AnimateIn();
-        Debug.Log("Enabled");
-        // targetAnimation.StartEnterAnimation();
-        // targetAnimation.QueueIdleAnimation();
+        tapped = false;
         targetAnimation.StartFullAnimation();
         run = StartCoroutine(StayOnScreen());
     }
@@ -89,14 +87,34 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
         }
     }
 
-    void OnDestroy()
+    public void Finish()
     {
         if (!tapped && isGood && GameManager.Singleton.isPlaying)
         {
             LoseLife(1);
         }
+        
+        transform.position = SpawnManager.Singleton.despawnLocation;
         SpawnManager.Singleton.RemoveTarget(GetComponent<RectTransform>());
     }
+
+    // void OnDisable()
+    // {
+    //     if (!tapped && isGood && GameManager.Singleton.isPlaying)
+    //     {
+    //         LoseLife(1);
+    //     }
+        
+    //     if(initialized)
+    //     {
+    //         // transform.position = SpawnManager.Singleton.despawnLocation;
+    //         SpawnManager.Singleton.RemoveTarget(GetComponent<RectTransform>());
+    //     }
+    //     else
+    //     {
+    //         initialized = true;
+    //     }
+    // }
 
     void LoseLife(int damage)
     {
