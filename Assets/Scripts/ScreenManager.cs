@@ -64,13 +64,13 @@ public class ScreenManager : MonoBehaviour
             UIManager.Singleton.UpdateHighscoreLabelUI(gotHighscore);
             if(gotHighscore)
                 GameModeManager.Singleton.SetHighscoreMode();
-            
         }
         else if(screen == MainMenu)
         {
             LeanTween.moveLocal(Background, BG_Positions.menuPosition, 0f);
             UIManager.Singleton.ShowSettingsOrPauseIcon(true);
             GameModeManager.Singleton.SetHighscoreMode(true);
+            // UIManager.Singleton.ShopButtonAnimation(false);
         }
 
         StartCoroutine(SwapScreens(currentScreen, screen));
@@ -91,6 +91,10 @@ public class ScreenManager : MonoBehaviour
         {
             GoToGame();
         }
+        // else if(currentScreen == GameOver)
+        // {
+        //     UIManager.Singleton.ShopButtonAnimation(true);
+        // }
 
         yield return new WaitForSeconds(transitionTime);
     }

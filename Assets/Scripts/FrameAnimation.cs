@@ -8,9 +8,10 @@ public class FrameAnimation : MonoBehaviour
 {
     public Image spriteImage;
     private Coroutine frameAnim = null;
-    // private bool isLooping = false;
+    private bool interrupted = false;
     [SerializeField] private float animationDelay;
     [SerializeField] private float frameInterval;
+    [SerializeField] private bool animateIdleOnEnable;
     [SerializeField] protected bool activateEndAction;
     public UnityEvent EndAction;
     [SerializeField] private Sprite startingFrame;
@@ -39,8 +40,23 @@ public class FrameAnimation : MonoBehaviour
 
     void Start()
     {
-        // spriteImage = GetComponent<Image>();
         spriteImage.sprite = startingFrame;
+    }
+
+    void OnEnable()
+    {
+        if(animateIdleOnEnable)
+        {
+            StartIdleAnimation();
+        }
+    }
+
+    void OnDisable()
+    {
+        if(animateIdleOnEnable)
+        {
+            StopALLAnimations();
+        }
     }
 
     IEnumerator ProcessAnimationQueue()
@@ -65,20 +81,21 @@ public class FrameAnimation : MonoBehaviour
 
     IEnumerator PlayAnimation(AnimationData animData)
     {
-        yield return new WaitForSeconds(animationDelay);
-
+        interrupted = false;
         bool shouldContinue = true;
         float loopStartTime = Time.time;
 
         while (shouldContinue)
         {
+            yield return new WaitForSeconds(animationDelay);
+            
             foreach (Sprite frame in animData.frames)
             {
                 spriteImage.sprite = frame;
                 yield return new WaitForSeconds(frameInterval);
             }
 
-            if (!animData.loop)
+            if (!animData.loop || interrupted)
             {
                 shouldContinue = false;
             }
@@ -123,6 +140,7 @@ public class FrameAnimation : MonoBehaviour
     public void StartAnimation(Sprite[] frames, bool loop = false, float? loopDuration = null)
     {
         ClearQueue();
+        interrupted = true;
         QueueAnimation(frames, loop, loopDuration);
     }
 
@@ -175,6 +193,12 @@ public class FrameAnimation : MonoBehaviour
     public bool IsAnimationGoing()
     {
         return frameAnim != null;
+    }
+
+    public void StopALLAnimations()
+    {
+        ClearQueue();
+        interrupted = true;
     }
 
     public int GetQueuedAnimationCount()

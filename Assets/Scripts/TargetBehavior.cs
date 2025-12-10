@@ -9,32 +9,26 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     public Sprite thumbnail;
     public bool isGood = true;
     [SerializeField] private int addTime;
-    [SerializeField] private float timeOnScreen = 2f;
+    // [SerializeField] private float timeOnScreen = 2f;
     [SerializeField] private AudioClip sfx;
     [SerializeField] private GameObject gem;
     [SerializeField] private Image tapImage;
     [SerializeField] private TargetAnimation targetAnimation;
     [SerializeField] private bool tapped = false;
-    // [SerializeField] private bool validLocation = true;
-    private bool initialized = false;
-    private Coroutine run;
+    // private Coroutine run;
 
     public void OnEnable()
     {
         tapped = false;
+        tapImage.gameObject.SetActive(false);
         targetAnimation.StartFullAnimation();
-        run = StartCoroutine(StayOnScreen());
+        // run = StartCoroutine(StayOnScreen());
     }
 
-    IEnumerator StayOnScreen()
-    {
-        yield return new WaitForSeconds(timeOnScreen);
-        // if (!tapped)
-        // {
-        //     // spriteCycler.AnimateOut();
-        //     targetAnimation.StartExitAnimation();
-        // }
-    }
+    // IEnumerator StayOnScreen()
+    // {
+    //     yield return new WaitForSeconds(timeOnScreen);
+    // }
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -69,23 +63,23 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (run == null)
-        {
-            Debug.Log("Object colliding");
-            // validLocation = false;
-        }
-    }
+    // void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if (run == null)
+    //     {
+    //         Debug.Log("Object colliding");
+    //         // validLocation = false;
+    //     }
+    // }
 
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (run == null)
-        {
-            Debug.Log("Object NOT colliding");
-            // validLocation = true;
-        }
-    }
+    // void OnTriggerExit2D(Collider2D collision)
+    // {
+    //     if (run == null)
+    //     {
+    //         Debug.Log("Object NOT colliding");
+    //         // validLocation = true;
+    //     }
+    // }
 
     public void Finish()
     {

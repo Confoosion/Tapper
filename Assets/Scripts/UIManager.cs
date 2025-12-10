@@ -134,6 +134,14 @@ public class UIManager : MonoBehaviour
         return (hasHighscore);
     }
 
+    public void ShopButtonAnimation(bool start)
+    {
+        if(start)
+            GO_ShopButton.StartIdleAnimation();
+        else
+            GO_ShopButton.StopALLAnimations();
+    }
+
     public void ShowPauseScreen(bool show)
     {
         pauseScreen.SetActive(show);
