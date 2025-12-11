@@ -7,7 +7,6 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private GameObject moleObject;
     [SerializeField] private Image tapImage;
-    [SerializeField] private AudioClip sfx;
     [SerializeField] private TargetAnimation targetAnimation;
     private float delay = 1.5f;
 

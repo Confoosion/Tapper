@@ -52,6 +52,10 @@ public class TimeAttackClock : MonoBehaviour
         {
             yield return new WaitForSeconds(tickRate);
             time--;
+            if(time < 0)
+            {
+                time = 0;
+            }
             timerText.SetText(time.ToString());
         }
 

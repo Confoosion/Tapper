@@ -8,6 +8,7 @@ public class ArcadeEnding : MonoBehaviour
     public static ArcadeEnding Singleton;
 
     [SerializeField] private GameObject[] lossReasons = new GameObject[3];
+    private AudioClip[] lossLaughs = new AudioClip[3];
     private int reasonCount = 0;
     private Vector3 homeLocation = new Vector3(0f, 1600f, 0f);
     private Vector3 dropLocation = new Vector3(0f, -550f, 0f);
@@ -28,10 +29,11 @@ public class ArcadeEnding : MonoBehaviour
         ResetReasons();
     }
 
-    public void SetReason(Sprite reason)
+    public void SetReason(Sprite reason, AudioClip laugh)
     {
         lossReasons[reasonCount].GetComponent<Image>().sprite = reason;
         lossReasons[reasonCount].SetActive(true);
+        lossLaughs[reasonCount] = laugh;
         reasonCount += 1;
     }
 
@@ -44,6 +46,7 @@ public class ArcadeEnding : MonoBehaviour
             {
                 reason.transform.localPosition = homeLocation + dropOffset * i;
                 reason.SetActive(false);
+                lossLaughs[i] = null;
             }
         }
         reasonCount = 0;
@@ -61,7 +64,13 @@ public class ArcadeEnding : MonoBehaviour
         {
             GameObject reason = lossReasons[i];
             if(reason != null)
+            {
                 LeanTween.moveLocal(reason, dropLocation + dropOffset * i, dropTime).setEase(LeanTweenType.easeOutBounce);
+
+                yield return new WaitForSeconds(0.5f);
+
+                SoundManager.Singleton.PlaySound(lossLaughs[i]);
+            }
 
             yield return new WaitForSeconds(waitTime);
         }

@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip switchModeAudio;
     public AudioClip countdownAudio;
     [SerializeField] private AudioClip[] hitSounds;
+    [SerializeField] private AudioClip badSound;
     public AudioClip alarmAudio;
 
     [Header("Current Sounds")]
@@ -84,12 +85,22 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(AudioClip sfx, float volume = 1f)
     {
+        if(sfx == null)
+        {
+            return;
+        }
+        
         audioSource.PlayOneShot(sfx, volume);
     }
 
     public void PlayHitSound()
     {
         audioSource.PlayOneShot(hitSounds[UnityEngine.Random.Range(0, hitSounds.Length)], 1f);
+    }
+
+    public void PlayBadSound()
+    {
+        audioSource.PlayOneShot(badSound, 1f);
     }
 
     public void PlayMusic()

@@ -10,15 +10,15 @@ public class FrameAnimation : MonoBehaviour
     private Coroutine frameAnim = null;
     private bool interrupted = false;
     [SerializeField] private float animationDelay;
-    [SerializeField] private float frameInterval;
+    [SerializeField] protected float frameInterval;
     [SerializeField] private bool animateIdleOnEnable;
     [SerializeField] protected bool activateEndAction;
     public UnityEvent EndAction;
     [SerializeField] private Sprite startingFrame;
 
-    [SerializeField] private Sprite[] enterFrames;
+    [SerializeField] protected Sprite[] enterFrames;
     [SerializeField] private Sprite[] idleFrames;
-    [SerializeField] private float idleDuration;
+    [SerializeField] protected float idleDuration;
     [SerializeField] private Sprite[] exitFrames;
 
     private Queue<AnimationData> animationQueue = new Queue<AnimationData>();
@@ -108,8 +108,6 @@ public class FrameAnimation : MonoBehaviour
             }
             // If loop is true and loopDuration is null, continue indefinitely
         }
-
-        // spriteImage.sprite = startingFrame;
     }
 
     public void QueueAnimation(Sprite[] frames, bool loop = false, float? loopDuration = null)

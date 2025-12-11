@@ -56,6 +56,7 @@ MonoBehaviour:
   spriteImage: {fileID: 6593003329329549726}
   animationDelay: 0
   frameInterval: 0.01
+  animateIdleOnEnable: 0
   activateEndAction: 1
   EndAction:
     m_PersistentCalls:
@@ -194,12 +195,13 @@ MonoBehaviour:
   thumbnail: {fileID: 21300000, guid: 03fe2135dbaf2414fb350ac2f70241ba, type: 3}
   isGood: 1
   addTime: 0
-  timeOnScreen: 0.75
-  sfx: {fileID: 8300000, guid: d3cd934e022aa1541ba12b69b6068403, type: 3}
+  laughAudio: {fileID: 8300000, guid: d3cd934e022aa1541ba12b69b6068403, type: 3}
   gem: {fileID: 8494625251215090528, guid: 45c0d6613ff9b424d96fa7955d31898d, type: 3}
   tapImage: {fileID: 2289735626778924471}
   targetAnimation: {fileID: -946973491222926081}
   tapped: 0
+  canTap: 1
+  hitWindow: 0
 --- !u!50 &2815712825769348587
 Rigidbody2D:
   serializedVersion: 5
@@ -361,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ecd5eb5f2daea4497eb4c8cf9b06e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.5
+  fadeTime: 0.75
   destroyAfterFade: 0
 --- !u!1 &8434978512171090135
 GameObject:

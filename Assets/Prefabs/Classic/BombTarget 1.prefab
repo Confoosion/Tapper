@@ -174,11 +174,13 @@ MonoBehaviour:
   thumbnail: {fileID: 21300000, guid: 9580b224948bca24b96eb8d9710714ee, type: 3}
   isGood: 0
   addTime: -4
-  sfx: {fileID: 8300000, guid: 77bd66c9bc32be14b9c0b7f45a1c4f7e, type: 3}
+  laughAudio: {fileID: 8300000, guid: 77bd66c9bc32be14b9c0b7f45a1c4f7e, type: 3}
   gem: {fileID: 0}
   tapImage: {fileID: 2289735626778924471}
   targetAnimation: {fileID: 171274873527001271}
   tapped: 0
+  canTap: 1
+  hitWindow: 0
 --- !u!61 &-7348638142914939738
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -340,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ecd5eb5f2daea4497eb4c8cf9b06e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.5
+  fadeTime: 0.75
   destroyAfterFade: 0
 --- !u!1 &8434978512171090135
 GameObject:
