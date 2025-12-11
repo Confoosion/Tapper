@@ -46,6 +46,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
 
             if (isGood)
             {
+                SoundManager.Singleton.PlayHitSound();
                 ScoreManager.Singleton.AddPoints(1);
                 if (ScoreManager.Singleton.AddCircleTapped())
                 {
@@ -55,9 +56,10 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
             }
             else
             {
+                SoundManager.Singleton.PlaySound(sfx);
                 LoseLife(1);
             }
-            SoundManager.Singleton.PlaySound(sfx);
+            // SoundManager.Singleton.PlaySound(sfx);
             // spriteCycler.AnimateHit();
             targetAnimation.StartHitAnimation();
         }

@@ -57,6 +57,7 @@ public class TimeAttackClock : MonoBehaviour
 
         if(time <= 0 && GameManager.Singleton.isPlaying)
         {
+            SoundManager.Singleton.PlaySound(SoundManager.Singleton.alarmAudio);
             GameManager.Singleton.SetPlayerStatus(false);
         }
     }

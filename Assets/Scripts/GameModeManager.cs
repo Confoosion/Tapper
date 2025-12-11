@@ -54,6 +54,8 @@ public class GameModeManager : MonoBehaviour
             return;
         }
 
+        SoundManager.Singleton.PlaySound(SoundManager.Singleton.switchModeAudio);
+
         int prevModeIndex = modeIndex;
 
         modeIndex = (modeIndex + direction) % gameModeList.Length;

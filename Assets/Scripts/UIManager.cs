@@ -105,7 +105,11 @@ public class UIManager : MonoBehaviour
             anim.StartFullAnimation();
         }
 
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(1.95f);
+
+        SoundManager.Singleton.PlaySound(SoundManager.Singleton.countdownAudio, 0.5f);
+
+        yield return new WaitForSeconds(3f);
 
         goTextObject.SetActive(true);
 

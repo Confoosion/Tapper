@@ -7740,7 +7740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   timerText: {fileID: 1118482415}
-  START_TIME: 60
+  START_TIME: 5
   time: 0
 --- !u!1 &1135311348
 GameObject:
@@ -8773,6 +8773,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9568bdbc307cb5f429582f8a5eb7d39a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  switchModeAudio: {fileID: 8300000, guid: ed7e41939749d1547a7655037b885ed2, type: 3}
+  countdownAudio: {fileID: 8300000, guid: 7a9ca06412a8059479120a2cc3ae2f9b, type: 3}
+  hitSounds:
+  - {fileID: 8300000, guid: debf4c1f7d14d704a82bd89320278a46, type: 3}
+  - {fileID: 8300000, guid: 2be45348ef56fd74e93bc421bcc7ab25, type: 3}
+  - {fileID: 8300000, guid: 395da6de10afd0f4197f292d02da2dfe, type: 3}
+  alarmAudio: {fileID: 8300000, guid: 86bf26b9aca6abe4ca6623a817c846fa, type: 3}
   usedSounds:
   - {fileID: 0}
   - {fileID: 0}

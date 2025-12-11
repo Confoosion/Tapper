@@ -10,6 +10,11 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Singleton { get; private set; }
 
+    public AudioClip switchModeAudio;
+    public AudioClip countdownAudio;
+    [SerializeField] private AudioClip[] hitSounds;
+    public AudioClip alarmAudio;
+
     [Header("Current Sounds")]
     [SerializeField] private AudioClip[] usedSounds = new AudioClip[Enum.GetNames(typeof(SoundType)).Length];
 
@@ -80,6 +85,11 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(AudioClip sfx, float volume = 1f)
     {
         audioSource.PlayOneShot(sfx, volume);
+    }
+
+    public void PlayHitSound()
+    {
+        audioSource.PlayOneShot(hitSounds[UnityEngine.Random.Range(0, hitSounds.Length)], 1f);
     }
 
     public void PlayMusic()
