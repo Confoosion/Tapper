@@ -93,10 +93,10 @@ public class SpawnManager : MonoBehaviour
                 string randomTag = goodTargetTags[Random.Range(0, goodTargetTags.Length)];
                 target = ObjectPoolManager.Instance.SpawnFromPool(randomTag, Vector2.zero);
                 
-                if (target != null)
-                {
-                    target.transform.SetParent(spawnArea, true);
-                }
+                // if (target != null)
+                // {
+                //     target.transform.SetParent(spawnArea, false);
+                // }
             }
             else
             {
@@ -109,10 +109,10 @@ public class SpawnManager : MonoBehaviour
                     target = ObjectPoolManager.Instance.SpawnFromPool(badTargetTag, Vector2.zero);
                 }
 
-                if (target != null)
-                {
-                    target.transform.SetParent(spawnArea, true);
-                }
+                // if (target != null)
+                // {
+                //     target.transform.SetParent(spawnArea, true);
+                // }
             }
 
             if (target != null)
@@ -191,9 +191,7 @@ public class SpawnManager : MonoBehaviour
         {
             if (target != null)
             {
-                // Determine which pool to return to based on tag
-                string poolTag = DeterminePoolTag(target.gameObject);
-                ObjectPoolManager.Instance.ReturnToPool(target.gameObject, poolTag);
+                ObjectPoolManager.Instance.ReturnToPool(target.gameObject);
             }
         }
         targets.Clear();
@@ -203,9 +201,7 @@ public class SpawnManager : MonoBehaviour
     {
         if (target != null)
         {
-            // Determine which pool to return to based on tag
-            string poolTag = DeterminePoolTag(target.gameObject);
-            ObjectPoolManager.Instance.ReturnToPool(target.gameObject, poolTag);
+            ObjectPoolManager.Instance.ReturnToPool(target.gameObject);
         }
         targets.Remove(target);
     }

@@ -28,7 +28,7 @@ public class ObjectPoolManager : MonoBehaviour
     public Transform poolParent;
 
     private Dictionary<string, Queue<GameObject>> poolDictionary;
-    private Dictionary<string, Transform> poolContainers;
+    // private Dictionary<string, Transform> poolContainers;
 
     void Awake()
     {
@@ -50,25 +50,24 @@ public class ObjectPoolManager : MonoBehaviour
     void InitializePools()
     {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
-        poolContainers = new Dictionary<string, Transform>();
+        // poolContainers = new Dictionary<string, Transform>();
 
-        // Use poolParent if assigned, otherwise use this transform
-        Transform parentTransform = poolParent != null ? poolParent : transform;
+        // Transform parentTransform = poolParent;
 
         foreach (Pool pool in pools)
         {
             // Create a container for each pool type
-            GameObject container = new GameObject($"{pool.tag}_Pool");
-            container.transform.SetParent(parentTransform);
-            poolContainers.Add(pool.tag, container.transform);
+            // GameObject container = new GameObject($"{pool.tag}_Pool");
+            // container.transform.SetParent(parentTransform);
+            // poolContainers.Add(pool.tag, container.transform);
 
             Queue<GameObject> objectPool = new Queue<GameObject>();
 
             for (int i = 0; i < pool.size; i++)
             {
-                GameObject obj = Instantiate(pool.prefab);
+                GameObject obj = Instantiate(pool.prefab, poolParent);
                 obj.SetActive(false);
-                obj.transform.SetParent(container.transform, true);
+                // obj.transform.SetParent(poolParent);
                 objectPool.Enqueue(obj);
             }
 
@@ -143,26 +142,8 @@ public class ObjectPoolManager : MonoBehaviour
     /// <summary>
     /// Returns an object to the pool (deactivates it)
     /// </summary>
-    public void ReturnToPool(GameObject obj, string tag)
-    {
-        // Return to its specific pool container
-        if (poolContainers.ContainsKey(tag))
-        {
-            obj.transform.SetParent(poolContainers[tag]);
-        }
-
-        obj.SetActive(false);
-    }
-
-    /// <summary>
-    /// Returns an object to the pool (deactivates it) - attempts to find the tag
-    /// </summary>
     public void ReturnToPool(GameObject obj)
     {   
-        // If no tag specified, just parent to the main pool parent
-        Transform parentTransform = poolParent != null ? poolParent : transform;
-        obj.transform.SetParent(parentTransform);
-
         obj.SetActive(false);
     }
 
@@ -180,13 +161,13 @@ public class ObjectPoolManager : MonoBehaviour
         Pool pool = pools.Find(p => p.tag == tag);
         if (pool == null) return;
 
-        Transform container = poolContainers[tag];
+        // Transform container = poolContainers[tag];
 
         for (int i = 0; i < amount; i++)
         {
-            GameObject obj = Instantiate(pool.prefab);
+            GameObject obj = Instantiate(pool.prefab, poolParent);
             obj.SetActive(false);
-            obj.transform.SetParent(container);
+            // obj.transform.SetParent(poolParent);
             poolDictionary[tag].Enqueue(obj);
         }
     }

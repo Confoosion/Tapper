@@ -132,10 +132,11 @@ public class SettingsManager : MonoBehaviour
 
     public void ResetData()
     {
+        PlayerPrefs.DeleteAll();
         // LeaderboardManager.Singleton.RemoveLeaderboardEntry();
-        PlayerPrefs.DeleteKey("Username");
-        PlayerPrefs.DeleteKey("SavedHighScore");
-        PlayerPrefs.DeleteKey("SavedGems");
+        // PlayerPrefs.DeleteKey("Username");
+        // PlayerPrefs.DeleteKey("SavedHighScore");
+        // PlayerPrefs.DeleteKey("SavedGems");
         // UIManager.Singleton.UpdateNameInputField("Tapper");
         // UIManager.Singleton.UpdateHighscoreUI();
         UIManager.Singleton.UpdateLeafUI();
