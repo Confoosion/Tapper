@@ -33,26 +33,29 @@ public class GameModeManager : MonoBehaviour
 
     public void SwitchArcadeMode(int direction)
     {
-        SwitchMode(direction, true);
+        SwitchMode(direction, true, true);
     }
 
     public void SwitchArcadeMode()
     {
         int index = System.Array.IndexOf(gameModeList, currentArcadeMode);
-        SwitchMode(index - modeIndex, true);
+        SwitchMode(index - modeIndex, true, false);
     }
 
     public void SwitchGameMode(int direction)
     {
-        SwitchMode(direction, false);
+        SwitchMode(direction, false, true);
     }
 
-    void SwitchMode(int direction, bool arcadeMode)
+    void SwitchMode(int direction, bool arcadeMode, bool playAudio)
     {
         if(ScreenManager.Singleton.IsTransitionGoing())
         {
             return;
         }
+
+        if(playAudio)
+            SoundManager.Singleton.PlaySound(SoundManager.Singleton.switchModeAudio, 0.25f);
 
         int prevModeIndex = modeIndex;
 
@@ -90,7 +93,7 @@ public class GameModeManager : MonoBehaviour
     public void SwitchSpecificMode(GameModeSO gameMode)
     {
         int index = System.Array.IndexOf(gameModeList, gameMode);
-        SwitchMode(index - modeIndex, false);
+        SwitchMode(index - modeIndex, false, false);
     }
 
     public void SetHighscoreMode(bool reset = false)

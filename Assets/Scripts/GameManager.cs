@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float fps;
     private int leafAmount = 0;
+    [SerializeField] private int gameDifficulty;
 
     void Awake()
     {
@@ -171,5 +172,15 @@ public class GameManager : MonoBehaviour
     public int GetLeafAmount()
     {
         return(leafAmount);
+    }
+
+    public void UpdateGameDifficulty(int addDiff)
+    {
+        gameDifficulty += addDiff;
+    }
+
+    public int GetGameDifficulty()
+    {
+        return(gameDifficulty);
     }
 }

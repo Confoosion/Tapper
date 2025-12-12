@@ -3,16 +3,28 @@ using UnityEngine;
 public class TargetAnimation : FrameAnimation
 {
     [SerializeField] private Sprite[] hitFrames;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public void ChangeAnimationTiming(float scale)
     {
-        
+        frameInterval /= scale;
+        idleDuration /= scale;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartHitAnimation()
     {
-        
+        activateEndAction = true;
+        StartAnimation(hitFrames, false);
+    }
+
+    public void QueueHitAnimation()
+    {
+        activateEndAction = true;
+        QueueAnimation(hitFrames, false);
+    }
+
+    public float GetHitTime()
+    {
+        // Debug.Log(idleDuration + (float)enterFrames.Length * 0.01f);
+        return(idleDuration + (float)enterFrames.Length * 0.01f);
     }
 }

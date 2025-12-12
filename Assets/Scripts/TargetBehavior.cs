@@ -9,37 +9,50 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     public Sprite thumbnail;
     public bool isGood = true;
     [SerializeField] private int addTime;
-    [SerializeField] private float timeOnScreen = 2f;
-    [SerializeField] private AudioClip sfx;
+    [SerializeField] private AudioClip laughAudio;
     [SerializeField] private GameObject gem;
     [SerializeField] private Image tapImage;
-    [SerializeField] private SpriteCycler spriteCycler;
+    [SerializeField] private TargetAnimation targetAnimation;
     [SerializeField] private bool tapped = false;
-    // [SerializeField] private bool validLocation = true;
-    private Coroutine run;
+    [SerializeField] private bool canTap = true;
+    [SerializeField] private float hitWindow;
+    private float leewayTiming = 0.25f;
 
-    public void OnEnable()
+    void Awake()
     {
-        spriteCycler.AnimateIn();
-        run = StartCoroutine(StayOnScreen());
+        hitWindow = targetAnimation.GetHitTime() + leewayTiming;
+    } 
+
+    void OnEnable()
+    {
+        tapped = false;
+        canTap = true;
+        tapImage.gameObject.SetActive(false);
+        targetAnimation.StartFullAnimation();
+        StartCoroutine(BeginHitWindow());
     }
 
-    IEnumerator StayOnScreen()
+    IEnumerator BeginHitWindow()
     {
-        yield return new WaitForSeconds(timeOnScreen);
-        if (spriteCycler.canTap)
+        yield return new WaitForSeconds(hitWindow);
+
+        if(!tapped)
         {
-            spriteCycler.AnimateOut();
+            canTap = false;
         }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (GameManager.Singleton.isPlaying && spriteCycler.canTap)
+        if (GameManager.Singleton.isPlaying && !tapped && canTap)
         {
-            spriteCycler.canTap = false;
             tapped = true;
             tapImage.gameObject.SetActive(true);
+
+            StopCoroutine(BeginHitWindow());
+
+            if(SettingsManager.Singleton.CheckVibrations())
+                Handheld.Vibrate();
 
             if(addTime != 0 && GameManager.Singleton.currentGameMode.isTimed)
             {
@@ -48,6 +61,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
 
             if (isGood)
             {
+                SoundManager.Singleton.PlayHitSound();
                 ScoreManager.Singleton.AddPoints(1);
                 if (ScoreManager.Singleton.AddCircleTapped())
                 {
@@ -57,51 +71,32 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
             }
             else
             {
+                SoundManager.Singleton.PlayBadSound();
                 LoseLife(1);
             }
-            SoundManager.Singleton.PlaySound(sfx);
-            spriteCycler.AnimateHit();
+
+            targetAnimation.StartHitAnimation();
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (run == null)
-        {
-            Debug.Log("Object colliding");
-            // validLocation = false;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (run == null)
-        {
-            Debug.Log("Object NOT colliding");
-            // validLocation = true;
-        }
-    }
-
-    void OnDestroy()
+    public void Finish()
     {
         if (!tapped && isGood && GameManager.Singleton.isPlaying)
         {
+            SoundManager.Singleton.PlaySound(laughAudio);
             LoseLife(1);
         }
+        
+        transform.position = SpawnManager.Singleton.despawnLocation;
         SpawnManager.Singleton.RemoveTarget(GetComponent<RectTransform>());
     }
 
     void LoseLife(int damage)
     {
-        // GameManager.Singleton.RemoveLives(damage);
-
         if(GameManager.Singleton.currentGameMode.modeName != "Timed")
         {
             GameManager.Singleton.RemoveLives(damage);
-            ArcadeEnding.Singleton.SetReason(thumbnail);
-
-            if(SettingsManager.Singleton.CheckVibrations())
-                Handheld.Vibrate();
+            ArcadeEnding.Singleton.SetReason(thumbnail, laughAudio);
         }
     }
 }

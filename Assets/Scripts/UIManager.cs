@@ -105,7 +105,11 @@ public class UIManager : MonoBehaviour
             anim.StartFullAnimation();
         }
 
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(1.95f);
+
+        SoundManager.Singleton.PlaySound(SoundManager.Singleton.countdownAudio, 0.5f);
+
+        yield return new WaitForSeconds(3f);
 
         goTextObject.SetActive(true);
 
@@ -132,6 +136,14 @@ public class UIManager : MonoBehaviour
         GO_highscore.SetText(ScoreManager.Singleton.GetHighscore().ToString());
 
         return (hasHighscore);
+    }
+
+    public void ShopButtonAnimation(bool start)
+    {
+        if(start)
+            GO_ShopButton.StartIdleAnimation();
+        else
+            GO_ShopButton.StopALLAnimations();
     }
 
     public void ShowPauseScreen(bool show)

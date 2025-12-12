@@ -2,120 +2,144 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class FrameAnimation : MonoBehaviour
 {
     public Image spriteImage;
     private Coroutine frameAnim = null;
-    private bool isLooping = false;
+    private bool interrupted = false;
     [SerializeField] private float animationDelay;
-    [SerializeField] private float frameInterval;
+    [SerializeField] protected float frameInterval;
+    [SerializeField] private bool animateIdleOnEnable;
+    [SerializeField] protected bool activateEndAction;
+    public UnityEvent EndAction;
     [SerializeField] private Sprite startingFrame;
 
-    [SerializeField] private Sprite[] enterFrames;
+    [SerializeField] protected Sprite[] enterFrames;
     [SerializeField] private Sprite[] idleFrames;
-    [SerializeField] private float idleDuration;
+    [SerializeField] protected float idleDuration;
     [SerializeField] private Sprite[] exitFrames;
-    private List<Sprite[]> animationQueue = new List<Sprite[]>();
+
+    private Queue<AnimationData> animationQueue = new Queue<AnimationData>();
+    private bool isProcessingQueue = false;
+
+    private class AnimationData
+    {
+        public Sprite[] frames;
+        public bool loop;
+        public float? loopDuration; // null means loop indefinitely
+
+        public AnimationData(Sprite[] frames, bool loop, float? loopDuration = null)
+        {
+            this.frames = frames;
+            this.loop = loop;
+            this.loopDuration = loopDuration;
+        }
+    }
 
     void Start()
     {
-        spriteImage = GetComponent<Image>();
         spriteImage.sprite = startingFrame;
     }
 
-    IEnumerator AnimateFrames(Sprite[] cyclingFrames)
+    void OnEnable()
     {
-        yield return new WaitForSeconds(animationDelay);
-
-        while(true)
+        if(animateIdleOnEnable)
         {
-            foreach(Sprite frame in cyclingFrames)
+            StartIdleAnimation();
+        }
+    }
+
+    void OnDisable()
+    {
+        if(animateIdleOnEnable)
+        {
+            StopALLAnimations();
+        }
+    }
+
+    IEnumerator ProcessAnimationQueue()
+    {
+        isProcessingQueue = true;
+
+        while (animationQueue.Count > 0)
+        {
+            AnimationData currentAnim = animationQueue.Dequeue();
+            yield return StartCoroutine(PlayAnimation(currentAnim));
+        }
+
+        isProcessingQueue = false;
+        frameAnim = null;
+
+        if(activateEndAction)
+        {
+            EndAction.Invoke();
+        }
+
+    }
+
+    IEnumerator PlayAnimation(AnimationData animData)
+    {
+        interrupted = false;
+        bool shouldContinue = true;
+        float loopStartTime = Time.time;
+
+        while (shouldContinue)
+        {
+            yield return new WaitForSeconds(animationDelay);
+            
+            foreach (Sprite frame in animData.frames)
             {
                 spriteImage.sprite = frame;
                 yield return new WaitForSeconds(frameInterval);
             }
 
-            if(!isLooping)
+            if (!animData.loop || interrupted)
             {
-                break;
+                shouldContinue = false;
             }
-
-            spriteImage.sprite = startingFrame;
-        }
-
-        frameAnim = null;
-        yield return null;
-    }
-
-    private void StartAnimation(Sprite[] frames, bool loop)
-    {
-        if(frameAnim != null)
-        {
-            StopCoroutine(frameAnim);
-            frameAnim = null;
-        }
-        isLooping = loop;
-        if(loop)
-            frameAnim = StartCoroutine(AnimateFrames(frames));
-    }
-
-    public void StartFullAnimation()
-    {
-        if(enterFrames.Length > 0)
-        {
-            animationQueue.Add(enterFrames);
-        }
-        if(idleFrames.Length > 0)
-        {
-            animationQueue.Add(idleFrames);
-        }
-        if(exitFrames.Length > 0)
-        {
-            animationQueue.Add(exitFrames);
-        }
-
-        StartCoroutine(FullAnimation());
-    }
-
-    IEnumerator FullAnimation()
-    {
-        Sprite[] currAnim;
-
-        while(animationQueue.Count > 0)
-        {
-            currAnim = animationQueue[0];
-
-            if(currAnim == idleFrames)
+            else if (animData.loopDuration.HasValue)
             {
-                isLooping = true;
-                StartCoroutine(IdleDuration(idleDuration));
-            }
-
-            while(true)
-            {
-                foreach(Sprite frame in currAnim)
+                if (Time.time - loopStartTime >= animData.loopDuration.Value)
                 {
-                    spriteImage.sprite = frame;
-                    yield return new WaitForSeconds(frameInterval);
-                }
-
-                if(!isLooping)
-                {
-                    break;
+                    shouldContinue = false;
                 }
             }
-
-            animationQueue.RemoveAt(0);
+            // If loop is true and loopDuration is null, continue indefinitely
         }
-
-        frameAnim = null;
-        yield return null;
     }
 
-    public bool IsAnimationGoing()
+    public void QueueAnimation(Sprite[] frames, bool loop = false, float? loopDuration = null)
     {
-        return(frameAnim != null);
+        animationQueue.Enqueue(new AnimationData(frames, loop, loopDuration));
+
+        if (!isProcessingQueue)
+        {
+            frameAnim = StartCoroutine(ProcessAnimationQueue());
+        }
+    }
+
+    public void QueueEnterAnimation()
+    {
+        QueueAnimation(enterFrames, false);
+    }
+
+    public void QueueIdleAnimation(float? duration = null)
+    {
+        QueueAnimation(idleFrames, true, duration);
+    }
+
+    public void QueueExitAnimation()
+    {
+        QueueAnimation(exitFrames, false);
+    }
+
+    public void StartAnimation(Sprite[] frames, bool loop = false, float? loopDuration = null)
+    {
+        ClearQueue();
+        interrupted = true;
+        QueueAnimation(frames, loop, loopDuration);
     }
 
     public void StartEnterAnimation()
@@ -123,9 +147,9 @@ public class FrameAnimation : MonoBehaviour
         StartAnimation(enterFrames, false);
     }
 
-    public void StartIdleAnimation()
+    public void StartIdleAnimation(float? duration = null)
     {
-        StartAnimation(idleFrames, true);
+        StartAnimation(idleFrames, true, duration);
     }
 
     public void StartExitAnimation()
@@ -133,10 +157,50 @@ public class FrameAnimation : MonoBehaviour
         StartAnimation(exitFrames, false);
     }
 
-    IEnumerator IdleDuration(float time)
+    // Clear the queue and stop current animation
+    public void ClearQueue()
     {
-        yield return new WaitForSeconds(time);
+        animationQueue.Clear();
+        
+        if (frameAnim != null)
+        {
+            StopCoroutine(frameAnim);
+            frameAnim = null;
+            isProcessingQueue = false;
+        }
+    }
 
-        isLooping = false;
+    public void StartFullAnimation()
+    {
+        ClearQueue();
+        
+        if (enterFrames.Length > 0)
+        {
+            QueueAnimation(enterFrames, false);
+        }
+        if (idleFrames.Length > 0)
+        {
+            QueueAnimation(idleFrames, true, idleDuration);
+        }
+        if (exitFrames.Length > 0)
+        {
+            QueueAnimation(exitFrames, false);
+        }
+    }
+
+    public bool IsAnimationGoing()
+    {
+        return frameAnim != null;
+    }
+
+    public void StopALLAnimations()
+    {
+        ClearQueue();
+        interrupted = true;
+    }
+
+    public int GetQueuedAnimationCount()
+    {
+        return animationQueue.Count;
     }
 }

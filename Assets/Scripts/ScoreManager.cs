@@ -55,6 +55,11 @@ public class ScoreManager : MonoBehaviour
         {
             score += toAdd;
             UIManager.Singleton.UpdatePoints(score);
+
+            if(score / 50 > 0 && score / 50 != GameManager.Singleton.GetGameDifficulty())
+            {
+                GameManager.Singleton.UpdateGameDifficulty(1);
+            }
         }
     }
 
