@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float fps;
     private int leafAmount = 0;
-    [SerializeField] private int gameDifficulty;
+    [SerializeField] private float gameDifficulty;
 
     void Awake()
     {
@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetValues()
     {
+        UpdateGameDifficulty(-gameDifficulty);
         ScoreManager.Singleton.AddPoints(0);
         leafAmount = 0;
         UIManager.Singleton.SetGameScreenLeafUI(leafAmount);
@@ -174,12 +175,12 @@ public class GameManager : MonoBehaviour
         return(leafAmount);
     }
 
-    public void UpdateGameDifficulty(int addDiff)
+    public void UpdateGameDifficulty(float addDiff)
     {
         gameDifficulty += addDiff;
     }
 
-    public int GetGameDifficulty()
+    public float GetGameDifficulty()
     {
         return(gameDifficulty);
     }

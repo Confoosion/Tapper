@@ -18,16 +18,21 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     [SerializeField] private float hitWindow;
     private float leewayTiming = 0.25f;
 
-    void Awake()
-    {
-        hitWindow = targetAnimation.GetHitTime() + leewayTiming;
-    } 
+    // void Awake()
+    // {
+    //     targetAnimation.ChangeAnimationTiming(GameManager.Singleton.GetGameDifficulty());
+    //     hitWindow = targetAnimation.GetHitTime() + leewayTiming;
+    // } 
 
     void OnEnable()
     {
         tapped = false;
         canTap = true;
         tapImage.gameObject.SetActive(false);
+
+        targetAnimation.ChangeAnimationTiming(GameManager.Singleton.GetGameDifficulty());
+        hitWindow = targetAnimation.GetHitTime() + leewayTiming;
+
         targetAnimation.StartFullAnimation();
         StartCoroutine(BeginHitWindow());
     }

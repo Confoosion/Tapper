@@ -55,7 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TargetAnimation
   spriteImage: {fileID: 6593003329329549726}
   animationDelay: 0
-  frameInterval: 0.01
+  FRAME_INTERVAL: 0.01
   animateIdleOnEnable: 0
   activateEndAction: 1
   EndAction:
@@ -102,7 +102,7 @@ MonoBehaviour:
   - {fileID: -4377492767597470136, guid: dfe77e5f319a50644bac13072f40291f, type: 3}
   idleFrames:
   - {fileID: -4377492767597470136, guid: dfe77e5f319a50644bac13072f40291f, type: 3}
-  idleDuration: 0.75
+  IDLE_DURATION: 0.75
   exitFrames:
   - {fileID: 6722717005589799324, guid: dfe77e5f319a50644bac13072f40291f, type: 3}
   - {fileID: -9006905761162854644, guid: dfe77e5f319a50644bac13072f40291f, type: 3}
