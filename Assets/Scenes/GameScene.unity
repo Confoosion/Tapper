@@ -394,7 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TargetAnimation
   spriteImage: {fileID: 1015099622}
   animationDelay: 0
-  frameInterval: 0.01
+  FRAME_INTERVAL: 0
   animateIdleOnEnable: 0
   activateEndAction: 0
   EndAction:
@@ -440,7 +440,7 @@ MonoBehaviour:
   - {fileID: 2184266891345777978, guid: f8616b5e20bfe4e43b02beeda24a8ec2, type: 3}
   - {fileID: -3576814893140861773, guid: f8616b5e20bfe4e43b02beeda24a8ec2, type: 3}
   idleFrames: []
-  idleDuration: 0
+  IDLE_DURATION: 0
   exitFrames: []
   hitFrames:
   - {fileID: 2124860804896966685, guid: f8616b5e20bfe4e43b02beeda24a8ec2, type: 3}
@@ -7739,7 +7739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   timerText: {fileID: 1118482415}
-  START_TIME: 5
+  START_TIME: 60
   time: 0
 --- !u!1 &1135311348
 GameObject:
@@ -11131,7 +11131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   spriteImage: {fileID: 1612046061}
   animationDelay: 1.5
-  frameInterval: 0.1
+  FRAME_INTERVAL: 0.1
   animateIdleOnEnable: 1
   activateEndAction: 0
   EndAction:
@@ -11145,7 +11145,7 @@ MonoBehaviour:
   - {fileID: 7710496705314228017, guid: e009fe00560cdff4c959f8d5fb8a1c8f, type: 3}
   - {fileID: -5321099399631716182, guid: e009fe00560cdff4c959f8d5fb8a1c8f, type: 3}
   - {fileID: -1793167431768321461, guid: e009fe00560cdff4c959f8d5fb8a1c8f, type: 3}
-  idleDuration: 0
+  IDLE_DURATION: 0
   exitFrames: []
 --- !u!1 &1635286249
 GameObject:
@@ -12521,7 +12521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FrameAnimation
   spriteImage: {fileID: 1881934302}
   animationDelay: 0
-  frameInterval: 0.1
+  FRAME_INTERVAL: 0.1
   animateIdleOnEnable: 0
   activateEndAction: 0
   EndAction:
@@ -12538,7 +12538,7 @@ MonoBehaviour:
   - {fileID: -2602899503487633607, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
   - {fileID: 5106534978164597806, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
   - {fileID: -7275808571310005269, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
-  idleDuration: 3
+  IDLE_DURATION: 3
   exitFrames:
   - {fileID: -4892497509593879158, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
   - {fileID: -7009493895833670034, guid: f249f29f875caab4597c9e2e27cce703, type: 3}
@@ -13228,7 +13228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FrameAnimation
   spriteImage: {fileID: 1912858841}
   animationDelay: 0
-  frameInterval: 0.1
+  FRAME_INTERVAL: 0.1
   animateIdleOnEnable: 0
   activateEndAction: 0
   EndAction:
@@ -13245,7 +13245,7 @@ MonoBehaviour:
   - {fileID: 3970594913590633714, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
   - {fileID: 666142514508346589, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
   - {fileID: -7028755858021609996, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
-  idleDuration: 2
+  IDLE_DURATION: 2
   exitFrames:
   - {fileID: 7910614585964355632, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
   - {fileID: -7736551949181321775, guid: 24eaca36538903f4ca96d3ccab9888dc, type: 3}
@@ -13478,7 +13478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FrameAnimation
   spriteImage: {fileID: 1940553854}
   animationDelay: 0
-  frameInterval: 0.1
+  FRAME_INTERVAL: 0.1
   animateIdleOnEnable: 0
   activateEndAction: 0
   EndAction:
@@ -13487,7 +13487,7 @@ MonoBehaviour:
   startingFrame: {fileID: -4284877130692598914, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
   enterFrames: []
   idleFrames: []
-  idleDuration: 0
+  IDLE_DURATION: 0
   exitFrames:
   - {fileID: -4284877130692598914, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}
   - {fileID: -5223157236617431121, guid: 368d5074dc67c4e44b34b3607e792b56, type: 3}

@@ -15,7 +15,8 @@ public class SpawnManager : MonoBehaviour
     private int MAX_TARGETS = 10;
     [SerializeField] private float spawnWaitTime = 0.5f;
 
-    public float badPercentage = 0.15f;
+    private float badPercentage;
+    private float mushroomPercentage;
 
     [SerializeField] private float gracePeriod = 3f;
     [SerializeField] private bool doGraceSpawns;
@@ -59,9 +60,10 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    public void SetSpawnVariables(float bad, float decay, bool graceSpawns, bool timed)
+    public void SetSpawnVariables(float bad, float mushroom, float decay, bool graceSpawns, bool timed)
     {
         badPercentage = bad;
+        mushroomPercentage = mushroom;
         decayRate = decay;
         doGraceSpawns = graceSpawns;
         isTimed = timed;
@@ -92,21 +94,21 @@ public class SpawnManager : MonoBehaviour
                 // Spawn a random good target from the pool
                 string randomTag = goodTargetTags[Random.Range(0, goodTargetTags.Length)];
                 target = ObjectPoolManager.Instance.SpawnFromPool(randomTag, Vector2.zero);
-                
-                // if (target != null)
-                // {
-                //     target.transform.SetParent(spawnArea, false);
-                // }
             }
             else
             {
-                if (isTimed && Random.Range(0f, 1f) > badPercentage)
+                if (isTimed && Random.Range(0f, 1f) < mushroomPercentage)
                 {
                     target = ObjectPoolManager.Instance.SpawnFromPool(timeTargetTag, Vector2.zero);
                 }
-                else
+                else if(Random.Range(0f, 1f) < badPercentage)
                 {
                     target = ObjectPoolManager.Instance.SpawnFromPool(badTargetTag, Vector2.zero);
+                }
+                else
+                {
+                    string randomTag = goodTargetTags[Random.Range(0, goodTargetTags.Length)];
+                    target = ObjectPoolManager.Instance.SpawnFromPool(randomTag, Vector2.zero);
                 }
 
                 // if (target != null)

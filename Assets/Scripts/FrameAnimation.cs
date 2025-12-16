@@ -10,7 +10,7 @@ public class FrameAnimation : MonoBehaviour
     private Coroutine frameAnim = null;
     private bool interrupted = false;
     [SerializeField] private float animationDelay;
-    [SerializeField] protected float frameInterval;
+    [SerializeField] protected float FRAME_INTERVAL = 0.01f;
     [SerializeField] private bool animateIdleOnEnable;
     [SerializeField] protected bool activateEndAction;
     public UnityEvent EndAction;
@@ -18,8 +18,11 @@ public class FrameAnimation : MonoBehaviour
 
     [SerializeField] protected Sprite[] enterFrames;
     [SerializeField] private Sprite[] idleFrames;
-    [SerializeField] protected float idleDuration;
+    [SerializeField] protected float IDLE_DURATION;
     [SerializeField] private Sprite[] exitFrames;
+
+    protected float frameInterval;
+    protected float idleDuration;
 
     private Queue<AnimationData> animationQueue = new Queue<AnimationData>();
     private bool isProcessingQueue = false;
@@ -36,6 +39,12 @@ public class FrameAnimation : MonoBehaviour
             this.loop = loop;
             this.loopDuration = loopDuration;
         }
+    }
+
+    void Awake()
+    {
+        frameInterval = FRAME_INTERVAL;
+        idleDuration = IDLE_DURATION;
     }
 
     void Start()
@@ -202,5 +211,11 @@ public class FrameAnimation : MonoBehaviour
     public int GetQueuedAnimationCount()
     {
         return animationQueue.Count;
+    }
+
+    protected void ResetAnimValues()
+    {
+        frameInterval = FRAME_INTERVAL;
+        idleDuration = IDLE_DURATION;
     }
 }

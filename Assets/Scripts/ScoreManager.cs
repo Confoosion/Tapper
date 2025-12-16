@@ -9,6 +9,10 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private int score;
     [SerializeField] private int circlesTapped;
+    private int highestSessionScore = 0;
+    private int difficultyScaleInterval = 35;
+    private float difficultyScaler = 0.1f;
+    private int MAX_DIFFICULTY = 10;
 
     void Awake()
     {
@@ -24,7 +28,7 @@ public class ScoreManager : MonoBehaviour
 
         if (circlesTapped % 10 == 0)
         {
-            SoundManager.Singleton.PlaySound(SoundType.Gem, 0.25f);
+            SoundManager.Singleton.PlaySound(SoundType.Gem, 0.5f);
             AddGems(1);
             return (true);
         }
@@ -47,6 +51,7 @@ public class ScoreManager : MonoBehaviour
         if (toAdd == 0)
         {
             score = 0;
+            highestSessionScore = 0;
             UIManager.Singleton.UpdatePoints(score);
             return;
         }
@@ -56,9 +61,18 @@ public class ScoreManager : MonoBehaviour
             score += toAdd;
             UIManager.Singleton.UpdatePoints(score);
 
-            if(score / 50 > 0 && score / 50 != GameManager.Singleton.GetGameDifficulty())
+            if(score > highestSessionScore)
             {
-                GameManager.Singleton.UpdateGameDifficulty(1);
+                highestSessionScore = score;
+            }
+            else
+            {
+                return;
+            }
+
+            if(score % difficultyScaleInterval == 0 && GameManager.Singleton.GetGameDifficulty() < MAX_DIFFICULTY)
+            {
+                GameManager.Singleton.UpdateGameDifficulty(difficultyScaler);
             }
         }
     }

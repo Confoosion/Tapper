@@ -6,8 +6,15 @@ public class TargetAnimation : FrameAnimation
 
     public void ChangeAnimationTiming(float scale)
     {
-        frameInterval /= scale;
-        idleDuration /= scale;
+        // Debug.Log("RETIMING FOR " + this.gameObject);
+        if(scale == 0f)
+        {
+            ResetAnimValues();
+            return;
+        }
+
+        frameInterval = FRAME_INTERVAL / (scale + 1f);
+        idleDuration = IDLE_DURATION / (scale + 1f);
     }
 
     public void StartHitAnimation()
@@ -24,7 +31,7 @@ public class TargetAnimation : FrameAnimation
 
     public float GetHitTime()
     {
-        // Debug.Log(idleDuration + (float)enterFrames.Length * 0.01f);
+        Debug.Log("HIT TIME = " + (idleDuration + (float)enterFrames.Length * 0.01f));
         return(idleDuration + (float)enterFrames.Length * 0.01f);
     }
 }
