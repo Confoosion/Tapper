@@ -77,7 +77,7 @@ public class GameModeManager : MonoBehaviour
         currentGameMode = currMode;
 
         GameManager.Singleton.SetLives(currentGameMode.lives);
-        SpawnManager.Singleton.SetSpawnVariables(currMode.badSpawnPercentage, currMode.decayRate, currMode.doGraceSpawns, currMode.isTimed);
+        SpawnManager.Singleton.SetSpawnVariables(currMode.badSpawnPercentage, currMode.mushroomSpawnPercentage, currMode.decayRate, currMode.doGraceSpawns, currMode.isTimed);
         UIManager.Singleton.ChangeGameModeUI(currMode, modeIndex, !currMode.isTimed, highscoreMode == currentGameMode);
 
         if(!currMode.isTimed)

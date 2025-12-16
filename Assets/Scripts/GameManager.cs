@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         
         currentGameMode = mode;
         SetLives(currentGameMode.lives);
-        SpawnManager.Singleton.SetSpawnVariables(currentGameMode.badSpawnPercentage, currentGameMode.decayRate, currentGameMode.doGraceSpawns, currentGameMode.isTimed);
+        SpawnManager.Singleton.SetSpawnVariables(currentGameMode.badSpawnPercentage, currentGameMode.mushroomSpawnPercentage, currentGameMode.decayRate, currentGameMode.doGraceSpawns, currentGameMode.isTimed);
     }
 
     public void PauseGame(bool pause)

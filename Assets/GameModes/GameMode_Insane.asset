@@ -15,6 +15,7 @@ MonoBehaviour:
   modeName: Insane
   lives: 1
   badSpawnPercentage: 0.3
-  decayRate: 0.075
+  mushroomSpawnPercentage: 0
+  decayRate: 0.05
   doGraceSpawns: 0
   isTimed: 0

@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private int score;
     [SerializeField] private int circlesTapped;
     private int highestSessionScore = 0;
-    private int difficultyScaleInterval = 45;
+    private int difficultyScaleInterval = 35;
     private float difficultyScaler = 0.1f;
     private int MAX_DIFFICULTY = 10;
 
@@ -28,7 +28,7 @@ public class ScoreManager : MonoBehaviour
 
         if (circlesTapped % 10 == 0)
         {
-            SoundManager.Singleton.PlaySound(SoundType.Gem, 0.25f);
+            SoundManager.Singleton.PlaySound(SoundType.Gem, 0.5f);
             AddGems(1);
             return (true);
         }
