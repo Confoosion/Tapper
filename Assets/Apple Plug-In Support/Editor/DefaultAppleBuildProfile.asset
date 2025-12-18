@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8802673523769177491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24e6011bb95664520aa4858e4c359e06, type: 3}
+  m_Name: AppleGameKitBuildStep
+  m_EditorClassIdentifier: Apple.GameKit.Editor::Apple.GameKit.Editor.AppleGameKitBuildStep
+  IsEnabled: 1
+  FriendListUsageDescription: 
+  SavedGameContainerIdentifier: 
 --- !u!114 &-2053960540413428772
 MonoBehaviour:
   m_ObjectHideFlags: 0

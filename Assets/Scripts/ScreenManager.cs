@@ -31,6 +31,9 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private GameObject S_rightLeaves_Slow;
     [SerializeField] private GameObject S_rightLeaves_Fast;
 
+    [Header("Login")]
+    [SerializeField] private LoginManager loginManager;
+
     void Awake()
     {
         if (Singleton == null)
@@ -158,6 +161,8 @@ public class ScreenManager : MonoBehaviour
 
             LeanTween.moveLocal(S_Title, title_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
             LeanTween.moveLocal(S_StartLabel, label_Swap.inPosition, transitionTime).setEase(LeanTweenType.easeOutCubic);
+
+            loginManager.StartSignInOrLinkWithAppleGameCenter();
         }
         else
         {
