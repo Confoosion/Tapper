@@ -15,6 +15,7 @@ public class LoginManager : MonoBehaviour
 
     private async void Start()
     {
+        await UnityServices.InitializeAsync();
 #if UNITY_IOS
             await AuthenticateViaGameCenter();
 #endif

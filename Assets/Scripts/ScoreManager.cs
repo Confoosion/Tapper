@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.SocialPlatforms;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class ScoreManager : MonoBehaviour
         {
             Singleton = this;
         }
+    }
+
+    void Start()
+    {
+        Social.localUser.Authenticate(success => { if (success) { Debug.Log("==iOS GC authenticate OK"); } else { Debug.Log("==iOS GC authenticate Failed"); } });
     }
 
     public bool AddCircleTapped()
@@ -123,6 +129,18 @@ public class ScoreManager : MonoBehaviour
         {
             PlayerPrefs.SetInt(modePP, points);
             // LeaderboardManager.Singleton.SetLeaderboardEntry(points);
+        }
+
+        string iOS_LeaderboardID = "com.Confoosion.Tapper." + GameModeManager.Singleton.GetCurrentMode().modeName;
+        bool isGCAuthenticated = Social.localUser.authenticated;
+
+        if (isGCAuthenticated)
+        {
+            Social.ReportScore(score, iOS_LeaderboardID, success => { if (success) { Debug.Log("==iOS GC report score ok: " + score + "\n"); } else { Debug.Log("==iOS GC report score Failed: " + iOS_LeaderboardID + "\n"); } });
+        }
+        else
+        {
+            Debug.Log("==iOS GC can't report score, not authenticated\n");
         }
     }
 }
