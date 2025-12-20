@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SocialPlatforms;
+using UnityEngine.SocialPlatforms.GameCenter;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -67,7 +68,7 @@ public class ScoreManager : MonoBehaviour
             score += toAdd;
             UIManager.Singleton.UpdatePoints(score);
 
-            if(score > highestSessionScore)
+            if (score > highestSessionScore)
             {
                 highestSessionScore = score;
             }
@@ -76,7 +77,7 @@ public class ScoreManager : MonoBehaviour
                 return;
             }
 
-            if(score % difficultyScaleInterval == 0 && GameManager.Singleton.GetGameDifficulty() < MAX_DIFFICULTY)
+            if (score % difficultyScaleInterval == 0 && GameManager.Singleton.GetGameDifficulty() < MAX_DIFFICULTY)
             {
                 GameManager.Singleton.UpdateGameDifficulty(difficultyScaler);
             }
@@ -93,7 +94,7 @@ public class ScoreManager : MonoBehaviour
     {
         GameModeSO mode = GameModeManager.Singleton.GetCurrentMode();
 
-        return(mode.modeName + "_Highscore");
+        return (mode.modeName + "_Highscore");
     }
 
     public int GetHighscore()
@@ -141,6 +142,22 @@ public class ScoreManager : MonoBehaviour
         else
         {
             Debug.Log("==iOS GC can't report score, not authenticated\n");
+        }
+    }
+    
+    public void ShowLeaderboard()
+    {
+        if (Social.localUser.authenticated)
+        {
+            // For general API: Social.ShowLeaderboardUI();
+
+            // For specific GC leaderboard:
+            string iOS_LeaderboardID = "com.Confoosion.Tapper." + GameModeManager.Singleton.GetCurrentMode().modeName;
+            GameCenterPlatform.ShowLeaderboardUI(iOS_LeaderboardID, TimeScope.AllTime);
+        }
+        else
+        {
+            Debug.Log("User not authenticated. Cannot show leaderboard.");
         }
     }
 }

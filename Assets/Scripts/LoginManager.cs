@@ -16,9 +16,15 @@ public class LoginManager : MonoBehaviour
     private async void Start()
     {
         await UnityServices.InitializeAsync();
-#if UNITY_IOS
-            await AuthenticateViaGameCenter();
-#endif
+
+        #if UNITY_EDITOR
+        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        Debug.Log("Signed in anonymously (editor mode)");
+
+        #elif UNITY_IOS
+        await AuthenticateViaGameCenter();
+
+        #endif
     }
 
     public async Task AuthenticateViaGameCenter()
@@ -75,6 +81,7 @@ public class LoginManager : MonoBehaviour
 
     async Task SignInWithAppleGameCenterAsync(string signature, string teamPlayerId, string publicKeyURL, string salt, ulong timestamp)
     {
+        #if UNITY_IOS && !UNITY_EDITOR
         try
         {
             await AuthenticationService.Instance.SignInWithAppleGameCenterAsync(signature, teamPlayerId, publicKeyURL, salt, timestamp);
@@ -92,10 +99,16 @@ public class LoginManager : MonoBehaviour
             // Notify the player with the proper error message
             Debug.LogException(ex);
         }
+        
+        #else
+        Debug.LogWarning("Game Center authentication only works on iOS devices");
+        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        #endif
     }
     
     async Task LinkWithAppleGameCenterAsync(string signature, string teamPlayerId, string   publicKeyURL, string salt, ulong timestamp)
     {
+        #if UNITY_IOS && !UNITY_EDITOR
         try
         {
             await AuthenticationService.Instance.LinkWithAppleGameCenterAsync(signature, teamPlayerId, publicKeyURL, salt, timestamp);
@@ -118,5 +131,11 @@ public class LoginManager : MonoBehaviour
             // Notify the player with the proper error message
             Debug.LogException(ex);
         }
+        
+        #else
+        Debug.LogWarning("Game Center linking only works on iOS devices. Skipping in Editor.");
+        // Don't attempt to link in Editor - just return
+        await Task.CompletedTask;
+        #endif
     }
 }
