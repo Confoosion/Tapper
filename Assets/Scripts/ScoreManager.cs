@@ -10,8 +10,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private int score;
     [SerializeField] private int circlesTapped;
     private int highestSessionScore = 0;
-    private int difficultyScaleInterval = 35;
-    private float difficultyScaler = 0.1f;
+    private int difficultyScaleInterval = 30;
+    private float difficultyScaler = 0.25f;
     private int MAX_DIFFICULTY = 10;
 
     void Awake()

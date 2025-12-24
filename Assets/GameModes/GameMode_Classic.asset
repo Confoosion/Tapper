@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: GameMode_Classic
   m_EditorClassIdentifier: Assembly-CSharp::GameModeSO
   modeName: Classic
+  lives: 3
   badSpawnPercentage: 0.15
-  decayRate: 0.05
+  mushroomSpawnPercentage: 0
+  decayRate: 0.06
   doGraceSpawns: 1
   isTimed: 0

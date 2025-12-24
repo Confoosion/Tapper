@@ -23,9 +23,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private bool isTimed;
 
     public float MAX_SPAWN_INTERVAL = 1.5f;
-    public float MIN_SPAWN_INTERVAL = 0.25f;
+    public float MIN_SPAWN_INTERVAL = 0.15f;
     [SerializeField] float spawnInterval = 1.5f;
-    public float decayRate = 0.05f;
+    public float decayRate = 0.08f;
 
     [SerializeField] float inGameTime = 0f;
 

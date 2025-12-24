@@ -8971,9 +8971,9 @@ MonoBehaviour:
   doGraceSpawns: 0
   isTimed: 0
   MAX_SPAWN_INTERVAL: 1.5
-  MIN_SPAWN_INTERVAL: 0.2
+  MIN_SPAWN_INTERVAL: 0.15
   spawnInterval: 1.5
-  decayRate: 0.05
+  decayRate: 0.08
   inGameTime: 0
   placementTester: {fileID: 1539834090}
   despawnLocation: {x: 0, y: 2000}
