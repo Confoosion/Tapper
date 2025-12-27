@@ -16,6 +16,6 @@ MonoBehaviour:
   lives: -1
   badSpawnPercentage: 0.2
   mushroomSpawnPercentage: 0.2
-  decayRate: 0.05
+  decayRate: 0.06
   doGraceSpawns: 1
   isTimed: 1
