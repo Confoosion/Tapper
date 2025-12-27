@@ -9034,7 +9034,7 @@ MonoBehaviour:
   - {fileID: 2802138409187390077, guid: ace4714ca8d336d4ca5065ff6ea05285, type: 3}
   badTarget: {fileID: 2802138409187390077, guid: 8c273a7c98ff4934994bea07f4af36ec, type: 3}
   timeTarget: {fileID: 2802138409187390077, guid: c03b87c26f75b6c4fb4d919d3b10461b, type: 3}
-  spawnWaitTime: 0.5
+  spawnWaitTime: 0.1
   gracePeriod: 3
   doGraceSpawns: 0
   isTimed: 0

@@ -13,7 +13,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject badTarget;
     public GameObject timeTarget;
     private int MAX_TARGETS = 10;
-    [SerializeField] private float spawnWaitTime = 0.5f;
+    [SerializeField] private float spawnWaitTime = 0.1f;
 
     private float badPercentage;
     private float mushroomPercentage;
