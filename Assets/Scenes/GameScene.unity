@@ -12332,7 +12332,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: -10, y: -3, z: -10, w: -3}
+  m_RaycastPadding: {x: -20, y: -6, z: -20, w: -6}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -13866,7 +13866,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: -10, y: -3, z: -10, w: -3}
+  m_RaycastPadding: {x: -20, y: -6, z: -20, w: -6}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
