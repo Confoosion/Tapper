@@ -8961,11 +8961,11 @@ MonoBehaviour:
   isSpawning: 0
   spawnArea: {fileID: 1288892160}
   goodTargets:
-  - {fileID: 2802138409187390077, guid: 0f588f4cfc3b36644b68d4e0516d1602, type: 3}
-  - {fileID: 2802138409187390077, guid: 9430e8467c1b1db43b61d6b00a8d84ff, type: 3}
-  - {fileID: 2802138409187390077, guid: ace4714ca8d336d4ca5065ff6ea05285, type: 3}
-  badTarget: {fileID: 2802138409187390077, guid: 8c273a7c98ff4934994bea07f4af36ec, type: 3}
-  timeTarget: {fileID: 2802138409187390077, guid: c03b87c26f75b6c4fb4d919d3b10461b, type: 3}
+  - {fileID: 2802138409187390077, guid: d4029a85cee478347893c9af07c87a26, type: 3}
+  - {fileID: 2802138409187390077, guid: 696fe56fd9e9332468addfe755c34da0, type: 3}
+  - {fileID: 2802138409187390077, guid: 6b3aef9ed5a2fd142bf7db7c06f45c94, type: 3}
+  badTarget: {fileID: 2802138409187390077, guid: 4a5486018a347ae4e9bd4ede076e352e, type: 3}
+  timeTarget: {fileID: 2802138409187390077, guid: 82d74ead842b9104699e0a9c5abd1b77, type: 3}
   spawnWaitTime: 0.5
   gracePeriod: 3
   doGraceSpawns: 0

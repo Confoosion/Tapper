@@ -31,7 +31,7 @@ public class TargetAnimation : FrameAnimation
 
     public float GetHitTime()
     {
-        Debug.Log("HIT TIME = " + (idleDuration + (float)enterFrames.Length * 0.01f));
+        // Debug.Log("HIT TIME = " + (idleDuration + (float)enterFrames.Length * 0.01f));
         return(idleDuration + (float)enterFrames.Length * 0.01f);
     }
 }

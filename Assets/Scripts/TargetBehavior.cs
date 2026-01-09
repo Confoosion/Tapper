@@ -14,24 +14,28 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Image tapImage;
     [SerializeField] private TargetAnimation targetAnimation;
     [SerializeField] private bool tapped = false;
-    [SerializeField] private bool canTap = true;
+    [SerializeField] private bool canTap = false;
     [SerializeField] private float hitWindow;
     private float leewayTiming = 0.25f;
-
-    // void Awake()
-    // {
-    //     targetAnimation.ChangeAnimationTiming(GameManager.Singleton.GetGameDifficulty());
-    //     hitWindow = targetAnimation.GetHitTime() + leewayTiming;
-    // } 
 
     void OnEnable()
     {
         tapped = false;
-        canTap = true;
-        tapImage.gameObject.SetActive(false);
+        canTap = false;
+        // tapImage.gameObject.SetActive(false);
 
         targetAnimation.ChangeAnimationTiming(GameManager.Singleton.GetGameDifficulty());
         hitWindow = targetAnimation.GetHitTime() + leewayTiming;
+
+        // targetAnimation.StartFullAnimation();
+        // StartCoroutine(BeginHitWindow());
+    }
+
+    public void ResetValues()
+    {
+        // tapped = false;
+        canTap = true;
+        tapImage.gameObject.SetActive(false);
 
         targetAnimation.StartFullAnimation();
         StartCoroutine(BeginHitWindow());

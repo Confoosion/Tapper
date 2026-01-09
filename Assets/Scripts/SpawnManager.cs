@@ -110,17 +110,13 @@ public class SpawnManager : MonoBehaviour
                     string randomTag = goodTargetTags[Random.Range(0, goodTargetTags.Length)];
                     target = ObjectPoolManager.Instance.SpawnFromPool(randomTag, Vector2.zero);
                 }
-
-                // if (target != null)
-                // {
-                //     target.transform.SetParent(spawnArea, true);
-                // }
             }
 
             if (target != null)
             {
                 targets.Add(target.GetComponent<RectTransform>());
                 GetRandomSpawnPosition(target);
+                target.GetComponent<TargetBehavior>().ResetValues();
             }
 
             yield return new WaitForSeconds(spawnInterval);
