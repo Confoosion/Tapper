@@ -16,7 +16,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     [SerializeField] private bool tapped = false;
     [SerializeField] private bool canTap = false;
     [SerializeField] private float hitWindow;
-    private float leewayTiming = 0.25f;
+    private float leewayTiming = 0.2f;
 
     void OnEnable()
     {

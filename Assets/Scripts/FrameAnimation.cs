@@ -8,6 +8,7 @@ public class FrameAnimation : MonoBehaviour
 {
     public Image spriteImage;
     private Coroutine frameAnim = null;
+    private Coroutine currentPlayingAnim = null;
     private bool interrupted = false;
     [SerializeField] private float animationDelay;
     [SerializeField] protected float FRAME_INTERVAL = 0.01f;
@@ -75,13 +76,20 @@ public class FrameAnimation : MonoBehaviour
         while (animationQueue.Count > 0)
         {
             AnimationData currentAnim = animationQueue.Dequeue();
-            yield return StartCoroutine(PlayAnimation(currentAnim));
+            currentPlayingAnim = StartCoroutine(PlayAnimation(currentAnim));
+            yield return currentPlayingAnim;
+            currentPlayingAnim = null;
+
+            if(interrupted)
+            {
+                break;
+            }
         }
 
         isProcessingQueue = false;
         frameAnim = null;
 
-        if(activateEndAction)
+        if(activateEndAction && !interrupted)
         {
             EndAction.Invoke();
         }
@@ -100,12 +108,12 @@ public class FrameAnimation : MonoBehaviour
             
             foreach (Sprite frame in animData.frames)
             {
-                spriteImage.sprite = frame;
-
                 if(interrupted)
                 {
                     break;
                 }
+
+                spriteImage.sprite = frame;
                 
                 yield return new WaitForSeconds(frameInterval);
             }
@@ -152,8 +160,9 @@ public class FrameAnimation : MonoBehaviour
 
     public void StartAnimation(Sprite[] frames, bool loop = false, float? loopDuration = null)
     {
-        ClearQueue();
         interrupted = true;
+        ClearQueue();
+        interrupted = false;
         QueueAnimation(frames, loop, loopDuration);
     }
 
@@ -177,6 +186,12 @@ public class FrameAnimation : MonoBehaviour
     {
         animationQueue.Clear();
         
+        if (currentPlayingAnim != null)
+        {
+            StopCoroutine(currentPlayingAnim);
+            currentPlayingAnim = null;
+        }
+
         if (frameAnim != null)
         {
             StopCoroutine(frameAnim);
