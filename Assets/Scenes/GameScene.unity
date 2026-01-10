@@ -9301,17 +9301,17 @@ MonoBehaviour:
   pools:
   - tag: Mole
     prefab: {fileID: 2802138409187390077, guid: d4029a85cee478347893c9af07c87a26, type: 3}
-    size: 4
+    size: 6
     autoExpand: 1
     expandAmount: 1
   - tag: Mouse
     prefab: {fileID: 2802138409187390077, guid: 696fe56fd9e9332468addfe755c34da0, type: 3}
-    size: 4
+    size: 6
     autoExpand: 1
     expandAmount: 1
   - tag: Rabbit
     prefab: {fileID: 2802138409187390077, guid: 6b3aef9ed5a2fd142bf7db7c06f45c94, type: 3}
-    size: 4
+    size: 6
     autoExpand: 1
     expandAmount: 1
   - tag: Bomb
