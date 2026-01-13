@@ -24,8 +24,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Game Screen UI")]
     [SerializeField] private GameObject pauseScreen;
-    // [SerializeField] private Image good_Image;
-    // [SerializeField] private Image bad_Image;
+    [SerializeField] private Image good_Image;
+    [SerializeField] private Image bad_Image;
     [SerializeField] private GameObject timeAttackTimer;
     [SerializeField] private GameObject countdownObject;
     [SerializeField] private FrameAnimation[] countdownAnims;
