@@ -247,11 +247,6 @@ public class ScreenManager : MonoBehaviour
 
     IEnumerator MinorTransition_Anim(GameObject screen, bool isNew)
     {
-        if(screen == Settings)
-        {
-            SettingsManager.Singleton.ClearConfirm();
-        }
-
         Vector3 screenOffset = new Vector3(0f, Background.GetComponent<BackgroundPositions>().transitionDistance, 0f);
         GameObject prevScreen;
 

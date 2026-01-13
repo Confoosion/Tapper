@@ -9,9 +9,8 @@ public class SettingsManager : MonoBehaviour
 
     [SerializeField] private Toggle sfxToggle;
     [SerializeField] private Toggle musicToggle;
-    [SerializeField] private Toggle vibrateToggle;
-    private bool hasVibrations = true;
-    private bool confirmed = false;
+    // private bool hasVibrations = true;
+    // private bool confirmed = false;
 
     void Awake()
     {
@@ -53,18 +52,6 @@ public class SettingsManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("IsMusicMuted", 0);
         }
-
-        // HAPTICS CHECK
-        if(PlayerPrefs.HasKey("HasVibrate"))
-        {
-            bool vibrations = PlayerPrefs.GetInt("HasVibrate") == 0;
-            vibrateToggle.isOn = vibrations;
-            ToggleVibrations(vibrations);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("HasVibrate", 1);
-        }
     }
 
     public void ToggleSFXVolume(bool toggle)
@@ -99,55 +86,39 @@ public class SettingsManager : MonoBehaviour
         UIManager.Singleton.UpdateToggle(UIManager.Singleton.MusicToggle, toggle);
     }
 
-    public void ToggleVibrations(bool toggle)
-    {
-        if(toggle)
-            PlayerPrefs.SetInt("HasVibrate", 0);
-        else
-            PlayerPrefs.SetInt("HasVibrate", 1);
+    // public void ResetDataPressed()
+    // {
+    //     if (confirmed)
+    //     {
+    //         UIManager.Singleton.UpdateConfirm();
+    //         ResetData();
+    //         confirmed = false;
+    //     }
+    //     else
+    //     {
+    //         UIManager.Singleton.ShowConfirm(true);
+    //         confirmed = true;
+    //     }
+    // }
 
-        hasVibrations = toggle;
-        UIManager.Singleton.UpdateToggle(UIManager.Singleton.VibrationToggle, toggle);
-    }
+    // public void ResetData()
+    // {
+    //     PlayerPrefs.DeleteAll();
+    //     // LeaderboardManager.Singleton.RemoveLeaderboardEntry();
+    //     // PlayerPrefs.DeleteKey("Username");
+    //     // PlayerPrefs.DeleteKey("SavedHighScore");
+    //     // PlayerPrefs.DeleteKey("SavedGems");
+    //     // UIManager.Singleton.UpdateNameInputField("Tapper");
+    //     // UIManager.Singleton.UpdateHighscoreUI();
+    //     UIManager.Singleton.UpdateLeafUI();
+    //     PlayerPrefs.Save();
+    // }
 
-    public bool CheckVibrations()
-    {
-        return(hasVibrations);
-    }
-
-    public void ResetDataPressed()
-    {
-        if (confirmed)
-        {
-            UIManager.Singleton.UpdateConfirm();
-            ResetData();
-            confirmed = false;
-        }
-        else
-        {
-            UIManager.Singleton.ShowConfirm(true);
-            confirmed = true;
-        }
-    }
-
-    public void ResetData()
-    {
-        PlayerPrefs.DeleteAll();
-        // LeaderboardManager.Singleton.RemoveLeaderboardEntry();
-        // PlayerPrefs.DeleteKey("Username");
-        // PlayerPrefs.DeleteKey("SavedHighScore");
-        // PlayerPrefs.DeleteKey("SavedGems");
-        // UIManager.Singleton.UpdateNameInputField("Tapper");
-        // UIManager.Singleton.UpdateHighscoreUI();
-        UIManager.Singleton.UpdateLeafUI();
-        PlayerPrefs.Save();
-    }
-
-    public void ClearConfirm()
-    {
-        confirmed = false;
-        UIManager.Singleton.ShowConfirm(false);
-    }
+    // public void ClearConfirm()
+    // {
+    //     confirmed = false;
+    //     UIManager.Singleton.ShowConfirm(false);
+    // }
 
     // For input field
     // public void CheckUsernameValidity(string name)
@@ -179,16 +150,16 @@ public class SettingsManager : MonoBehaviour
     //     }
     // }
 
-    public void BackOutOfLeaderboard(GameObject screen)
-    {
-        // if (IsUserValid(UIManager.Singleton.GetNameInputField()))
-        // {
-        //     if (PlayerPrefs.GetString("Username", "Tapper") != UIManager.Singleton.GetNameInputField())
-        //     {
-        //         // LeaderboardManager.Singleton.SetUsername(UIManager.Singleton.GetNameInputField());
-        //     }
-        //     ScreenManager.Singleton.SwitchScreen(screen);
-        // }
-        ScreenManager.Singleton.SwitchScreen(screen);
-    }
+    // public void BackOutOfLeaderboard(GameObject screen)
+    // {
+    //     // if (IsUserValid(UIManager.Singleton.GetNameInputField()))
+    //     // {
+    //     //     if (PlayerPrefs.GetString("Username", "Tapper") != UIManager.Singleton.GetNameInputField())
+    //     //     {
+    //     //         // LeaderboardManager.Singleton.SetUsername(UIManager.Singleton.GetNameInputField());
+    //     //     }
+    //     //     ScreenManager.Singleton.SwitchScreen(screen);
+    //     // }
+    //     ScreenManager.Singleton.SwitchScreen(screen);
+    // }
 }
