@@ -54,7 +54,7 @@ public class GameThemes : MonoBehaviour
         SwitchSprite(0);
 
         SwitchAssetPicker(CosmeticType.Good, good_Object);
-        // SetImages();
+        SetImages();
         SetSounds();
     }
 
@@ -134,10 +134,10 @@ public class GameThemes : MonoBehaviour
         return (fixedIndex);
     }
 
-    // public void SetImages()
-    // {
-    //     UIManager.Singleton.UpdateGameTheme(good_Image.sprite, bad_Image.sprite);
-    // }
+    public void SetImages()
+    {
+        UIManager.Singleton.UpdateGameTheme(good_Image.sprite, bad_Image.sprite);
+    }
 
     public void SetSounds()
     {

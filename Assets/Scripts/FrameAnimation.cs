@@ -101,12 +101,6 @@ public class FrameAnimation : MonoBehaviour
             foreach (Sprite frame in animData.frames)
             {
                 spriteImage.sprite = frame;
-
-                if(interrupted)
-                {
-                    break;
-                }
-                
                 yield return new WaitForSeconds(frameInterval);
             }
 

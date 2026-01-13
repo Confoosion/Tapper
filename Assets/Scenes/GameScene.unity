@@ -1190,7 +1190,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 88486913}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1206995917}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: ShowLeaderboard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &88486913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1304,6 +1316,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147356355}
   m_CullTransparentMesh: 1
+--- !u!1 &149590182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 149590183}
+  - component: {fileID: 149590184}
+  m_Layer: 0
+  m_Name: Login
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &149590183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149590182}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1206995910}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &149590184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149590182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab641795c6e694fe3b5b4fa8ed855c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &152303282
 GameObject:
   m_ObjectHideFlags: 0
@@ -5555,7 +5611,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 754153446}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1206995917}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: ShowLeaderboard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &762904933
 GameObject:
   m_ObjectHideFlags: 0
@@ -8961,12 +9029,12 @@ MonoBehaviour:
   isSpawning: 0
   spawnArea: {fileID: 1288892160}
   goodTargets:
-  - {fileID: 2802138409187390077, guid: d4029a85cee478347893c9af07c87a26, type: 3}
-  - {fileID: 2802138409187390077, guid: 696fe56fd9e9332468addfe755c34da0, type: 3}
-  - {fileID: 2802138409187390077, guid: 6b3aef9ed5a2fd142bf7db7c06f45c94, type: 3}
-  badTarget: {fileID: 2802138409187390077, guid: 4a5486018a347ae4e9bd4ede076e352e, type: 3}
-  timeTarget: {fileID: 2802138409187390077, guid: 82d74ead842b9104699e0a9c5abd1b77, type: 3}
-  spawnWaitTime: 0.5
+  - {fileID: 2802138409187390077, guid: 0f588f4cfc3b36644b68d4e0516d1602, type: 3}
+  - {fileID: 2802138409187390077, guid: 9430e8467c1b1db43b61d6b00a8d84ff, type: 3}
+  - {fileID: 2802138409187390077, guid: ace4714ca8d336d4ca5065ff6ea05285, type: 3}
+  badTarget: {fileID: 2802138409187390077, guid: 8c273a7c98ff4934994bea07f4af36ec, type: 3}
+  timeTarget: {fileID: 2802138409187390077, guid: c03b87c26f75b6c4fb4d919d3b10461b, type: 3}
+  spawnWaitTime: 0.1
   gracePeriod: 3
   doGraceSpawns: 0
   isTimed: 0
@@ -8996,7 +9064,8 @@ Transform:
   m_LocalPosition: {x: -0.6087818, y: -0.21155974, z: 0.036164165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 149590183}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1206995911
@@ -9112,6 +9181,7 @@ MonoBehaviour:
   S_leftLeaves_Fast: {fileID: 217337144}
   S_rightLeaves_Slow: {fileID: 410602017}
   S_rightLeaves_Fast: {fileID: 1303797016}
+  loginManager: {fileID: 149590184}
 --- !u!114 &1206995914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9301,17 +9371,17 @@ MonoBehaviour:
   pools:
   - tag: Mole
     prefab: {fileID: 2802138409187390077, guid: d4029a85cee478347893c9af07c87a26, type: 3}
-    size: 6
+    size: 4
     autoExpand: 1
     expandAmount: 1
   - tag: Mouse
     prefab: {fileID: 2802138409187390077, guid: 696fe56fd9e9332468addfe755c34da0, type: 3}
-    size: 6
+    size: 4
     autoExpand: 1
     expandAmount: 1
   - tag: Rabbit
     prefab: {fileID: 2802138409187390077, guid: 6b3aef9ed5a2fd142bf7db7c06f45c94, type: 3}
-    size: 6
+    size: 4
     autoExpand: 1
     expandAmount: 1
   - tag: Bomb

@@ -157,11 +157,11 @@ public class UIManager : MonoBehaviour
         newBestLabel.SetActive(gotHighscore);
     }
 
-    // public void UpdateGameTheme(Sprite good, Sprite bad)
-    // {
-    //     good_Image.sprite = good;
-    //     bad_Image.sprite = bad;
-    // }
+    public void UpdateGameTheme(Sprite good, Sprite bad)
+    {
+        good_Image.sprite = good;
+        bad_Image.sprite = bad;
+    }
 
     public void ShowConfirm(bool show)
     {
