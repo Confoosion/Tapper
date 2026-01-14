@@ -2,18 +2,11 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    // public static ShopManager Singleton;
-
     public enum ShopCategory { Animals, Backgrounds, Taps }
     [SerializeField] ShopCategory currentShopType;
 
-    // void Awake()
-    // {
-    //     if(Singleton == null)
-    //     {
-    //         Singleton = this;
-    //     }
-    // }
+    [Space]
+    [SerializeField] AnimalSet_SO[] animalSets; 
 
     private void UpdateShopVisuals()
     {
