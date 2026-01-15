@@ -60,6 +60,9 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
 
             StopCoroutine(BeginHitWindow());
 
+            if(SettingsManager.Singleton.CheckVibrations())
+                Handheld.Vibrate();
+
             if(addTime != 0 && GameManager.Singleton.currentGameMode.isTimed)
             {
                 TimeAttackClock.Singleton.AddTime(addTime);

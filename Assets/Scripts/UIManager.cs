@@ -20,7 +20,6 @@ public class UIManager : MonoBehaviour
     public Image SFXToggle;
     public Image MusicToggle;
     public Image VibrationToggle;
-    [SerializeField] private TextMeshProUGUI confirmText;
 
     [Header("Game Screen UI")]
     [SerializeField] private GameObject pauseScreen;
@@ -163,19 +162,19 @@ public class UIManager : MonoBehaviour
     //     bad_Image.sprite = bad;
     // }
 
-    public void ShowConfirm(bool show)
-    {
-        if (show)
-        {
-            confirmText.SetText("Tap again to\nReset Data");
-        }
-        confirmText.gameObject.SetActive(show);
-    }
+    // public void ShowConfirm(bool show)
+    // {
+    //     if (show)
+    //     {
+    //         confirmText.SetText("Tap again to\nReset Data");
+    //     }
+    //     confirmText.gameObject.SetActive(show);
+    // }
 
-    public void UpdateConfirm()
-    {
-        confirmText.SetText("Your data has been\nReset");
-    }
+    // public void UpdateConfirm()
+    // {
+    //     confirmText.SetText("Your data has been\nReset");
+    // }
 
     public bool IsCoroutineActive()
     {

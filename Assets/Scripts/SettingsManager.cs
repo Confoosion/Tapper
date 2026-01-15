@@ -9,7 +9,8 @@ public class SettingsManager : MonoBehaviour
 
     [SerializeField] private Toggle sfxToggle;
     [SerializeField] private Toggle musicToggle;
-    // private bool hasVibrations = true;
+    [SerializeField] private Toggle vibrationToggle;
+    private bool hasVibrations = true;
     // private bool confirmed = false;
 
     void Awake()
@@ -28,6 +29,7 @@ public class SettingsManager : MonoBehaviour
     void GetPlayerSettings()
     {
         bool isMuted;
+        bool noVibrations;
 
         // SFX CHECK
         if (PlayerPrefs.HasKey("IsSFXMuted"))
@@ -51,6 +53,18 @@ public class SettingsManager : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("IsMusicMuted", 0);
+        }
+
+        // HAPTIC CHECK
+        if(PlayerPrefs.HasKey("HasVibrations"))
+        {
+            noVibrations = PlayerPrefs.GetInt("HasVibrations") == 0;
+            vibrationToggle.isOn = noVibrations;
+            ToggleVibrations(noVibrations);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("HasVibrations", 0);
         }
     }
 
@@ -86,80 +100,24 @@ public class SettingsManager : MonoBehaviour
         UIManager.Singleton.UpdateToggle(UIManager.Singleton.MusicToggle, toggle);
     }
 
-    // public void ResetDataPressed()
-    // {
-    //     if (confirmed)
-    //     {
-    //         UIManager.Singleton.UpdateConfirm();
-    //         ResetData();
-    //         confirmed = false;
-    //     }
-    //     else
-    //     {
-    //         UIManager.Singleton.ShowConfirm(true);
-    //         confirmed = true;
-    //     }
-    // }
+    public void ToggleVibrations(bool toggle)
+    {
+        if (toggle)
+        {
+            PlayerPrefs.SetInt("HasVibrations", 0);
+            hasVibrations = false;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("HasVibrations", 1);
+            hasVibrations = true;
+        }
 
-    // public void ResetData()
-    // {
-    //     PlayerPrefs.DeleteAll();
-    //     // LeaderboardManager.Singleton.RemoveLeaderboardEntry();
-    //     // PlayerPrefs.DeleteKey("Username");
-    //     // PlayerPrefs.DeleteKey("SavedHighScore");
-    //     // PlayerPrefs.DeleteKey("SavedGems");
-    //     // UIManager.Singleton.UpdateNameInputField("Tapper");
-    //     // UIManager.Singleton.UpdateHighscoreUI();
-    //     UIManager.Singleton.UpdateLeafUI();
-    //     PlayerPrefs.Save();
-    // }
+        UIManager.Singleton.UpdateToggle(UIManager.Singleton.VibrationToggle, !toggle);
+    }
 
-    // public void ClearConfirm()
-    // {
-    //     confirmed = false;
-    //     UIManager.Singleton.ShowConfirm(false);
-    // }
-
-    // For input field
-    // public void CheckUsernameValidity(string name)
-    // {
-    //     if (name.Length < 3)
-    //     {
-    //         // Name too short
-    //         UIManager.Singleton.UpdateNameErrorText("Username is too short");
-    //     }
-    //     else
-    //     {
-    //         UIManager.Singleton.UpdateNameErrorText("");
-    //     }
-    // }
-
-    // For final check before leaving the Settings screen
-    // public bool IsUserValid(string user)
-    // {
-    //     if (string.IsNullOrEmpty(user) && name.Length < 3)
-    //     {
-    //         // Name too short
-    //         UIManager.Singleton.UpdateNameErrorText("Username is too short");
-    //         return (false);
-    //     }
-    //     else
-    //     {
-    //         UIManager.Singleton.UpdateNameErrorText("");
-    //         return (true);
-    //     }
-    // }
-
-    // public void BackOutOfLeaderboard(GameObject screen)
-    // {
-    //     // if (IsUserValid(UIManager.Singleton.GetNameInputField()))
-    //     // {
-    //     //     if (PlayerPrefs.GetString("Username", "Tapper") != UIManager.Singleton.GetNameInputField())
-    //     //     {
-    //     //         // LeaderboardManager.Singleton.SetUsername(UIManager.Singleton.GetNameInputField());
-    //     //     }
-    //     //     ScreenManager.Singleton.SwitchScreen(screen);
-    //     // }
-    //     ScreenManager.Singleton.SwitchScreen(screen);
-    // }
+    public bool CheckVibrations()
+    {
+        return(hasVibrations);
+    }
 }
