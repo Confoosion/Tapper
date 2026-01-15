@@ -7,8 +7,16 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private GameObject moleObject;
     [SerializeField] private Image tapImage;
-    [SerializeField] private TargetAnimation targetAnimation;
+    public TargetAnimation targetAnimation;
+
+    [SerializeField] private GameObject tapStart_GO;
+
     private float delay = 1.5f;
+
+    void Awake()
+    {
+        tapStart_GO.SetActive(false);
+    }
 
     void Start()
     {
@@ -20,6 +28,9 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
         yield return new WaitForSeconds(delay);
         moleObject.SetActive(true);
         targetAnimation.StartEnterAnimation();
+
+        yield return new WaitForSeconds(0.25f);
+        tapStart_GO.SetActive(true);
     }
 
     public void OnPointerDown(PointerEventData eventData)

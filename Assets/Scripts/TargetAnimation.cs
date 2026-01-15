@@ -34,4 +34,9 @@ public class TargetAnimation : FrameAnimation
         // Debug.Log("HIT TIME = " + (idleDuration + (float)enterFrames.Length * 0.01f));
         return(idleDuration + (float)enterFrames.Length * 0.01f);
     }
+
+    public void ActivateEndAction()
+    {
+        activateEndAction = true;
+    }
 }
