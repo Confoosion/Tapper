@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7beef5bbe4c2469c86d8d56bee7aa81, type: 3}
-  m_Name: Classic Plains
+  m_Name: Desert
   m_EditorClassIdentifier: Assembly-CSharp::AnimalSet_SO
+  preview_BG: {fileID: 0}
+  preview_Animals: {fileID: 0}
+  preview_Price: 500
   goodTargets:
-  - {fileID: 2802138409187390077, guid: d4029a85cee478347893c9af07c87a26, type: 3}
-  - {fileID: 2802138409187390077, guid: 6b3aef9ed5a2fd142bf7db7c06f45c94, type: 3}
-  - {fileID: 2802138409187390077, guid: 696fe56fd9e9332468addfe755c34da0, type: 3}
-  badTarget: {fileID: 2802138409187390077, guid: 4a5486018a347ae4e9bd4ede076e352e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  badTarget: {fileID: 0}
