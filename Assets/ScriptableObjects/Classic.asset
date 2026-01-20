@@ -15,8 +15,13 @@ MonoBehaviour:
   isUnlocked: 1
   isEquipped: 0
   preview_BG: {fileID: 21300000, guid: b9f6f7170f720cd4c9987313bf774b3e, type: 3}
-  preview_Set: {fileID: 21300000, guid: 7fd95d5269d2d954eba0cc7aaf81570d, type: 3}
   preview_Price: 0
+  preview_Set:
+    goodTargets:
+    - {fileID: 21300000, guid: f5deb40b37ed745b7b3b07c1f0f898dc, type: 3}
+    - {fileID: 21300000, guid: 0e81d647eabc04579899bb84e6263ce0, type: 3}
+    - {fileID: 21300000, guid: db82698c5744d47c3b7b24ee538a3f88, type: 3}
+    badTarget: {fileID: 21300000, guid: 0fb338fb7e596457ebc031c0d86752e2, type: 3}
   goodTargets:
   - {fileID: 2802138409187390077, guid: d4029a85cee478347893c9af07c87a26, type: 3}
   - {fileID: 2802138409187390077, guid: 6b3aef9ed5a2fd142bf7db7c06f45c94, type: 3}

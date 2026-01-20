@@ -13,8 +13,11 @@ public class ShopManager : MonoBehaviour
     [Space]
 
     [Header("Shop UI")]
+    [SerializeField] private Image animal_Bad;
+    [SerializeField] private Image animal_Small;
+    [SerializeField] private Image animal_Fast;
+    [SerializeField] private Image animal_Good;
     [SerializeField] private Image animal_BG;
-    [SerializeField] private Image animal_Set;
 
     [SerializeField] private Image shopButton;
     [SerializeField] private Sprite[] shopButtonSprites;
@@ -37,7 +40,10 @@ public class ShopManager : MonoBehaviour
             case ShopCategory.Animals:
                 {
                     animal_BG.sprite = animalSets[index].preview_BG;
-                    animal_Set.sprite = animalSets[index].preview_Set;
+                    animal_Bad.sprite = animalSets[index].preview_Set.badTarget;
+                    animal_Small.sprite = animalSets[index].preview_Set.goodTargets[0];
+                    animal_Fast.sprite = animalSets[index].preview_Set.goodTargets[1];
+                    animal_Good.sprite = animalSets[index].preview_Set.goodTargets[2];
                     
                     shopTitle.SetText(animalSets[index].name);
                     shopCost.SetText(animalSets[index].preview_Price.ToString());

@@ -1,5 +1,12 @@
 using UnityEngine;
 
+[System.Serializable]
+public class PreviewAnimalSet
+{
+    public Sprite[] goodTargets = new Sprite[3];
+    public Sprite badTarget;
+}
+
 [CreateAssetMenu(fileName = "AnimalSet_SO", menuName = "Scriptable Objects/Themes/AnimalSet_SO")]
 public class AnimalSet_SO : ScriptableObject
 {
@@ -10,8 +17,8 @@ public class AnimalSet_SO : ScriptableObject
 
     [Header("Shop Preview")]
     public Sprite preview_BG;
-    public Sprite preview_Set;
     public int preview_Price;
+    public PreviewAnimalSet preview_Set;
 
     [Space]
 
