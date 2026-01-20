@@ -19,6 +19,7 @@ public class AnimalSet_SO : ScriptableObject
     public Sprite preview_BG;
     public int preview_Price;
     public PreviewAnimalSet preview_Set;
+    public AudioClip[] preview_Sounds = new AudioClip[4]; // ORDER: Bad, Small, Fast, Good
 
     [Space]
 

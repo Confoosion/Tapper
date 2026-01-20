@@ -5,6 +5,11 @@ using UnityEngine.EventSystems;
 
 public class ShopTarget : MonoBehaviour, IPointerDownHandler
 {
+    public enum TargetType { Bad, Small, Fast, Good }
+    [SerializeField] private TargetType targetType;
+
+    [Space]
+    
     [Header("Bounce Settings")]
     [SerializeField] private float bounceScale = 1.2f;
     [SerializeField] private float bounceDuration = 0.3f;
@@ -29,7 +34,7 @@ public class ShopTarget : MonoBehaviour, IPointerDownHandler
         }
         
         currentBounce = StartCoroutine(BouncyEffect());
-        
+        ShopManager.Singleton.PreviewAnimalSound((int)targetType);
     }
 
     IEnumerator BouncyEffect()
