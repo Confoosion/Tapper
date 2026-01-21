@@ -31,6 +31,8 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] private AudioClip[] animal_Sounds = new AudioClip[4];
 
+    [SerializeField] private AnimalSet_SO[] animalSets;
+
     [Space]
 
     [Header("General Shop UI")]
@@ -43,7 +45,6 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] private int currentShopIndex = 0;
     private int MAX_ShopIndex;
-    [SerializeField] private AnimalSet_SO[] animalSets;
 
     // SHOP CATEGORY
     private void UpdateShopCategoryVisuals(int index)

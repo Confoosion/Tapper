@@ -2770,6 +2770,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  animalSets:
+  - {fileID: 11400000, guid: 6bd94e63c533d4313af6045e07226f99, type: 2}
+  - {fileID: 11400000, guid: ab207493b370747638a22c963bfea25e, type: 2}
   shopButton: {fileID: 815353048}
   shopButtonSprites:
   - {fileID: 21300000, guid: 01f772dcbb6ceba4c81aacf6098567a3, type: 3}
@@ -2778,9 +2781,6 @@ MonoBehaviour:
   shopTitle: {fileID: 1354204584}
   shopCost: {fileID: 949600461}
   currentShopIndex: 0
-  animalSets:
-  - {fileID: 11400000, guid: 6bd94e63c533d4313af6045e07226f99, type: 2}
-  - {fileID: 11400000, guid: ab207493b370747638a22c963bfea25e, type: 2}
 --- !u!1 &388603957
 GameObject:
   m_ObjectHideFlags: 0
