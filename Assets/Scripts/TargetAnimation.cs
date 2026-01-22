@@ -1,8 +1,65 @@
 using UnityEngine;
+using System.Collections;
 
 public class TargetAnimation : FrameAnimation
 {
     [SerializeField] private Sprite[] hitFrames;
+
+    
+    [Header("Jiggle Settings")]
+    [SerializeField] private float jiggleIntensity = 0.15f;
+    [SerializeField] private float jiggleFrequency = 20f;
+    [SerializeField] private float jiggleDuration = 0.5f;
+    [SerializeField] private float jiggleDamping = 3f;
+
+    private RectTransform rectTransform;
+    private Vector3 originalScale;
+    private Coroutine currentJellyEffect;
+
+    void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+        if (rectTransform != null)
+        {
+            originalScale = rectTransform.localScale;
+        }
+    }
+
+    IEnumerator JiggleThenHit()
+    {
+        // Jiggle effect if we have a RectTransform
+        if (rectTransform != null)
+        {
+            float elapsed = 0f;
+            
+            while (elapsed < jiggleDuration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / jiggleDuration;
+                
+                float dampFactor = Mathf.Exp(-jiggleDamping * t);
+                
+                float jiggleX = Mathf.Sin(elapsed * jiggleFrequency) * jiggleIntensity * dampFactor;
+                float jiggleY = Mathf.Sin(elapsed * jiggleFrequency + Mathf.PI * 0.5f) * jiggleIntensity * dampFactor;
+                
+                rectTransform.localScale = new Vector3(
+                    originalScale.x * (1f + jiggleX),
+                    originalScale.y * (1f + jiggleY),
+                    originalScale.z
+                );
+                
+                yield return null;
+            }
+            
+            // Reset to original scale
+            rectTransform.localScale = originalScale;
+        }
+        
+        // After jiggle effect completes, play hit animation
+        StartAnimation(hitFrames, false);
+        
+        currentJellyEffect = null;
+    }
 
     public void ChangeAnimationTiming(float scale)
     {
@@ -20,7 +77,8 @@ public class TargetAnimation : FrameAnimation
     public void StartHitAnimation()
     {
         activateEndAction = true;
-        StartAnimation(hitFrames, false);
+        // StartAnimation(hitFrames, false);
+        currentJellyEffect = StartCoroutine(JiggleThenHit());
     }
 
     public void QueueHitAnimation()

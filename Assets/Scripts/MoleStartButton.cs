@@ -42,7 +42,8 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
             tapImage.gameObject.SetActive(true);
 
             SoundManager.Singleton.PlayHitSound();
-            targetAnimation.QueueHitAnimation();
+            // targetAnimation.QueueHitAnimation();
+            targetAnimation.StartHitAnimation();
         }
     }
 
