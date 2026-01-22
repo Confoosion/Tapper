@@ -11,7 +11,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     [SerializeField] private int addTime;
     [SerializeField] private AudioClip laughAudio;
     [SerializeField] private GameObject gem;
-    [SerializeField] private Image tapImage;
+    // [SerializeField] private Image tapImage;
     [SerializeField] private TargetAnimation targetAnimation;
     [SerializeField] private bool tapped = false;
     [SerializeField] private bool canTap = false;
@@ -24,10 +24,10 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
         canTap = false;
         // tapImage.gameObject.SetActive(false);
 
-        targetAnimation.ChangeAnimationTiming(GameManager.Singleton.GetGameDifficulty());
+        // targetAnimation.ChangeAnimationTiming(GameManager.Singleton.GetGameDifficulty());
         hitWindow = targetAnimation.GetHitTime() + leewayTiming;
 
-        // targetAnimation.StartFullAnimation();
+        targetAnimation.StartFullAnimation();
         // StartCoroutine(BeginHitWindow());
     }
 
@@ -35,9 +35,9 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     {
         // tapped = false;
         canTap = true;
-        tapImage.gameObject.SetActive(false);
+        // tapImage.gameObject.SetActive(false);
 
-        targetAnimation.StartFullAnimation();
+        // targetAnimation.StartFullAnimation();
         StartCoroutine(BeginHitWindow());
     }
 
@@ -56,7 +56,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
         if (GameManager.Singleton.isPlaying && !tapped && canTap)
         {
             tapped = true;
-            tapImage.gameObject.SetActive(true);
+            // tapImage.gameObject.SetActive(true);
 
             StopCoroutine(BeginHitWindow());
 
@@ -84,7 +84,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
                 LoseLife(1);
             }
 
-            targetAnimation.StartHitAnimation();
+            // targetAnimation.StartHitAnimation();
         }
     }
 

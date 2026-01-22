@@ -27,7 +27,7 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
     {
         yield return new WaitForSeconds(delay);
         moleObject.SetActive(true);
-        targetAnimation.StartEnterAnimation();
+        // targetAnimation.StartEnterAnimation();
 
         yield return new WaitForSeconds(0.25f);
         tapStart_GO.SetActive(true);
@@ -35,16 +35,16 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!targetAnimation.IsAnimationGoing() && !ScreenManager.Singleton.IsTransitionGoing())
-        {
-            UIManager.Singleton.HideSettingsAndPauseIcon();
+        // if (!targetAnimation.IsAnimationGoing() && !ScreenManager.Singleton.IsTransitionGoing())
+        // {
+        //     UIManager.Singleton.HideSettingsAndPauseIcon();
         
-            tapImage.gameObject.SetActive(true);
+        //     tapImage.gameObject.SetActive(true);
 
-            SoundManager.Singleton.PlayHitSound();
-            // targetAnimation.QueueHitAnimation();
-            targetAnimation.StartHitAnimation();
-        }
+        //     SoundManager.Singleton.PlayHitSound();
+        //     // targetAnimation.QueueHitAnimation();
+        //     targetAnimation.StartHitAnimation();
+        // }
     }
 
     public void Finish()
