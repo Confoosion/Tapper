@@ -41,13 +41,6 @@ public class TargetAnimation : MonoBehaviour
     private Coroutine targetAnim;
     private bool interrupted;
 
-    
-    // [Header("Jiggle Settings")]
-    // [SerializeField] private float jiggleIntensity = 0.15f;
-    // [SerializeField] private float jiggleFrequency = 20f;
-    // [SerializeField] private float jiggleDuration = 0.5f;
-    // [SerializeField] private float jiggleDamping = 3f;
-
     private RectTransform rectTransform;
     private Image targetFrame;
     private Vector3 originalScale;
@@ -124,36 +117,6 @@ public class TargetAnimation : MonoBehaviour
                     break;
                 }
         }
-
-        // while (shouldContinue)
-        // {
-            // yield return new WaitForSeconds(animationDelay);
-            
-            // foreach (Sprite frame in animData.frames)
-            // {
-            //     if(interrupted)
-            //     {
-            //         break;
-            //     }
-
-            //     spriteImage.sprite = frame;
-                
-            //     yield return new WaitForSeconds(frameInterval);
-            // }
-
-            // if (!animData.loop || interrupted)
-            // {
-            //     shouldContinue = false;
-            // }
-            // else if (animData.loopDuration.HasValue)
-            // {
-            //     if (Time.time - loopStartTime >= animData.loopDuration.Value)
-            //     {
-            //         shouldContinue = false;
-            //     }
-            // }
-            // If loop is true and loopDuration is null, continue indefinitely
-        // }
     }
 
     public void QueueAnimation(TargetStates state)
@@ -178,11 +141,13 @@ public class TargetAnimation : MonoBehaviour
 
     public void QueueExitAnimation()
     {
+        activateEndAction = true;
         QueueAnimation(TargetStates.Exit);
     }
 
     public void QueueHitAnimation()
     {
+        activateEndAction = true;
         QueueAnimation(TargetStates.Hit);
     }
 
@@ -206,11 +171,13 @@ public class TargetAnimation : MonoBehaviour
 
     public void StartExitAnimation()
     {
+        activateEndAction = true;
         StartAnimation(TargetStates.Exit);
     }
 
     public void StartHitAnimation()
     {
+        activateEndAction = true;
         StartAnimation(TargetStates.Hit);
     }
 
@@ -234,7 +201,7 @@ public class TargetAnimation : MonoBehaviour
 
     IEnumerator _PlayEnterAnim()
     {
-        yield return new WaitForSeconds(2f);    // For testing
+        // yield return new WaitForSeconds(2f);    // For testing
 
         yield return new WaitForSeconds(frameInterval);
         rectTransform.localScale = new Vector3(0f, 0f, 0f);
@@ -266,10 +233,6 @@ public class TargetAnimation : MonoBehaviour
 
     IEnumerator _PlayExitAnim()
     {
-        // yield return new WaitForSeconds(frameInterval);
-        // rectTransform.localScale = new Vector3(0f, 0f, 0f);
-        // targetFrame.sprite = enterFrame;
-
         LeanTween.scale(this.gameObject, new Vector3(0f, 0f, 0f), exitTime).setEase(LeanTweenType.easeOutCubic);
         yield return new WaitForSeconds(exitTime);
     }
@@ -291,7 +254,7 @@ public class TargetAnimation : MonoBehaviour
 
     public void ActivateEndAction()
     {
-        // activateEndAction = true;
+        activateEndAction = true;
     }
 
     public void StartFullAnimation()

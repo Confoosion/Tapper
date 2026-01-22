@@ -13,8 +13,7 @@ public class TapStart : MonoBehaviour, IPointerDownHandler
         {
             UIManager.Singleton.HideSettingsAndPauseIcon();
         
-            // moleStartButton.targetAnimation.ActivateEndAction();
-            // moleStartButton.targetAnimation.QueueExitAnimation();
+            moleStartButton.targetAnimation.QueueExitAnimation();
 
             SoundManager.Singleton.PlaySound(laughAudio);
 
