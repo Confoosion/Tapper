@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0e81d647eabc04579899bb84e6263ce0
+guid: 4f2dd95bc0b5643dfa5d1ef8bd019d7b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5362292703166988329
-    second: rabbit_0
+      213: 1106805504188878762
+    second: mole 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rabbit_0
+      name: mole 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 82
-        height: 82
+        y: 8
+        width: 100
+        height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7dfff06723f4595b0800000000000000
-      internalID: -5362292703166988329
+      spriteID: aaf00a0fdb92c5f00800000000000000
+      internalID: 1106805504188878762
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rabbit_0: -5362292703166988329
+      mole 1_0: 1106805504188878762
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

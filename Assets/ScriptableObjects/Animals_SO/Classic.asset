@@ -18,10 +18,10 @@ MonoBehaviour:
   preview_Price: 0
   preview_Set:
     goodTargets:
-    - {fileID: 21300000, guid: f5deb40b37ed745b7b3b07c1f0f898dc, type: 3}
-    - {fileID: 21300000, guid: 0e81d647eabc04579899bb84e6263ce0, type: 3}
-    - {fileID: 21300000, guid: db82698c5744d47c3b7b24ee538a3f88, type: 3}
-    badTarget: {fileID: 21300000, guid: 0fb338fb7e596457ebc031c0d86752e2, type: 3}
+    - {fileID: 21300000, guid: ffc39a27ae96e4a179381f77fd7def5b, type: 3}
+    - {fileID: 21300000, guid: e736eaac4099a4de19e7de9bd3ea2173, type: 3}
+    - {fileID: 21300000, guid: 4f2dd95bc0b5643dfa5d1ef8bd019d7b, type: 3}
+    badTarget: {fileID: 21300000, guid: 0f0141a9a5edb4eeeb15c7f221825a52, type: 3}
   preview_Sounds:
   - {fileID: 8300000, guid: 77bd66c9bc32be14b9c0b7f45a1c4f7e, type: 3}
   - {fileID: 8300000, guid: 8c0f4889038b03240b0a9e5629bcef7b, type: 3}
