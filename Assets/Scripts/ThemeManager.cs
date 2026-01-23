@@ -22,9 +22,6 @@ public class ThemeManager : MonoBehaviour
 {
     public static ThemeManager Singleton;
 
-    [SerializeField] AnimalSet currentAnimalSet;
-    [SerializeField] Background currentBackground;
-
     void Awake()
     {
         if(Singleton == null)
@@ -33,5 +30,17 @@ public class ThemeManager : MonoBehaviour
         }
     }
 
-    
+    [SerializeField] AnimalSet currentAnimalSet;
+    private AnimalSet_SO currentAnimalSet_SO;
+    [SerializeField] Background currentBackground;
+
+    public void EquipAnimalSet(AnimalSet_SO animalSet)
+    {
+        if(currentAnimalSet_SO != null)
+            currentAnimalSet_SO.isEquipped = false;
+        currentAnimalSet_SO = animalSet;
+
+        currentAnimalSet.goodTargets = currentAnimalSet_SO.goodTargets;
+        currentAnimalSet.badTarget = currentAnimalSet_SO.badTarget;
+    }
 }

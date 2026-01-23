@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AnimalSet_SO
   isUnlocked: 0
   isEquipped: 0
+  price: 500
   preview_BG: {fileID: 21300000, guid: b9f6f7170f720cd4c9987313bf774b3e, type: 3}
-  preview_Price: 500
   preview_Set:
     goodTargets:
     - {fileID: 21300000, guid: 89f7295e400cc4aaa99b5cb8d72860db, type: 3}

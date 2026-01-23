@@ -45,12 +45,23 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] private int currentShopIndex = 0;
     private int MAX_ShopIndex;
+    private int shopPrice;
+
+    // START UP
+    void Start()
+    {
+        if(!PlayerPrefs.HasKey("AnimalSets_Theme"))
+        {
+            PlayerPrefs.SetInt("AnimalSets_Theme", 0);
+        }
+
+        ThemeManager.Singleton.EquipAnimalSet(animalSets[PlayerPrefs.GetInt("AnimalSets_Theme")]);
+    }
 
     // SHOP CATEGORY
     private void UpdateShopCategoryVisuals(int index)
     {
         string title;
-        int price;
 
         switch(currentShopType)
         {
@@ -70,7 +81,9 @@ public class ShopManager : MonoBehaviour
                     }
                     
                     shopTitle.SetText(animalSets[index].name);
-                    shopCost.SetText(animalSets[index].preview_Price.ToString());
+
+                    shopPrice = animalSets[index].price;
+                    shopCost.SetText(shopPrice.ToString());
 
                     if(animalSets[index].isUnlocked)
                     {
@@ -168,14 +181,54 @@ public class ShopManager : MonoBehaviour
     }
 
     // BUYING/EQUIPING
-    public void BuyItem()
+    public void ShopButtonPressed()
     {
-        
+        switch(currentShopState)
+        {
+            case ShopButtonState.Locked:
+                {   // Buying
+                    if(ScoreManager.Singleton.GetGems() >= shopPrice)
+                    {
+                        Debug.Log("Buying item");
+                        BuyItem();   
+                    }
+                    else
+                        Debug.Log("Too broke to buy!");
+                    break;
+                }
+            case ShopButtonState.Unlocked:
+                {   // Equipping
+                    Debug.Log("Equipping item");
+                    EquipItem();
+                    break;
+                }
+        }
+
+        UpdateShopCategoryVisuals(currentShopIndex);
     }
 
-    public void EquipItem()
+    private void BuyItem()
     {
-        
+        switch(currentShopType)
+        {
+            case ShopCategory.Animals:
+                {
+                    animalSets[currentShopIndex].BuyItem();
+                    break;
+                }
+        }
+    }
+
+    private void EquipItem()
+    {
+        switch(currentShopType)
+        {
+            case ShopCategory.Animals:
+                {
+                    animalSets[currentShopIndex].EquipItem();
+                    break;
+                }
+        }
     }
 
     // ANIMAL SOUNDS

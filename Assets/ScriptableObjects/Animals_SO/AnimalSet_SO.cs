@@ -8,16 +8,13 @@ public class PreviewAnimalSet
 }
 
 [CreateAssetMenu(fileName = "AnimalSet_SO", menuName = "Scriptable Objects/Themes/AnimalSet_SO")]
-public class AnimalSet_SO : ScriptableObject
+public class AnimalSet_SO : ShopItem
 {
-    public bool isUnlocked = false;
-    public bool isEquipped = false;
-
-    [Space]
+    // public bool isUnlocked = false;
+    // public bool isEquipped = false;
 
     [Header("Shop Preview")]
     public Sprite preview_BG;
-    public int preview_Price;
     public PreviewAnimalSet preview_Set;
     public AudioClip[] preview_Sounds = new AudioClip[4]; // ORDER: Bad, Small, Fast, Good
 
@@ -26,4 +23,16 @@ public class AnimalSet_SO : ScriptableObject
     [Header("Animal Set")]
     public GameObject[] goodTargets = new GameObject[3];
     public GameObject badTarget;
+
+    public override void BuyItem()
+    {
+        ScoreManager.Singleton.AddGems(-price);
+        isUnlocked = true;
+    }
+
+    public override void EquipItem()
+    {
+        isEquipped = true;
+        ThemeManager.Singleton.EquipAnimalSet(this);
+    }
 }
