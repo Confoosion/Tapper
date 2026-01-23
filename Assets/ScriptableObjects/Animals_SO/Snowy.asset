@@ -28,7 +28,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   goodTargets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  badTarget: {fileID: 0}
+  - {fileID: 4411930817862840192, guid: b9da178be15e54477a6e98f1a6b2fee4, type: 3}
+  - {fileID: 3657401078980661913, guid: d482ac77a5e514ccfaae2cde807dcf07, type: 3}
+  - {fileID: 7061343243472663457, guid: 2c15196fb02ed40e3963704cc47b4cb1, type: 3}
+  badTarget: {fileID: 5873724092750197465, guid: 8b3546e9009c044979ab83c992bc6a3b, type: 3}
