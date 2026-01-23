@@ -3,8 +3,8 @@ guid: 4f2dd95bc0b5643dfa5d1ef8bd019d7b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1106805504188878762
-    second: mole 1_0
+      213: 8769549347541133393
+    second: Mole_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mole 1_0
+      name: Mole_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 8
-        width: 100
+        x: 7
+        y: 6
+        width: 102
         height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aaf00a0fdb92c5f00800000000000000
-      internalID: 1106805504188878762
+      spriteID: 158a2742ba2b3b970800000000000000
+      internalID: 8769549347541133393
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mole 1_0: 1106805504188878762
+      Mole_0: 8769549347541133393
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

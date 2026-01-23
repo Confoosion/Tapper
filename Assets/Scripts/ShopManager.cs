@@ -159,7 +159,7 @@ public class ShopManager : MonoBehaviour
     public void ShopRight()
     {
         currentShopIndex++;
-        if(currentShopIndex > MAX_ShopIndex)
+        if(currentShopIndex >= MAX_ShopIndex)
         {
             currentShopIndex = 0;
         }

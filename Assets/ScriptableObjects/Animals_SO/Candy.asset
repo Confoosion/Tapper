@@ -12,9 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7beef5bbe4c2469c86d8d56bee7aa81, type: 3}
   m_Name: Candy
   m_EditorClassIdentifier: Assembly-CSharp::AnimalSet_SO
+  isUnlocked: 0
+  isEquipped: 0
   preview_BG: {fileID: 0}
-  preview_Animals: {fileID: 0}
   preview_Price: 1000
+  preview_Set:
+    goodTargets:
+    - {fileID: 21300000, guid: 817f10888764040778ac3e6ef9935957, type: 3}
+    - {fileID: 21300000, guid: 73a49d0cdb4744b5492272d4b1e85fdc, type: 3}
+    - {fileID: 21300000, guid: b2fd075e04678428595b92ab6d5da91d, type: 3}
+    badTarget: {fileID: 21300000, guid: ded98fa2d4e3445cd94bf89311d8d099, type: 3}
+  preview_Sounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   goodTargets:
   - {fileID: 0}
   - {fileID: 0}

@@ -12,9 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7beef5bbe4c2469c86d8d56bee7aa81, type: 3}
   m_Name: Spooky
   m_EditorClassIdentifier: Assembly-CSharp::AnimalSet_SO
+  isUnlocked: 0
+  isEquipped: 0
   preview_BG: {fileID: 0}
-  preview_Animals: {fileID: 0}
   preview_Price: 1000
+  preview_Set:
+    goodTargets:
+    - {fileID: 21300000, guid: 8ed88a7eafdff47a2b7da93de5a9d3c7, type: 3}
+    - {fileID: 21300000, guid: ce87096af9c174bd591940ea2d9f0f9b, type: 3}
+    - {fileID: 21300000, guid: f94a3209dc6664f03a23a77e4ad2671e, type: 3}
+    badTarget: {fileID: 21300000, guid: bf8683a2fd37e44d2ab9ba84b0a9566d, type: 3}
+  preview_Sounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   goodTargets:
   - {fileID: 0}
   - {fileID: 0}

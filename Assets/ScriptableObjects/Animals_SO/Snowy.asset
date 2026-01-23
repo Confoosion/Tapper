@@ -15,8 +15,18 @@ MonoBehaviour:
   isUnlocked: 0
   isEquipped: 0
   preview_BG: {fileID: 21300000, guid: b9f6f7170f720cd4c9987313bf774b3e, type: 3}
-  preview_Set: {fileID: 21300000, guid: 4b64ec15353f9438eb7dd2f3572f2a1a, type: 3}
   preview_Price: 500
+  preview_Set:
+    goodTargets:
+    - {fileID: 21300000, guid: 89f7295e400cc4aaa99b5cb8d72860db, type: 3}
+    - {fileID: 21300000, guid: f68fc573b7be244c2972e571fc7d28b4, type: 3}
+    - {fileID: 21300000, guid: 1e1b054360b7f49338b34676538a5ffb, type: 3}
+    badTarget: {fileID: 21300000, guid: ba978bd51c9724b9184b787b5abc5529, type: 3}
+  preview_Sounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   goodTargets:
   - {fileID: 0}
   - {fileID: 0}

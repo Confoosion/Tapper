@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f68fc573b7be244c2972e571fc7d28b4
+guid: 73a49d0cdb4744b5492272d4b1e85fdc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6364162845145023018
-    second: ArcticFox_0
+      213: -2632934944105909514
+    second: Marshmallow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ArcticFox_0
+      name: Marshmallow_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 116
-        height: 109
+        x: 7
+        y: 7
+        width: 102
+        height: 97
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6dd34627c93fda7a0800000000000000
-      internalID: -6364162845145023018
+      spriteID: 6f2bad34e9fe57bd0800000000000000
+      internalID: -2632934944105909514
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d2f8ae5153658415f90bbb412eec95bb
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ArcticFox_0: -6364162845145023018
+      Marshmallow_0: -2632934944105909514
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
