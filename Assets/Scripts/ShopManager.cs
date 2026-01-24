@@ -47,15 +47,33 @@ public class ShopManager : MonoBehaviour
     private int MAX_ShopIndex;
     private int shopPrice;
 
-    // START UP
+    // ========== CHANGED: Updated Start() ==========
     void Start()
     {
-        if(!PlayerPrefs.HasKey("AnimalSets_Theme"))
-        {
-            PlayerPrefs.SetInt("AnimalSets_Theme", 0);
-        }
+        // Load shop data and get equipped animal index
+        int equippedIndex = ShopSaveSystem.LoadShopData(animalSets);
+        
+        // Equip the loaded animal set
+        ThemeManager.Singleton.EquipAnimalSet(animalSets[equippedIndex]);
+        
+        // Initialize shop view
+        currentShopIndex = equippedIndex;
+        UpdateShopCategoryVisuals(currentShopIndex);
+    }
 
-        ThemeManager.Singleton.EquipAnimalSet(animalSets[PlayerPrefs.GetInt("AnimalSets_Theme")]);
+    // ========== NEW: Save on quit ==========
+    void OnApplicationQuit()
+    {
+        ShopSaveSystem.SaveShopData(animalSets);
+    }
+
+    // ========== NEW: Mobile-safe save (OPTIONAL but recommended) ==========
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus) // App going to background
+        {
+            ShopSaveSystem.SaveShopData(animalSets);
+        }
     }
 
     // SHOP CATEGORY
@@ -186,7 +204,7 @@ public class ShopManager : MonoBehaviour
         switch(currentShopState)
         {
             case ShopButtonState.Locked:
-                {   // Buying
+                {
                     if(ScoreManager.Singleton.GetGems() >= shopPrice)
                     {
                         Debug.Log("Buying item");
@@ -197,7 +215,7 @@ public class ShopManager : MonoBehaviour
                     break;
                 }
             case ShopButtonState.Unlocked:
-                {   // Equipping
+                {
                     Debug.Log("Equipping item");
                     EquipItem();
                     break;
@@ -207,6 +225,7 @@ public class ShopManager : MonoBehaviour
         UpdateShopCategoryVisuals(currentShopIndex);
     }
 
+    // ========== CHANGED: Added save call ==========
     private void BuyItem()
     {
         switch(currentShopType)
@@ -214,18 +233,30 @@ public class ShopManager : MonoBehaviour
             case ShopCategory.Animals:
                 {
                     animalSets[currentShopIndex].BuyItem();
+                    ShopSaveSystem.SaveShopData(animalSets); // SAVE IMMEDIATELY
                     break;
                 }
         }
     }
 
+    // ========== CHANGED: Added unequip all + save call ==========
     private void EquipItem()
     {
         switch(currentShopType)
         {
             case ShopCategory.Animals:
                 {
+                    // Unequip all other animals first
+                    foreach(AnimalSet_SO animal in animalSets)
+                    {
+                        animal.UnequipItem();
+                    }
+                    
+                    // Equip the selected animal
                     animalSets[currentShopIndex].EquipItem();
+                    
+                    // Save immediately
+                    ShopSaveSystem.SaveShopData(animalSets);
                     break;
                 }
         }
@@ -235,5 +266,29 @@ public class ShopManager : MonoBehaviour
     public void PreviewAnimalSound(int targetIndex)
     {
         SoundManager.Singleton.PlaySound(animal_Sounds[targetIndex]);
+    }
+    
+    // ========== NEW: Optional manual save method ==========
+    public void SaveShopProgress()
+    {
+        ShopSaveSystem.SaveShopData(animalSets);
+    }
+    
+    // ========== NEW: Optional reset for testing ==========
+    public void ResetShop()
+    {
+        ShopSaveSystem.DeleteSaveData();
+        
+        foreach(AnimalSet_SO animal in animalSets)
+        {
+            animal.isUnlocked = false;
+            animal.isEquipped = false;
+        }
+        
+        animalSets[0].isUnlocked = true;
+        animalSets[0].isEquipped = true;
+        
+        currentShopIndex = 0;
+        UpdateShopCategoryVisuals(0);
     }
 }

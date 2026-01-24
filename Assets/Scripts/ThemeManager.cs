@@ -34,10 +34,11 @@ public class ThemeManager : MonoBehaviour
     private AnimalSet_SO currentAnimalSet_SO;
     [SerializeField] Background currentBackground;
 
+    // ========== CHANGED: Removed isEquipped modification ==========
     public void EquipAnimalSet(AnimalSet_SO animalSet)
     {
-        if(currentAnimalSet_SO != null)
-            currentAnimalSet_SO.isEquipped = false;
+        // Just store reference and apply theme
+        // ShopManager handles isEquipped flags now
         currentAnimalSet_SO = animalSet;
 
         currentAnimalSet.goodTargets = currentAnimalSet_SO.goodTargets;

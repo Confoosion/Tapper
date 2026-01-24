@@ -24,12 +24,6 @@ public class AnimalSet_SO : ShopItem
     public GameObject[] goodTargets = new GameObject[3];
     public GameObject badTarget;
 
-    public override void BuyItem()
-    {
-        ScoreManager.Singleton.AddGems(-price);
-        isUnlocked = true;
-    }
-
     public override void EquipItem()
     {
         isEquipped = true;
