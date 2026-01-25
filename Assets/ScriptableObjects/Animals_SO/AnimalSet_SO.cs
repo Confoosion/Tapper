@@ -23,6 +23,12 @@ public class AnimalSet_SO : ShopItem
     public GameObject[] goodTargets = new GameObject[3];
     public GameObject badTarget;
 
+    [Space]
+
+    [Header("Starting Animal")]
+    public Sprite enterFrame;
+    public Sprite hitFrame;
+
     public override void EquipItem()
     {
         isEquipped = true;

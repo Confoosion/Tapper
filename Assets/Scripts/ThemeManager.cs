@@ -6,6 +6,8 @@ public class AnimalSet
 {
     public GameObject[] goodTargets = new GameObject[3];
     public GameObject badTarget;
+    public Sprite start_EnterFrame;
+    public Sprite start_HitFrame;
 }
 
 [System.Serializable]
@@ -43,5 +45,12 @@ public class ThemeManager : MonoBehaviour
 
         currentAnimalSet.goodTargets = currentAnimalSet_SO.goodTargets;
         currentAnimalSet.badTarget = currentAnimalSet_SO.badTarget;
+        currentAnimalSet.start_EnterFrame = currentAnimalSet_SO.enterFrame;
+        currentAnimalSet.start_HitFrame = currentAnimalSet_SO.hitFrame;
+    }
+
+    public AnimalSet GetAnimalSet()
+    {
+        return(currentAnimalSet);
     }
 }

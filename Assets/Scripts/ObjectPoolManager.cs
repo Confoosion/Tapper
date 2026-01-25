@@ -56,11 +56,6 @@ public class ObjectPoolManager : MonoBehaviour
 
         foreach (Pool pool in pools)
         {
-            // Create a container for each pool type
-            // GameObject container = new GameObject($"{pool.tag}_Pool");
-            // container.transform.SetParent(parentTransform);
-            // poolContainers.Add(pool.tag, container.transform);
-
             Queue<GameObject> objectPool = new Queue<GameObject>();
 
             for (int i = 0; i < pool.size; i++)

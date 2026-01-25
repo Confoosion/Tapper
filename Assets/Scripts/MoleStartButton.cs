@@ -26,6 +26,8 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
     IEnumerator MoleAnimation()
     {
         yield return new WaitForSeconds(delay);
+        var animalSet = ThemeManager.Singleton.GetAnimalSet();
+        targetAnimation.SetStartingFrames(animalSet.start_EnterFrame, animalSet.start_HitFrame);
         moleImage.enabled = true;
         targetAnimation.StartEnterAnimation();
 

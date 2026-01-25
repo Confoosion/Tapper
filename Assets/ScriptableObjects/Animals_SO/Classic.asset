@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AnimalSet_SO
   isUnlocked: 1
   isEquipped: 0
-  preview_BG: {fileID: 21300000, guid: b9f6f7170f720cd4c9987313bf774b3e, type: 3}
-  preview_Price: 0
+  price: 0
   preview_Set:
     goodTargets:
     - {fileID: 21300000, guid: ffc39a27ae96e4a179381f77fd7def5b, type: 3}
@@ -32,3 +31,5 @@ MonoBehaviour:
   - {fileID: 2802138409187390077, guid: 6b3aef9ed5a2fd142bf7db7c06f45c94, type: 3}
   - {fileID: 2802138409187390077, guid: 696fe56fd9e9332468addfe755c34da0, type: 3}
   badTarget: {fileID: 2802138409187390077, guid: 4a5486018a347ae4e9bd4ede076e352e, type: 3}
+  enterFrame: {fileID: 21300000, guid: df87c96a1a8524b5f8cc1051ad9138d5, type: 3}
+  hitFrame: {fileID: 21300000, guid: 4b6098aa627a2410a89f4e2920c29cdb, type: 3}

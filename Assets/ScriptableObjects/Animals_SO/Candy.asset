@@ -15,7 +15,6 @@ MonoBehaviour:
   isUnlocked: 0
   isEquipped: 0
   price: 1000
-  preview_BG: {fileID: 0}
   preview_Set:
     goodTargets:
     - {fileID: 21300000, guid: 817f10888764040778ac3e6ef9935957, type: 3}
@@ -32,3 +31,5 @@ MonoBehaviour:
   - {fileID: 5203199196648195287, guid: f5f203a48bb504465ba75d8bbf846630, type: 3}
   - {fileID: 1284705140059562155, guid: 3b08fd43164a74a57b7c66a280b2671e, type: 3}
   badTarget: {fileID: 4538491234040115964, guid: 1b4730a55b6a545b98010bf52f754869, type: 3}
+  enterFrame: {fileID: 21300000, guid: 12a8255f5622649bf82f4bf1a2bc3c70, type: 3}
+  hitFrame: {fileID: 21300000, guid: d685f2cf9d4f94705a03021b4e46bcc2, type: 3}

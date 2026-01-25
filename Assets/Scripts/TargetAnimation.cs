@@ -54,7 +54,6 @@ public class TargetAnimation : MonoBehaviour
             originalScale = rectTransform.localScale;
         }
         targetFrame = GetComponent<Image>();
-
     }
 
     IEnumerator ProcessAnimationQueue()
@@ -263,5 +262,12 @@ public class TargetAnimation : MonoBehaviour
         QueueIdleAnimation();
         // QueueExitAnimation();
         QueueHitAnimation();
+    }
+
+    // Strictly for StartScreen
+    public void SetStartingFrames(Sprite enter, Sprite hit)
+    {
+        enterFrame = enter;
+        hitFrame = hit;
     }
 }
