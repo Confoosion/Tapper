@@ -103,21 +103,26 @@ public class ShopManager : MonoBehaviour
                     
                     shopTitle.SetText(animalSets[index].name);
 
-                    shopPrice = animalSets[index].price;
-                    shopCost.SetText(shopPrice.ToString());
+                    // shopPrice = animalSets[index].price;
+                    // shopCost.SetText(shopPrice.ToString());
 
                     // Get runtime data instead of reading from ScriptableObject
                     ShopItemData itemData = ShopSaveSystem.GetItemData(animalSets[index].name);
                     
                     if(itemData.isUnlocked)
                     {
+                        shopCost.SetText("OWNED");
                         if(itemData.isEquipped)
                             currentShopState = ShopButtonState.Equipped;
                         else
                             currentShopState = ShopButtonState.Unlocked;
                     }
                     else
+                    {
+                        shopPrice = animalSets[index].price;
+                        shopCost.SetText(shopPrice.ToString());
                         currentShopState = ShopButtonState.Locked;
+                    }
 
                     MAX_ShopIndex = animalSets.Length;
 
