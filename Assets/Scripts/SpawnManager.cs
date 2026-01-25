@@ -230,4 +230,16 @@ public class SpawnManager : MonoBehaviour
         Debug.LogWarning($"Could not determine pool tag for {obj.name}");
         return "BadTarget";
     }
+
+    /// <summary>
+    /// Updates animal references when theme changes
+    /// Called by ThemeManager when equipping a new animal set
+    /// </summary>
+    public void UpdateAnimalReferences(GameObject[] newGoodTargets, GameObject newBadTarget)
+    {
+        goodTargets = newGoodTargets;
+        badTarget = newBadTarget;
+        
+        Debug.Log($"SpawnManager animal references updated");
+    }
 }

@@ -166,6 +166,45 @@ public class ObjectPoolManager : MonoBehaviour
             poolDictionary[tag].Enqueue(obj);
         }
     }
+
+    /// <summary>
+    /// Updates the prefab for a specific pool and recreates pool objects
+    /// Called when switching themes
+    /// </summary>
+    public void UpdatePoolPrefab(string tag, GameObject newPrefab)
+    {
+        if (!poolDictionary.ContainsKey(tag))
+        {
+            Debug.LogWarning($"Pool with tag {tag} doesn't exist.");
+            return;
+        }
+        
+        Pool pool = pools.Find(p => p.tag == tag);
+        if (pool == null) return;
+        
+        // Clear existing pool objects
+        Queue<GameObject> existingPool = poolDictionary[tag];
+        while (existingPool.Count > 0)
+        {
+            GameObject obj = existingPool.Dequeue();
+            Destroy(obj);
+        }
+        
+        // Update the prefab reference
+        pool.prefab = newPrefab;
+        
+        // Recreate the pool with new prefab
+        Queue<GameObject> newPool = new Queue<GameObject>();
+        for (int i = 0; i < pool.size; i++)
+        {
+            GameObject obj = Instantiate(newPrefab, poolParent);
+            obj.SetActive(false);
+            newPool.Enqueue(obj);
+        }
+        
+        poolDictionary[tag] = newPool;
+        Debug.Log($"Pool '{tag}' updated with new prefab: {newPrefab.name}");
+    }
 }
 
 /// <summary>
@@ -175,3 +214,4 @@ public interface IPooledObject
 {
     void OnObjectSpawn();
 }
+
