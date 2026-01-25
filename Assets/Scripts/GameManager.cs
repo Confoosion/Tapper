@@ -45,6 +45,14 @@ public class GameManager : MonoBehaviour
         SpawnManager.Singleton.SetSpawnVariables(currentGameMode.badSpawnPercentage, currentGameMode.mushroomSpawnPercentage, currentGameMode.decayRate, currentGameMode.doGraceSpawns, currentGameMode.isTimed);
     }
 
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if(isPlaying && pauseStatus)
+        {
+            PauseGame(pauseStatus);
+        }
+    }
+
     public void PauseGame(bool pause)
     {
         isPaused = pause;

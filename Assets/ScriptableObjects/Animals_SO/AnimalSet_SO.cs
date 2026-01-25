@@ -14,7 +14,6 @@ public class AnimalSet_SO : ShopItem
     // public bool isEquipped = false;
 
     [Header("Shop Preview")]
-    public Sprite preview_BG;
     public PreviewAnimalSet preview_Set;
     public AudioClip[] preview_Sounds = new AudioClip[4]; // ORDER: Bad, Small, Fast, Good
 

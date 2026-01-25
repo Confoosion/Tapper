@@ -27,11 +27,11 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Image animal_Small;
     [SerializeField] private Image animal_Fast;
     [SerializeField] private Image animal_Good;
-    [SerializeField] private Image animal_BG;
 
     [SerializeField] private AudioClip[] animal_Sounds = new AudioClip[4];
 
     [SerializeField] private AnimalSet_SO[] animalSets;
+    private int equippedAnimalIndex;
 
     [Space]
 
@@ -51,14 +51,20 @@ public class ShopManager : MonoBehaviour
     void Start()
     {
         // Load shop data and get equipped animal index
-        int equippedIndex = ShopSaveSystem.LoadShopData(animalSets);
+        equippedAnimalIndex = ShopSaveSystem.LoadShopData(animalSets);
         
-        // Equip the loaded animal set
-        ThemeManager.Singleton.EquipAnimalSet(animalSets[equippedIndex]);
+        // Equip the loaded animal set (ScriptableObject never modified!)
+        ThemeManager.Singleton.EquipAnimalSet(animalSets[equippedAnimalIndex]);
         
         // Initialize shop view
-        currentShopIndex = equippedIndex;
-        UpdateShopCategoryVisuals(currentShopIndex);
+        // currentShopIndex = equippedAnimalIndex;
+        // UpdateShopCategoryVisuals(currentShopIndex);
+    }
+    
+    // Helper method to get runtime data for current animal
+    private ShopItemData GetCurrentAnimalData()
+    {
+        return ShopSaveSystem.GetItemData(animalSets[currentShopIndex].name);
     }
 
     // ========== NEW: Save on quit ==========
@@ -79,13 +85,10 @@ public class ShopManager : MonoBehaviour
     // SHOP CATEGORY
     private void UpdateShopCategoryVisuals(int index)
     {
-        string title;
-
         switch(currentShopType)
         {
             case ShopCategory.Animals:
                 {
-                    animal_BG.sprite = animalSets[index].preview_BG;
                     animal_Bad.sprite = animalSets[index].preview_Set.badTarget;
                     animal_Small.sprite = animalSets[index].preview_Set.goodTargets[0];
                     animal_Fast.sprite = animalSets[index].preview_Set.goodTargets[1];
@@ -103,9 +106,12 @@ public class ShopManager : MonoBehaviour
                     shopPrice = animalSets[index].price;
                     shopCost.SetText(shopPrice.ToString());
 
-                    if(animalSets[index].isUnlocked)
+                    // Get runtime data instead of reading from ScriptableObject
+                    ShopItemData itemData = ShopSaveSystem.GetItemData(animalSets[index].name);
+                    
+                    if(itemData.isUnlocked)
                     {
-                        if(animalSets[index].isEquipped)
+                        if(itemData.isEquipped)
                             currentShopState = ShopButtonState.Equipped;
                         else
                             currentShopState = ShopButtonState.Unlocked;
@@ -130,25 +136,26 @@ public class ShopManager : MonoBehaviour
         UpdateShopButton();
     }
 
-    private void SwitchShopCategory(ShopCategory shopType)
+    private void SwitchShopCategory(ShopCategory shopType, int shopIndex)
     {
         currentShopType = shopType;
-        UpdateShopCategoryVisuals(0);
+        currentShopIndex = shopIndex;
+        UpdateShopCategoryVisuals(shopIndex);
     }
 
     public void GoToAnimalsCategory()
     {
-        SwitchShopCategory(ShopCategory.Animals);
+        SwitchShopCategory(ShopCategory.Animals, equippedAnimalIndex);
     }
 
     public void GoToBackgroundsCategory()
     {
-        SwitchShopCategory(ShopCategory.Backgrounds);
+        SwitchShopCategory(ShopCategory.Backgrounds, 0);
     }
 
     public void GoToTapsCategory()
     {
-        SwitchShopCategory(ShopCategory.Taps);
+        SwitchShopCategory(ShopCategory.Taps, 0);
     }
 
     // SHOP MOVEMENT
@@ -225,35 +232,48 @@ public class ShopManager : MonoBehaviour
         UpdateShopCategoryVisuals(currentShopIndex);
     }
 
-    // ========== CHANGED: Added save call ==========
+    // ========== CHANGED: Now updates runtime data instead of ScriptableObject ==========
     private void BuyItem()
     {
         switch(currentShopType)
         {
             case ShopCategory.Animals:
                 {
+                    // Still call BuyItem to deduct gems
                     animalSets[currentShopIndex].BuyItem();
-                    ShopSaveSystem.SaveShopData(animalSets); // SAVE IMMEDIATELY
+                    
+                    // Update runtime data (NOT ScriptableObject)
+                    ShopItemData itemData = ShopSaveSystem.GetItemData(animalSets[currentShopIndex].name);
+                    itemData.isUnlocked = true;
+                    
+                    // Save immediately
+                    equippedAnimalIndex = currentShopIndex;
+                    ShopSaveSystem.SaveShopData(animalSets);
                     break;
                 }
         }
     }
 
-    // ========== CHANGED: Added unequip all + save call ==========
+    // ========== CHANGED: Now updates runtime data instead of ScriptableObject ==========
     private void EquipItem()
     {
         switch(currentShopType)
         {
             case ShopCategory.Animals:
                 {
-                    // Unequip all other animals first
+                    // Unequip all in runtime data
                     foreach(AnimalSet_SO animal in animalSets)
                     {
-                        animal.UnequipItem();
+                        ShopItemData data = ShopSaveSystem.GetItemData(animal.name);
+                        data.isEquipped = false;
                     }
                     
-                    // Equip the selected animal
-                    animalSets[currentShopIndex].EquipItem();
+                    // Equip selected in runtime data
+                    ShopItemData selectedData = ShopSaveSystem.GetItemData(animalSets[currentShopIndex].name);
+                    selectedData.isEquipped = true;
+                    
+                    // Apply theme visually
+                    ThemeManager.Singleton.EquipAnimalSet(animalSets[currentShopIndex]);
                     
                     // Save immediately
                     ShopSaveSystem.SaveShopData(animalSets);
@@ -279,14 +299,18 @@ public class ShopManager : MonoBehaviour
     {
         ShopSaveSystem.DeleteSaveData();
         
+        // Reset runtime data
         foreach(AnimalSet_SO animal in animalSets)
         {
-            animal.isUnlocked = false;
-            animal.isEquipped = false;
+            ShopItemData data = ShopSaveSystem.GetItemData(animal.name);
+            data.isUnlocked = false;
+            data.isEquipped = false;
         }
         
-        animalSets[0].isUnlocked = true;
-        animalSets[0].isEquipped = true;
+        // First animal unlocked and equipped
+        ShopItemData firstData = ShopSaveSystem.GetItemData(animalSets[0].name);
+        firstData.isUnlocked = true;
+        firstData.isEquipped = true;
         
         currentShopIndex = 0;
         UpdateShopCategoryVisuals(0);
