@@ -10,9 +10,6 @@ public class PreviewAnimalSet
 [CreateAssetMenu(fileName = "AnimalSet_SO", menuName = "Scriptable Objects/Themes/AnimalSet_SO")]
 public class AnimalSet_SO : ShopItem
 {
-    // public bool isUnlocked = false;
-    // public bool isEquipped = false;
-
     [Header("Shop Preview")]
     public PreviewAnimalSet preview_Set;
     public AudioClip[] preview_Sounds = new AudioClip[4]; // ORDER: Bad, Small, Fast, Good

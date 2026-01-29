@@ -8,6 +8,10 @@ public class TargetAnimation : MonoBehaviour
 {
     public enum TargetStates { Enter, Idle, Exit, Hit }
 
+    [SerializeField] private Image targetFrame;
+
+    [Space]
+
     [Header("Enter Settings")]
     [SerializeField] private Sprite startingFrame;
     [SerializeField] private Sprite enterFrame;
@@ -42,7 +46,6 @@ public class TargetAnimation : MonoBehaviour
     private bool interrupted;
 
     private RectTransform rectTransform;
-    private Image targetFrame;
     private Vector3 originalScale;
     private Coroutine currentJellyEffect;
 
@@ -53,7 +56,6 @@ public class TargetAnimation : MonoBehaviour
         {
             originalScale = rectTransform.localScale;
         }
-        targetFrame = GetComponent<Image>();
     }
 
     IEnumerator ProcessAnimationQueue()

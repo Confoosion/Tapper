@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81bc5c21497a84db08e07f7aac383446, type: 3}
+  m_Name: CandyLand
+  m_EditorClassIdentifier: Assembly-CSharp::Background_SO
+  isUnlocked: 0
+  isEquipped: 0
+  price: 1000
+  preview_BG: {fileID: 0}
+  dirt: {fileID: 5634026908348037240, guid: 46f623cebbf4648e48a48ff8755cf037, type: 3}
+  grass: {fileID: 7932798033344189819, guid: 0a240292d3af646569cf0fad779feecb, type: 3}
+  details: {fileID: -5038951506153503170, guid: 9995d7e0b50d74d0cbc04ccb8dfb8431, type: 3}
+  sky: {fileID: 3836954968553550457, guid: f55896bc0289545a78957b0a42bfd777, type: 3}
+  menuBG: {fileID: -4469105728357409047, guid: f6379a5223c16445785adb02fecc381b, type: 3}

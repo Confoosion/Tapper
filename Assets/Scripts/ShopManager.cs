@@ -23,6 +23,8 @@ public class ShopManager : MonoBehaviour
     [Space]
 
     [Header("Animals Category")]
+    [SerializeField] private GameObject animal_Parent;
+    [SerializeField] private GameObject animal_BG;
     [SerializeField] private Image animal_Bad;
     [SerializeField] private Image animal_Small;
     [SerializeField] private Image animal_Fast;
@@ -32,6 +34,14 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] private AnimalSet_SO[] animalSets;
     private int equippedAnimalIndex;
+
+    [Space]
+
+    [Header("Backgrounds Category")]
+
+    [SerializeField] private GameObject background_BG;
+    [SerializeField] private Background_SO[] backgroundSets;
+    private int equippedBackgroundIndex;
 
     [Space]
 
@@ -55,10 +65,6 @@ public class ShopManager : MonoBehaviour
         
         // Equip the loaded animal set (ScriptableObject never modified!)
         ThemeManager.Singleton.EquipAnimalSet(animalSets[equippedAnimalIndex]);
-        
-        // Initialize shop view
-        // currentShopIndex = equippedAnimalIndex;
-        // UpdateShopCategoryVisuals(currentShopIndex);
     }
     
     // Helper method to get runtime data for current animal
@@ -143,8 +149,10 @@ public class ShopManager : MonoBehaviour
 
     private void SwitchShopCategory(ShopCategory shopType, int shopIndex)
     {
+        HideAllCategories();
         currentShopType = shopType;
         currentShopIndex = shopIndex;
+        ShowCategory(shopType);
         UpdateShopCategoryVisuals(shopIndex);
     }
 
@@ -161,6 +169,34 @@ public class ShopManager : MonoBehaviour
     public void GoToTapsCategory()
     {
         SwitchShopCategory(ShopCategory.Taps, 0);
+    }
+
+    private void HideAllCategories()
+    {
+        // Hiding Animals Category
+        animal_Parent.SetActive(false);
+        animal_BG.SetActive(false);
+
+        // Hiding Backgrounds Category
+        background_BG.SetActive(false);
+    }
+
+    private void ShowCategory(ShopCategory shopType)
+    {
+        switch(shopType)
+        {
+            case ShopCategory.Animals:
+                {
+                    animal_Parent.SetActive(true);
+                    animal_BG.SetActive(true);
+                    break;
+                }
+            case ShopCategory.Backgrounds:
+                {
+                    background_BG.SetActive(true);
+                    break;
+                }
+        }
     }
 
     // SHOP MOVEMENT
@@ -254,6 +290,17 @@ public class ShopManager : MonoBehaviour
                     // Save immediately
                     equippedAnimalIndex = currentShopIndex;
                     ShopSaveSystem.SaveShopData(animalSets);
+                    break;
+                }
+            case ShopCategory.Backgrounds:
+                {
+                    backgroundSets[currentShopIndex].BuyItem();
+
+                    // ShopItemData itemData = ShopSaveSystem.GetItemData(backgroundSets[currentShopIndex].name);
+                    // itemData.isUnlocked = true;
+
+                    equippedBackgroundIndex = currentShopIndex;
+                    // ShopSaveSystem.SaveShopData(backgroundSets);
                     break;
                 }
         }

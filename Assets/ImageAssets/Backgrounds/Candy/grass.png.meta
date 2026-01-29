@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: af9f9f3ff8de54c2d8237d0dbe0d5e4d
+guid: 0a240292d3af646569cf0fad779feecb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7197881813869253147
-    second: details (1)_0
+      213: 7932798033344189819
+    second: grass_0
   - first:
-      213: -5227538571625146000
-    second: details (1)_1
+      213: 917857947829267716
+    second: grass_1
   - first:
-      213: -999133478184823543
-    second: details (1)_2
-  - first:
-      213: -8301566318504911776
-    second: details (1)_3
+      213: -6996743899038756316
+    second: grass_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,13 +119,57 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: details (1)_0
+      name: grass_0
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 97
+        width: 10
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b75d56418c5f61e60800000000000000
+      internalID: 7932798033344189819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_1
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 97
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40de1a6c0f2ecbc00800000000000000
+      internalID: 917857947829267716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 205
-        height: 128
+        width: 1300
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,74 +178,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ed241550acfb1c90800000000000000
-      internalID: -7197881813869253147
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: details (1)_1
-      rect:
-        serializedVersion: 2
-        x: 235
-        y: 3
-        width: 160
-        height: 157
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 07951a4ad5d0477b0800000000000000
-      internalID: -5227538571625146000
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: details (1)_2
-      rect:
-        serializedVersion: 2
-        x: 538
-        y: 3
-        width: 83
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 905d79d256d5222f0800000000000000
-      internalID: -999133478184823543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: details (1)_3
-      rect:
-        serializedVersion: 2
-        x: 701
-        y: 0
-        width: 170
-        height: 138
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 06cda2aba69eacc80800000000000000
-      internalID: -8301566318504911776
+      spriteID: 422d9618e7296ee90800000000000000
+      internalID: -6996743899038756316
       vertices: []
       indices: 
       edges: []
@@ -223,10 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      details (1)_0: -7197881813869253147
-      details (1)_1: -5227538571625146000
-      details (1)_2: -999133478184823543
-      details (1)_3: -8301566318504911776
+      grass_0: 7932798033344189819
+      grass_1: 917857947829267716
+      grass_2: -6996743899038756316
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,11 +13,11 @@ public class AnimalSet
 [System.Serializable]
 public class Background
 {
-    public Sprite ground;
-    public Sprite extraGround;
+    public Sprite dirt;
+    public Sprite grass;
+    public Sprite details;
     public Sprite sky;
-    public Sprite groundDetails;
-    public Sprite menuBackgrounds;
+    public Sprite menuBG;
 }
 
 public class ThemeManager : MonoBehaviour
@@ -36,7 +36,6 @@ public class ThemeManager : MonoBehaviour
     private AnimalSet_SO currentAnimalSet_SO;
     [SerializeField] Background currentBackground;
 
-    // ========== CHANGED: Removed isEquipped modification ==========
     public void EquipAnimalSet(AnimalSet_SO animalSet)
     {
         // Just store reference and apply theme
@@ -53,6 +52,18 @@ public class ThemeManager : MonoBehaviour
         
         // Update spawn manager references
         UpdateSpawnManager(animalSet);
+    }
+
+    public void EquipBackground(Background_SO background)
+    {
+        currentBackground.dirt = background.dirt;
+        currentBackground.grass = background.grass;
+        currentBackground.details = background.details;
+        currentBackground.sky = background.sky;
+        currentBackground.menuBG = background.menuBG;
+
+        // Show the visuals
+        // Code here...
     }
 
     private void UpdateObjectPools(AnimalSet_SO animalSet)
