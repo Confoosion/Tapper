@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Background_SO
   isUnlocked: 0
   isEquipped: 0
-  price: 1000
-  preview_BG: {fileID: 0}
-  dirt: {fileID: 5634026908348037240, guid: 46f623cebbf4648e48a48ff8755cf037, type: 3}
-  grass: {fileID: 7932798033344189819, guid: 0a240292d3af646569cf0fad779feecb, type: 3}
-  details: {fileID: -5038951506153503170, guid: 9995d7e0b50d74d0cbc04ccb8dfb8431, type: 3}
-  sky: {fileID: 3836954968553550457, guid: f55896bc0289545a78957b0a42bfd777, type: 3}
+  price: 500
+  preview_BG: {fileID: 21300000, guid: a01740ebf85574e92b535808253240c1, type: 3}
+  preview_ObjectName: CANDY_LAND
+  dirt: {fileID: 21300000, guid: 4eeba407802a74b5d91de74296343cd0, type: 3}
+  grass: {fileID: 21300000, guid: 0a240292d3af646569cf0fad779feecb, type: 3}
+  details: {fileID: 21300000, guid: 9995d7e0b50d74d0cbc04ccb8dfb8431, type: 3}
+  sky: {fileID: 21300000, guid: f55896bc0289545a78957b0a42bfd777, type: 3}
   menuBG: {fileID: -4469105728357409047, guid: f6379a5223c16445785adb02fecc381b, type: 3}

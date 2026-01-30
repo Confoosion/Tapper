@@ -4,7 +4,8 @@ using UnityEngine;
 public class Background_SO : ShopItem
 {
     [Header("Shop Preview")]
-    public GameObject preview_BG;
+    public Sprite preview_BG;
+    public string preview_ObjectName;
 
     [Space]    
 

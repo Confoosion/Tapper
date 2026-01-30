@@ -23,8 +23,7 @@ public class ShopManager : MonoBehaviour
     [Space]
 
     [Header("Animals Category")]
-    [SerializeField] private GameObject animal_Parent;
-    [SerializeField] private GameObject animal_BG;
+    [SerializeField] private GameObject animal_HOLDER;
     [SerializeField] private Image animal_Bad;
     [SerializeField] private Image animal_Small;
     [SerializeField] private Image animal_Fast;
@@ -39,8 +38,12 @@ public class ShopManager : MonoBehaviour
 
     [Header("Backgrounds Category")]
 
-    [SerializeField] private GameObject background_BG;
+    [SerializeField] private GameObject background_HOLDER;
+    [SerializeField] private Transform background_DETAILS;
+    [SerializeField] private Image background_BG;
+
     [SerializeField] private Background_SO[] backgroundSets;
+    private GameObject background_Detail;
     private int equippedBackgroundIndex;
 
     [Space]
@@ -95,47 +98,12 @@ public class ShopManager : MonoBehaviour
         {
             case ShopCategory.Animals:
                 {
-                    animal_Bad.sprite = animalSets[index].preview_Set.badTarget;
-                    animal_Small.sprite = animalSets[index].preview_Set.goodTargets[0];
-                    animal_Fast.sprite = animalSets[index].preview_Set.goodTargets[1];
-                    animal_Good.sprite = animalSets[index].preview_Set.goodTargets[2];
-
-                    int clipIndex = 0;
-                    foreach(AudioClip audio in animalSets[index].preview_Sounds)
-                    {
-                        animal_Sounds[clipIndex] = audio;
-                        clipIndex++;
-                    }
-                    
-                    shopTitle.SetText(animalSets[index].name);
-
-                    // shopPrice = animalSets[index].price;
-                    // shopCost.SetText(shopPrice.ToString());
-
-                    // Get runtime data instead of reading from ScriptableObject
-                    ShopItemData itemData = ShopSaveSystem.GetItemData(animalSets[index].name);
-                    
-                    if(itemData.isUnlocked)
-                    {
-                        shopCost.SetText("OWNED");
-                        if(itemData.isEquipped)
-                            currentShopState = ShopButtonState.Equipped;
-                        else
-                            currentShopState = ShopButtonState.Unlocked;
-                    }
-                    else
-                    {
-                        shopPrice = animalSets[index].price;
-                        shopCost.SetText(shopPrice.ToString());
-                        currentShopState = ShopButtonState.Locked;
-                    }
-
-                    MAX_ShopIndex = animalSets.Length;
-
+                    UpdateAnimalShop(index);
                     break;
                 }
             case ShopCategory.Backgrounds:
                 {
+                    UpdateBackgroundShop(index);
                     break;
                 }
             case ShopCategory.Taps:
@@ -145,6 +113,57 @@ public class ShopManager : MonoBehaviour
         }
 
         UpdateShopButton();
+    }
+
+    private void UpdateAnimalShop(int index)
+    {
+        animal_Bad.sprite = animalSets[index].preview_Set.badTarget;
+        animal_Small.sprite = animalSets[index].preview_Set.goodTargets[0];
+        animal_Fast.sprite = animalSets[index].preview_Set.goodTargets[1];
+        animal_Good.sprite = animalSets[index].preview_Set.goodTargets[2];
+
+        int clipIndex = 0;
+        foreach(AudioClip audio in animalSets[index].preview_Sounds)
+        {
+            animal_Sounds[clipIndex] = audio;
+            clipIndex++;
+        }
+        
+        shopTitle.SetText(animalSets[index].name);
+
+        // Get runtime data instead of reading from ScriptableObject
+        ShopItemData itemData = ShopSaveSystem.GetItemData(animalSets[index].name);
+        
+        if(itemData.isUnlocked)
+        {
+            shopCost.SetText("OWNED");
+            if(itemData.isEquipped)
+                currentShopState = ShopButtonState.Equipped;
+            else
+                currentShopState = ShopButtonState.Unlocked;
+        }
+        else
+        {
+            shopPrice = animalSets[index].price;
+            shopCost.SetText(shopPrice.ToString());
+            currentShopState = ShopButtonState.Locked;
+        }
+
+        MAX_ShopIndex = animalSets.Length;
+    }
+
+    private void UpdateBackgroundShop(int index)
+    {
+        background_BG.sprite = backgroundSets[index].preview_BG;
+
+        background_Detail?.SetActive(false);
+
+        if(!string.IsNullOrEmpty(backgroundSets[index].preview_ObjectName))
+        {
+            background_Detail = background_DETAILS.Find(backgroundSets[index].preview_ObjectName).gameObject;
+            background_Detail.SetActive(true);   
+        }
+
     }
 
     private void SwitchShopCategory(ShopCategory shopType, int shopIndex)
@@ -174,11 +193,10 @@ public class ShopManager : MonoBehaviour
     private void HideAllCategories()
     {
         // Hiding Animals Category
-        animal_Parent.SetActive(false);
-        animal_BG.SetActive(false);
+        animal_HOLDER.SetActive(false);
 
         // Hiding Backgrounds Category
-        background_BG.SetActive(false);
+        background_HOLDER.SetActive(false);
     }
 
     private void ShowCategory(ShopCategory shopType)
@@ -187,13 +205,12 @@ public class ShopManager : MonoBehaviour
         {
             case ShopCategory.Animals:
                 {
-                    animal_Parent.SetActive(true);
-                    animal_BG.SetActive(true);
+                    animal_HOLDER.SetActive(true);
                     break;
                 }
             case ShopCategory.Backgrounds:
                 {
-                    background_BG.SetActive(true);
+                    background_HOLDER.SetActive(true);
                     break;
                 }
         }

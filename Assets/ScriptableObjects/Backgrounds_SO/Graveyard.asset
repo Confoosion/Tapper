@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81bc5c21497a84db08e07f7aac383446, type: 3}
-  m_Name: Tundra
+  m_Name: Graveyard
   m_EditorClassIdentifier: Assembly-CSharp::Background_SO
   isUnlocked: 0
   isEquipped: 0
-  price: 500
-  preview_BG: {fileID: 21300000, guid: 649e05b1d1fa3477d800d0045ac20dd1, type: 3}
-  preview_ObjectName: TUNDRA
-  dirt: {fileID: 21300000, guid: 5a64c7370480b46e584269eb4815f249, type: 3}
-  grass: {fileID: 21300000, guid: 50d2a8cba602e46a491fa918e7ce712f, type: 3}
-  details: {fileID: 21300000, guid: af9f9f3ff8de54c2d8237d0dbe0d5e4d, type: 3}
-  sky: {fileID: 21300000, guid: c196395e4442547929b4d6a5bf52914a, type: 3}
+  price: 1000
+  preview_BG: {fileID: 21300000, guid: 317321ec0b92b4ef3aa99408090459e3, type: 3}
+  preview_ObjectName: GRAVEYARD
+  dirt: {fileID: 21300000, guid: f22f23e746b3d4109bde3eda5cfa1680, type: 3}
+  grass: {fileID: 21300000, guid: 320d0397cdde841d5a7bdd6bb2f843c3, type: 3}
+  details: {fileID: 21300000, guid: 08d90fd6739a949d9b4b2e05091ab2bf, type: 3}
+  sky: {fileID: 21300000, guid: 6c0cba65e3d8844dfa720fe38ceb2b1a, type: 3}
   menuBG: {fileID: 0}
