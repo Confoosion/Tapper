@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8d4ffaccf467f144bba6391bd6448c86
+guid: 5fbefbe0bfd4d45fe8c56b828e454574
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 723562206515975893
-    second: classic_button (1)_0
+      213: -3068101492287086976
+    second: triangle_L2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: classic_button (1)_0
+      name: triangle_L2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 112
-        height: 120
+        width: 29
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d658444efb9a0a00800000000000000
-      internalID: 723562206515975893
+      spriteID: 08ed161c2f9eb65d0800000000000000
+      internalID: -3068101492287086976
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      classic_button (1)_0: 723562206515975893
+      triangle_L2_0: -3068101492287086976
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

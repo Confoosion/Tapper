@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 368147d980baba74c9f2107ca0ccb9f0
+guid: f8a0eb82a4f86495f945e2c5951d73f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -255572209261514965
-    second: share_buttton_0
+      213: 1082444774991283560
+    second: bigmenubackground_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: share_buttton_0
+      name: bigmenubackground_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 112
-        height: 120
+        width: 585
+        height: 872
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b2f61840e66047cf0800000000000000
-      internalID: -255572209261514965
+      spriteID: 865455ea9cd950f00800000000000000
+      internalID: 1082444774991283560
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      share_buttton_0: -255572209261514965
+      bigmenubackground_0: 1082444774991283560
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -60,26 +60,36 @@ public class ShopManager : MonoBehaviour
     private int MAX_ShopIndex;
     private int shopPrice;
 
-    // ========== CHANGED: Updated Start() ==========
     void Start()
     {
-        // Load shop data and get equipped animal index
-        equippedAnimalIndex = ShopSaveSystem.LoadShopData(animalSets);
+        int _animalIndex = ShopSaveSystem.LoadAnimalData(animalSets);
+        ThemeManager.Singleton.EquipAnimalSet(animalSets[_animalIndex]);
         
-        // Equip the loaded animal set (ScriptableObject never modified!)
-        ThemeManager.Singleton.EquipAnimalSet(animalSets[equippedAnimalIndex]);
+        int _backgroundIndex = ShopSaveSystem.LoadBackgroundData(backgroundSets);
+        ThemeManager.Singleton.EquipBackgroundSet(backgroundSets[_backgroundIndex]);
+        
+        // // Load shop data and get equipped animal index
+        // equippedAnimalIndex = ShopSaveSystem.LoadShopData(animalSets);
+        
+        // // Equip the loaded animal set (ScriptableObject never modified!)
+        // ThemeManager.Singleton.EquipAnimalSet(animalSets[equippedAnimalIndex]);
     }
     
-    // Helper method to get runtime data for current animal
+    // Helper method to get runtime data
     private ShopItemData GetCurrentAnimalData()
     {
-        return ShopSaveSystem.GetItemData(animalSets[currentShopIndex].name);
+        return ShopSaveSystem.GetAnimalData(animalSets[currentShopIndex].name);
+    }
+    
+    private ShopItemData GetCurrentBackgroundData()
+    {
+        return ShopSaveSystem.GetBackgroundData(backgroundSets[currentShopIndex].name);
     }
 
     // ========== NEW: Save on quit ==========
     void OnApplicationQuit()
     {
-        ShopSaveSystem.SaveShopData(animalSets);
+        ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
     }
 
     // ========== NEW: Mobile-safe save (OPTIONAL but recommended) ==========
@@ -87,7 +97,7 @@ public class ShopManager : MonoBehaviour
     {
         if (pauseStatus) // App going to background
         {
-            ShopSaveSystem.SaveShopData(animalSets);
+            ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
         }
     }
 
@@ -132,7 +142,7 @@ public class ShopManager : MonoBehaviour
         shopTitle.SetText(animalSets[index].name);
 
         // Get runtime data instead of reading from ScriptableObject
-        ShopItemData itemData = ShopSaveSystem.GetItemData(animalSets[index].name);
+        ShopItemData itemData = ShopSaveSystem.GetAnimalData(animalSets[index].name);
         
         if(itemData.isUnlocked)
         {
@@ -164,6 +174,21 @@ public class ShopManager : MonoBehaviour
             background_Detail.SetActive(true);   
         }
 
+        ShopItemData itemData = ShopSaveSystem.GetBackgroundData(backgroundSets[index].name);
+
+        if(itemData.isUnlocked)
+        {
+            if(itemData.isEquipped)
+                currentShopState = ShopButtonState.Equipped;
+            else
+                currentShopState = ShopButtonState.Unlocked;
+        }
+        else
+            shopPrice = backgroundSets[index].price;
+            shopCost.SetText(shopPrice.ToString());
+            currentShopState = ShopButtonState.Locked;
+        
+        MAX_ShopIndex = backgroundSets.Length;
     }
 
     private void SwitchShopCategory(ShopCategory shopType, int shopIndex)
@@ -182,7 +207,7 @@ public class ShopManager : MonoBehaviour
 
     public void GoToBackgroundsCategory()
     {
-        SwitchShopCategory(ShopCategory.Backgrounds, 0);
+        SwitchShopCategory(ShopCategory.Backgrounds, equippedBackgroundIndex);
     }
 
     public void GoToTapsCategory()
@@ -301,23 +326,23 @@ public class ShopManager : MonoBehaviour
                     animalSets[currentShopIndex].BuyItem();
                     
                     // Update runtime data (NOT ScriptableObject)
-                    ShopItemData itemData = ShopSaveSystem.GetItemData(animalSets[currentShopIndex].name);
+                    ShopItemData itemData = ShopSaveSystem.GetAnimalData(animalSets[currentShopIndex].name);
                     itemData.isUnlocked = true;
                     
                     // Save immediately
-                    equippedAnimalIndex = currentShopIndex;
-                    ShopSaveSystem.SaveShopData(animalSets);
+                    // equippedAnimalIndex = currentShopIndex;
+                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
                     break;
                 }
             case ShopCategory.Backgrounds:
                 {
                     backgroundSets[currentShopIndex].BuyItem();
 
-                    // ShopItemData itemData = ShopSaveSystem.GetItemData(backgroundSets[currentShopIndex].name);
-                    // itemData.isUnlocked = true;
+                    ShopItemData itemData = ShopSaveSystem.GetBackgroundData(backgroundSets[currentShopIndex].name);
+                    itemData.isUnlocked = true;
 
-                    equippedBackgroundIndex = currentShopIndex;
-                    // ShopSaveSystem.SaveShopData(backgroundSets);
+                    // equippedBackgroundIndex = currentShopIndex;
+                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
                     break;
                 }
         }
@@ -333,19 +358,37 @@ public class ShopManager : MonoBehaviour
                     // Unequip all in runtime data
                     foreach(AnimalSet_SO animal in animalSets)
                     {
-                        ShopItemData data = ShopSaveSystem.GetItemData(animal.name);
+                        ShopItemData data = ShopSaveSystem.GetAnimalData(animal.name);
                         data.isEquipped = false;
                     }
                     
                     // Equip selected in runtime data
-                    ShopItemData selectedData = ShopSaveSystem.GetItemData(animalSets[currentShopIndex].name);
+                    ShopItemData selectedData = ShopSaveSystem.GetAnimalData(animalSets[currentShopIndex].name);
                     selectedData.isEquipped = true;
                     
                     // Apply theme visually
                     ThemeManager.Singleton.EquipAnimalSet(animalSets[currentShopIndex]);
                     
                     // Save immediately
-                    ShopSaveSystem.SaveShopData(animalSets);
+                    equippedAnimalIndex = currentShopIndex;
+                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
+                    break;
+                }
+            case ShopCategory.Backgrounds:
+                {
+                    foreach(Background_SO background in backgroundSets)
+                    {
+                        ShopItemData data = ShopSaveSystem.GetBackgroundData(background.name);
+                        data.isEquipped = false;
+                    }
+
+                    ShopItemData selectedData = ShopSaveSystem.GetBackgroundData(backgroundSets[currentShopIndex].name);
+                    selectedData.isEquipped = true;
+
+                    ThemeManager.Singleton.EquipBackgroundSet(backgroundSets[currentShopIndex]);
+
+                    equippedBackgroundIndex = currentShopIndex;
+                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
                     break;
                 }
         }
@@ -360,28 +403,28 @@ public class ShopManager : MonoBehaviour
     // ========== NEW: Optional manual save method ==========
     public void SaveShopProgress()
     {
-        ShopSaveSystem.SaveShopData(animalSets);
+        ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
     }
     
-    // ========== NEW: Optional reset for testing ==========
-    public void ResetShop()
-    {
-        ShopSaveSystem.DeleteSaveData();
+    // // ========== NEW: Optional reset for testing ==========
+    // public void ResetShop()
+    // {
+    //     ShopSaveSystem.DeleteSaveData();
         
-        // Reset runtime data
-        foreach(AnimalSet_SO animal in animalSets)
-        {
-            ShopItemData data = ShopSaveSystem.GetItemData(animal.name);
-            data.isUnlocked = false;
-            data.isEquipped = false;
-        }
+    //     // Reset runtime data
+    //     foreach(AnimalSet_SO animal in animalSets)
+    //     {
+    //         ShopItemData data = ShopSaveSystem.GetItemData(animal.name);
+    //         data.isUnlocked = false;
+    //         data.isEquipped = false;
+    //     }
         
-        // First animal unlocked and equipped
-        ShopItemData firstData = ShopSaveSystem.GetItemData(animalSets[0].name);
-        firstData.isUnlocked = true;
-        firstData.isEquipped = true;
+    //     // First animal unlocked and equipped
+    //     ShopItemData firstData = ShopSaveSystem.GetItemData(animalSets[0].name);
+    //     firstData.isUnlocked = true;
+    //     firstData.isEquipped = true;
         
-        currentShopIndex = 0;
-        UpdateShopCategoryVisuals(0);
-    }
+    //     currentShopIndex = 0;
+    //     UpdateShopCategoryVisuals(0);
+    // }
 }

@@ -14,11 +14,12 @@ public class Background_SO : ShopItem
     public Sprite grass;
     public Sprite details;
     public Sprite sky;
+    public Sprite mainMenuBG;
     public Sprite menuBG;
 
     public override void EquipItem()
     {
         isEquipped = true;
-        ThemeManager.Singleton.EquipBackground(this);
+        ThemeManager.Singleton.EquipBackgroundSet(this);
     }
 }

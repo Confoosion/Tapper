@@ -17,6 +17,7 @@ public class Background
     public Sprite grass;
     public Sprite details;
     public Sprite sky;
+    public Sprite mainMenuBG;
     public Sprite menuBG;
 }
 
@@ -35,6 +36,7 @@ public class ThemeManager : MonoBehaviour
     [SerializeField] AnimalSet currentAnimalSet;
     private AnimalSet_SO currentAnimalSet_SO;
     [SerializeField] Background currentBackground;
+    private Background_SO currentBackground_SO;
 
     public void EquipAnimalSet(AnimalSet_SO animalSet)
     {
@@ -54,12 +56,13 @@ public class ThemeManager : MonoBehaviour
         UpdateSpawnManager(animalSet);
     }
 
-    public void EquipBackground(Background_SO background)
+    public void EquipBackgroundSet(Background_SO background)
     {
         currentBackground.dirt = background.dirt;
         currentBackground.grass = background.grass;
         currentBackground.details = background.details;
         currentBackground.sky = background.sky;
+        currentBackground.mainMenuBG = background.mainMenuBG;
         currentBackground.menuBG = background.menuBG;
 
         // Show the visuals
@@ -109,5 +112,10 @@ public class ThemeManager : MonoBehaviour
     public AnimalSet GetAnimalSet()
     {
         return(currentAnimalSet);
+    }
+
+    public Background GetBackground()
+    {
+        return currentBackground;
     }
 }

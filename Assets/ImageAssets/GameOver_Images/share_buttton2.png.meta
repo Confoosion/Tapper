@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f94ce20305fa4914e8b9d96a527a23d1
+guid: 05c5bdf5bc3704e6690acfcf89250573
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1151903390978816168
-    second: plant_deco_0
+      213: 3134110629392651239
+    second: share_buttton2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plant_deco_0
+      name: share_buttton2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 124
-        height: 132
+        height: 133
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a83cd2f7026cff00800000000000000
-      internalID: 1151903390978816168
+      spriteID: 7e399bf13099e7b20800000000000000
+      internalID: 3134110629392651239
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      plant_deco_0: 1151903390978816168
+      share_buttton2_0: 3134110629392651239
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

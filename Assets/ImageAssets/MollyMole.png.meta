@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e28f10cbfe7439b48912ec49268d3b5b
+guid: 095195950f4134023a33bac5d19f659c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9039946509521100321
-    second: insane_button (1)_0
+      213: -5427164653334127848
+    second: mole_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: insane_button (1)_0
+      name: mole_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 112
-        height: 120
+        width: 336
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fd166779b88ab8280800000000000000
-      internalID: -9039946509521100321
+      spriteID: 81b967c8086dea4b0800000000000000
+      internalID: -5427164653334127848
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      insane_button (1)_0: -9039946509521100321
+      mole_0: -5427164653334127848
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
