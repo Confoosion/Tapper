@@ -62,17 +62,13 @@ public class ShopManager : MonoBehaviour
 
     void Start()
     {
+        // ResetShop();
+
         int _animalIndex = ShopSaveSystem.LoadAnimalData(animalSets);
         ThemeManager.Singleton.EquipAnimalSet(animalSets[_animalIndex]);
         
         int _backgroundIndex = ShopSaveSystem.LoadBackgroundData(backgroundSets);
         ThemeManager.Singleton.EquipBackgroundSet(backgroundSets[_backgroundIndex]);
-        
-        // // Load shop data and get equipped animal index
-        // equippedAnimalIndex = ShopSaveSystem.LoadShopData(animalSets);
-        
-        // // Equip the loaded animal set (ScriptableObject never modified!)
-        // ThemeManager.Singleton.EquipAnimalSet(animalSets[equippedAnimalIndex]);
     }
     
     // Helper method to get runtime data
@@ -142,12 +138,12 @@ public class ShopManager : MonoBehaviour
         shopTitle.SetText(animalSets[index].name);
 
         // Get runtime data instead of reading from ScriptableObject
-        ShopItemData itemData = ShopSaveSystem.GetAnimalData(animalSets[index].name);
+        ShopItemData animal_itemData = ShopSaveSystem.GetAnimalData(animalSets[index].name);
         
-        if(itemData.isUnlocked)
+        if(animal_itemData.isUnlocked)
         {
             shopCost.SetText("OWNED");
-            if(itemData.isEquipped)
+            if(animal_itemData.isEquipped)
                 currentShopState = ShopButtonState.Equipped;
             else
                 currentShopState = ShopButtonState.Unlocked;
@@ -174,11 +170,17 @@ public class ShopManager : MonoBehaviour
             background_Detail.SetActive(true);   
         }
 
-        ShopItemData itemData = ShopSaveSystem.GetBackgroundData(backgroundSets[index].name);
+        shopTitle.SetText(backgroundSets[index].name);
 
-        if(itemData.isUnlocked)
+        ShopItemData bg_itemData = ShopSaveSystem.GetBackgroundData(backgroundSets[index].name);
+
+        Debug.Log("Looking at: " + backgroundSets[index].name);
+        Debug.Log("This item is " + (bg_itemData.isUnlocked ? "unlocked" : "locked"));
+        if(bg_itemData.isUnlocked)
         {
-            if(itemData.isEquipped)
+            Debug.Log("TEXT SHOULD BE OWNED");
+            shopCost.SetText("OWNED");
+            if(bg_itemData.isEquipped)
                 currentShopState = ShopButtonState.Equipped;
             else
                 currentShopState = ShopButtonState.Unlocked;
@@ -406,25 +408,37 @@ public class ShopManager : MonoBehaviour
         ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
     }
     
-    // // ========== NEW: Optional reset for testing ==========
-    // public void ResetShop()
-    // {
-    //     ShopSaveSystem.DeleteSaveData();
+    // ========== NEW: Optional reset for testing ==========
+    public void ResetShop()
+    {
+        ShopSaveSystem.DeleteSaveData();
         
-    //     // Reset runtime data
-    //     foreach(AnimalSet_SO animal in animalSets)
-    //     {
-    //         ShopItemData data = ShopSaveSystem.GetItemData(animal.name);
-    //         data.isUnlocked = false;
-    //         data.isEquipped = false;
-    //     }
+        // Reset animals
+        foreach(AnimalSet_SO animal in animalSets)
+        {
+            ShopItemData data = ShopSaveSystem.GetAnimalData(animal.name);
+            data.isUnlocked = false;
+            data.isEquipped = false;
+        }
         
-    //     // First animal unlocked and equipped
-    //     ShopItemData firstData = ShopSaveSystem.GetItemData(animalSets[0].name);
-    //     firstData.isUnlocked = true;
-    //     firstData.isEquipped = true;
+        // Reset backgrounds
+        foreach(Background_SO bg in backgroundSets)
+        {
+            ShopItemData data = ShopSaveSystem.GetBackgroundData(bg.name);
+            data.isUnlocked = false;
+            data.isEquipped = false;
+        }
         
-    //     currentShopIndex = 0;
-    //     UpdateShopCategoryVisuals(0);
-    // }
+        // First animal and background unlocked and equipped
+        ShopItemData firstAnimal = ShopSaveSystem.GetAnimalData(animalSets[0].name);
+        firstAnimal.isUnlocked = true;
+        firstAnimal.isEquipped = true;
+        
+        ShopItemData firstBG = ShopSaveSystem.GetBackgroundData(backgroundSets[0].name);
+        firstBG.isUnlocked = true;
+        firstBG.isEquipped = true;
+        
+        currentShopIndex = 0;
+        UpdateShopCategoryVisuals(0);
+    }
 }

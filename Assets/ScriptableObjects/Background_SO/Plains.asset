@@ -21,5 +21,5 @@ MonoBehaviour:
   grass: {fileID: 21300000, guid: 3e2a24e19a6a64836833d7899cf7b0ce, type: 3}
   details: {fileID: 21300000, guid: 011db3790c21c4f6b88161a5bb0753a9, type: 3}
   sky: {fileID: 21300000, guid: 5cf72b5127acb48d4850c0825a90db52, type: 3}
-  mainMenuBG: {fileID: 21300000, guid: f8a0eb82a4f86495f945e2c5951d73f9, type: 3}
-  menuBG: {fileID: 21300000, guid: 945259c86a3624c87892495d93c94bfb, type: 3}
+  mainMenuBG: {fileID: 21300000, guid: d0483b8aca9c14656892cd4012f628c1, type: 3}
+  menuBG: {fileID: 21300000, guid: 75a6971843bb145629ff0970cbfa57f0, type: 3}
