@@ -179,16 +179,18 @@ public class ShopManager : MonoBehaviour
         if(bg_itemData.isUnlocked)
         {
             Debug.Log("TEXT SHOULD BE OWNED");
-            shopCost.SetText("OWNED");
+            shopCost.text = "OWNED";
             if(bg_itemData.isEquipped)
                 currentShopState = ShopButtonState.Equipped;
             else
                 currentShopState = ShopButtonState.Unlocked;
         }
         else
+        {
             shopPrice = backgroundSets[index].price;
             shopCost.SetText(shopPrice.ToString());
             currentShopState = ShopButtonState.Locked;
+        }
         
         MAX_ShopIndex = backgroundSets.Length;
     }
