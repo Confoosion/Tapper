@@ -66,7 +66,7 @@ public class ThemeManager : MonoBehaviour
         currentBackground.menuBG = background.menuBG;
 
         // Show the visuals
-        // Code here...
+        UIManager.Singleton.SwitchBackgrounds(background);
     }
 
     private void UpdateObjectPools(AnimalSet_SO animalSet)

@@ -44,9 +44,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image GO_GameModeImage;
 
     [Header("Background UI")]
-    [SerializeField] private List<Image> backgroundImages = new List<Image>();
-    private int backgroundIndex = 0;
-    private Coroutine backgroundCoroutine;
+    [SerializeField] private Image[] BG_dirts;
+    [SerializeField] private Image[] BG_menuBGs;
+    [SerializeField] private Image BG_mainMenuBG;
+    [SerializeField] private Image BG_grass;
+    [SerializeField] private Image BG_details;
+    [SerializeField] private Image BG_sky;
 
     [Header("Extra UI")]
     [SerializeField] private GameObject settingsButton;
@@ -156,40 +159,21 @@ public class UIManager : MonoBehaviour
         newBestLabel.SetActive(gotHighscore);
     }
 
-    // public void UpdateGameTheme(Sprite good, Sprite bad)
-    // {
-    //     good_Image.sprite = good;
-    //     bad_Image.sprite = bad;
-    // }
-
-    // public void ShowConfirm(bool show)
-    // {
-    //     if (show)
-    //     {
-    //         confirmText.SetText("Tap again to\nReset Data");
-    //     }
-    //     confirmText.gameObject.SetActive(show);
-    // }
-
-    // public void UpdateConfirm()
-    // {
-    //     confirmText.SetText("Your data has been\nReset");
-    // }
-
-    public bool IsCoroutineActive()
+    public void SwitchBackgrounds(Background_SO background)
     {
-        return (backgroundCoroutine != null);
-    }
-
-    public void SwitchBackgrounds(int modeIndex, float time = 1f)
-    {
-        if (backgroundCoroutine != null)
+        foreach(Image dirt in BG_dirts)
         {
-            return;
+            dirt.sprite = background.dirt;
+        }
+        foreach(Image menu in BG_menuBGs)
+        {
+            menu.sprite = background.menuBG;
         }
 
-        backgroundCoroutine = StartCoroutine(BackgroundTransition(backgroundImages[backgroundIndex], backgroundImages[modeIndex], time));
-        backgroundIndex = modeIndex;
+        BG_mainMenuBG.sprite = background.mainMenuBG;
+        BG_grass.sprite = background.grass;
+        BG_details.sprite = background.details;
+        BG_sky.sprite = background.sky;
     }
 
     public void ChangeGameModeUI(GameModeSO mode, int modeIndex, bool arcadeMode, bool isHighscore)
@@ -203,40 +187,6 @@ public class UIManager : MonoBehaviour
 
         GO_highscore.SetText(PlayerPrefs.GetInt(ScoreManager.Singleton.GetHighscorePP()).ToString());
         UpdateHighscoreLabelUI(isHighscore);
-    }
-
-    IEnumerator BackgroundTransition(Image fromBG, Image toBG, float duration)
-    {
-        Color toColor = toBG.color;
-        toColor.a = 0f;
-        toBG.color = toColor;
-
-        float fadeTime = 0f;
-
-        while (fadeTime < duration)
-        {
-            fadeTime += Time.deltaTime;
-            float t = fadeTime / duration;
-
-            Color fromColor = fromBG.color;
-            fromColor.a = Mathf.Lerp(1f, 0f, t);
-            toColor.a = Mathf.Lerp(0f, 1f, t);
-
-            fromBG.color = fromColor;
-            toBG.color = toColor;
-
-            yield return null;
-        }
-
-        Color fColor = fromBG.color;
-        fColor.a = 0f;
-        fromBG.color = fColor;
-
-        Color tColor = toBG.color;
-        tColor.a = 1f;
-        toBG.color = tColor;
-
-        backgroundCoroutine = null;
     }
 
     public void ShowSettingsOrPauseIcon(bool showSettings)

@@ -10784,8 +10784,20 @@ MonoBehaviour:
   newBestLabel: {fileID: 1105123299}
   GO_ShopButton: {fileID: 1612046063}
   GO_GameModeImage: {fileID: 1243446354}
-  backgroundImages:
-  - {fileID: 1554544005}
+  BG_dirts:
+  - {fileID: 1058497421}
+  - {fileID: 1858408831}
+  - {fileID: 283858606}
+  - {fileID: 1018112562}
+  BG_menuBGs:
+  - {fileID: 785907439}
+  - {fileID: 1144002912}
+  - {fileID: 1194998920}
+  - {fileID: 1086911560}
+  BG_mainMenuBG: {fileID: 1686555235}
+  BG_grass: {fileID: 644919987}
+  BG_details: {fileID: 1976511993}
+  BG_sky: {fileID: 1554544005}
   settingsButton: {fileID: 195476651}
   pauseButton: {fileID: 2104688311}
   MM_GM_Sprites:
