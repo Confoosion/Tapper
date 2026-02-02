@@ -1,0 +1,1196 @@
+fileFormatVersion: 2
+guid: fc225c0de33ca4336a350ebc1842e4ff
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3190940478569580811
+    second: snow2_03_0
+  - first:
+      213: 5090801333293964334
+    second: snow2_03_1
+  - first:
+      213: -5864806271310816960
+    second: snow2_03_2
+  - first:
+      213: 2975311508393192567
+    second: snow2_03_3
+  - first:
+      213: -4999031573288856208
+    second: snow2_03_4
+  - first:
+      213: -8762932321697126725
+    second: snow2_03_5
+  - first:
+      213: -3233382114049936221
+    second: snow2_03_6
+  - first:
+      213: 8098524268781286825
+    second: snow2_03_7
+  - first:
+      213: -520291006954728840
+    second: snow2_03_8
+  - first:
+      213: -5804860400302508996
+    second: snow2_03_9
+  - first:
+      213: -7297989887413505172
+    second: snow2_03_10
+  - first:
+      213: 3998325932972280389
+    second: snow2_03_11
+  - first:
+      213: -1911675151946220791
+    second: snow2_03_12
+  - first:
+      213: 8415972771873712690
+    second: snow2_03_13
+  - first:
+      213: -1796278352841273428
+    second: snow2_03_14
+  - first:
+      213: 523751876223913963
+    second: snow2_03_15
+  - first:
+      213: 6210437475020919966
+    second: snow2_03_16
+  - first:
+      213: -1286060456042342143
+    second: snow2_03_17
+  - first:
+      213: -3155335284078463362
+    second: snow2_03_18
+  - first:
+      213: -5450687059990060099
+    second: snow2_03_19
+  - first:
+      213: 6442473999286102782
+    second: snow2_03_20
+  - first:
+      213: 6522418510312123449
+    second: snow2_03_21
+  - first:
+      213: -4775377775326514663
+    second: snow2_03_22
+  - first:
+      213: -3935255618199737227
+    second: snow2_03_23
+  - first:
+      213: -6548079310747731660
+    second: snow2_03_24
+  - first:
+      213: -3751755665469859118
+    second: snow2_03_25
+  - first:
+      213: -3952585370687141702
+    second: snow2_03_26
+  - first:
+      213: 4130524510549792351
+    second: snow2_03_27
+  - first:
+      213: 7709429022708552163
+    second: snow2_03_28
+  - first:
+      213: -3939315239113624654
+    second: snow2_03_29
+  - first:
+      213: -4553988829160710613
+    second: snow2_03_30
+  - first:
+      213: 8205992720065574568
+    second: snow2_03_31
+  - first:
+      213: -2664030056665565746
+    second: snow2_03_32
+  - first:
+      213: -139163481386868879
+    second: snow2_03_33
+  - first:
+      213: 1035768786196722900
+    second: snow2_03_34
+  - first:
+      213: -1246911865051309119
+    second: snow2_03_35
+  - first:
+      213: 4530791501014664183
+    second: snow2_03_36
+  - first:
+      213: 5210212825661307772
+    second: snow2_03_37
+  - first:
+      213: 3870794948099397826
+    second: snow2_03_38
+  - first:
+      213: -3942578026902367953
+    second: snow2_03_39
+  - first:
+      213: -1819262169699688234
+    second: snow2_03_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: snow2_03_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 247
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f6f1738a8087b3d0800000000000000
+      internalID: -3190940478569580811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_1
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 258
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2c521527d826a640800000000000000
+      internalID: 5090801333293964334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_2
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 259
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0491902f4c50c9ea0800000000000000
+      internalID: -5864806271310816960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 242
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77c68e19d0e6a4920800000000000000
+      internalID: 2975311508393192567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_4
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 239
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 075d725254fdf9ab0800000000000000
+      internalID: -4999031573288856208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_5
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 241
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb6247e3b7fc36680800000000000000
+      internalID: -8762932321697126725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_6
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 240
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a4b3f43918b023d0800000000000000
+      internalID: -3233382114049936221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_7
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 234
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a5b6952aecb36070800000000000000
+      internalID: 8098524268781286825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_8
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 226
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87212a6f51e87c8f0800000000000000
+      internalID: -520291006954728840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_9
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 223
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c34bc3da83ef07fa0800000000000000
+      internalID: -5804860400302508996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_10
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 227
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6333522dd458ba90800000000000000
+      internalID: -7297989887413505172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_11
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 210
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54a8b038048ec7730800000000000000
+      internalID: 3998325932972280389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_12
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 207
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90bfd4ae39d5875e0800000000000000
+      internalID: -1911675151946220791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_13
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 214
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23a64e275aa8bc470800000000000000
+      internalID: 8415972771873712690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_14
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 212
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caf0c2dea565217e0800000000000000
+      internalID: -1796278352841273428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_15
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 197
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bef45c47e8db44700800000000000000
+      internalID: 523751876223913963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_16
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 205
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e94556eaaf7ef2650800000000000000
+      internalID: 6210437475020919966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_17
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 199
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1095bed34def62ee0800000000000000
+      internalID: -1286060456042342143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_18
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 186
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e763f3dd64ff534d0800000000000000
+      internalID: -3155335284078463362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_19
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 194
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db369777ff44b54b0800000000000000
+      internalID: -5450687059990060099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_20
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 191
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efa632af7f3486950800000000000000
+      internalID: 6442473999286102782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_21
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 193
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93c269fe319448a50800000000000000
+      internalID: 6522418510312123449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_22
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 186
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9123e51e6337abdb0800000000000000
+      internalID: -4775377775326514663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_23
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 183
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57c28d87dd92369c0800000000000000
+      internalID: -3935255618199737227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_24
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 175
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 439fbc16f8c8025a0800000000000000
+      internalID: -6548079310747731660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_25
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 173
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2da1c9399161febc0800000000000000
+      internalID: -3751755665469859118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_26
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 156
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab889cb0c889529c0800000000000000
+      internalID: -3952585370687141702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_27
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 155
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f565d5b6822925930800000000000000
+      internalID: 4130524510549792351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_28
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 156
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e151af89d46dfa60800000000000000
+      internalID: 7709429022708552163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_29
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 163
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b3795259adb459c0800000000000000
+      internalID: -3939315239113624654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_30
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 166
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e57c6b94bfcc0c0800000000000000
+      internalID: -4553988829160710613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_31
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 150
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a633f4d6ea81e170800000000000000
+      internalID: 8205992720065574568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_32
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 157
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec53c7137c6770bd0800000000000000
+      internalID: -2664030056665565746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_33
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 152
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17f9a3e0d87911ef0800000000000000
+      internalID: -139163481386868879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_34
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 154
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d471ba293acf5e00800000000000000
+      internalID: 1035768786196722900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_35
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 142
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cb9561e34412bee0800000000000000
+      internalID: -1246911865051309119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_36
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 139
+        width: 45
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f386517dda90ee30800000000000000
+      internalID: 4530791501014664183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_37
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 142
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7bf9b5c5f46e4840800000000000000
+      internalID: 5210212825661307772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_38
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 147
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c857d73f73d7b530800000000000000
+      internalID: 3870794948099397826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_39
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 143
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2159375c262949c0800000000000000
+      internalID: -3942578026902367953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow2_03_40
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 140
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d06ebd02bea0c6e0800000000000000
+      internalID: -1819262169699688234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      snow2_03_0: -3190940478569580811
+      snow2_03_1: 5090801333293964334
+      snow2_03_10: -7297989887413505172
+      snow2_03_11: 3998325932972280389
+      snow2_03_12: -1911675151946220791
+      snow2_03_13: 8415972771873712690
+      snow2_03_14: -1796278352841273428
+      snow2_03_15: 523751876223913963
+      snow2_03_16: 6210437475020919966
+      snow2_03_17: -1286060456042342143
+      snow2_03_18: -3155335284078463362
+      snow2_03_19: -5450687059990060099
+      snow2_03_2: -5864806271310816960
+      snow2_03_20: 6442473999286102782
+      snow2_03_21: 6522418510312123449
+      snow2_03_22: -4775377775326514663
+      snow2_03_23: -3935255618199737227
+      snow2_03_24: -6548079310747731660
+      snow2_03_25: -3751755665469859118
+      snow2_03_26: -3952585370687141702
+      snow2_03_27: 4130524510549792351
+      snow2_03_28: 7709429022708552163
+      snow2_03_29: -3939315239113624654
+      snow2_03_3: 2975311508393192567
+      snow2_03_30: -4553988829160710613
+      snow2_03_31: 8205992720065574568
+      snow2_03_32: -2664030056665565746
+      snow2_03_33: -139163481386868879
+      snow2_03_34: 1035768786196722900
+      snow2_03_35: -1246911865051309119
+      snow2_03_36: 4530791501014664183
+      snow2_03_37: 5210212825661307772
+      snow2_03_38: 3870794948099397826
+      snow2_03_39: -3942578026902367953
+      snow2_03_4: -4999031573288856208
+      snow2_03_40: -1819262169699688234
+      snow2_03_5: -8762932321697126725
+      snow2_03_6: -3233382114049936221
+      snow2_03_7: 8098524268781286825
+      snow2_03_8: -520291006954728840
+      snow2_03_9: -5804860400302508996
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
