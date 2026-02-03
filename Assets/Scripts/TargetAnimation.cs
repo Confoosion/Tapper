@@ -262,8 +262,8 @@ public class TargetAnimation : MonoBehaviour
     {
         QueueEnterAnimation();
         QueueIdleAnimation();
-        // QueueExitAnimation();
-        QueueHitAnimation();
+        QueueExitAnimation();
+        // QueueHitAnimation();
     }
 
     // Strictly for StartScreen
