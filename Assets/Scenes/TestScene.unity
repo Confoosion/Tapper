@@ -640,7 +640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2012841713
 RectTransform:
   m_ObjectHideFlags: 0
@@ -739,7 +739,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b0cc22d4005ac497787b3c4690739f6a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df87c96a1a8524b5f8cc1051ad9138d5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1287,6 +1287,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2070496008}
     m_Modifications:
+    - target: {fileID: 772036583446590001, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3153761119376352261, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
