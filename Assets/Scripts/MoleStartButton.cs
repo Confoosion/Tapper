@@ -12,6 +12,7 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
     [SerializeField] private GameObject tapStart_GO;
 
     private float delay = 1.5f;
+    // private float waitTapTime = 0.3f;
 
     void Awake()
     {
@@ -37,14 +38,14 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!LeanTween.isTweening(this.gameObject) && !ScreenManager.Singleton.IsTransitionGoing())
+        if (!ScreenManager.Singleton.IsTransitionGoing())
         {
             UIManager.Singleton.HideSettingsAndPauseIcon();
         
             tapImage.gameObject.SetActive(true);
 
             SoundManager.Singleton.PlayHitSound();
-            targetAnimation.QueueHitAnimation();
+            targetAnimation.StartHitAnimation();
             // targetAnimation.StartHitAnimation();
         }
     }
