@@ -48,6 +48,14 @@ public class ShopManager : MonoBehaviour
 
     [Space]
 
+    [Header("Taps Category")]
+    [SerializeField] private GameObject taps_HOLDER;
+    [SerializeField] private ParticleSystem taps_Particle;
+    [SerializeField] private Taps_SO[] tapSets;
+    private int equippedTapIndex;
+
+    [Space]
+
     [Header("General Shop UI")]
     [SerializeField] private Image shopButton;
     [SerializeField] private Sprite[] shopButtonSprites;
