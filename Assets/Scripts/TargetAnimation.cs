@@ -157,6 +157,12 @@ public class TargetAnimation : MonoBehaviour
         interrupted = true;
         ClearQueue();
         interrupted = false;
+
+        if(LeanTween.isTweening(gameObject))
+        {
+            LeanTween.cancel(gameObject);
+        }
+
         QueueAnimation(state);
     }
 
@@ -209,7 +215,7 @@ public class TargetAnimation : MonoBehaviour
         targetFrame.sprite = enterFrame;
 
         LeanTween.scale(this.gameObject, originalScale, enterTime).setEase(LeanTweenType.easeOutElastic);
-        yield return new WaitForSeconds(enterTime);
+        // yield return new WaitForSeconds(enterTime);
     }
 
     IEnumerator _PlayIdleAnim()
@@ -250,7 +256,7 @@ public class TargetAnimation : MonoBehaviour
     public float GetHitTime()
     {
         // Debug.Log("HIT TIME = " + (idleDuration + (float)enterFrames.Length * 0.01f));
-        return(enterTime + idleTime);
+        return(idleTime);
     }
 
     public void ActivateEndAction()
