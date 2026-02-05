@@ -205,7 +205,8 @@ public class ShopManager : MonoBehaviour
 
     private void UpdateTapShop(int index)
     {
-
+        taps_Particle = tapSets[index].particle;
+        
         MAX_ShopIndex = tapSets.Length;
     }
 
