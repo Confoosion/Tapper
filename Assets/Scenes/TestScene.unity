@@ -1291,6 +1291,22 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 772036583446590001, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 772036583446590001, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 772036583446590001, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 772036583446590001, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
+      propertyPath: InitialModule.startColor.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3153761119376352261, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
