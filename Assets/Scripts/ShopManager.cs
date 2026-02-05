@@ -122,6 +122,7 @@ public class ShopManager : MonoBehaviour
                 }
             case ShopCategory.Taps:
                 {
+                    UpdateTapShop(index);
                     break;
                 }
         }
@@ -182,11 +183,10 @@ public class ShopManager : MonoBehaviour
 
         ShopItemData bg_itemData = ShopSaveSystem.GetBackgroundData(backgroundSets[index].name);
 
-        Debug.Log("Looking at: " + backgroundSets[index].name);
-        Debug.Log("This item is " + (bg_itemData.isUnlocked ? "unlocked" : "locked"));
+        // Debug.Log("Looking at: " + backgroundSets[index].name);
+        // Debug.Log("This item is " + (bg_itemData.isUnlocked ? "unlocked" : "locked"));
         if(bg_itemData.isUnlocked)
         {
-            Debug.Log("TEXT SHOULD BE OWNED");
             shopCost.text = "OWNED";
             if(bg_itemData.isEquipped)
                 currentShopState = ShopButtonState.Equipped;
@@ -201,6 +201,12 @@ public class ShopManager : MonoBehaviour
         }
         
         MAX_ShopIndex = backgroundSets.Length;
+    }
+
+    private void UpdateTapShop(int index)
+    {
+
+        MAX_ShopIndex = tapSets.Length;
     }
 
     private void SwitchShopCategory(ShopCategory shopType, int shopIndex)
@@ -224,7 +230,7 @@ public class ShopManager : MonoBehaviour
 
     public void GoToTapsCategory()
     {
-        SwitchShopCategory(ShopCategory.Taps, 0);
+        SwitchShopCategory(ShopCategory.Taps, equippedTapIndex);
     }
 
     private void HideAllCategories()
@@ -248,6 +254,11 @@ public class ShopManager : MonoBehaviour
             case ShopCategory.Backgrounds:
                 {
                     background_HOLDER.SetActive(true);
+                    break;
+                }
+            case ShopCategory.Taps:
+                {
+                    taps_HOLDER.SetActive(true);
                     break;
                 }
         }
@@ -342,7 +353,6 @@ public class ShopManager : MonoBehaviour
                     itemData.isUnlocked = true;
                     
                     // Save immediately
-                    // equippedAnimalIndex = currentShopIndex;
                     ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
                     break;
                 }
@@ -353,7 +363,6 @@ public class ShopManager : MonoBehaviour
                     ShopItemData itemData = ShopSaveSystem.GetBackgroundData(backgroundSets[currentShopIndex].name);
                     itemData.isUnlocked = true;
 
-                    // equippedBackgroundIndex = currentShopIndex;
                     ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
                     break;
                 }

@@ -3278,6 +3278,8 @@ MonoBehaviour:
   taps_Particle: {fileID: 764938875}
   tapSets:
   - {fileID: 11400000, guid: 8ffdc24fda7004604bc084e7977242d2, type: 2}
+  - {fileID: 11400000, guid: 6b9ca5951497740048ebd35a346b47b1, type: 2}
+  - {fileID: 11400000, guid: 0b478250f04da4aa6b2f08f9ece2ca16, type: 2}
   shopButton: {fileID: 815353048}
   shopButtonSprites:
   - {fileID: 21300000, guid: 01f772dcbb6ceba4c81aacf6098567a3, type: 3}
@@ -5207,7 +5209,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
       - m_Target: {fileID: 1206995913}
         m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
         m_MethodName: MinorTransition_Specific
@@ -5219,7 +5221,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
       - m_Target: {fileID: 1206995912}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: NewFeatureComingSoon
@@ -5231,7 +5233,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &575544541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15069,6 +15071,7 @@ GameObject:
   - component: {fileID: 1170236811}
   - component: {fileID: 1170236810}
   - component: {fileID: 1170236809}
+  - component: {fileID: 1170236812}
   m_Layer: 5
   m_Name: Target
   m_TagString: Untagged
@@ -15172,6 +15175,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170236807}
   m_CullTransparentMesh: 1
+--- !u!114 &1170236812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170236807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9edb3b0bf09b94d68b59f0a303a36066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  particleSystem: {fileID: 764938875}
 --- !u!1 &1176389591
 GameObject:
   m_ObjectHideFlags: 0
