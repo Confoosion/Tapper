@@ -219,6 +219,8 @@ public class ScreenManager : MonoBehaviour
         LeanTween.moveLocal(S_rightLeaves_Fast, rightLeaves_FastSwap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
         LeanTween.moveLocal(S_rightLeaves_Slow, rightLeaves_SlowSwap.outPosition, transitionTime).setEase(LeanTweenType.easeInCubic);
 
+        yield return new WaitForSeconds(transitionTime);
+
         transition = null;
     }
 
