@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: db2a07fb3ffdc4c2ea7937a809f37eb8
+guid: 657384e131e2f4a15ad5bbd99bd80c7c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5211964216910868256
-    second: sprite_sheet (2)_0
+      213: 3204290344396990444
+    second: sprite_sheet (3)_0
   - first:
-      213: -9043191669338126048
-    second: sprite_sheet (2)_1
+      213: 7332862405812815151
+    second: sprite_sheet (3)_1
   - first:
-      213: 1201776419199054647
-    second: sprite_sheet (2)_2
+      213: -9136718100887295082
+    second: sprite_sheet (3)_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 0
+    sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -81,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprite_sheet (2)_0
+      name: WhiteSparkle
       rect:
         serializedVersion: 2
         x: 0
@@ -134,36 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e01bfca8226ba7b0800000000000000
-      internalID: -5211964216910868256
+      spriteID: ce72ff6571de77c20800000000000000
+      internalID: 3204290344396990444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite_sheet (2)_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0294451f611208280800000000000000
-      internalID: -9043191669338126048
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite_sheet (2)_2
+      name: PinkSparkle
       rect:
         serializedVersion: 2
         x: 0
@@ -178,8 +156,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 733fcc539419da010800000000000000
-      internalID: 1201776419199054647
+      spriteID: f250a45c18f83c560800000000000000
+      internalID: 7332862405812815151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowSparkle
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b2bbfab4bd33180800000000000000
+      internalID: -9136718100887295082
       vertices: []
       indices: 
       edges: []
@@ -188,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 32aae66eaadd54623bd57c1cdd3d1e5a
+    spriteID: e9e8183ebb0104de4a2cbc4f13805ee6
     internalID: 0
     vertices: []
     indices: 
@@ -198,9 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sprite_sheet (2)_0: -5211964216910868256
-      sprite_sheet (2)_1: -9043191669338126048
-      sprite_sheet (2)_2: 1201776419199054647
+      PinkSparkle: 7332862405812815151
+      WhiteSparkle: 3204290344396990444
+      YellowSparkle: -9136718100887295082
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
