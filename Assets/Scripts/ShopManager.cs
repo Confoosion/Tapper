@@ -216,7 +216,7 @@ public class ShopManager : MonoBehaviour
     {
         shopTitle.SetText(tapSets[index].name);
 
-        taps_Particle = tapSets[index].particle;
+        // taps_Particle = tapSets[index].particle;
         // taps_ShopParticle.GetComponent<ParticleSystem>() = taps_Particle;
 
         ShopItemData tap_itemData = ShopSaveSystem.GetTapData(tapSets[index].name);

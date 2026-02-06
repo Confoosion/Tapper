@@ -71,6 +71,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
             if (isGood)
             {
                 SoundManager.Singleton.PlayHitSound();
+                ThemeManager.Singleton.PlayTapEffect(transform.position);
                 ScoreManager.Singleton.AddPoints(1);
                 if (ScoreManager.Singleton.AddCircleTapped())
                 {

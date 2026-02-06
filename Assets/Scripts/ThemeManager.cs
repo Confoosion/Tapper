@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 [System.Serializable]
 public class AnimalSet
@@ -21,12 +22,6 @@ public class Background
     public Sprite menuBG;
 }
 
-[System.Serializable]
-public class Tap
-{
-    public ParticleSystem tapParticle;
-}
-
 public class ThemeManager : MonoBehaviour
 {
     public static ThemeManager Singleton;
@@ -41,9 +36,13 @@ public class ThemeManager : MonoBehaviour
 
     [SerializeField] AnimalSet currentAnimalSet;
     private AnimalSet_SO currentAnimalSet_SO;
+
     [SerializeField] Background currentBackground;
     private Background_SO currentBackground_SO;
+
+    private string currentTapPoolTag;
     private Taps_SO currentTap_SO;
+
 
 
     public void EquipAnimalSet(AnimalSet_SO animalSet)
@@ -80,8 +79,10 @@ public class ThemeManager : MonoBehaviour
     public void EquipTap(Taps_SO tap)
     {
         currentTap_SO = tap;
+        currentTapPoolTag = tap.poolTag;
     }
 
+    // Updating Animal ObjectPools
     private void UpdateObjectPools(AnimalSet_SO animalSet)
     {
         if (ObjectPoolManager.Instance == null)
@@ -120,6 +121,56 @@ public class ThemeManager : MonoBehaviour
         // Match the tags in ObjectPoolManager
         string[] tags = { "Mole", "Mouse", "Rabbit" };
         return index < tags.Length ? tags[index] : $"GoodTarget{index}";
+    }
+
+    // Playing equipped Tap particles
+    public void PlayTapEffect(Vector2 position)
+    {
+        if (string.IsNullOrEmpty(currentTapPoolTag))
+        {
+            Debug.LogWarning("No tap effect equipped!");
+            return;
+        }
+        
+        // Spawn particle from the equipped tap's pool
+        GameObject particleObj = ObjectPoolManager.Instance.SpawnFromPool(currentTapPoolTag, position);
+        
+        if (particleObj != null)
+        {
+            ParticleSystem ps = particleObj.GetComponent<ParticleSystem>();
+            
+            if (ps != null)
+            {
+                ps.Clear();
+                ps.Play();
+                
+                // Auto-return to pool when particle finishes
+                StartCoroutine(ReturnTapToPool(particleObj, ps));
+            }
+            else
+            {
+                Debug.LogWarning($"No ParticleSystem found on {particleObj.name}");
+                ObjectPoolManager.Instance.ReturnToPool(particleObj);
+            }
+        }
+    }
+
+    IEnumerator ReturnTapToPool(GameObject obj, ParticleSystem ps)
+    {
+        // Wait for particle to finish playing
+        float duration = ps.main.duration;
+        float lifetime = ps.main.startLifetime.constantMax;
+        
+        yield return new WaitForSeconds(duration + lifetime);
+        
+        // Make sure it's completely done
+        while (ps.IsAlive())
+        {
+            yield return null;
+        }
+        
+        // Return to pool
+        ObjectPoolManager.Instance.ReturnToPool(obj);
     }
 
     public AnimalSet GetAnimalSet()

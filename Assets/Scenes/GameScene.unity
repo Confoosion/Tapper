@@ -3275,7 +3275,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af0f94e255d494f25be754bf40917944, type: 2}
   - {fileID: 11400000, guid: 925b6ab3a143d47de94062411db19b03, type: 2}
   taps_HOLDER: {fileID: 393895365}
-  taps_ShopParticle: {fileID: 1170236812}
+  taps_ShopParticle: {fileID: 0}
   tapSets:
   - {fileID: 11400000, guid: 8ffdc24fda7004604bc084e7977242d2, type: 2}
   - {fileID: 11400000, guid: 6b9ca5951497740048ebd35a346b47b1, type: 2}
@@ -16258,6 +16258,21 @@ MonoBehaviour:
   - tag: Mushroom
     prefab: {fileID: 2802138409187390077, guid: 82d74ead842b9104699e0a9c5abd1b77, type: 3}
     size: 4
+    autoExpand: 1
+    expandAmount: 1
+  - tag: Whack
+    prefab: {fileID: 8716876356219563509, guid: 42d3458c413684ba7bc9e3913d022669, type: 3}
+    size: 3
+    autoExpand: 1
+    expandAmount: 1
+  - tag: Sparkles
+    prefab: {fileID: 5889972236143629645, guid: ca80d35d0a61348f48fe00bfd66f01ac, type: 3}
+    size: 3
+    autoExpand: 1
+    expandAmount: 1
+  - tag: Flowers
+    prefab: {fileID: 5170975936340265408, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
+    size: 3
     autoExpand: 1
     expandAmount: 1
   poolParent: {fileID: 1288892160}

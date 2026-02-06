@@ -15,5 +15,5 @@ MonoBehaviour:
   isUnlocked: 0
   isEquipped: 0
   price: 500
-  shopPreview_Size: 0
-  particle: {fileID: 7628106912192000473, guid: ca80d35d0a61348f48fe00bfd66f01ac, type: 3}
+  particlePrefab: {fileID: 5889972236143629645, guid: ca80d35d0a61348f48fe00bfd66f01ac, type: 3}
+  poolTag: Sparkles

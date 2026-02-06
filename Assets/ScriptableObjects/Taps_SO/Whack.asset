@@ -15,5 +15,5 @@ MonoBehaviour:
   isUnlocked: 1
   isEquipped: 0
   price: 0
-  shopPreview_Size: 0
-  particle: {fileID: 6591321340810446089, guid: 42d3458c413684ba7bc9e3913d022669, type: 3}
+  particlePrefab: {fileID: 8716876356219563509, guid: 42d3458c413684ba7bc9e3913d022669, type: 3}
+  poolTag: Whack

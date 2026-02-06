@@ -3,12 +3,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Taps_SO", menuName = "Scriptable Objects/Themes/Taps_SO")]
 public class Taps_SO : ShopItem
 {
-    [Header("Tap")]
-    public ParticleSystem particle;
+    [Header("Tap Particle")]
+    public GameObject particlePrefab;
+    public string poolTag;
 
     public override void EquipItem()
     {
         isEquipped = true;
-        // ThemeManager.Singleton.EquipAnimalSet(this);
+        ThemeManager.Singleton.EquipTap(this);
     }
 }

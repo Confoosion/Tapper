@@ -15,5 +15,5 @@ MonoBehaviour:
   isUnlocked: 0
   isEquipped: 0
   price: 500
-  shopPreview_Size: 0
-  particle: {fileID: 772036583446590001, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
+  particlePrefab: {fileID: 5170975936340265408, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
+  poolTag: Flowers
