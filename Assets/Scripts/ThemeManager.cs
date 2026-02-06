@@ -21,6 +21,12 @@ public class Background
     public Sprite menuBG;
 }
 
+[System.Serializable]
+public class Tap
+{
+    public ParticleSystem tapParticle;
+}
+
 public class ThemeManager : MonoBehaviour
 {
     public static ThemeManager Singleton;
@@ -37,6 +43,8 @@ public class ThemeManager : MonoBehaviour
     private AnimalSet_SO currentAnimalSet_SO;
     [SerializeField] Background currentBackground;
     private Background_SO currentBackground_SO;
+    private Taps_SO currentTap_SO;
+
 
     public void EquipAnimalSet(AnimalSet_SO animalSet)
     {
@@ -67,6 +75,11 @@ public class ThemeManager : MonoBehaviour
 
         // Show the visuals
         UIManager.Singleton.SwitchBackgrounds(background);
+    }
+
+    public void EquipTap(Taps_SO tap)
+    {
+        currentTap_SO = tap;
     }
 
     private void UpdateObjectPools(AnimalSet_SO animalSet)
@@ -118,4 +131,9 @@ public class ThemeManager : MonoBehaviour
     {
         return currentBackground;
     }
+
+    public Taps_SO GetCurrentTap()
+{
+    return currentTap_SO;
+}
 }

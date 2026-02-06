@@ -25,8 +25,10 @@ public class ShopSaveData
 {
     public List<ShopItemData> animalSets = new List<ShopItemData>();
     public List<ShopItemData> backgrounds = new List<ShopItemData>();
+    public List<ShopItemData> taps = new List<ShopItemData>();
     public int equippedAnimalSetIndex = 0;
     public int equippedBackgroundIndex = 0;
+    public int equippedTapIndex = 0;
 }
 
 public static class ShopSaveSystem
@@ -36,8 +38,9 @@ public static class ShopSaveSystem
     // Runtime copies of shop data (NOT the ScriptableObjects!)
     private static Dictionary<string, ShopItemData> runtimeAnimalData = new Dictionary<string, ShopItemData>();
     private static Dictionary<string, ShopItemData> runtimeBackgroundData = new Dictionary<string, ShopItemData>();
+    private static Dictionary<string, ShopItemData> runtimeTapData = new Dictionary<string, ShopItemData>();
     
-    public static void SaveShopData(AnimalSet_SO[] animalSets, Background_SO[] backgrounds)
+    public static void SaveShopData(AnimalSet_SO[] animalSets, Background_SO[] backgrounds, Taps_SO[] taps)
     {
         ShopSaveData saveData = new ShopSaveData();
         
@@ -68,6 +71,21 @@ public static class ShopSaveSystem
                 if (runtimeBackgroundData[itemName].isEquipped)
                 {
                     saveData.equippedBackgroundIndex = i;
+                }
+            }
+        }
+
+        for(int i = 0; i < taps.Length; i++)
+        {
+            string itemName = taps[i].name;
+        
+            if (runtimeTapData.ContainsKey(itemName))
+            {
+                saveData.taps.Add(runtimeTapData[itemName]);
+                
+                if (runtimeTapData[itemName].isEquipped)
+                {
+                    saveData.equippedTapIndex = i;
                 }
             }
         }
@@ -178,6 +196,55 @@ public static class ShopSaveSystem
         return 0;
     }
     
+    // ========== LOAD TAPS ==========
+    public static int LoadTapData(Taps_SO[] taps)
+    {
+        // Initialize runtime data from ScriptableObject defaults
+        runtimeTapData.Clear();
+        foreach (Taps_SO tap in taps)
+        {
+            runtimeTapData[tap.name] = new ShopItemData(tap.name, tap);
+        }
+        
+        // If save file exists, override with saved data
+        if (File.Exists(SavePath))
+        {
+            try
+            {
+                string json = File.ReadAllText(SavePath);
+                ShopSaveData saveData = JsonUtility.FromJson<ShopSaveData>(json);
+                
+                foreach (var savedItem in saveData.taps)
+                {
+                    if (runtimeTapData.ContainsKey(savedItem.itemName))
+                    {
+                        runtimeTapData[savedItem.itemName] = savedItem;
+                    }
+                }
+                
+                Debug.Log("Tap data loaded successfully!");
+                return saveData.equippedTapIndex;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Failed to load tap data: {e.Message}");
+            }
+        }
+        else
+        {
+            Debug.Log("No save file found. Using default tap values.");
+            
+            // Set defaults in runtime data
+            if (taps.Length > 0)
+            {
+                string firstName = taps[0].name;
+                runtimeTapData[firstName].isUnlocked = true;
+                runtimeTapData[firstName].isEquipped = true;
+            }
+        }
+        return 0;
+    }
+
     // ========== GET DATA ==========
     public static ShopItemData GetAnimalData(string itemName)
     {
@@ -187,6 +254,11 @@ public static class ShopSaveSystem
     public static ShopItemData GetBackgroundData(string itemName)
     {
         return runtimeBackgroundData.ContainsKey(itemName) ? runtimeBackgroundData[itemName] : null;
+    }
+
+    public static ShopItemData GetTapData(string itemName)
+    {
+        return runtimeTapData.ContainsKey(itemName) ? runtimeTapData[itemName] : null;
     }
     
     // ========== UPDATE DATA ==========
@@ -210,6 +282,17 @@ public static class ShopSaveSystem
         }
     }
     
+    public static void UpdateTapData(string itemName, bool isUnlocked, bool isEquipped, int price)
+    {
+        if (runtimeTapData.ContainsKey(itemName))
+        {
+            runtimeTapData[itemName].isUnlocked = isUnlocked;
+            runtimeTapData[itemName].isEquipped = isEquipped;
+            runtimeTapData[itemName].price = price;
+        }
+    }
+
+    // ========== SAVING & DELETING DATA ==========
     public static void DeleteSaveData()
     {
         if (File.Exists(SavePath))

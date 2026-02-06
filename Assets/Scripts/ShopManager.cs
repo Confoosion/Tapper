@@ -50,8 +50,9 @@ public class ShopManager : MonoBehaviour
 
     [Header("Taps Category")]
     [SerializeField] private GameObject taps_HOLDER;
-    [SerializeField] private ParticleSystem taps_Particle;
+    [SerializeField] private GameObject taps_ShopParticle;
     [SerializeField] private Taps_SO[] tapSets;
+    private ParticleSystem taps_Particle;
     private int equippedTapIndex;
 
     [Space]
@@ -77,6 +78,9 @@ public class ShopManager : MonoBehaviour
         
         int _backgroundIndex = ShopSaveSystem.LoadBackgroundData(backgroundSets);
         ThemeManager.Singleton.EquipBackgroundSet(backgroundSets[_backgroundIndex]);
+
+        int _tapIndex = ShopSaveSystem.LoadTapData(tapSets);
+        ThemeManager.Singleton.EquipTap(tapSets[_tapIndex]);
     }
     
     // Helper method to get runtime data
@@ -90,10 +94,15 @@ public class ShopManager : MonoBehaviour
         return ShopSaveSystem.GetBackgroundData(backgroundSets[currentShopIndex].name);
     }
 
+    private ShopItemData GetCurrentTapData()
+    {
+        return ShopSaveSystem.GetTapData(tapSets[currentShopIndex].name);
+    }
+
     // ========== NEW: Save on quit ==========
     void OnApplicationQuit()
     {
-        ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
+        ShopSaveSystem.SaveShopData(animalSets, backgroundSets, tapSets);
     }
 
     // ========== NEW: Mobile-safe save (OPTIONAL but recommended) ==========
@@ -101,7 +110,7 @@ public class ShopManager : MonoBehaviour
     {
         if (pauseStatus) // App going to background
         {
-            ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
+            ShopSaveSystem.SaveShopData(animalSets, backgroundSets, tapSets);
         }
     }
 
@@ -205,8 +214,28 @@ public class ShopManager : MonoBehaviour
 
     private void UpdateTapShop(int index)
     {
+        shopTitle.SetText(tapSets[index].name);
+
         taps_Particle = tapSets[index].particle;
-        
+        // taps_ShopParticle.GetComponent<ParticleSystem>() = taps_Particle;
+
+        ShopItemData tap_itemData = ShopSaveSystem.GetTapData(tapSets[index].name);
+
+        if(tap_itemData.isUnlocked)
+        {
+            shopCost.SetText("OWNED");
+            if(tap_itemData.isEquipped)
+                currentShopState = ShopButtonState.Equipped;
+            else
+                currentShopState = ShopButtonState.Unlocked;
+        }
+        else
+        {
+            shopPrice = tapSets[index].price;
+            shopCost.SetText(shopPrice.ToString());
+            currentShopState = ShopButtonState.Locked;
+        }
+
         MAX_ShopIndex = tapSets.Length;
     }
 
@@ -241,6 +270,9 @@ public class ShopManager : MonoBehaviour
 
         // Hiding Backgrounds Category
         background_HOLDER.SetActive(false);
+
+        // Hiding Taps Category
+        taps_HOLDER.SetActive(false);
     }
 
     private void ShowCategory(ShopCategory shopType)
@@ -354,7 +386,7 @@ public class ShopManager : MonoBehaviour
                     itemData.isUnlocked = true;
                     
                     // Save immediately
-                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
+                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets, tapSets);
                     break;
                 }
             case ShopCategory.Backgrounds:
@@ -364,7 +396,17 @@ public class ShopManager : MonoBehaviour
                     ShopItemData itemData = ShopSaveSystem.GetBackgroundData(backgroundSets[currentShopIndex].name);
                     itemData.isUnlocked = true;
 
-                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
+                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets, tapSets);
+                    break;
+                }
+            case ShopCategory.Taps:
+                {
+                    tapSets[currentShopIndex].BuyItem();
+
+                    ShopItemData itemData = ShopSaveSystem.GetTapData(tapSets[currentShopIndex].name);
+                    itemData.isUnlocked = true;
+
+                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets, tapSets);
                     break;
                 }
         }
@@ -393,7 +435,7 @@ public class ShopManager : MonoBehaviour
                     
                     // Save immediately
                     equippedAnimalIndex = currentShopIndex;
-                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
+                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets, tapSets);
                     break;
                 }
             case ShopCategory.Backgrounds:
@@ -410,7 +452,24 @@ public class ShopManager : MonoBehaviour
                     ThemeManager.Singleton.EquipBackgroundSet(backgroundSets[currentShopIndex]);
 
                     equippedBackgroundIndex = currentShopIndex;
-                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
+                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets, tapSets);
+                    break;
+                }
+            case ShopCategory.Taps:
+                {
+                    foreach(Taps_SO tap in tapSets)
+                    {
+                        ShopItemData data = ShopSaveSystem.GetTapData(tap.name);
+                        data.isEquipped = false;
+                    }
+
+                    ShopItemData selectedData = ShopSaveSystem.GetTapData(tapSets[currentShopIndex].name);
+                    selectedData.isEquipped = true;
+
+                    ThemeManager.Singleton.EquipTap(tapSets[currentShopIndex]);
+
+                    equippedTapIndex = currentShopIndex;
+                    ShopSaveSystem.SaveShopData(animalSets, backgroundSets, tapSets);
                     break;
                 }
         }
@@ -425,7 +484,7 @@ public class ShopManager : MonoBehaviour
     // ========== NEW: Optional manual save method ==========
     public void SaveShopProgress()
     {
-        ShopSaveSystem.SaveShopData(animalSets, backgroundSets);
+        ShopSaveSystem.SaveShopData(animalSets, backgroundSets, tapSets);
     }
     
     // ========== NEW: Optional reset for testing ==========
@@ -449,6 +508,14 @@ public class ShopManager : MonoBehaviour
             data.isEquipped = false;
         }
         
+        // Reset taps
+        foreach(Taps_SO tap in tapSets)
+        {
+            ShopItemData data = ShopSaveSystem.GetTapData(tap.name);
+            data.isUnlocked = false;
+            data.isEquipped = false;
+        }
+
         // First animal and background unlocked and equipped
         ShopItemData firstAnimal = ShopSaveSystem.GetAnimalData(animalSets[0].name);
         firstAnimal.isUnlocked = true;
@@ -457,6 +524,10 @@ public class ShopManager : MonoBehaviour
         ShopItemData firstBG = ShopSaveSystem.GetBackgroundData(backgroundSets[0].name);
         firstBG.isUnlocked = true;
         firstBG.isEquipped = true;
+
+        ShopItemData firstTap = ShopSaveSystem.GetTapData(tapSets[0].name);
+        firstTap.isUnlocked = true;
+        firstTap.isEquipped = true;
         
         currentShopIndex = 0;
         UpdateShopCategoryVisuals(0);

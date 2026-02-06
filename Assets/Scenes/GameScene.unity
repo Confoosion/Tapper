@@ -3275,7 +3275,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af0f94e255d494f25be754bf40917944, type: 2}
   - {fileID: 11400000, guid: 925b6ab3a143d47de94062411db19b03, type: 2}
   taps_HOLDER: {fileID: 393895365}
-  taps_Particle: {fileID: 764938875}
+  taps_ShopParticle: {fileID: 1170236812}
   tapSets:
   - {fileID: 11400000, guid: 8ffdc24fda7004604bc084e7977242d2, type: 2}
   - {fileID: 11400000, guid: 6b9ca5951497740048ebd35a346b47b1, type: 2}
