@@ -5562,7 +5562,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000eb929901
+  m_ApplyToSortingLayers: 00000000eb92990143d19819
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -12768,6 +12768,7 @@ RectTransform:
   - {fileID: 1118482414}
   - {fileID: 375104166}
   - {fileID: 1288892160}
+  - {fileID: 1836580473}
   - {fileID: 161217267}
   - {fileID: 886488246}
   - {fileID: 1676084435}
@@ -16276,6 +16277,7 @@ MonoBehaviour:
     autoExpand: 1
     expandAmount: 1
   poolParent: {fileID: 1288892160}
+  effectParent: {fileID: 1836580473}
 --- !u!1 &1212308017
 GameObject:
   m_ObjectHideFlags: 0
@@ -20019,6 +20021,41 @@ MonoBehaviour:
   awayPosition: {x: 0, y: 2000, z: 0}
   dropPosition: {x: 0, y: -200, z: 0}
   dropTime: 1.5
+--- !u!1 &1836580472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836580473}
+  m_Layer: 5
+  m_Name: EFFECT_PARENT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1836580473
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836580472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 937875903}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1837110300
 GameObject:
   m_ObjectHideFlags: 0

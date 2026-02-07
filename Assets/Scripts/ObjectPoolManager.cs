@@ -26,6 +26,7 @@ public class ObjectPoolManager : MonoBehaviour
     [Header("Organization")]
     [Tooltip("Optional: Parent transform to organize pooled objects under")]
     public Transform poolParent;
+    public Transform effectParent;
 
     private Dictionary<string, Queue<GameObject>> poolDictionary;
     // private Dictionary<string, Transform> poolContainers;
@@ -60,7 +61,11 @@ public class ObjectPoolManager : MonoBehaviour
 
             for (int i = 0; i < pool.size; i++)
             {
-                GameObject obj = Instantiate(pool.prefab, poolParent);
+                GameObject obj;
+                if(pool.prefab.GetComponent<ParticleSystem>())
+                    obj = Instantiate(pool.prefab, effectParent);
+                else
+                    obj = Instantiate(pool.prefab, poolParent);
                 obj.SetActive(false);
                 // obj.transform.SetParent(poolParent);
                 objectPool.Enqueue(obj);
