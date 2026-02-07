@@ -7,6 +7,7 @@ public class ShopParticle : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        particleSystem.Play();
+        // particleSystem.Play();
+        ShopManager.Singleton.PreviewTapEffect();
     }
 }

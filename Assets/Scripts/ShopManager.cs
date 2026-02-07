@@ -50,9 +50,9 @@ public class ShopManager : MonoBehaviour
 
     [Header("Taps Category")]
     [SerializeField] private GameObject taps_HOLDER;
-    [SerializeField] private GameObject taps_ShopParticle;
+    [SerializeField] private Transform taps_PreviewPosition;
     [SerializeField] private Taps_SO[] tapSets;
-    private ParticleSystem taps_Particle;
+    private ParticleSystem currentTapPreview;
     private int equippedTapIndex;
 
     [Space]
@@ -81,6 +81,7 @@ public class ShopManager : MonoBehaviour
 
         int _tapIndex = ShopSaveSystem.LoadTapData(tapSets);
         ThemeManager.Singleton.EquipTap(tapSets[_tapIndex]);
+        equippedTapIndex = _tapIndex;
     }
     
     // Helper method to get runtime data
@@ -214,10 +215,13 @@ public class ShopManager : MonoBehaviour
 
     private void UpdateTapShop(int index)
     {
+        if (currentTapPreview != null)
+        {
+            Destroy(currentTapPreview.gameObject);
+            currentTapPreview = null;
+        }
+        
         shopTitle.SetText(tapSets[index].name);
-
-        // taps_Particle = tapSets[index].particle;
-        // taps_ShopParticle.GetComponent<ParticleSystem>() = taps_Particle;
 
         ShopItemData tap_itemData = ShopSaveSystem.GetTapData(tapSets[index].name);
 
@@ -479,6 +483,37 @@ public class ShopManager : MonoBehaviour
     public void PreviewAnimalSound(int targetIndex)
     {
         SoundManager.Singleton.PlaySound(animal_Sounds[targetIndex]);
+    }
+
+    // TAP PREVIEW
+    public void PreviewTapEffect()
+    {
+        // Clean up previous preview if still playing
+        if (currentTapPreview != null)
+        {
+            Destroy(currentTapPreview.gameObject);
+        }
+        
+        // Instantiate particle at preview position
+        GameObject previewObj = Instantiate(
+            tapSets[currentShopIndex].particlePrefab,
+            taps_PreviewPosition.position,
+            Quaternion.identity,
+            taps_PreviewPosition
+        );
+        
+        currentTapPreview = previewObj.GetComponent<ParticleSystem>();
+        if (currentTapPreview != null)
+        {
+            currentTapPreview.Play();
+            
+            // Auto-destroy after particle finishes
+            float duration = currentTapPreview.main.duration + currentTapPreview.main.startLifetime.constantMax;
+            Destroy(previewObj, duration + 0.5f);
+        }
+        
+        // Optional: Play tap sound
+        // SoundManager.Singleton.PlaySound(tapSound);
     }
     
     // ========== NEW: Optional manual save method ==========
