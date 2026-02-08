@@ -15,7 +15,7 @@ MonoBehaviour:
   tapEffect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11500000, guid: b1a90843bf67344a3a590e788559552f, type: 3}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 0
