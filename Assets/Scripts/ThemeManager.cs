@@ -134,11 +134,16 @@ public class ThemeManager : MonoBehaviour
         
         // Spawn particle from the equipped tap's pool
         GameObject particleObj = ObjectPoolManager.Instance.SpawnFromPool(currentTapPoolTag, position);
+        if(particleObj == null)
+            return;
         
-        if (particleObj != null)
+        if(currentTap_SO.specialEffect != null) // Play special Tap effect (Overwrites particle system)
         {
+            currentTap_SO.specialEffect.PlayTap();
+        }
+        else // Normal particle Taps
+        {   
             ParticleSystem ps = particleObj.GetComponent<ParticleSystem>();
-            
             if (ps != null)
             {
                 ps.Clear();

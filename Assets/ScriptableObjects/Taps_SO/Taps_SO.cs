@@ -6,6 +6,7 @@ public class Taps_SO : ShopItem
     [Header("Tap Particle")]
     public GameObject particlePrefab;
     public string poolTag;
+    public UniqueTap specialEffect;
 
     public override void EquipItem()
     {
