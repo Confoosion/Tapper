@@ -140,6 +140,7 @@ public class ThemeManager : MonoBehaviour
         if(currentTap_SO.specialEffect != null) // Play special Tap effect (Overwrites particle system)
         {
             currentTap_SO.specialEffect.PlayTap();
+            StartCoroutine(ReturnTapToPool(particleObj));
         }
         else // Normal particle Taps
         {   
@@ -175,6 +176,16 @@ public class ThemeManager : MonoBehaviour
         }
         
         // Return to pool
+        ObjectPoolManager.Instance.ReturnToPool(obj);
+    }
+
+    IEnumerator ReturnTapToPool(GameObject obj)
+    {
+        while(LeanTween.isTweening(obj))
+        {
+            yield return null;
+        }
+
         ObjectPoolManager.Instance.ReturnToPool(obj);
     }
 
