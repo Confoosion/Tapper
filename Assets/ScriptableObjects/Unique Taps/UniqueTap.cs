@@ -4,9 +4,13 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "Unique Tap", menuName = "Scriptable Objects/Themes/Unique Tap")]
 public class UniqueTap : ScriptableObject
 {
-    public UnityEvent tapEffect;
-    public void PlayTap()
+    [System.Serializable]
+    public class TapEffectEvent : UnityEvent<Vector2> { }
+
+    public TapEffectEvent tapEffect;
+    public float duration;
+    public void PlayTap(Vector2 position)
     {
-        tapEffect.Invoke();
+        tapEffect.Invoke(position);
     }
 }

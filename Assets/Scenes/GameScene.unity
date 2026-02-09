@@ -3280,6 +3280,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ffdc24fda7004604bc084e7977242d2, type: 2}
   - {fileID: 11400000, guid: 6b9ca5951497740048ebd35a346b47b1, type: 2}
   - {fileID: 11400000, guid: 0b478250f04da4aa6b2f08f9ece2ca16, type: 2}
+  - {fileID: 11400000, guid: b34247df1aae84ee8a681ecae934e62f, type: 2}
+  - {fileID: 11400000, guid: 9691ddc5441794231ae105c7762f483b, type: 2}
+  - {fileID: 11400000, guid: 602e44f0aaba9442cb99d43a92dcaa6f, type: 2}
   shopButton: {fileID: 815353048}
   shopButtonSprites:
   - {fileID: 21300000, guid: 01f772dcbb6ceba4c81aacf6098567a3, type: 3}
@@ -16273,6 +16276,21 @@ MonoBehaviour:
     expandAmount: 1
   - tag: Flowers
     prefab: {fileID: 5170975936340265408, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
+    size: 3
+    autoExpand: 1
+    expandAmount: 1
+  - tag: CatPaw
+    prefab: {fileID: 6454106165915238931, guid: 73e97a682001c4a6e863d7b446f7cea7, type: 3}
+    size: 3
+    autoExpand: 1
+    expandAmount: 1
+  - tag: DogPaw
+    prefab: {fileID: 6454106165915238931, guid: 61e23da12430c4be8a15b68830815af0, type: 3}
+    size: 3
+    autoExpand: 1
+    expandAmount: 1
+  - tag: Mallet
+    prefab: {fileID: 2618953291615064407, guid: 1d98787d967194fc394473242f530d58, type: 3}
     size: 3
     autoExpand: 1
     expandAmount: 1

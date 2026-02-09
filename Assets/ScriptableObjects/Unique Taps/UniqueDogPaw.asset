@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91b4f2e3d4e6642f99398fa02031ca82, type: 3}
-  m_Name: UniqueCatPaw
+  m_Name: UniqueDogPaw
   m_EditorClassIdentifier: Assembly-CSharp::UniqueTap
   tapEffect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3468316289406363871, guid: 73e97a682001c4a6e863d7b446f7cea7, type: 3}
+      - m_Target: {fileID: 3468316289406363871, guid: 61e23da12430c4be8a15b68830815af0, type: 3}
         m_TargetAssemblyTypeName: Tap_PawAnim, Assembly-CSharp
         m_MethodName: PlayAnim
         m_Mode: 1

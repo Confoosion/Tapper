@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c22809c39ff854beba95d996baf4ff66, type: 3}
-  m_Name: Flowers
+  m_Name: Mallet
   m_EditorClassIdentifier: Assembly-CSharp::Taps_SO
   isUnlocked: 0
   isEquipped: 0
-  price: 500
+  price: 1500
   effectType: 0
-  tapPrefab: {fileID: 5170975936340265408, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
-  poolTag: Flowers
+  tapPrefab: {fileID: 2618953291615064407, guid: 1d98787d967194fc394473242f530d58, type: 3}
+  poolTag: Mallet

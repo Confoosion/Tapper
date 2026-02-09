@@ -132,60 +132,103 @@ public class ThemeManager : MonoBehaviour
             return;
         }
         
-        // Spawn particle from the equipped tap's pool
-        GameObject particleObj = ObjectPoolManager.Instance.SpawnFromPool(currentTapPoolTag, position);
-        if(particleObj == null)
-            return;
-        
-        if(currentTap_SO.specialEffect != null) // Play special Tap effect (Overwrites particle system)
+        GameObject tapObj = ObjectPoolManager.Instance.SpawnFromPool(currentTapPoolTag, position);
+    
+        if (tapObj != null)
         {
-            currentTap_SO.specialEffect.PlayTap();
-            StartCoroutine(ReturnTapToPool(particleObj));
+            if (currentTap_SO.effectType == TapEffectType.Particle)
+            {
+                HandleParticleEffect(tapObj);
+            }
+            else if (currentTap_SO.effectType == TapEffectType.UniqueEffect)
+            {
+                HandleUniqueEffect(tapObj);
+            }
         }
-        else // Normal particle Taps
-        {   
-            ParticleSystem ps = particleObj.GetComponent<ParticleSystem>();
-            if (ps != null)
-            {
-                ps.Clear();
-                ps.Play();
+        // // Spawn particle from the equipped tap's pool
+        // GameObject particleObj = ObjectPoolManager.Instance.SpawnFromPool(currentTapPoolTag, position);
+        // if(particleObj == null)
+        //     return;
+        
+        // if(currentTap_SO.specialEffect != null) // Play special Tap effect (Overwrites particle system)
+        // {
+        //     currentTap_SO.specialEffect.PlayTap();
+        //     StartCoroutine(ReturnTapToPool(particleObj));
+        // }
+        // else // Normal particle Taps
+        // {   
+        //     ParticleSystem ps = particleObj.GetComponent<ParticleSystem>();
+        //     if (ps != null)
+        //     {
+        //         ps.Clear();
+        //         ps.Play();
                 
-                // Auto-return to pool when particle finishes
-                StartCoroutine(ReturnTapToPool(particleObj, ps));
-            }
-            else
-            {
-                Debug.LogWarning($"No ParticleSystem found on {particleObj.name}");
-                ObjectPoolManager.Instance.ReturnToPool(particleObj);
-            }
+        //         // Auto-return to pool when particle finishes
+        //         StartCoroutine(ReturnTapToPool(particleObj, ps));
+        //     }
+        //     else
+        //     {
+        //         Debug.LogWarning($"No ParticleSystem found on {particleObj.name}");
+        //         ObjectPoolManager.Instance.ReturnToPool(particleObj);
+        //     }
+        // }
+    }
+
+    private void HandleParticleEffect(GameObject tapObj)
+    {
+        ParticleSystem ps = tapObj.GetComponent<ParticleSystem>();
+        
+        if (ps != null)
+        {
+            ps.Clear();
+            ps.Play();
+            StartCoroutine(ReturnTapToPool(tapObj, ps));
+        }
+        else
+        {
+            Debug.LogWarning($"No ParticleSystem found on {tapObj.name}");
+            ObjectPoolManager.Instance.ReturnToPool(tapObj);
         }
     }
 
-    IEnumerator ReturnTapToPool(GameObject obj, ParticleSystem ps)
+    private void HandleUniqueEffect(GameObject tapObj)
     {
-        // Wait for particle to finish playing
+        // Try to find and play the unique effect animation
+        Tap_PawAnim pawAnim = tapObj.GetComponent<Tap_PawAnim>();
+        
+        if (pawAnim != null)
+        {
+            pawAnim.PlayAnim();
+            
+            // Return to pool after the animation duration
+            StartCoroutine(ReturnUniqueEffectToPool(tapObj, 2f));  // Adjust time as needed
+        }
+        else
+        {
+            Debug.LogWarning($"No Tap_PawAnim found on {tapObj.name}");
+            ObjectPoolManager.Instance.ReturnToPool(tapObj);
+        }
+    }
+
+    private IEnumerator ReturnTapToPool(GameObject obj, ParticleSystem ps)
+    {
+        // Wait for particle to finish
         float duration = ps.main.duration;
         float lifetime = ps.main.startLifetime.constantMax;
         
         yield return new WaitForSeconds(duration + lifetime);
         
-        // Make sure it's completely done
         while (ps.IsAlive())
         {
             yield return null;
         }
         
-        // Return to pool
         ObjectPoolManager.Instance.ReturnToPool(obj);
     }
 
-    IEnumerator ReturnTapToPool(GameObject obj)
+    private IEnumerator ReturnUniqueEffectToPool(GameObject obj, float duration)
     {
-        while(LeanTween.isTweening(obj))
-        {
-            yield return null;
-        }
-
+        yield return new WaitForSeconds(duration);
         ObjectPoolManager.Instance.ReturnToPool(obj);
     }
 
@@ -200,7 +243,7 @@ public class ThemeManager : MonoBehaviour
     }
 
     public Taps_SO GetCurrentTap()
-{
-    return currentTap_SO;
-}
+    {
+        return currentTap_SO;
+    }
 }

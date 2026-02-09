@@ -1,12 +1,20 @@
 using UnityEngine;
 
+public enum TapEffectType
+{
+    Particle,
+    UniqueEffect
+}
+
 [CreateAssetMenu(fileName = "Taps_SO", menuName = "Scriptable Objects/Themes/Taps_SO")]
 public class Taps_SO : ShopItem
 {
-    [Header("Tap Particle")]
-    public GameObject particlePrefab;
+    [Header("Tap Type")]
+    public TapEffectType effectType;
+
+    [Header("Tap Effect")]
+    public GameObject tapPrefab;
     public string poolTag;
-    public UniqueTap specialEffect;
 
     public override void EquipItem()
     {

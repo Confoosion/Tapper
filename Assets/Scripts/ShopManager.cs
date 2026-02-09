@@ -53,6 +53,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Transform taps_PreviewPosition;
     [SerializeField] private Taps_SO[] tapSets;
     private ParticleSystem currentTapPreview;
+    private GameObject currentTapPreviewObj;
     private int equippedTapIndex;
 
     [Space]
@@ -492,11 +493,59 @@ public class ShopManager : MonoBehaviour
         if (currentTapPreview != null)
         {
             Destroy(currentTapPreview.gameObject);
+            currentTapPreview = null;
+        }
+
+        if (currentTapPreviewObj != null)
+        {
+            Destroy(currentTapPreviewObj);
+            currentTapPreviewObj = null;
         }
         
-        // Instantiate particle at preview position
+        Taps_SO currentTap = tapSets[currentShopIndex];
+
+        if (currentTap.effectType == TapEffectType.Particle)
+        {
+            PreviewParticleEffect(currentTap);
+        }
+        else if (currentTap.effectType == TapEffectType.UniqueEffect)
+        {
+            PreviewUniqueEffect(currentTap);
+        }
+
+        // // Instantiate particle at preview position
+        // GameObject previewObj = Instantiate(
+        //     tapSets[currentShopIndex].particlePrefab,
+        //     taps_PreviewPosition.position,
+        //     Quaternion.identity,
+        //     taps_PreviewPosition
+        // );
+        
+        // currentTapPreview = previewObj.GetComponent<ParticleSystem>();
+        // if (currentTapPreview != null) // Particle Tap effect
+        // {
+        //     currentTapPreview.Play();
+            
+        //     // Auto-destroy after particle finishes
+        //     float duration = currentTapPreview.main.duration + currentTapPreview.main.startLifetime.constantMax;
+        //     Destroy(previewObj, duration + 0.5f);
+        // }
+        // else // Unique Tap effect
+        // {
+        //     tapSets[currentShopIndex].specialEffect.PlayTap();
+
+        //     float duration = tapSets[currentShopIndex].specialEffect.duration;
+        //     Destroy(previewObj, duration + 0.5f);
+        // }
+        
+        // Optional: Play tap sound
+        // SoundManager.Singleton.PlaySound(tapSound);
+    }
+
+    private void PreviewParticleEffect(Taps_SO tap)
+    {
         GameObject previewObj = Instantiate(
-            tapSets[currentShopIndex].particlePrefab,
+            tap.tapPrefab,
             taps_PreviewPosition.position,
             Quaternion.identity,
             taps_PreviewPosition
@@ -507,13 +556,28 @@ public class ShopManager : MonoBehaviour
         {
             currentTapPreview.Play();
             
-            // Auto-destroy after particle finishes
             float duration = currentTapPreview.main.duration + currentTapPreview.main.startLifetime.constantMax;
             Destroy(previewObj, duration + 0.5f);
         }
+    }
+
+    private void PreviewUniqueEffect(Taps_SO tap)
+    {
+        currentTapPreviewObj = Instantiate(
+            tap.tapPrefab,
+            taps_PreviewPosition.position,
+            Quaternion.identity,
+            taps_PreviewPosition
+        );
         
-        // Optional: Play tap sound
-        // SoundManager.Singleton.PlaySound(tapSound);
+        Tap_PawAnim pawAnim = currentTapPreviewObj.GetComponent<Tap_PawAnim>();
+        if (pawAnim != null)
+        {
+            pawAnim.PlayAnim();
+        }
+        
+        // Auto-destroy after animation
+        Destroy(currentTapPreviewObj, 2f);
     }
     
     // ========== NEW: Optional manual save method ==========

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c22809c39ff854beba95d996baf4ff66, type: 3}
-  m_Name: Flowers
+  m_Name: Dog Paw
   m_EditorClassIdentifier: Assembly-CSharp::Taps_SO
   isUnlocked: 0
   isEquipped: 0
-  price: 500
-  effectType: 0
-  tapPrefab: {fileID: 5170975936340265408, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
-  poolTag: Flowers
+  price: 1000
+  effectType: 1
+  tapPrefab: {fileID: 6454106165915238931, guid: 61e23da12430c4be8a15b68830815af0, type: 3}
+  poolTag: DogPaw

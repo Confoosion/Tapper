@@ -2,12 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class Tap_PawAnim : MonoBehaviour
+public class Tap_PawAnim : MonoBehaviour, IPooledObject
 {
-    void Awake()
-    {
-        PlayAnim();    
-    }
+    // void Awake()
+    // {
+    //     PlayAnim();    
+    // }
 
     [SerializeField] private Image tapImage;
     [SerializeField] private float radius;
@@ -15,6 +15,14 @@ public class Tap_PawAnim : MonoBehaviour
     [SerializeField] private float fadeOutTime;
     private Vector3 centerPos;
     private Coroutine animRoutine;
+
+    public void OnObjectSpawn()
+    {
+        // Reset alpha to full when spawned
+        tapImage.color = new Color(tapImage.color.r, tapImage.color.g, tapImage.color.b, 1f);
+        tapImage.enabled = false;
+    }
+    
     public void PlayAnim()
     {
         if(animRoutine == null)
