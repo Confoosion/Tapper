@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using Coffee.UIExtensions;
 
 [System.Serializable]
 public class AnimalSet
@@ -123,6 +124,50 @@ public class ThemeManager : MonoBehaviour
         return index < tags.Length ? tags[index] : $"GoodTarget{index}";
     }
 
+    public void PlayTapEffectPreview(Vector2 position, Transform objParent)
+    {
+        if (currentTap_SO == null)
+        {
+            Debug.LogWarning("No tap effect equipped!");
+            return;
+        }
+        
+        // Instantiate directly (no pool)
+        GameObject tapObj = Instantiate(
+            currentTap_SO.tapPrefab,
+            position,
+            Quaternion.identity,
+            objParent
+        );
+        
+        if (currentTap_SO.effectType == TapEffectType.Particle)
+        {
+            ParticleSystem ps = tapObj.GetComponent<ParticleSystem>();
+            if (ps != null)
+            {
+                tapObj.GetComponent<UIParticle>().scale += 50f;
+                ps.Play();
+                float duration = ps.main.duration + ps.main.startLifetime.constantMax;
+                Destroy(tapObj, duration + 0.5f);
+            }
+            else
+            {
+                Destroy(tapObj, 2f);
+            }
+        }
+        else if (currentTap_SO.effectType == TapEffectType.UniqueEffect)
+        {
+            Tap_PawAnim pawAnim = tapObj.GetComponent<Tap_PawAnim>();
+            if (pawAnim != null)
+            {
+                pawAnim.PlayAnim();
+            }
+            
+            // Auto-destroy after animation
+            Destroy(tapObj, 2f);
+        }
+    }
+
     // Playing equipped Tap particles
     public void PlayTapEffect(Vector2 position)
     {
@@ -145,33 +190,6 @@ public class ThemeManager : MonoBehaviour
                 HandleUniqueEffect(tapObj);
             }
         }
-        // // Spawn particle from the equipped tap's pool
-        // GameObject particleObj = ObjectPoolManager.Instance.SpawnFromPool(currentTapPoolTag, position);
-        // if(particleObj == null)
-        //     return;
-        
-        // if(currentTap_SO.specialEffect != null) // Play special Tap effect (Overwrites particle system)
-        // {
-        //     currentTap_SO.specialEffect.PlayTap();
-        //     StartCoroutine(ReturnTapToPool(particleObj));
-        // }
-        // else // Normal particle Taps
-        // {   
-        //     ParticleSystem ps = particleObj.GetComponent<ParticleSystem>();
-        //     if (ps != null)
-        //     {
-        //         ps.Clear();
-        //         ps.Play();
-                
-        //         // Auto-return to pool when particle finishes
-        //         StartCoroutine(ReturnTapToPool(particleObj, ps));
-        //     }
-        //     else
-        //     {
-        //         Debug.LogWarning($"No ParticleSystem found on {particleObj.name}");
-        //         ObjectPoolManager.Instance.ReturnToPool(particleObj);
-        //     }
-        // }
     }
 
     private void HandleParticleEffect(GameObject tapObj)

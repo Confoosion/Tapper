@@ -215,13 +215,7 @@ public class ShopManager : MonoBehaviour
     }
 
     private void UpdateTapShop(int index)
-    {
-        if (currentTapPreview != null)
-        {
-            Destroy(currentTapPreview.gameObject);
-            currentTapPreview = null;
-        }
-        
+    {        
         shopTitle.SetText(tapSets[index].name);
 
         ShopItemData tap_itemData = ShopSaveSystem.GetTapData(tapSets[index].name);
@@ -512,34 +506,6 @@ public class ShopManager : MonoBehaviour
         {
             PreviewUniqueEffect(currentTap);
         }
-
-        // // Instantiate particle at preview position
-        // GameObject previewObj = Instantiate(
-        //     tapSets[currentShopIndex].particlePrefab,
-        //     taps_PreviewPosition.position,
-        //     Quaternion.identity,
-        //     taps_PreviewPosition
-        // );
-        
-        // currentTapPreview = previewObj.GetComponent<ParticleSystem>();
-        // if (currentTapPreview != null) // Particle Tap effect
-        // {
-        //     currentTapPreview.Play();
-            
-        //     // Auto-destroy after particle finishes
-        //     float duration = currentTapPreview.main.duration + currentTapPreview.main.startLifetime.constantMax;
-        //     Destroy(previewObj, duration + 0.5f);
-        // }
-        // else // Unique Tap effect
-        // {
-        //     tapSets[currentShopIndex].specialEffect.PlayTap();
-
-        //     float duration = tapSets[currentShopIndex].specialEffect.duration;
-        //     Destroy(previewObj, duration + 0.5f);
-        // }
-        
-        // Optional: Play tap sound
-        // SoundManager.Singleton.PlaySound(tapSound);
     }
 
     private void PreviewParticleEffect(Taps_SO tap)
@@ -580,13 +546,13 @@ public class ShopManager : MonoBehaviour
         Destroy(currentTapPreviewObj, 2f);
     }
     
-    // ========== NEW: Optional manual save method ==========
+    // ========== Optional manual save method ==========
     public void SaveShopProgress()
     {
         ShopSaveSystem.SaveShopData(animalSets, backgroundSets, tapSets);
     }
     
-    // ========== NEW: Optional reset for testing ==========
+    // ========== Optional reset for testing ==========
     public void ResetShop()
     {
         ShopSaveSystem.DeleteSaveData();

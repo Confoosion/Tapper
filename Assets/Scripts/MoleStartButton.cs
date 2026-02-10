@@ -6,7 +6,6 @@ using System.Collections;
 public class MoleStartButton : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private Image moleImage;
-    [SerializeField] private Image tapImage;
     public TargetAnimation targetAnimation;
 
     [SerializeField] private GameObject tapStart_GO;
@@ -41,7 +40,7 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
         {
             UIManager.Singleton.HideSettingsAndPauseIcon();
         
-            tapImage.gameObject.SetActive(true);
+            ThemeManager.Singleton.PlayTapEffectPreview(transform.position, this.transform);
 
             SoundManager.Singleton.PlayHitSound();
             targetAnimation.StartHitAnimation();
