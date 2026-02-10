@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 01f772dcbb6ceba4c81aacf6098567a3
+guid: 1407e2c0c1d0d4e9aa9a94304bf11855
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7695584186963783612
-    second: buy_ttext_0
+      213: -8337104984116774376
+    second: vine (3)_0
+  - first:
+      213: 7705329615047240436
+    second: vine (3)_1
+  - first:
+      213: 956864801906780587
+    second: vine (3)_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buy_ttext_0
+      name: vine (3)_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 29
         y: 0
-        width: 117
-        height: 55
+        width: 30
+        height: 307
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44019e474fac33590800000000000000
-      internalID: -7695584186963783612
+      spriteID: 81ab4965037ac4c80800000000000000
+      internalID: -8337104984116774376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine (3)_1
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 307
+        width: 327
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fa2036d574deea60800000000000000
+      internalID: 7705329615047240436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine (3)_2
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 0
+        width: 31
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba96ab7b777774d00800000000000000
+      internalID: 956864801906780587
       vertices: []
       indices: 
       edges: []
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      buy_ttext_0: -7695584186963783612
+      vine (3)_0: -8337104984116774376
+      vine (3)_1: 7705329615047240436
+      vine (3)_2: 956864801906780587
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

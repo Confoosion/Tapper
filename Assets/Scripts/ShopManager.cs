@@ -76,9 +76,11 @@ public class ShopManager : MonoBehaviour
 
         int _animalIndex = ShopSaveSystem.LoadAnimalData(animalSets);
         ThemeManager.Singleton.EquipAnimalSet(animalSets[_animalIndex]);
+        equippedAnimalIndex = _animalIndex;
         
         int _backgroundIndex = ShopSaveSystem.LoadBackgroundData(backgroundSets);
         ThemeManager.Singleton.EquipBackgroundSet(backgroundSets[_backgroundIndex]);
+        equippedBackgroundIndex = _backgroundIndex;
 
         int _tapIndex = ShopSaveSystem.LoadTapData(tapSets);
         ThemeManager.Singleton.EquipTap(tapSets[_tapIndex]);

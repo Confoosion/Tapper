@@ -17,4 +17,4 @@ MonoBehaviour:
   price: 1500
   effectType: 0
   tapPrefab: {fileID: 2618953291615064407, guid: 1d98787d967194fc394473242f530d58, type: 3}
-  poolTag: Mallet
+  poolTag: Tap_Mallet

@@ -50,6 +50,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image BG_grass;
     [SerializeField] private Image BG_details;
     [SerializeField] private Image BG_sky;
+    [SerializeField] private Image BG_vines;
 
     [Header("Extra UI")]
     [SerializeField] private GameObject settingsButton;
@@ -174,6 +175,7 @@ public class UIManager : MonoBehaviour
         BG_grass.sprite = background.grass;
         BG_details.sprite = background.details;
         BG_sky.sprite = background.sky;
+        BG_vines.sprite = background.gameOverDetails;
     }
 
     public void ChangeGameModeUI(GameModeSO mode, int modeIndex, bool arcadeMode, bool isHighscore)

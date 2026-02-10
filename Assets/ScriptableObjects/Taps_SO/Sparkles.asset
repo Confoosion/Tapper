@@ -17,4 +17,4 @@ MonoBehaviour:
   price: 500
   effectType: 0
   tapPrefab: {fileID: 5889972236143629645, guid: ca80d35d0a61348f48fe00bfd66f01ac, type: 3}
-  poolTag: Sparkles
+  poolTag: Tap_Sparkles

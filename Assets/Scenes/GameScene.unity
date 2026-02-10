@@ -768,7 +768,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.000015258789, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3283,9 +3283,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 602e44f0aaba9442cb99d43a92dcaa6f, type: 2}
   shopButton: {fileID: 815353048}
   shopButtonSprites:
-  - {fileID: 21300000, guid: 01f772dcbb6ceba4c81aacf6098567a3, type: 3}
-  - {fileID: 21300000, guid: 9bb106d0825cb4b628ae402a6a644d08, type: 3}
-  - {fileID: 21300000, guid: 7319e9841e4644de98eb4b5386619efc, type: 3}
+  - {fileID: 21300000, guid: 23197051837d744838afb468355479cf, type: 3}
+  - {fileID: 21300000, guid: c5103cddc172c4fc88b1b64d674bf253, type: 3}
+  - {fileID: 21300000, guid: d6e58b15b8d1c4c9f833fbb1f58a36fb, type: 3}
   shopTitle: {fileID: 1354204584}
   shopCost: {fileID: 949600461}
   currentShopIndex: 0
@@ -12189,7 +12189,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 01f772dcbb6ceba4c81aacf6098567a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23197051837d744838afb468355479cf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15910,6 +15910,7 @@ MonoBehaviour:
   BG_grass: {fileID: 644919987}
   BG_details: {fileID: 1976511993}
   BG_sky: {fileID: 1554544005}
+  BG_vines: {fileID: 1230871633}
   settingsButton: {fileID: 195476651}
   pauseButton: {fileID: 2104688311}
   MM_GM_Sprites:
@@ -16172,32 +16173,32 @@ MonoBehaviour:
     size: 4
     autoExpand: 1
     expandAmount: 1
-  - tag: Whack
+  - tag: Tap_Whack
     prefab: {fileID: 8716876356219563509, guid: 42d3458c413684ba7bc9e3913d022669, type: 3}
     size: 3
     autoExpand: 1
     expandAmount: 1
-  - tag: Sparkles
+  - tag: Tap_Sparkles
     prefab: {fileID: 5889972236143629645, guid: ca80d35d0a61348f48fe00bfd66f01ac, type: 3}
     size: 3
     autoExpand: 1
     expandAmount: 1
-  - tag: Flowers
+  - tag: Tap_Flowers
     prefab: {fileID: 5170975936340265408, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
     size: 3
     autoExpand: 1
     expandAmount: 1
-  - tag: CatPaw
+  - tag: Tap_CatPaw
     prefab: {fileID: 6454106165915238931, guid: 73e97a682001c4a6e863d7b446f7cea7, type: 3}
     size: 3
     autoExpand: 1
     expandAmount: 1
-  - tag: DogPaw
+  - tag: Tap_DogPaw
     prefab: {fileID: 6454106165915238931, guid: 61e23da12430c4be8a15b68830815af0, type: 3}
     size: 3
     autoExpand: 1
     expandAmount: 1
-  - tag: Mallet
+  - tag: Tap_Mallet
     prefab: {fileID: 2618953291615064407, guid: 1d98787d967194fc394473242f530d58, type: 3}
     size: 3
     autoExpand: 1
@@ -16269,6 +16270,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 577349827fff84402b0cf9c8c7f9a4c8, type: 3}
   - {fileID: 21300000, guid: fc225c0de33ca4336a350ebc1842e4ff, type: 3}
   - {fileID: 21300000, guid: 2ed313f68999244ab8a931a4cedcdf2d, type: 3}
+  - {fileID: 21300000, guid: c710f581b49e641fb8953244450c2963, type: 3}
   IDLE_DURATION: 0
   exitFrames: []
 --- !u!114 &1212308020

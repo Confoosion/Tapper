@@ -17,4 +17,4 @@ MonoBehaviour:
   price: 500
   effectType: 0
   tapPrefab: {fileID: 5170975936340265408, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
-  poolTag: Flowers
+  poolTag: Tap_Flowers

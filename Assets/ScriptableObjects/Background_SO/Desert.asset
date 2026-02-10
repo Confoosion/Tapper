@@ -23,3 +23,4 @@ MonoBehaviour:
   sky: {fileID: 21300000, guid: 2eac9b7e38c344e2b9ac0a919e1e3a8b, type: 3}
   mainMenuBG: {fileID: 21300000, guid: f947077e924e0436494c93b473d11a17, type: 3}
   menuBG: {fileID: 21300000, guid: 8e833f0840c7b47f486af94499655fa3, type: 3}
+  gameOverDetails: {fileID: 21300000, guid: 8c25d19aea28e49eeb07c7b9d05543f1, type: 3}

@@ -16,6 +16,7 @@ public class Background_SO : ShopItem
     public Sprite sky;
     public Sprite mainMenuBG;
     public Sprite menuBG;
+    public Sprite gameOverDetails;
 
     public override void EquipItem()
     {

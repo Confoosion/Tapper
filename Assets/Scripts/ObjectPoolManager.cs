@@ -62,12 +62,13 @@ public class ObjectPoolManager : MonoBehaviour
             for (int i = 0; i < pool.size; i++)
             {
                 GameObject obj;
-                if(pool.prefab.GetComponent<ParticleSystem>())
+            
+                if (pool.tag.Contains("Tap"))
                     obj = Instantiate(pool.prefab, effectParent);
                 else
                     obj = Instantiate(pool.prefab, poolParent);
+                
                 obj.SetActive(false);
-                // obj.transform.SetParent(poolParent);
                 objectPool.Enqueue(obj);
             }
 
@@ -166,8 +167,14 @@ public class ObjectPoolManager : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             GameObject obj = Instantiate(pool.prefab, poolParent);
-            obj.SetActive(false);
+            // obj.SetActive(false);
             // obj.transform.SetParent(poolParent);
+            if (pool.tag.Contains("Tap"))
+                obj = Instantiate(pool.prefab, effectParent);
+            else
+                obj = Instantiate(pool.prefab, poolParent);
+            
+            obj.SetActive(false);
             poolDictionary[tag].Enqueue(obj);
         }
     }

@@ -17,4 +17,4 @@ MonoBehaviour:
   price: 0
   effectType: 0
   tapPrefab: {fileID: 8716876356219563509, guid: 42d3458c413684ba7bc9e3913d022669, type: 3}
-  poolTag: Whack
+  poolTag: Tap_Whack

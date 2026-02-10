@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: c12a9fb50e36c4c2cb58a040dd2295a1
+guid: 3cbded356db004bd5b33d342aa16f624
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 279268925818795677
-    second: hammer2_0
+      213: 6701715726066518297
+    second: vine (2)_0
+  - first:
+      213: -5651089361234088760
+    second: vine (2)_1
+  - first:
+      213: -597313753983671393
+    second: vine (2)_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hammer2_0
+      name: vine (2)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 137
-        height: 128
+        x: 22
+        y: 3
+        width: 99
+        height: 286
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d96fb30cb9920e300800000000000000
-      internalID: 279268925818795677
+      spriteID: 91908d512f6410d50800000000000000
+      internalID: 6701715726066518297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine (2)_1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 221
+        width: 286
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cc27adaa2c4391b0800000000000000
+      internalID: -5651089361234088760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vine (2)_2
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 3
+        width: 99
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9329523e4ae5b7f0800000000000000
+      internalID: -597313753983671393
       vertices: []
       indices: 
       edges: []
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hammer2_0: 279268925818795677
+      vine (2)_0: 6701715726066518297
+      vine (2)_1: -5651089361234088760
+      vine (2)_2: -597313753983671393
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

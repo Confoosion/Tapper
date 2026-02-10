@@ -17,4 +17,4 @@ MonoBehaviour:
   price: 1000
   effectType: 1
   tapPrefab: {fileID: 6454106165915238931, guid: 61e23da12430c4be8a15b68830815af0, type: 3}
-  poolTag: DogPaw
+  poolTag: Tap_DogPaw

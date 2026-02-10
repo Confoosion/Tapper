@@ -160,6 +160,7 @@ public class ThemeManager : MonoBehaviour
             Tap_PawAnim pawAnim = tapObj.GetComponent<Tap_PawAnim>();
             if (pawAnim != null)
             {
+                tapObj.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
                 pawAnim.PlayAnim();
             }
             
@@ -216,10 +217,11 @@ public class ThemeManager : MonoBehaviour
         
         if (pawAnim != null)
         {
+            // tapObj.transform.localScale = new Vector3(1f, 1f, 1f);
             pawAnim.PlayAnim();
             
             // Return to pool after the animation duration
-            StartCoroutine(ReturnUniqueEffectToPool(tapObj, 2f));  // Adjust time as needed
+            StartCoroutine(ReturnUniqueEffectToPool(tapObj, 1f));
         }
         else
         {

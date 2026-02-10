@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetBehavior
   thumbnail: {fileID: 21300000, guid: fd9c0d0d977fe4e4995a4686ff3eb265, type: 3}
-  isGood: 1
-  addTime: 0
+  isGood: 0
+  addTime: -4
   laughAudio: {fileID: 0}
   gem: {fileID: 0}
   targetAnimation: {fileID: 760499244310595220}
