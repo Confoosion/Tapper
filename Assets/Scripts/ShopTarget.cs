@@ -15,6 +15,11 @@ public class ShopTarget : MonoBehaviour, IPointerDownHandler
     [SerializeField] private float bounceDuration = 0.3f;
     [SerializeField] private AnimationCurve bounceCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     
+    [Space]
+
+    [Header("Tap Hint")]
+    [SerializeField] private GameObject tapHint;
+
     private RectTransform rectTransform;
     private Vector3 originalScale;
     private Coroutine currentBounce;
@@ -25,6 +30,14 @@ public class ShopTarget : MonoBehaviour, IPointerDownHandler
         originalScale = rectTransform.localScale;
     }
 
+    void OnEnable()
+    {
+        if(tapHint != null)
+        {
+            tapHint.SetActive(true);
+        }
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         // Stop any existing bounce to prevent overlapping animations
@@ -32,7 +45,12 @@ public class ShopTarget : MonoBehaviour, IPointerDownHandler
         {
             StopCoroutine(currentBounce);
         }
-        
+
+        if(tapHint != null && tapHint.activeSelf)
+        {
+            tapHint.SetActive(false);
+        }
+
         currentBounce = StartCoroutine(BouncyEffect());
         ShopManager.Singleton.PreviewAnimalSound((int)targetType);
     }
