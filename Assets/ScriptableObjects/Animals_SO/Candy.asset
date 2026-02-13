@@ -23,9 +23,9 @@ MonoBehaviour:
     badTarget: {fileID: 21300000, guid: ded98fa2d4e3445cd94bf89311d8d099, type: 3}
   preview_Sounds:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 8c0f4889038b03240b0a9e5629bcef7b, type: 3}
+  - {fileID: 8300000, guid: 99f88affd4553224e8802878803bf889, type: 3}
+  - {fileID: 8300000, guid: d3cd934e022aa1541ba12b69b6068403, type: 3}
   goodTargets:
   - {fileID: 8248434519805565118, guid: fc58d04837a434d9e89cd0dd64f33bda, type: 3}
   - {fileID: 5203199196648195287, guid: f5f203a48bb504465ba75d8bbf846630, type: 3}
@@ -33,3 +33,9 @@ MonoBehaviour:
   badTarget: {fileID: 4538491234040115964, guid: 1b4730a55b6a545b98010bf52f754869, type: 3}
   enterFrame: {fileID: 21300000, guid: 12a8255f5622649bf82f4bf1a2bc3c70, type: 3}
   hitFrame: {fileID: 21300000, guid: d685f2cf9d4f94705a03021b4e46bcc2, type: 3}
+  soundSettings:
+    soundPitches:
+    - 1
+    - 1
+    - 1
+    - 1

@@ -91,9 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thumbnail: {fileID: 0}
-  isGood: 1
+  targetType: 4
   addTime: 2
-  laughAudio: {fileID: 0}
   gem: {fileID: 8494625251215090528, guid: 45c0d6613ff9b424d96fa7955d31898d, type: 3}
   targetAnimation: {fileID: 3207386061551876237}
   tapped: 0

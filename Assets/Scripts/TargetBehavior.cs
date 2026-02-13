@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class TargetBehavior : MonoBehaviour, IPointerDownHandler
 {
     public Sprite thumbnail;
-    public bool isGood = true;
+    public TargetType targetType;
     [SerializeField] private int addTime;
-    [SerializeField] private AudioClip laughAudio;
+    // [SerializeField] private AudioClip laughAudio;
     [SerializeField] private GameObject gem;
     // [SerializeField] private Image tapImage;
     [SerializeField] private TargetAnimation targetAnimation;
@@ -68,9 +68,11 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
                 TimeAttackClock.Singleton.AddTime(addTime);
             }
 
-            if (isGood)
+            SoundManager.Singleton.PlayTargetSound(targetType);
+
+            if (targetType != TargetType.Bad)
             {
-                SoundManager.Singleton.PlayHitSound();
+                // SoundManager.Singleton.PlayHitSound();
                 ThemeManager.Singleton.PlayTapEffect(transform.position);
                 ScoreManager.Singleton.AddPoints(1);
                 if (ScoreManager.Singleton.AddCircleTapped())
@@ -81,7 +83,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
             }
             else
             {
-                SoundManager.Singleton.PlayBadSound();
+                // SoundManager.Singleton.PlayBadSound();
                 LoseLife(1);
             }
 
@@ -91,9 +93,11 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
 
     public void Finish()
     {
-        if (!tapped && isGood && GameManager.Singleton.isPlaying)
+        if (!tapped && targetType != TargetType.Bad && GameManager.Singleton.isPlaying)
         {
-            SoundManager.Singleton.PlaySound(laughAudio);
+            // SoundManager.Singleton.PlaySound(laughAudio);
+            SoundManager.Singleton.PlayTargetSound(targetType);
+
             LoseLife(1);
         }
         
@@ -106,7 +110,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
         if(GameManager.Singleton.currentGameMode.modeName != "Timed")
         {
             GameManager.Singleton.RemoveLives(damage);
-            ArcadeEnding.Singleton.SetReason(thumbnail, laughAudio);
+            ArcadeEnding.Singleton.SetReason(thumbnail, targetType);
         }
     }
 }

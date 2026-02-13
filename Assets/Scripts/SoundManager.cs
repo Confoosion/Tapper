@@ -4,6 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 
 public enum SoundType { Good, Bad, Music, UI, Highscore, Gem}
+public enum TargetType { Bad, Small, Fast, Good, NONE }
+
+[System.Serializable]
+public class TargetSound
+{
+    public TargetType targetType;
+    public AudioClip targetSound;
+    public float soundPitch;
+}
 
 [RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour
@@ -21,6 +30,14 @@ public class SoundManager : MonoBehaviour
 
     private AudioSource audioSource;
     private AudioSource musicSource;
+
+    [Header("Original Animal Sounds")]
+    [SerializeField] private TargetSound[] targetSounds = new TargetSound[4];
+    [SerializeField] private AudioClip badTargetSound;
+    [SerializeField] private AudioClip smallTargetSound;  // Rabbit
+    [SerializeField] private AudioClip fastTargetSound;   // Rabbit
+    [SerializeField] private AudioClip goodTargetSound;   // Mole
+
 
     void Awake()
     {
@@ -83,14 +100,39 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(usedSounds[(int)sound], volume);
     }
 
+    // public void PlaySound(AudioClip sfx, float volume = 1f)
+    // {
+    //     if(sfx == null)
+    //     {
+    //         return;
+    //     }
+        
+    //     audioSource.PlayOneShot(sfx, volume);
+    // }
+
+    public void UpdateAnimalSounds(AudioClip[] newTargetSounds, AnimalSoundSettings animal_soundSettings)
+    {
+        for(int i = 0; i < targetSounds.Length; i++)
+        {
+            if(targetSounds[i].targetSound != newTargetSounds[i])
+            {
+                targetSounds[i].targetSound = newTargetSounds[i];
+            }
+
+            if(targetSounds[i].soundPitch != animal_soundSettings.soundPitches[i])
+            {
+                targetSounds[i].soundPitch = animal_soundSettings.soundPitches[i];
+            }
+        }
+
+    }
+
     public void PlaySound(AudioClip sfx, float volume = 1f)
     {
-        if(sfx == null)
-        {
-            return;
-        }
+        if (sfx == null) return;
         
-        audioSource.PlayOneShot(sfx, volume);
+        audioSource.pitch = 1f;  // Reset to normal pitch
+        audioSource.PlayOneShot(sfx);
     }
 
     public void PlayHitSound()
@@ -101,6 +143,23 @@ public class SoundManager : MonoBehaviour
     public void PlayBadSound()
     {
         audioSource.PlayOneShot(badSound, 1f);
+    }
+
+    public void PlayTargetSound(TargetType targetType)
+    {
+        if(targetType == TargetType.NONE)
+            return;
+            
+        int _type = (int)targetType;
+        PlaySoundWithPitch(targetSounds[_type].targetSound, targetSounds[_type].soundPitch);
+    }
+
+    public void PlaySoundWithPitch(AudioClip clip, float pitch = 1f)
+    {
+        if (clip == null) return;
+        
+        audioSource.pitch = pitch;
+        audioSource.PlayOneShot(clip);
     }
 
     public void PlayMusic()
