@@ -21,19 +21,23 @@ public class UIManager : MonoBehaviour
     public Image MusicToggle;
     public Image VibrationToggle;
 
-    [Header("Game Screen UI")]
-    [SerializeField] private GameObject pauseScreen;
-    // [SerializeField] private Image good_Image;
-    // [SerializeField] private Image bad_Image;
-    [SerializeField] private GameObject timeAttackTimer;
+    [Header("Countdown UI")]
     [SerializeField] private GameObject countdownObject;
     [SerializeField] private FrameAnimation[] countdownAnims;
+    [SerializeField] private Image[] goodTarget_instructions;
+    [SerializeField] private Image badTarget_instructions;
+    [SerializeField] private GameObject instructionsObject;
+    [SerializeField] private GameObject badInstructionsObject;
+    [SerializeField] private GameObject timedInstructionsObject;
+
+    [Header("Game Screen UI")]
+    [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject timeAttackTimer;
     [SerializeField] private GameObject goTextObject;
     [SerializeField] private List<GameObject> hearts = new List<GameObject>();
     [SerializeField] private TextMeshProUGUI points;
     [SerializeField] private Transform leafCountTransform;
     [SerializeField] private TextMeshProUGUI gameLeafCounter;
-    // public SpawnArea spawnArea;
 
     [Header("GameOver Screen UI")]
     [SerializeField] private TextMeshProUGUI score;
@@ -102,6 +106,7 @@ public class UIManager : MonoBehaviour
     IEnumerator CountingDown()
     {
         countdownObject.SetActive(true);
+        instructionsObject.SetActive(true);
 
         foreach(FrameAnimation anim in countdownAnims)
         {
@@ -122,6 +127,7 @@ public class UIManager : MonoBehaviour
         goTextObject.SetActive(false);
 
         countdownObject.SetActive(false);
+        instructionsObject.SetActive(false);
         GameManager.Singleton.StartGame();
     }
 
@@ -189,6 +195,29 @@ public class UIManager : MonoBehaviour
 
         GO_highscore.SetText(PlayerPrefs.GetInt(ScoreManager.Singleton.GetHighscorePP()).ToString());
         UpdateHighscoreLabelUI(isHighscore);
+        UpdateGameInstructions(mode);
+    }
+
+    private void UpdateGameInstructions(GameModeSO mode)
+    {
+        if(mode.badSpawnPercentage > 0f)
+            badInstructionsObject.SetActive(true);
+        else
+            badInstructionsObject.SetActive(false);
+
+        if(mode.isTimed)
+            timedInstructionsObject.SetActive(true);
+        else
+            timedInstructionsObject.SetActive(false);
+    }
+
+    public void UpdateGameInstructions(AnimalSet_SO animalSet)
+    {
+        for(int i = 0; i < animalSet.goodTargets.Length; i++)
+        {
+            goodTarget_instructions[i].sprite = animalSet.goodTargets[i].GetComponent<TargetBehavior>().thumbnail;
+        }
+        badTarget_instructions.sprite = animalSet.badTarget.GetComponent<TargetBehavior>().thumbnail;
     }
 
     public void ShowSettingsOrPauseIcon(bool showSettings)

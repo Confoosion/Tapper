@@ -67,6 +67,8 @@ public class ThemeManager : MonoBehaviour
         UpdateSpawnManager(animalSet);
 
         SoundManager.Singleton.UpdateAnimalSounds(animalSet.preview_Sounds, currentSoundSettings);
+
+        UIManager.Singleton.UpdateGameInstructions(animalSet);
     }
 
     public void EquipBackgroundSet(Background_SO background)

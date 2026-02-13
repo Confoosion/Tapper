@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class PreviewAnimalSet
 {
-    public Sprite[] goodTargets = new Sprite[3];
+    public Sprite[] goodTargets = new Sprite[3]; // ORDER: Small, Fast, Good
     public Sprite badTarget;
 }
 

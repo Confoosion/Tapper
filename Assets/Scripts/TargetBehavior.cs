@@ -56,7 +56,6 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
         if (GameManager.Singleton.isPlaying && !tapped && canTap)
         {
             tapped = true;
-            // tapImage.gameObject.SetActive(true);
 
             StopCoroutine(BeginHitWindow());
 
@@ -68,12 +67,11 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
                 TimeAttackClock.Singleton.AddTime(addTime);
             }
 
-            SoundManager.Singleton.PlayTargetSound(targetType);
-
             if (targetType != TargetType.Bad)
             {
-                // SoundManager.Singleton.PlayHitSound();
+                SoundManager.Singleton.PlayHitSound();
                 ThemeManager.Singleton.PlayTapEffect(transform.position);
+
                 ScoreManager.Singleton.AddPoints(1);
                 if (ScoreManager.Singleton.AddCircleTapped())
                 {
@@ -83,7 +81,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
             }
             else
             {
-                // SoundManager.Singleton.PlayBadSound();
+                SoundManager.Singleton.PlayBadSound();
                 LoseLife(1);
             }
 
@@ -95,7 +93,6 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
     {
         if (!tapped && targetType != TargetType.Bad && GameManager.Singleton.isPlaying)
         {
-            // SoundManager.Singleton.PlaySound(laughAudio);
             SoundManager.Singleton.PlayTargetSound(targetType);
 
             LoseLife(1);
