@@ -12,11 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7beef5bbe4c2469c86d8d56bee7aa81, type: 3}
   m_Name: Desert
   m_EditorClassIdentifier: Assembly-CSharp::AnimalSet_SO
-  preview_BG: {fileID: 0}
-  preview_Animals: {fileID: 0}
-  preview_Price: 500
+  isUnlocked: 0
+  isEquipped: 0
+  price: 500
+  preview_Set:
+    goodTargets:
+    - {fileID: 21300000, guid: 78640d4ee3c464d1c8b31b98cd98da72, type: 3}
+    - {fileID: 21300000, guid: 6bb1c0daf3ab54af3bbf1bd8b01c0483, type: 3}
+    - {fileID: 21300000, guid: 0a6cb1cec7d5d45da9ded926994e9a10, type: 3}
+    badTarget: {fileID: 21300000, guid: 0cb6e90d8dfe548369a414f43c397aff, type: 3}
+  preview_Sounds:
+  - {fileID: 8300000, guid: 4b2f87766c8f74e6ca1a1434cac4cdf9, type: 3}
+  - {fileID: 8300000, guid: 8c0f4889038b03240b0a9e5629bcef7b, type: 3}
+  - {fileID: 8300000, guid: ac5a9befcfd3440eab16f101ffcb96b3, type: 3}
+  - {fileID: 8300000, guid: d3cd934e022aa1541ba12b69b6068403, type: 3}
   goodTargets:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   badTarget: {fileID: 0}
+  enterFrame: {fileID: 21300000, guid: 5d2575254f36b412f8d201fc47e559c6, type: 3}
+  hitFrame: {fileID: 21300000, guid: 09b7b3a06ef0b45e7996f9fb320f43ec, type: 3}
+  soundSettings:
+    soundPitches:
+    - 1
+    - 0.8
+    - 1
+    - 0.6

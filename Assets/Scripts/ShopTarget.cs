@@ -51,7 +51,8 @@ public class ShopTarget : MonoBehaviour, IPointerDownHandler
         }
 
         currentBounce = StartCoroutine(BouncyEffect());
-        ShopManager.Singleton.PreviewAnimalSound(targetType);
+        if(!GetComponent<ShopParticle>())
+            ShopManager.Singleton.PreviewAnimalSound(targetType);
     }
 
     IEnumerator BouncyEffect()

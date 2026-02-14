@@ -3502,6 +3502,7 @@ MonoBehaviour:
   - {fileID: 0}
   animalSets:
   - {fileID: 11400000, guid: 6bd94e63c533d4313af6045e07226f99, type: 2}
+  - {fileID: 11400000, guid: a4d26e3b5446841b8beac16623596499, type: 2}
   - {fileID: 11400000, guid: ab207493b370747638a22c963bfea25e, type: 2}
   - {fileID: 11400000, guid: 21b827b14e59d4e558cd09a1f429437b, type: 2}
   - {fileID: 11400000, guid: 3cf30312a77d94d6a9874a0b61a72791, type: 2}
