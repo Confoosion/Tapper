@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6f8e4c51798f58040a8e6bbe0f9a86c3
+guid: fd2b1123e26e64ec181e3fa4e46e3b1b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5915770549204724299
-    second: mouse3_0
+      213: 7063651024431242137
+    second: JerboaEnter_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,33 +84,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Win64
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mouse3_0
+      name: JerboaEnter_0
       rect:
         serializedVersion: 2
-        x: 145
-        y: 183
-        width: 493
-        height: 409
+        x: 2
+        y: 0
+        width: 251
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b4aa01ea8f9091250800000000000000
-      internalID: 5915770549204724299
+      spriteID: 99b5c809e21270260800000000000000
+      internalID: 7063651024431242137
       vertices: []
       indices: 
       edges: []
@@ -174,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mouse3_0: 5915770549204724299
+      JerboaEnter_0: 7063651024431242137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

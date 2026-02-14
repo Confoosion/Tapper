@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 03fe2135dbaf2414fb350ac2f70241ba
+guid: 5d2575254f36b412f8d201fc47e559c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1364590124336991209
-    second: 3_mole_0
+      213: -4612381631826032185
+    second: FennecFoxEnter_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 3_mole_0
+      name: FennecFoxEnter_0
       rect:
         serializedVersion: 2
-        x: 111
-        y: 162
-        width: 549
-        height: 483
+        x: 0
+        y: 9
+        width: 256
+        height: 239
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9ebcc19fc7fffe210800000000000000
-      internalID: 1364590124336991209
+      spriteID: 7c90972e7578dffb0800000000000000
+      internalID: -4612381631826032185
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      3_mole_0: 1364590124336991209
+      FennecFoxEnter_0: -4612381631826032185
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

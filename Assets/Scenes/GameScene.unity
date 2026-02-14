@@ -16665,13 +16665,13 @@ MonoBehaviour:
   - targetType: 0
     targetSound: {fileID: 0}
     soundPitch: 0
-  - targetType: 0
+  - targetType: 1
     targetSound: {fileID: 0}
     soundPitch: 0
-  - targetType: 0
+  - targetType: 2
     targetSound: {fileID: 0}
     soundPitch: 0
-  - targetType: 0
+  - targetType: 3
     targetSound: {fileID: 0}
     soundPitch: 0
   badTargetSound: {fileID: 0}

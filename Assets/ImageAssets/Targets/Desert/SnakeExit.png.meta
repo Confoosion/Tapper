@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 51e02d30348014909a5f9c484400115a
+guid: 5a0f778f17bcb42bb9e8ad9b5346bc04
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3765943485679439355
-    second: GhostEnter_0
+      213: -4173372246020297289
+    second: SnakeExit_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GhostEnter_0
+      name: SnakeExit_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 36
         width: 256
-        height: 256
+        height: 191
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bfd8e1cb5a1534430800000000000000
-      internalID: 3765943485679439355
+      spriteID: 7bd6c70cd043516c0800000000000000
+      internalID: -4173372246020297289
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GhostEnter_0: 3765943485679439355
+      SnakeExit_0: -4173372246020297289
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

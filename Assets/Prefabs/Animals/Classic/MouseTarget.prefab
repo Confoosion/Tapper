@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b864283dcd7ea9498f5a076b2de890e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thumbnail: {fileID: 21300000, guid: 6f8e4c51798f58040a8e6bbe0f9a86c3, type: 3}
+  thumbnail: {fileID: 21300000, guid: 12838e218950b4033926bd676efdf581, type: 3}
   targetType: 1
   addTime: 0
   gem: {fileID: 8494625251215090528, guid: 45c0d6613ff9b424d96fa7955d31898d, type: 3}
