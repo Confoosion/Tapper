@@ -18,6 +18,9 @@ public class Background_SO : ShopItem
     public Sprite menuBG;
     public Sprite gameOverDetails;
 
+    [Header("Music")]
+    public AudioClip backgroundBGM;
+
     public override void EquipItem()
     {
         isEquipped = true;

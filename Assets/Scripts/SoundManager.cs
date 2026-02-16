@@ -111,6 +111,13 @@ public class SoundManager : MonoBehaviour
     //     audioSource.PlayOneShot(sfx, volume);
     // }
 
+    public void SwitchMusic(AudioClip music)
+    {
+        musicSource.Stop();
+        musicSource.clip = music;
+        musicSource.Play();
+    }
+
     public void UpdateAnimalSounds(AudioClip[] newTargetSounds, AnimalSoundSettings animal_soundSettings)
     {
         for(int i = 0; i < targetSounds.Length; i++)
@@ -165,12 +172,12 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(clip);
     }
 
-    public void PlayMusic()
-    {
-        musicSource.Stop();
-        musicSource.clip = usedSounds[(int)SoundType.Music];
-        musicSource.Play();
-    }
+    // public void PlayMusic()
+    // {
+    //     musicSource.Stop();
+    //     musicSource.clip = usedSounds[(int)SoundType.Music];
+    //     musicSource.Play();
+    // }
 
     public void LowerBGM(bool lower = true)
     {

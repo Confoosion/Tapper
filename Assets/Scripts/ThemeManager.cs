@@ -21,6 +21,7 @@ public class Background
     public Sprite sky;
     public Sprite mainMenuBG;
     public Sprite menuBG;
+    public AudioClip BG_BGM;
 }
 
 public class ThemeManager : MonoBehaviour
@@ -79,9 +80,13 @@ public class ThemeManager : MonoBehaviour
         currentBackground.sky = background.sky;
         currentBackground.mainMenuBG = background.mainMenuBG;
         currentBackground.menuBG = background.menuBG;
+        currentBackground.BG_BGM = background.backgroundBGM;
 
         // Show the visuals
         UIManager.Singleton.SwitchBackgrounds(background);
+
+        // Play the music
+        SoundManager.Singleton.SwitchMusic(currentBackground.BG_BGM);
     }
 
     public void EquipTap(Taps_SO tap)

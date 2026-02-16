@@ -24,3 +24,4 @@ MonoBehaviour:
   mainMenuBG: {fileID: 21300000, guid: 7ee4c7e75e7b54956b49026da0a8bd5c, type: 3}
   menuBG: {fileID: 21300000, guid: f6122682dc9704ab1b42965130e5a7e3, type: 3}
   gameOverDetails: {fileID: 21300000, guid: 6a1913373d8354ad5b5fffd28bab4ca8, type: 3}
+  backgroundBGM: {fileID: 8300000, guid: 24bfaf4b0906646b09f88220bd89ff95, type: 3}

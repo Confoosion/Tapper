@@ -37,6 +37,6 @@ public class ResourceManager : MonoBehaviour
     void Start()
     {
         RetrieveResources();
-        SoundManager.Singleton.PlayMusic();
+        // SoundManager.Singleton.PlayMusic();
     }
 }
