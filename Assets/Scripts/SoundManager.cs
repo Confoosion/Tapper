@@ -97,6 +97,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(SoundType sound, float volume = 1f)
     {
+        audioSource.pitch = 1f;
         audioSource.PlayOneShot(usedSounds[(int)sound], volume);
     }
 
@@ -137,11 +138,13 @@ public class SoundManager : MonoBehaviour
 
     public void PlayHitSound()
     {
+        audioSource.pitch = 1f;
         audioSource.PlayOneShot(hitSounds[UnityEngine.Random.Range(0, hitSounds.Length)], 1f);
     }
 
     public void PlayBadSound()
     {
+        audioSource.pitch = 1f;
         audioSource.PlayOneShot(badSound, 1f);
     }
 
