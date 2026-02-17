@@ -1,5 +1,12 @@
 using UnityEngine;
 
+[System.Serializable]
+public class ExtraBackgroundDetail
+{
+    public GameObject detailObject;
+    public Vector2 detailPosition;
+}
+
 [CreateAssetMenu(fileName = "Background_SO", menuName = "Scriptable Objects/Themes/Background_SO")]
 public class Background_SO : ShopItem
 {
@@ -20,6 +27,12 @@ public class Background_SO : ShopItem
 
     [Header("Music")]
     public AudioClip backgroundBGM;
+
+    [Space]
+
+    [Header("Extra Details")]
+    public ExtraBackgroundDetail[] backgroundDetails;
+
 
     public override void EquipItem()
     {
