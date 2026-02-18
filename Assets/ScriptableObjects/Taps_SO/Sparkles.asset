@@ -18,3 +18,4 @@ MonoBehaviour:
   effectType: 0
   tapPrefab: {fileID: 5889972236143629645, guid: ca80d35d0a61348f48fe00bfd66f01ac, type: 3}
   poolTag: Tap_Sparkles
+  tapSFX: {fileID: 8300000, guid: fd04a826e2d0343e2be0dcc43bd87882, type: 3}

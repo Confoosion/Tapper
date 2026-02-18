@@ -15,6 +15,7 @@ public class Taps_SO : ShopItem
     [Header("Tap Effect")]
     public GameObject tapPrefab;
     public string poolTag;
+    public AudioClip tapSFX;
 
     public override void EquipItem()
     {

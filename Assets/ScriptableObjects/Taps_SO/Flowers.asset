@@ -18,3 +18,4 @@ MonoBehaviour:
   effectType: 0
   tapPrefab: {fileID: 5170975936340265408, guid: 6ea0c489e799a42f19fabeb5dc66a48d, type: 3}
   poolTag: Tap_Flowers
+  tapSFX: {fileID: 8300000, guid: ea4f1cd71b0ec48f1b70a0bb808dcb68, type: 3}

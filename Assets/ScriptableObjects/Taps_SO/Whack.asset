@@ -18,3 +18,4 @@ MonoBehaviour:
   effectType: 0
   tapPrefab: {fileID: 8716876356219563509, guid: 42d3458c413684ba7bc9e3913d022669, type: 3}
   poolTag: Tap_Whack
+  tapSFX: {fileID: 8300000, guid: debf4c1f7d14d704a82bd89320278a46, type: 3}

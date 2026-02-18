@@ -18,3 +18,4 @@ MonoBehaviour:
   effectType: 1
   tapPrefab: {fileID: 6454106165915238931, guid: 61e23da12430c4be8a15b68830815af0, type: 3}
   poolTag: Tap_DogPaw
+  tapSFX: {fileID: 8300000, guid: 395da6de10afd0f4197f292d02da2dfe, type: 3}
