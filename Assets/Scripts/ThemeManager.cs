@@ -93,6 +93,7 @@ public class ThemeManager : MonoBehaviour
     {
         currentTap_SO = tap;
         currentTapPoolTag = tap.poolTag;
+        SoundManager.Singleton.UpdateHitSound(tap.tapSFX);
     }
 
     // Updating Animal ObjectPools
@@ -207,6 +208,8 @@ public class ThemeManager : MonoBehaviour
             {
                 HandleUniqueEffect(tapObj);
             }
+
+            SoundManager.Singleton.PlayHitSound();
         }
     }
 

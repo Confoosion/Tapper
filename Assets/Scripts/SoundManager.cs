@@ -37,6 +37,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip smallTargetSound;  // Rabbit
     [SerializeField] private AudioClip fastTargetSound;   // Rabbit
     [SerializeField] private AudioClip goodTargetSound;   // Mole
+    [SerializeField] private AudioClip hitSound;
 
 
     void Awake()
@@ -132,7 +133,11 @@ public class SoundManager : MonoBehaviour
                 targetSounds[i].soundPitch = animal_soundSettings.soundPitches[i];
             }
         }
+    }
 
+    public void UpdateHitSound(AudioClip sound)
+    {
+        hitSound = sound;
     }
 
     public void PlaySound(AudioClip sfx, float volume = 1f)
@@ -145,8 +150,11 @@ public class SoundManager : MonoBehaviour
 
     public void PlayHitSound()
     {
-        audioSource.pitch = 1f;
-        audioSource.PlayOneShot(hitSounds[UnityEngine.Random.Range(0, hitSounds.Length)], 1f);
+        // audioSource.pitch = 1f;
+        // audioSource.PlayOneShot(hitSounds[UnityEngine.Random.Range(0, hitSounds.Length)], 1f);
+
+        audioSource.pitch = UnityEngine.Random.Range(1f, 1.5f);
+        audioSource.PlayOneShot(hitSound);
     }
 
     public void PlayBadSound()
@@ -172,7 +180,7 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(clip);
     }
 
-    public void PlaySoundWithRandomPitch(AudioClip clip, float minRange, float maxRange)
+    public void PlaySoundWithRandomPitch(AudioClip clip, float minRange = 1f, float maxRange = 1.5f)
     {
         if(clip == null) return;
 
