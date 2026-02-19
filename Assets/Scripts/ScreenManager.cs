@@ -60,6 +60,11 @@ public class ScreenManager : MonoBehaviour
 
     public void SwitchScreen(GameObject screen)
     {
+        if(screen != Game)
+        {
+            SoundManager.Singleton.LowerBGM(false);    
+        }
+
         if(screen == GameOver)
         {
             UIManager.Singleton.ShowSettingsOrPauseIcon(true);
@@ -142,6 +147,8 @@ public class ScreenManager : MonoBehaviour
         UIManager.Singleton.ShowTimeAttackTimer(GameManager.Singleton.currentGameMode.isTimed);
         UIManager.Singleton.HideSettingsAndPauseIcon();
         UIManager.Singleton.BeginCountdown();
+
+        SoundManager.Singleton.LowerBGM();
         
         GameManager.Singleton.ResetValues();
     }

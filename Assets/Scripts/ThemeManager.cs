@@ -22,7 +22,6 @@ public class Background
     public Sprite menuBG;
     public Sprite vines;
     public AudioClip BG_BGM;
-    public GameObject details;
 }
 
 public class ThemeManager : MonoBehaviour
