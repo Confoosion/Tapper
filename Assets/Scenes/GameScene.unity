@@ -12531,11 +12531,12 @@ MonoBehaviour:
   currentBackground:
     dirt: {fileID: 0}
     grass: {fileID: 0}
-    details: {fileID: 0}
     sky: {fileID: 0}
     mainMenuBG: {fileID: 0}
     menuBG: {fileID: 0}
+    vines: {fileID: 0}
     BG_BGM: {fileID: 0}
+    details: {fileID: 0}
 --- !u!1 &785907437
 GameObject:
   m_ObjectHideFlags: 0
@@ -17385,9 +17386,9 @@ MonoBehaviour:
   - {fileID: 1086911560}
   BG_mainMenuBG: {fileID: 1686555235}
   BG_grass: {fileID: 644919987}
-  BG_details: {fileID: 1976511993}
   BG_sky: {fileID: 1554544005}
   BG_vines: {fileID: 1230871633}
+  BG_details: {fileID: 1558423822}
   settingsButton: {fileID: 195476651}
   pauseButton: {fileID: 2104688311}
   MM_GM_Sprites:
@@ -20202,7 +20203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1567972040
 RectTransform:
   m_ObjectHideFlags: 0

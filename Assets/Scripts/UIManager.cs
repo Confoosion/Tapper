@@ -52,9 +52,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image[] BG_menuBGs;
     [SerializeField] private Image BG_mainMenuBG;
     [SerializeField] private Image BG_grass;
-    [SerializeField] private Image BG_details;
     [SerializeField] private Image BG_sky;
     [SerializeField] private Image BG_vines;
+    [SerializeField] private Transform BG_details;
+    private GameObject BG_currentDetails;
 
     [Header("Extra UI")]
     [SerializeField] private GameObject settingsButton;
@@ -179,9 +180,14 @@ public class UIManager : MonoBehaviour
 
         BG_mainMenuBG.sprite = background.mainMenuBG;
         BG_grass.sprite = background.grass;
-        BG_details.sprite = background.details;
         BG_sky.sprite = background.sky;
         BG_vines.sprite = background.gameOverDetails;
+        BG_currentDetails = BG_details.Find(background.preview_ObjectName).gameObject;
+    }
+
+    public void ShowBackgroundDetails(bool show)
+    {
+        BG_currentDetails.SetActive(show);
     }
 
     public void ChangeGameModeUI(GameModeSO mode, int modeIndex, bool arcadeMode, bool isHighscore)

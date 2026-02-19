@@ -17,11 +17,12 @@ public class Background
 {
     public Sprite dirt;
     public Sprite grass;
-    public Sprite details;
     public Sprite sky;
     public Sprite mainMenuBG;
     public Sprite menuBG;
+    public Sprite vines;
     public AudioClip BG_BGM;
+    public GameObject details;
 }
 
 public class ThemeManager : MonoBehaviour
@@ -76,10 +77,10 @@ public class ThemeManager : MonoBehaviour
     {
         currentBackground.dirt = background.dirt;
         currentBackground.grass = background.grass;
-        currentBackground.details = background.details;
         currentBackground.sky = background.sky;
         currentBackground.mainMenuBG = background.mainMenuBG;
         currentBackground.menuBG = background.menuBG;
+        currentBackground.vines = background.gameOverDetails;
         currentBackground.BG_BGM = background.backgroundBGM;
 
         // Show the visuals

@@ -66,6 +66,7 @@ public class ScreenManager : MonoBehaviour
             LeanTween.moveLocal(Background, BG_Positions.menuPosition, 0f);
             bool gotHighscore = UIManager.Singleton.UpdateEndScore(ScoreManager.Singleton.GetPoints());
             UIManager.Singleton.UpdateHighscoreLabelUI(gotHighscore);
+            UIManager.Singleton.ShowBackgroundDetails(false);
             if(gotHighscore)
                 GameModeManager.Singleton.SetHighscoreMode();
         }
@@ -74,7 +75,7 @@ public class ScreenManager : MonoBehaviour
             LeanTween.moveLocal(Background, BG_Positions.menuPosition, 0f);
             UIManager.Singleton.ShowSettingsOrPauseIcon(true);
             GameModeManager.Singleton.SetHighscoreMode(true);
-            // UIManager.Singleton.ShopButtonAnimation(false);
+            UIManager.Singleton.ShowBackgroundDetails(false);
         }
 
         StartCoroutine(SwapScreens(currentScreen, screen));
@@ -133,6 +134,10 @@ public class ScreenManager : MonoBehaviour
     void GoToGame()
     {
         LeanTween.moveLocal(Background, BG_Positions.gamePosition, 0f);
+
+        // Refresh background details
+        UIManager.Singleton.ShowBackgroundDetails(false);
+        UIManager.Singleton.ShowBackgroundDetails(true);
 
         UIManager.Singleton.ShowTimeAttackTimer(GameManager.Singleton.currentGameMode.isTimed);
         UIManager.Singleton.HideSettingsAndPauseIcon();
