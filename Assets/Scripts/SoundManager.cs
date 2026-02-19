@@ -172,6 +172,14 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(clip);
     }
 
+    public void PlaySoundWithRandomPitch(AudioClip clip, float minRange, float maxRange)
+    {
+        if(clip == null) return;
+
+        audioSource.pitch = UnityEngine.Random.Range(minRange, maxRange);
+        audioSource.PlayOneShot(clip);
+    }
+
     // public void PlayMusic()
     // {
     //     musicSource.Stop();

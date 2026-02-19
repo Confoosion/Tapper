@@ -1,10 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Cactus_EE : MonoBehaviour, IPointerDownHandler
+public class Cake_EE : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField] private float animTime;
-    [SerializeField] private ParticleSystem tumbleweed_PS;
+    [SerializeField] private AudioClip cakeSound;
     [SerializeField] private ObjectBounceVFX bounceVFX;
 
     public void OnPointerDown(PointerEventData eventData)
@@ -13,7 +12,7 @@ public class Cactus_EE : MonoBehaviour, IPointerDownHandler
         {
             bounceVFX.Bounce();
 
-            tumbleweed_PS.Emit(1);
+            SoundManager.Singleton.PlaySoundWithRandomPitch(cakeSound, 1f, 2f);
         }
     }
 }
