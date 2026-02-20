@@ -192,7 +192,7 @@ public class ShopManager : MonoBehaviour
         if(!string.IsNullOrEmpty(backgroundSets[index].preview_ObjectName))
         {
             background_Detail = background_DETAILS.Find(backgroundSets[index].preview_ObjectName).gameObject;
-            background_Detail.SetActive(true);   
+            background_Detail?.SetActive(true);   
         }
 
         shopTitle.SetText(backgroundSets[index].name);

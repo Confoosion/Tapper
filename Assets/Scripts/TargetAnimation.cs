@@ -88,7 +88,6 @@ public class TargetAnimation : MonoBehaviour
     {
         Coroutine playAnim;
         interrupted = false;
-        bool shouldContinue = true;
         float loopStartTime = Time.time;
 
         switch(state)

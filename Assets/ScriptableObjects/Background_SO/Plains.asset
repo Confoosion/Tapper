@@ -16,10 +16,9 @@ MonoBehaviour:
   isEquipped: 0
   price: 0
   preview_BG: {fileID: 21300000, guid: b9f6f7170f720cd4c9987313bf774b3e, type: 3}
-  preview_ObjectName: 
+  preview_ObjectName: PLAINS
   dirt: {fileID: 21300000, guid: cc565cc7bdaac4202aaa1708602ead75, type: 3}
   grass: {fileID: 21300000, guid: 3e2a24e19a6a64836833d7899cf7b0ce, type: 3}
-  details: {fileID: 21300000, guid: 011db3790c21c4f6b88161a5bb0753a9, type: 3}
   sky: {fileID: 21300000, guid: 5cf72b5127acb48d4850c0825a90db52, type: 3}
   mainMenuBG: {fileID: 21300000, guid: d0483b8aca9c14656892cd4012f628c1, type: 3}
   menuBG: {fileID: 21300000, guid: 75a6971843bb145629ff0970cbfa57f0, type: 3}

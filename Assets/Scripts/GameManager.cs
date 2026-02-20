@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         isPlaying = true;
+        GameModeManager.Singleton.SetRecentlyPlayedMode();
         if(currentGameMode.isTimed)
         {
             TimeAttackClock.Singleton.StartClock();

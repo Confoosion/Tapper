@@ -5,6 +5,7 @@ public class GameModeManager : MonoBehaviour
     public static GameModeManager Singleton;
 
     [SerializeField] GameModeSO currentGameMode;
+    [SerializeField] GameModeSO recentlyPlayedMode;
     public GameModeSO[] gameModeList;
     public GameObject[] arcadeDetails;
     private int modeIndex = 0;
@@ -29,6 +30,16 @@ public class GameModeManager : MonoBehaviour
     public GameModeSO GetCurrentMode()
     {
         return(currentGameMode);
+    }
+
+    public GameModeSO GetRecentlyPlayedMode()
+    {
+        return(recentlyPlayedMode);
+    }
+
+    public void SetRecentlyPlayedMode()
+    {
+        recentlyPlayedMode = currentGameMode;
     }
 
     public void SwitchArcadeMode(int direction)
@@ -102,5 +113,10 @@ public class GameModeManager : MonoBehaviour
             highscoreMode = null;
         else
             highscoreMode = currentGameMode;
+    }
+
+    public GameModeSO GetHighscoreMode()
+    {
+        return(highscoreMode);
     }
 }
