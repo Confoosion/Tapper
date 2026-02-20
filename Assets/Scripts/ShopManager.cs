@@ -74,6 +74,12 @@ public class ShopManager : MonoBehaviour
     void Start()
     {
         // ResetShop();
+        // Debug.Log(Application.persistentDataPath);
+        if (!ShopSaveSystem.SaveExists())
+        {
+            Debug.Log("First time player - Setting up default shop items");
+            SetupDefaultShop();
+        }
 
         int _animalIndex = ShopSaveSystem.LoadAnimalData(animalSets);
         ThemeManager.Singleton.EquipAnimalSet(animalSets[_animalIndex]);
@@ -86,6 +92,25 @@ public class ShopManager : MonoBehaviour
         int _tapIndex = ShopSaveSystem.LoadTapData(tapSets);
         ThemeManager.Singleton.EquipTap(tapSets[_tapIndex]);
         equippedTapIndex = _tapIndex;
+    }
+
+    private void SetupDefaultShop()
+    {
+        ShopSaveSystem.LoadAnimalData(animalSets);
+        ShopSaveSystem.LoadBackgroundData(backgroundSets);
+        ShopSaveSystem.LoadTapData(tapSets);
+
+        ShopItemData firstAnimal = ShopSaveSystem.GetAnimalData(animalSets[0].name);
+        firstAnimal.isEquipped = true;
+        
+        ShopItemData firstBG = ShopSaveSystem.GetBackgroundData(backgroundSets[0].name);
+        firstBG.isEquipped = true;
+
+        ShopItemData firstTap = ShopSaveSystem.GetTapData(tapSets[0].name);
+        firstTap.isEquipped = true;
+
+        // Save the initial state
+        ShopSaveSystem.SaveShopData(animalSets, backgroundSets, tapSets);
     }
     
     // Helper method to get runtime data
@@ -191,8 +216,12 @@ public class ShopManager : MonoBehaviour
 
         if(!string.IsNullOrEmpty(backgroundSets[index].preview_ObjectName))
         {
-            background_Detail = background_DETAILS.Find(backgroundSets[index].preview_ObjectName).gameObject;
-            background_Detail?.SetActive(true);   
+            Transform foundDetails = background_DETAILS.Find(backgroundSets[index].preview_ObjectName);
+            if(foundDetails != null)
+            {
+                background_Detail = foundDetails.gameObject;
+                background_Detail.SetActive(true);
+            }   
         }
 
         shopTitle.SetText(backgroundSets[index].name);
@@ -306,21 +335,19 @@ public class ShopManager : MonoBehaviour
     {
         switch(currentShopState)
         {
-            case ShopButtonState.Locked:
+            case ShopButtonState.Equipped:
                 {
-                    shopButton.sprite = shopButtonSprites[0];
+                    shopButton.sprite = shopButtonSprites[2];
                     break;
                 }
-
             case ShopButtonState.Unlocked:
                 {
                     shopButton.sprite = shopButtonSprites[1];
                     break;
                 }
-
-            case ShopButtonState.Equipped:
+            case ShopButtonState.Locked:
                 {
-                    shopButton.sprite = shopButtonSprites[2];
+                    shopButton.sprite = shopButtonSprites[0];
                     break;
                 }
         }
@@ -593,14 +620,17 @@ public class ShopManager : MonoBehaviour
         ShopItemData firstAnimal = ShopSaveSystem.GetAnimalData(animalSets[0].name);
         firstAnimal.isUnlocked = true;
         firstAnimal.isEquipped = true;
+        equippedAnimalIndex = 0;
         
         ShopItemData firstBG = ShopSaveSystem.GetBackgroundData(backgroundSets[0].name);
         firstBG.isUnlocked = true;
         firstBG.isEquipped = true;
+        equippedBackgroundIndex = 0;
 
         ShopItemData firstTap = ShopSaveSystem.GetTapData(tapSets[0].name);
         firstTap.isUnlocked = true;
         firstTap.isEquipped = true;
+        equippedTapIndex = 0;
         
         currentShopIndex = 0;
         UpdateShopCategoryVisuals(0);
