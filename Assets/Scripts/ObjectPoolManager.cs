@@ -166,7 +166,8 @@ public class ObjectPoolManager : MonoBehaviour
 
         for (int i = 0; i < amount; i++)
         {
-            GameObject obj = Instantiate(pool.prefab, poolParent);
+            GameObject obj;
+            // GameObject obj = Instantiate(pool.prefab, poolParent);
             // obj.SetActive(false);
             // obj.transform.SetParent(poolParent);
             if (pool.tag.Contains("Tap"))

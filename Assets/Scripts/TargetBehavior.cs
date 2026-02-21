@@ -20,6 +20,7 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
 
     void OnEnable()
     {
+        checkStarted = false;
         StartBehavior();
     }
 

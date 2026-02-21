@@ -101,13 +101,13 @@ public class ShopManager : MonoBehaviour
         ShopSaveSystem.LoadTapData(tapSets);
 
         ShopItemData firstAnimal = ShopSaveSystem.GetAnimalData(animalSets[0].name);
-        firstAnimal.isEquipped = true;
+        ShopSaveSystem.UpdateAnimalData(firstAnimal.itemName, true, true, 0);
         
         ShopItemData firstBG = ShopSaveSystem.GetBackgroundData(backgroundSets[0].name);
-        firstBG.isEquipped = true;
+        ShopSaveSystem.UpdateBackgroundData(firstBG.itemName, true, true, 0);
 
         ShopItemData firstTap = ShopSaveSystem.GetTapData(tapSets[0].name);
-        firstTap.isEquipped = true;
+        ShopSaveSystem.UpdateTapData(firstTap.itemName, true, true, 0);
 
         // Save the initial state
         ShopSaveSystem.SaveShopData(animalSets, backgroundSets, tapSets);
@@ -588,51 +588,51 @@ public class ShopManager : MonoBehaviour
     }
     
     // ========== Optional reset for testing ==========
-    public void ResetShop()
-    {
-        ShopSaveSystem.DeleteSaveData();
+    // public void ResetShop()
+    // {
+    //     ShopSaveSystem.DeleteSaveData();
         
-        // Reset animals
-        foreach(AnimalSet_SO animal in animalSets)
-        {
-            ShopItemData data = ShopSaveSystem.GetAnimalData(animal.name);
-            data.isUnlocked = false;
-            data.isEquipped = false;
-        }
+    //     // Reset animals
+    //     foreach(AnimalSet_SO animal in animalSets)
+    //     {
+    //         ShopItemData data = ShopSaveSystem.GetAnimalData(animal.name);
+    //         data.isUnlocked = false;
+    //         data.isEquipped = false;
+    //     }
         
-        // Reset backgrounds
-        foreach(Background_SO bg in backgroundSets)
-        {
-            ShopItemData data = ShopSaveSystem.GetBackgroundData(bg.name);
-            data.isUnlocked = false;
-            data.isEquipped = false;
-        }
+    //     // Reset backgrounds
+    //     foreach(Background_SO bg in backgroundSets)
+    //     {
+    //         ShopItemData data = ShopSaveSystem.GetBackgroundData(bg.name);
+    //         data.isUnlocked = false;
+    //         data.isEquipped = false;
+    //     }
         
-        // Reset taps
-        foreach(Taps_SO tap in tapSets)
-        {
-            ShopItemData data = ShopSaveSystem.GetTapData(tap.name);
-            data.isUnlocked = false;
-            data.isEquipped = false;
-        }
+    //     // Reset taps
+    //     foreach(Taps_SO tap in tapSets)
+    //     {
+    //         ShopItemData data = ShopSaveSystem.GetTapData(tap.name);
+    //         data.isUnlocked = false;
+    //         data.isEquipped = false;
+    //     }
 
-        // First animal and background unlocked and equipped
-        ShopItemData firstAnimal = ShopSaveSystem.GetAnimalData(animalSets[0].name);
-        firstAnimal.isUnlocked = true;
-        firstAnimal.isEquipped = true;
-        equippedAnimalIndex = 0;
+    //     // First animal and background unlocked and equipped
+    //     ShopItemData firstAnimal = ShopSaveSystem.GetAnimalData(animalSets[0].name);
+    //     firstAnimal.isUnlocked = true;
+    //     firstAnimal.isEquipped = true;
+    //     equippedAnimalIndex = 0;
         
-        ShopItemData firstBG = ShopSaveSystem.GetBackgroundData(backgroundSets[0].name);
-        firstBG.isUnlocked = true;
-        firstBG.isEquipped = true;
-        equippedBackgroundIndex = 0;
+    //     ShopItemData firstBG = ShopSaveSystem.GetBackgroundData(backgroundSets[0].name);
+    //     firstBG.isUnlocked = true;
+    //     firstBG.isEquipped = true;
+    //     equippedBackgroundIndex = 0;
 
-        ShopItemData firstTap = ShopSaveSystem.GetTapData(tapSets[0].name);
-        firstTap.isUnlocked = true;
-        firstTap.isEquipped = true;
-        equippedTapIndex = 0;
+    //     ShopItemData firstTap = ShopSaveSystem.GetTapData(tapSets[0].name);
+    //     firstTap.isUnlocked = true;
+    //     firstTap.isEquipped = true;
+    //     equippedTapIndex = 0;
         
-        currentShopIndex = 0;
-        UpdateShopCategoryVisuals(0);
-    }
+    //     currentShopIndex = 0;
+    //     UpdateShopCategoryVisuals(0);
+    // }
 }

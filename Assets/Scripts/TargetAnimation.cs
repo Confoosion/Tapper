@@ -58,6 +58,26 @@ public class TargetAnimation : MonoBehaviour
         }
     }
 
+    void OnDisable()
+    {
+        // Stop everything
+        ClearQueue();
+        
+        if (LeanTween.isTweening(gameObject))
+            LeanTween.cancel(gameObject);
+
+        // Reset all state that persists between uses
+        isProcessingQueue = false;
+        interrupted = false;
+        activateEndAction = false;
+
+        targetFrame.sprite = startingFrame;
+
+        // Reset scale in case it was mid-animation
+        if (rectTransform != null)
+            rectTransform.localScale = originalScale;
+    }
+
     IEnumerator ProcessAnimationQueue()
     {
         isProcessingQueue = true;

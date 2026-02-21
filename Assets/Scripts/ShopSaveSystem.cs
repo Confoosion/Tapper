@@ -40,6 +40,22 @@ public static class ShopSaveSystem
     private static Dictionary<string, ShopItemData> runtimeBackgroundData = new Dictionary<string, ShopItemData>();
     private static Dictionary<string, ShopItemData> runtimeTapData = new Dictionary<string, ShopItemData>();
     
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void OnDomainReload()
+    {
+        // Clear dictionaries on domain reload
+        runtimeAnimalData.Clear();
+        runtimeBackgroundData.Clear();
+        runtimeTapData.Clear();
+        
+        Debug.Log("ShopSaveSystem: Reset after domain reload");
+    }
+
+    private static bool IsDataLoaded()
+    {
+        return runtimeAnimalData.Count > 0 || runtimeBackgroundData.Count > 0 || runtimeTapData.Count > 0;
+    }
+
     public static void SaveShopData(AnimalSet_SO[] animalSets, Background_SO[] backgrounds, Taps_SO[] taps)
     {
         ShopSaveData saveData = new ShopSaveData();
