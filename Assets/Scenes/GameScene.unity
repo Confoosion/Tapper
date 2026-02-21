@@ -483,7 +483,7 @@ RectTransform:
   m_GameObject: {fileID: 12745580}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1306798243}
@@ -491,7 +491,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 1890}
-  m_SizeDelta: {x: 768, y: 767}
+  m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &12745582
 MonoBehaviour:
@@ -14808,7 +14808,7 @@ RectTransform:
   m_GameObject: {fileID: 1021295193}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1306798243}
@@ -14816,7 +14816,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 2890}
-  m_SizeDelta: {x: 768, y: 767}
+  m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1021295195
 MonoBehaviour:
@@ -17643,6 +17643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameModeManager
   currentGameMode: {fileID: 11400000, guid: ed9f72e5eed398f4a8f93de0e80d28b0, type: 2}
+  recentlyPlayedMode: {fileID: 0}
   gameModeList:
   - {fileID: 11400000, guid: ed9f72e5eed398f4a8f93de0e80d28b0, type: 2}
   - {fileID: 11400000, guid: 0815fc2c9edd52b43b9f94d57afdd1eb, type: 2}
@@ -19938,7 +19939,7 @@ RectTransform:
   m_GameObject: {fileID: 1552370352}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1306798243}
@@ -19946,7 +19947,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 2390}
-  m_SizeDelta: {x: 768, y: 768}
+  m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1552370354
 MonoBehaviour:

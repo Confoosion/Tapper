@@ -10,8 +10,8 @@ public class ArcadeEnding : MonoBehaviour
     [SerializeField] private GameObject[] lossReasons = new GameObject[3];
     private TargetType[] lossTargets = new TargetType[3];
     private int reasonCount = 0;
-    private Vector3 homeLocation = new Vector3(0f, 1600f, 0f);
-    private Vector3 dropLocation = new Vector3(0f, -550f, 0f);
+    private Vector3 homeLocation = new Vector3(0f, 1750f, 0f);
+    private Vector3 dropLocation = new Vector3(0f, -500f, 0f);
     private Vector3 dropOffset = new Vector3(0f, 500f, 0f);
     private float dropTime = 1.5f;
     private float waitTime = 0.5f;

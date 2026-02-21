@@ -116,7 +116,7 @@ public class SpawnManager : MonoBehaviour
             {
                 targets.Add(target.GetComponent<RectTransform>());
                 GetRandomSpawnPosition(target);
-                target.GetComponent<TargetBehavior>().ResetValues();
+                target.GetComponent<TargetBehavior>().CheckStart();
             }
 
             yield return new WaitForSeconds(spawnInterval);
