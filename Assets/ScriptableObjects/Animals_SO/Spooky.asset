@@ -23,7 +23,7 @@ MonoBehaviour:
     badTarget: {fileID: 21300000, guid: bf8683a2fd37e44d2ab9ba84b0a9566d, type: 3}
   preview_Sounds:
   - {fileID: 8300000, guid: da8b01b08716f47f5ba95d5f48bdbb7a, type: 3}
-  - {fileID: 8300000, guid: 46fcd2d07e29144ad852b363e7039f7f, type: 3}
+  - {fileID: 8300000, guid: d13eafa13af7b446489a900a9c49100c, type: 3}
   - {fileID: 8300000, guid: 136bda739d1134b00be4da2340b12288, type: 3}
   - {fileID: 8300000, guid: 9cff717d364624a57b2da469a534fdfc, type: 3}
   goodTargets:

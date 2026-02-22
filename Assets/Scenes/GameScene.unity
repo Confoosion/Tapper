@@ -2064,7 +2064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrameAnimation
   spriteImage: {fileID: 178178812}
-  animationDelay: 3
+  animationDelay: 1
   FRAME_INTERVAL: 0.1
   animateIdleOnEnable: 1
   activateEndAction: 0
@@ -16446,7 +16446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrameAnimation
   spriteImage: {fileID: 1166188110}
-  animationDelay: 3
+  animationDelay: 1
   FRAME_INTERVAL: 0.1
   animateIdleOnEnable: 1
   activateEndAction: 0
