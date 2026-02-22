@@ -38,7 +38,6 @@ public class ThemeManager : MonoBehaviour
 
     [SerializeField] AnimalSet currentAnimalSet;
     private AnimalSet_SO currentAnimalSet_SO;
-    private AnimalSoundSettings currentSoundSettings;
 
     [SerializeField] Background currentBackground;
     private Background_SO currentBackground_SO;
@@ -59,15 +58,13 @@ public class ThemeManager : MonoBehaviour
         currentAnimalSet.start_EnterFrame = currentAnimalSet_SO.enterFrame;
         currentAnimalSet.start_HitFrame = currentAnimalSet_SO.hitFrame;
 
-        currentSoundSettings = animalSet.soundSettings;
-
         // Update object pools with new animal prefabs
         UpdateObjectPools(animalSet);
         
         // Update spawn manager references
         UpdateSpawnManager(animalSet);
 
-        SoundManager.Singleton.UpdateAnimalSounds(animalSet.preview_Sounds, currentSoundSettings);
+        SoundManager.Singleton.UpdateAnimalSounds(animalSet.preview_Sounds);
 
         UIManager.Singleton.UpdateGameInstructions(animalSet);
     }
@@ -135,11 +132,6 @@ public class ThemeManager : MonoBehaviour
         // Match the tags in ObjectPoolManager
         string[] tags = { "Mole", "Mouse", "Rabbit" };
         return index < tags.Length ? tags[index] : $"GoodTarget{index}";
-    }
-
-    public AnimalSoundSettings GetCurrentSoundSettings()
-    {
-        return currentSoundSettings;
     }
 
     public void PlayTapEffectPreview(Vector2 position, Transform objParent)

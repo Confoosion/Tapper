@@ -7,14 +7,6 @@ public class PreviewAnimalSet
     public Sprite badTarget;
 }
 
-[System.Serializable]
-public class AnimalSoundSettings
-{
-    [Header("Sound Pitches (1.0 = original)")]
-    [Range(0f, 3f)] public float[] soundPitches = {1f, 1f, 1f, 1f};
-}
-
-
 [CreateAssetMenu(fileName = "AnimalSet_SO", menuName = "Scriptable Objects/Themes/AnimalSet_SO")]
 public class AnimalSet_SO : ShopItem
 {
@@ -33,11 +25,6 @@ public class AnimalSet_SO : ShopItem
     [Header("Starting Animal")]
     public Sprite enterFrame;
     public Sprite hitFrame;
-
-    [Space]
-
-    [Header("Sound Settings")]
-    public AnimalSoundSettings soundSettings;
 
     public override void EquipItem()
     {

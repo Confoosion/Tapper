@@ -32,7 +32,6 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private AudioClip[] animal_Sounds = new AudioClip[4];
 
     [SerializeField] private AnimalSet_SO[] animalSets;
-    private AnimalSoundSettings animal_soundSettings;
     private int equippedAnimalIndex;
 
     [Space]
@@ -182,8 +181,6 @@ public class ShopManager : MonoBehaviour
             animal_Sounds[clipIndex] = audio;
             clipIndex++;
         }
-        
-        animal_soundSettings = animalSets[index].soundSettings;
 
         shopTitle.SetText(animalSets[index].name);
 
@@ -510,7 +507,7 @@ public class ShopManager : MonoBehaviour
     public void PreviewAnimalSound(TargetType _targetType)
     {
         int targetIndex = (int)_targetType;
-        SoundManager.Singleton.PlaySoundWithPitch(animal_Sounds[targetIndex], animal_soundSettings.soundPitches[targetIndex]);
+        SoundManager.Singleton.PlaySound(animal_Sounds[targetIndex]);
     }
 
     // TAP PREVIEW

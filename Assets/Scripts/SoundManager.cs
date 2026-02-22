@@ -119,18 +119,13 @@ public class SoundManager : MonoBehaviour
         musicSource.Play();
     }
 
-    public void UpdateAnimalSounds(AudioClip[] newTargetSounds, AnimalSoundSettings animal_soundSettings)
+    public void UpdateAnimalSounds(AudioClip[] newTargetSounds)
     {
         for(int i = 0; i < targetSounds.Length; i++)
         {
             if(targetSounds[i].targetSound != newTargetSounds[i])
             {
                 targetSounds[i].targetSound = newTargetSounds[i];
-            }
-
-            if(targetSounds[i].soundPitch != animal_soundSettings.soundPitches[i])
-            {
-                targetSounds[i].soundPitch = animal_soundSettings.soundPitches[i];
             }
         }
     }
