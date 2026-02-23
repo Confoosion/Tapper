@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class TapStart : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] MoleStartButton moleStartButton;
-    [SerializeField] AudioClip laughAudio;
+    // [SerializeField] AudioClip laughAudio;
 
 
     public void OnPointerDown(PointerEventData eventData)
@@ -15,7 +15,7 @@ public class TapStart : MonoBehaviour, IPointerDownHandler
         
             moleStartButton.targetAnimation.QueueExitAnimation();
 
-            SoundManager.Singleton.PlaySound(laughAudio);
+            SoundManager.Singleton.PlayTargetSound(TargetType.Good);
 
             gameObject.SetActive(false);
         }

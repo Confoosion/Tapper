@@ -11,7 +11,6 @@ public class TargetSound
 {
     public TargetType targetType;
     public AudioClip targetSound;
-    public float soundPitch;
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -21,22 +20,23 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip switchModeAudio;
     public AudioClip countdownAudio;
-    [SerializeField] private AudioClip[] hitSounds;
-    [SerializeField] private AudioClip badSound;
+    // [SerializeField] private AudioClip[] hitSounds;
+    // [SerializeField] private AudioClip badSound;
     public AudioClip alarmAudio;
 
     [Header("Current Sounds")]
     [SerializeField] private AudioClip[] usedSounds = new AudioClip[Enum.GetNames(typeof(SoundType)).Length];
 
     private AudioSource audioSource;
+    private AudioSource tapSource;
     private AudioSource musicSource;
 
     [Header("Original Animal Sounds")]
     [SerializeField] private TargetSound[] targetSounds = new TargetSound[4];
-    [SerializeField] private AudioClip badTargetSound;
-    [SerializeField] private AudioClip smallTargetSound;  // Rabbit
-    [SerializeField] private AudioClip fastTargetSound;   // Rabbit
-    [SerializeField] private AudioClip goodTargetSound;   // Mole
+    // [SerializeField] private AudioClip badTargetSound;
+    // [SerializeField] private AudioClip smallTargetSound;  // Rabbit
+    // [SerializeField] private AudioClip fastTargetSound;   // Rabbit
+    // [SerializeField] private AudioClip goodTargetSound;   // Mole
     [SerializeField] private AudioClip hitSound;
 
 
@@ -46,6 +46,7 @@ public class SoundManager : MonoBehaviour
         {
             Singleton = this;
             musicSource = GameObject.Find("MUSIC_PLAYER").GetComponent<AudioSource>();
+            tapSource = GameObject.Find("TAP_SOUND").GetComponent<AudioSource>();
         }
     }
 
@@ -98,7 +99,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(SoundType sound, float volume = 1f)
     {
-        audioSource.pitch = 1f;
+        // audioSource.pitch = 1f;
         audioSource.PlayOneShot(usedSounds[(int)sound], volume);
     }
 
@@ -123,10 +124,7 @@ public class SoundManager : MonoBehaviour
     {
         for(int i = 0; i < targetSounds.Length; i++)
         {
-            if(targetSounds[i].targetSound != newTargetSounds[i])
-            {
-                targetSounds[i].targetSound = newTargetSounds[i];
-            }
+            targetSounds[i].targetSound = newTargetSounds[i];
         }
     }
 
@@ -139,8 +137,14 @@ public class SoundManager : MonoBehaviour
     {
         if (sfx == null) return;
         
-        audioSource.pitch = 1f;  // Reset to normal pitch
+        // audioSource.pitch = 1f;  // Reset to normal pitch
         audioSource.PlayOneShot(sfx);
+    }
+
+    public void PlayHitSound(AudioClip sfx)
+    {
+        tapSource.pitch = UnityEngine.Random.Range(1f, 1.5f);
+        tapSource.PlayOneShot(sfx);
     }
 
     public void PlayHitSound()
@@ -148,14 +152,14 @@ public class SoundManager : MonoBehaviour
         // audioSource.pitch = 1f;
         // audioSource.PlayOneShot(hitSounds[UnityEngine.Random.Range(0, hitSounds.Length)], 1f);
 
-        audioSource.pitch = UnityEngine.Random.Range(1f, 1.5f);
-        audioSource.PlayOneShot(hitSound);
+        tapSource.pitch = UnityEngine.Random.Range(1f, 1.5f);
+        tapSource.PlayOneShot(hitSound);
     }
 
     public void PlayBadSound()
     {
         audioSource.pitch = 1f;
-        audioSource.PlayOneShot(badSound, 1f);
+        audioSource.PlayOneShot(targetSounds[0].targetSound, 1f);
     }
 
     public void PlayTargetSound(TargetType targetType)
@@ -164,23 +168,23 @@ public class SoundManager : MonoBehaviour
             return;
             
         int _type = (int)targetType;
-        PlaySoundWithPitch(targetSounds[_type].targetSound, targetSounds[_type].soundPitch);
+        PlaySound(targetSounds[_type].targetSound);
     }
 
-    public void PlaySoundWithPitch(AudioClip clip, float pitch = 1f)
-    {
-        if (clip == null) return;
+    // public void PlaySoundWithPitch(AudioClip clip, float pitch = 1f)
+    // {
+    //     if (clip == null) return;
         
-        audioSource.pitch = pitch;
-        audioSource.PlayOneShot(clip);
-    }
+    //     audioSource.pitch = pitch;
+    //     audioSource.PlayOneShot(clip);
+    // }
 
     public void PlaySoundWithRandomPitch(AudioClip clip, float minRange = 1f, float maxRange = 1.5f)
     {
         if(clip == null) return;
 
-        audioSource.pitch = UnityEngine.Random.Range(minRange, maxRange);
-        audioSource.PlayOneShot(clip);
+        tapSource.pitch = UnityEngine.Random.Range(minRange, maxRange);
+        tapSource.PlayOneShot(clip);
     }
 
     // public void PlayMusic()

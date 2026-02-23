@@ -6,7 +6,6 @@ public class SettingsManager : MonoBehaviour
 {
     public static SettingsManager Singleton;
     [SerializeField] private AudioMixer audioMixer;
-
     [SerializeField] private Toggle sfxToggle;
     [SerializeField] private Toggle musicToggle;
     [SerializeField] private Toggle vibrationToggle;
@@ -73,11 +72,13 @@ public class SettingsManager : MonoBehaviour
         if (toggle)
         {
             audioMixer.SetFloat("SFX_Volume", 0f);
+            audioMixer.SetFloat("Tap_Volume", 0f);
             PlayerPrefs.SetInt("IsSFXMuted", 0);
         }
         else
         {
             audioMixer.SetFloat("SFX_Volume", -80f);
+            audioMixer.SetFloat("Tap_Volume", -80f);
             PlayerPrefs.SetInt("IsSFXMuted", 1);
         }
 

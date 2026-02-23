@@ -537,7 +537,7 @@ public class ShopManager : MonoBehaviour
             PreviewUniqueEffect(currentTap);
         }
 
-        SoundManager.Singleton.PlaySoundWithRandomPitch(currentTap.tapSFX);
+        SoundManager.Singleton.PlayHitSound(currentTap.tapSFX);
     }
 
     private void PreviewParticleEffect(Taps_SO tap)
