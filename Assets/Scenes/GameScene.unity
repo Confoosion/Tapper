@@ -7147,7 +7147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moleStartButton: {fileID: 6437380}
-  laughAudio: {fileID: 8300000, guid: d3cd934e022aa1541ba12b69b6068403, type: 3}
 --- !u!1 &732889787
 GameObject:
   m_ObjectHideFlags: 0
@@ -17617,11 +17616,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchModeAudio: {fileID: 8300000, guid: ed7e41939749d1547a7655037b885ed2, type: 3}
   countdownAudio: {fileID: 8300000, guid: 7a9ca06412a8059479120a2cc3ae2f9b, type: 3}
-  hitSounds:
-  - {fileID: 8300000, guid: debf4c1f7d14d704a82bd89320278a46, type: 3}
-  - {fileID: 8300000, guid: 2be45348ef56fd74e93bc421bcc7ab25, type: 3}
-  - {fileID: 8300000, guid: 395da6de10afd0f4197f292d02da2dfe, type: 3}
-  badSound: {fileID: 8300000, guid: 77bd66c9bc32be14b9c0b7f45a1c4f7e, type: 3}
   alarmAudio: {fileID: 8300000, guid: 86bf26b9aca6abe4ca6623a817c846fa, type: 3}
   usedSounds:
   - {fileID: 0}
@@ -17633,20 +17627,12 @@ MonoBehaviour:
   targetSounds:
   - targetType: 0
     targetSound: {fileID: 0}
-    soundPitch: 0
   - targetType: 1
     targetSound: {fileID: 0}
-    soundPitch: 0
   - targetType: 2
     targetSound: {fileID: 0}
-    soundPitch: 0
   - targetType: 3
     targetSound: {fileID: 0}
-    soundPitch: 0
-  badTargetSound: {fileID: 0}
-  smallTargetSound: {fileID: 0}
-  fastTargetSound: {fileID: 0}
-  goodTargetSound: {fileID: 0}
   hitSound: {fileID: 0}
 --- !u!82 &1206995916
 AudioSource:
@@ -17847,6 +17833,11 @@ MonoBehaviour:
     expandAmount: 1
   - tag: Tap_Mallet
     prefab: {fileID: 2618953291615064407, guid: 1d98787d967194fc394473242f530d58, type: 3}
+    size: 3
+    autoExpand: 1
+    expandAmount: 1
+  - tag: Tap_Bad
+    prefab: {fileID: 7027390695467820695, guid: 01041ee7b198949d0a1c84ebcf9596e8, type: 3}
     size: 3
     autoExpand: 1
     expandAmount: 1

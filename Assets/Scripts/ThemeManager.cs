@@ -44,6 +44,7 @@ public class ThemeManager : MonoBehaviour
 
     private string currentTapPoolTag;
     private Taps_SO currentTap_SO;
+    private string BAD_TAP_TAG = "Tap_Bad";
 
 
 
@@ -203,6 +204,15 @@ public class ThemeManager : MonoBehaviour
 
             SoundManager.Singleton.PlayHitSound();
         }
+    }
+
+    public void PlayBadTapEffect(Vector2 position)
+    {
+        GameObject tapObj = ObjectPoolManager.Instance.SpawnFromPool(BAD_TAP_TAG, position);
+        
+        HandleParticleEffect(tapObj);
+
+        SoundManager.Singleton.PlayBadSound();
     }
 
     private void HandleParticleEffect(GameObject tapObj)

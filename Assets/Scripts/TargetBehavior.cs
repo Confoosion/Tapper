@@ -88,7 +88,8 @@ public class TargetBehavior : MonoBehaviour, IPointerDownHandler
             }
             else
             {
-                SoundManager.Singleton.PlayBadSound();
+                ThemeManager.Singleton.PlayBadTapEffect(transform.position);
+                
                 LoseLife(1);
             }
 
