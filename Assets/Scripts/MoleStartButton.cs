@@ -43,6 +43,8 @@ public class MoleStartButton : MonoBehaviour, IPointerDownHandler
             ThemeManager.Singleton.PlayTapEffectPreview(transform.position, this.transform);
 
             SoundManager.Singleton.PlayHitSound();
+
+            tapStart_GO.SetActive(false);
             targetAnimation.StartHitAnimation();
         }
     }

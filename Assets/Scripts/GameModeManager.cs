@@ -5,7 +5,7 @@ public class GameModeManager : MonoBehaviour
     public static GameModeManager Singleton;
 
     [SerializeField] GameModeSO currentGameMode;
-    [SerializeField] GameModeSO recentlyPlayedMode;
+    private GameModeSO recentlyPlayedMode;
     public GameModeSO[] gameModeList;
     public GameObject[] arcadeDetails;
     private int modeIndex = 0;

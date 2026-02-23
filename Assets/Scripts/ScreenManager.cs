@@ -201,6 +201,7 @@ public class ScreenManager : MonoBehaviour
 
     public void BeginMajorTransition_NOAUDIO(GameObject screen)
     {
+        // Debug.Log(transition);
         if(transition == null)
         {
             transition = StartCoroutine(MajorTransition_Anim(screen));
