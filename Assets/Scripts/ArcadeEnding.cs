@@ -70,7 +70,8 @@ public class ArcadeEnding : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
 
                 // SoundManager.Singleton.PlaySound(lossLaughs[i]);
-                SoundManager.Singleton.PlayTargetSound(lossTargets[i]);
+                if(reason.activeSelf)
+                    SoundManager.Singleton.PlayTargetSound(lossTargets[i]);
             }
 
             yield return new WaitForSeconds(waitTime);
