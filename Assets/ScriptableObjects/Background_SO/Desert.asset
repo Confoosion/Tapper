@@ -14,12 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Background_SO
   isUnlocked: 0
   isEquipped: 0
-  price: 500
+  price: 1000
   preview_BG: {fileID: 21300000, guid: 030f09d7722de43399ede32349c67e7c, type: 3}
   preview_ObjectName: DESERT
   dirt: {fileID: 21300000, guid: afdde422100d34dad81a0b2ddc09905f, type: 3}
   grass: {fileID: 21300000, guid: a9b52aeff8685449195de20472abbdc9, type: 3}
-  details: {fileID: 21300000, guid: 0f76a587f86d2426c9c554b73bd7312f, type: 3}
   sky: {fileID: 21300000, guid: 2eac9b7e38c344e2b9ac0a919e1e3a8b, type: 3}
   mainMenuBG: {fileID: 21300000, guid: f947077e924e0436494c93b473d11a17, type: 3}
   menuBG: {fileID: 21300000, guid: 8e833f0840c7b47f486af94499655fa3, type: 3}

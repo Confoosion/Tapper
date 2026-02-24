@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Taps_SO
   isUnlocked: 0
   isEquipped: 0
-  price: 1500
+  price: 100
   effectType: 0
   tapPrefab: {fileID: 2618953291615064407, guid: 1d98787d967194fc394473242f530d58, type: 3}
   poolTag: Tap_Mallet

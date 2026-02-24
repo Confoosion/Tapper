@@ -3780,28 +3780,28 @@ MonoBehaviour:
   - {fileID: 0}
   animalSets:
   - {fileID: 11400000, guid: 6bd94e63c533d4313af6045e07226f99, type: 2}
+  - {fileID: 11400000, guid: 21b827b14e59d4e558cd09a1f429437b, type: 2}
   - {fileID: 11400000, guid: a4d26e3b5446841b8beac16623596499, type: 2}
   - {fileID: 11400000, guid: ab207493b370747638a22c963bfea25e, type: 2}
-  - {fileID: 11400000, guid: 21b827b14e59d4e558cd09a1f429437b, type: 2}
   - {fileID: 11400000, guid: 3cf30312a77d94d6a9874a0b61a72791, type: 2}
   background_HOLDER: {fileID: 1236093688}
   background_DETAILS: {fileID: 31982000}
   background_BG: {fileID: 1236093690}
   backgroundSets:
   - {fileID: 11400000, guid: d268ea3e5af39422687f05c6e2bc23c0, type: 2}
+  - {fileID: 11400000, guid: af0f94e255d494f25be754bf40917944, type: 2}
   - {fileID: 11400000, guid: 28d0eb0d4d0124efe95cd35be322d09b, type: 2}
   - {fileID: 11400000, guid: 1b5cf485e37c6418eab6a22094f17ba8, type: 2}
-  - {fileID: 11400000, guid: af0f94e255d494f25be754bf40917944, type: 2}
   - {fileID: 11400000, guid: 925b6ab3a143d47de94062411db19b03, type: 2}
   taps_HOLDER: {fileID: 393895365}
   taps_PreviewPosition: {fileID: 1170236808}
   tapSets:
   - {fileID: 11400000, guid: 8ffdc24fda7004604bc084e7977242d2, type: 2}
-  - {fileID: 11400000, guid: 6b9ca5951497740048ebd35a346b47b1, type: 2}
-  - {fileID: 11400000, guid: 0b478250f04da4aa6b2f08f9ece2ca16, type: 2}
-  - {fileID: 11400000, guid: b34247df1aae84ee8a681ecae934e62f, type: 2}
-  - {fileID: 11400000, guid: 9691ddc5441794231ae105c7762f483b, type: 2}
   - {fileID: 11400000, guid: 602e44f0aaba9442cb99d43a92dcaa6f, type: 2}
+  - {fileID: 11400000, guid: 0b478250f04da4aa6b2f08f9ece2ca16, type: 2}
+  - {fileID: 11400000, guid: 6b9ca5951497740048ebd35a346b47b1, type: 2}
+  - {fileID: 11400000, guid: 9691ddc5441794231ae105c7762f483b, type: 2}
+  - {fileID: 11400000, guid: b34247df1aae84ee8a681ecae934e62f, type: 2}
   shopButton: {fileID: 815353048}
   shopButtonSprites:
   - {fileID: 21300000, guid: 23197051837d744838afb468355479cf, type: 3}
@@ -17758,7 +17758,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameModeManager
   currentGameMode: {fileID: 11400000, guid: ed9f72e5eed398f4a8f93de0e80d28b0, type: 2}
-  recentlyPlayedMode: {fileID: 0}
   gameModeList:
   - {fileID: 11400000, guid: ed9f72e5eed398f4a8f93de0e80d28b0, type: 2}
   - {fileID: 11400000, guid: 0815fc2c9edd52b43b9f94d57afdd1eb, type: 2}
@@ -29106,7 +29105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2006484511
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29133,7 +29132,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006484510}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -29189,7 +29188,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006484510}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
